@@ -10,17 +10,18 @@
             }
 
             .main {
-                background: var(--clr-white);
+                background: white;
                 width: fit-content;
                 height: fit-content;
-                padding: var(--normal);
+                padding: 1rem;
                 border-radius: var(--br);
+                box-shadow: 0 0 1rem black;
             }
 
             input {
                 display: block;
-                padding: var(--small);
-                margin: var(--small);
+                padding: .5rem;
+                margin: .5rem;
             }
 
             .buttons {
@@ -31,22 +32,18 @@
 
             .btn {
                 width: fit-content;
-                background: var(--clr-secondary-light);
-                padding: var(--small);
+                background: var(--clr-secondary);
+                padding: .5rem;
                 margin: 0;
                 border: 0;
                 border-radius: var(--br);
                 text-decoration: none;
-                font-weight: var(--bold);
-                font-size: var(--normal);
-            }
-
-            a:visited {
-                color: var(--clr-black);
+                font-weight: var(--fw-bold);
+                font-size: var(--fs-normal);
             }
 
             .btn:hover {
-                background: var(--clr-secondary);
+                background: var(--clr-secondary-light);
             }
 
             .left {
