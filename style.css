@@ -7,22 +7,60 @@
     --fw-regular: 400;
     --fw-bold: 700;
 
-    --fs-small: 0.5rem;
-    --fs-normal: 1rem;
-    --fs-large: 2rem;
+    --fs-small: 0.5em;
+    --fs-normal: 1em;
+    --fs-large: 1.5em;
 
     --br: 10px;
 }
 
 h1, h2, h3, h4, h5, h6 {margin: 0;}
 
-html {
+body {
     background: var(--clr-primary-light);
     font-family: sans-serif;
+    margin: 0;
 }
 
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+}
 
+nav a {
+    text-decoration: none;
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-large);
+    height: 100%;
+    margin-inline: .6em;
+    margin-block: .3em;
+    color: var(--clr-primary);
+    position: relative;
+}
 
-@media (max-width: 650px) {
+nav .ln:visited, nav .ln:active {
+    color: var(--clr-primary);
+}
 
+nav .ln::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    height: 5px;
+    width: 100%;
+    background-color: var(--clr-primary-light);
+    transform: scaleX(0);
+    transform-origin: middle;
+    transition: 0.2s;
+}
+
+nav .ln:hover::after {
+    transform: scaleX(100%);
+}
+
+nav .ln:hover {
+    color: var(--clr-primary-light);
 }

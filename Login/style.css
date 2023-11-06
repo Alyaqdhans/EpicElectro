@@ -1,4 +1,6 @@
-body {
+form {
+    width: 100%;
+    height: calc(100% - 10em);
     display: flex;
     justify-content: center; /* horizontally */
     align-items: center; /* vertically */

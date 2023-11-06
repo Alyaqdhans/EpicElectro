@@ -5,6 +5,7 @@
         <link rel="stylesheet" href="style.css">
     </header>
     <body>
+        <?php include(dirname(__FILE__).'/../header.php'); ?>
         <form action="process.php" method="post">
             <div class="main">
                 <h2>Login</h2>

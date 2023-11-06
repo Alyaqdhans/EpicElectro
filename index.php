@@ -4,6 +4,6 @@
         <link rel="stylesheet" href="style.css">
     </header>
     <body>
-        <a href="Login/">Login</a>
+        <?php include('header.php'); ?>
     </body>
 </html>
