@@ -30,16 +30,15 @@ nav {
 }
 
 nav .ln {
-    text-decoration: none;
     font-weight: var(--fw-bold);
     font-size: var(--fs-large);
-    height: 100%;
     margin-inline: .6em;
     margin-block: 1em;
-    color: var(--clr-primary);
 }
 
 .ln {
+    color: var(--clr-primary);
+    text-decoration: none;
     position: relative;
 }
 
