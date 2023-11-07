@@ -1,11 +1,11 @@
 <html>
     <header>
-        <title>Login Page</title>
         <link rel="stylesheet" href="../style.css">
         <link rel="stylesheet" href="style.css">
     </header>
     <body>
-        <?php include(dirname(__FILE__).'/../header.php'); ?>
+        <?php $file = __FILE__;
+        include(dirname(__FILE__).'/../header.php'); ?>
         <form action="process.php" method="post">
             <div class="main">
                 <h2>Login</h2>

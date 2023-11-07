@@ -1,9 +1,9 @@
 <html>
     <header>
-        <title>Home Page</title>
         <link rel="stylesheet" href="style.css">
     </header>
     <body>
-        <?php include('header.php'); ?>
+        <?php $file = __FILE__;
+        include('header.php'); ?>
     </body>
 </html>

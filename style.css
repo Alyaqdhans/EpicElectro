@@ -29,13 +29,13 @@ nav {
     background: white;
 }
 
-nav a {
+nav .ln {
     text-decoration: none;
     font-weight: var(--fw-bold);
     font-size: var(--fs-large);
     height: 100%;
     margin-inline: .6em;
-    margin-block: .3em;
+    margin-block: 1em;
     color: var(--clr-primary);
     position: relative;
 }
