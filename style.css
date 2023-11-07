@@ -37,18 +37,21 @@ nav .ln {
     margin-inline: .6em;
     margin-block: 1em;
     color: var(--clr-primary);
+}
+
+.ln {
     position: relative;
 }
 
-nav .ln:visited, nav .ln:active {
+.ln:visited, .ln:active {
     color: var(--clr-primary);
 }
 
-nav .ln::after {
+.ln::after {
     content: '';
     position: absolute;
     left: 0;
-    bottom: -10px;
+    bottom: -8px;
     height: 5px;
     width: 100%;
     background-color: var(--clr-primary-light);
@@ -57,10 +60,21 @@ nav .ln::after {
     transition: 0.2s;
 }
 
-nav .ln:hover::after {
+.ln:hover::after {
     transform: scaleX(100%);
 }
 
-nav .ln:hover {
+.ln:hover {
     color: var(--clr-primary-light);
+}
+
+footer {
+    background: white;
+    text-align: center;
+    font-size: var(--fs-normal);
+    font-weight: var(--fw-bold);
+    padding-block: .5rem;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
 }

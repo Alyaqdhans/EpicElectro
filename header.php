@@ -7,7 +7,7 @@ $pages = [
     'Login' => 'Login',
 ];
 
-$currentFolder = basename(dirname($file));
+$currentFolder = basename($file);
 
 echo "<nav>";
 if ($currentFolder == "EpicElectro") {

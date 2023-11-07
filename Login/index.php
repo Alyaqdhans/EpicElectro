@@ -4,8 +4,8 @@
         <link rel="stylesheet" href="style.css">
     </header>
     <body>
-        <?php $file = __FILE__;
-        include(dirname(__FILE__).'/../header.php'); ?>
+        <?php $file = dirname(__FILE__);
+        include($file.'/../header.php'); ?>
         <form action="process.php" method="post">
             <div class="main">
                 <h2>Login</h2>
@@ -17,5 +17,6 @@
                 </div>
             </div>
         </form>
+        <?php include($file.'/../footer.php'); ?>
     </body>
 </html>
