@@ -1,47 +1,16 @@
-<?php
-$pages = [
-    'index.php' => 'Home',
-    'login.php' => 'Login',
-];
-
-session_start();
-
-$currentFile = basename($file);
-
-echo "<nav>";
-foreach ($pages as $fileName => $pageTitle) {
-    if ($fileName == $currentFile) {
-        echo "<title> $pageTitle </title>";
-        
-        if ($currentFile == "index.php") {
-            echo "<img src='icon.png'>";
-        }
+<nav>
+    <img src='icon.png'>
+    <a class='ln' href='index.php'> Home </a>
+    <?php
+    session_start();
+    if (!isset($_SESSION['TYPE'])) {
+        echo "<a class='ln' href='login.php'> Login </a>";
     } else {
-        switch ($pageTitle) {
-            case "Home":
-                echo "<a href='index.php'> <img src='icon.png'> </a>";
-                break;
-            case "Login":
-                if (!isset($_SESSION['UID'])) {
-                    echo "<a class='ln' href='$fileName'> $pageTitle </a>";
-                    break;
-                } else {
-                    $name = $_SESSION['NAME'];
-
-                    if ($_SESSION['TYPE'] == 1) {
-                        $type = "Admin";
-                    } else {
-                        $type = "Customer";
-                    }
-
-                    echo "<a class='ln' href='profile.php'>  $name ($type) </a>
-                    <a class='ln' href='logout.php'> Logout </a>";
-                    break;
-                }
-            default:
-                echo "<a class='ln' href='$fileName'> $pageTitle </a>";
+        if ($_SESSION['TYPE'] == 1) {
+            echo "<a class='ln' href='dashboard.php'>  Dashboard </a>";
         }
+
+        echo "<a class='ln' href='profile.php'>  Profile </a>";
     }
-}
-echo "</nav>";
-?>
+    ?>
+</nav>

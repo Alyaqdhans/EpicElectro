@@ -1,8 +1,8 @@
 :root {
-    --clr-primary: #0C356A;
-    --clr-primary-light: #0174BE;
-    --clr-secondary: #fab81e;
-    --clr-secondary-light: #fddc8f;
+    --clr-primary: #0F0F0F;
+    --clr-primary-light: #0F0F0F;
+    --clr-secondary: #232D3F;
+    --clr-secondary-light: #232D3F;
 
     --fw-regular: 400;
     --fw-bold: 700;
@@ -27,10 +27,14 @@ body {
 }
 
 nav {
+    background-color: white;
+    padding: 10px 5px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: white;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 600;
 }
 
 nav .ln {
@@ -102,7 +106,7 @@ form {
 }
 
 form .main {
-    background: white;
+    background: #232D3F;
     width: 30%;
     padding: 2rem;
     border-radius: var(--br);
@@ -120,6 +124,7 @@ form input {
     margin-top: .5rem;
     margin-bottom: 1rem;
     flex-basis: 100%;
+    background-color: #232D3F;
 }
 
 form .buttons {
