@@ -3,7 +3,7 @@
         <link rel="stylesheet" href="style.css">
     </header>
     <body>
-        <?php $file = dirname(__FILE__);
+        <?php $file = __FILE__;
         include('header.php'); ?>
         
         <?php include('footer.php'); ?>

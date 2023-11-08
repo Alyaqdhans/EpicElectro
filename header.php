@@ -1,26 +1,45 @@
 <?php
 $pages = [
-    'EpicElectro' => 'Home',
-    'example1' => 'Example1',
-    'example2' => 'Example2',
-    'example3' => 'Example3',
-    'Login' => 'Login',
+    'index.php' => 'Home',
+    'login.php' => 'Login',
 ];
 
-$currentFolder = basename($file);
+session_start();
+
+$currentFile = basename($file);
 
 echo "<nav>";
-if ($currentFolder == "EpicElectro") {
-    echo "<img src='../icon.png'>";
-}
-foreach ($pages as $folderName => $pageTitle) {
-    if ($folderName == $currentFolder) {
+foreach ($pages as $fileName => $pageTitle) {
+    if ($fileName == $currentFile) {
         echo "<title> $pageTitle </title>";
+        
+        if ($currentFile == "index.php") {
+            echo "<img src='icon.png'>";
+        }
     } else {
-        if ($pageTitle == "Home") {
-            echo "<a href='../'> <img src='../icon.png'> </a>";
-        } else {
-            echo "<a class='ln' href='$folderName/'> $pageTitle </a>";
+        switch ($pageTitle) {
+            case "Home":
+                echo "<a href='index.php'> <img src='icon.png'> </a>";
+                break;
+            case "Login":
+                if (!isset($_SESSION['UID'])) {
+                    echo "<a class='ln' href='$fileName'> $pageTitle </a>";
+                    break;
+                } else {
+                    $name = $_SESSION['NAME'];
+
+                    if ($_SESSION['TYPE'] == 1) {
+                        $type = "Admin";
+                    } else {
+                        $type = "Customer";
+                    }
+
+                    echo "<a class='ln' href='profile.php'>  $name ($type) </a>
+                    <a class='ln' href='logout.php'> Logout </a>";
+                    break;
+                }
+            default:
+                echo "<a class='ln' href='$fileName'> $pageTitle </a>";
         }
     }
 }
