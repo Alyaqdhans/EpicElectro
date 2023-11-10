@@ -25,7 +25,7 @@ switch ($_GET['ec']) {
     case 3:
         $title = "<legend style='color:red;'>Access Denied</legend>";
         $message = "You do not have permission. Please
-        <a href=logout.php>log in</a> using an admin account.";
+        <a href=logout.php>logout</a> and login using an admin account.";
         break;
 
     // account already exist

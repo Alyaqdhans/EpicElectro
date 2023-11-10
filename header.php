@@ -5,7 +5,7 @@
     if (!isset($_SESSION['TYPE'])) {
         echo "<a class='ln' href='login.php'> Login </a>";
     } else {
-        if ($_SESSION['TYPE'] == 1) {
+        if ($_SESSION['TYPE'] == 'A') {
             echo "<a class='ln' href='dashboard.php'>  Dashboard </a>";
         }
 

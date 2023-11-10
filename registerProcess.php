@@ -39,7 +39,7 @@
 
         $date = date('Y-m-d');
         $query = "insert into customers(cName, password, email, cAddress, phoneNumber, registerDate, cType)";
-        $query .= " values('$name', password('$pass'), '$mail', '$address', '$number', '$date', 2)";
+        $query .= " values('$name', password('$pass'), '$mail', '$address', '$number', '$date', 'N')";
         mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
 
         header("location: login.php");

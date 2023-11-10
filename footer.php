@@ -5,10 +5,10 @@
     if (isset($_SESSION['NAME'])) {
         $name = $_SESSION['NAME'];
 
-        if ($_SESSION['TYPE'] == 1) {
+        if ($_SESSION['TYPE'] == 'A') {
             $type = "Admin";
         } else {
-            $type = "Customer";
+            $type = "Normal";
         }
 
         echo " | $name ($type) <a href='logout.php'> Logout </a>";
