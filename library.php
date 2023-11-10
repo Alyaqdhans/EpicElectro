@@ -1,8 +1,8 @@
 <html>
-    <header>
-        <link rel="stylesheet" href="style.css">
+    <head>
+        <?php include('link.php') ?>
         <title>Error</title>
-    </header>
+    </head>
     <body>
         <?php
         function DisplayErrors() {

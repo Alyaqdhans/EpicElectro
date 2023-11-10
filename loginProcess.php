@@ -9,7 +9,7 @@ $query = "select * from customers where email = '$mail' and password = password(
 $request = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <br>". mysqli_error($conn));
 
 if (mysqli_num_rows($request) == 1) {
-    if (!isset($_SESSION['UID'])) {
+    if (!isset($_SESSION['NAME'])) {
         $customer = mysqli_fetch_assoc($request);
 
         session_start();

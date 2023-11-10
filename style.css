@@ -14,8 +14,6 @@
     --br: 10px;
 }
 
-h1, h2, h3, h4, h5, h6 {margin-top: 0;}
-
 body {
     background: var(--clr-primary-light);
     font-family: sans-serif;
@@ -75,7 +73,7 @@ footer {
     text-align: center;
     font-size: var(--fs-normal);
     font-weight: var(--fw-bold);
-    padding-block: .5rem;
+    padding-block: 1rem;
     margin-top: auto;
 }
 
@@ -91,7 +89,6 @@ footer {
 }
 
 form {
-    width: 35vw;
     margin-left: auto;
     margin-right: auto;
     margin-top: auto;
@@ -101,11 +98,25 @@ form {
 
 form .main {
     background: white;
+    width: fit-content;
     padding: 2rem;
     border-radius: var(--br);
     box-shadow: 0 0 1rem black;
     display: flex;
     flex-direction: column;
+}
+
+form fieldset {
+    border-radius: var(--br);
+    border: solid 3px black;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+form legend {
+    font-size: var(--fs-large);
+    font-weight: var(--fw-bold);
 }
 
 form label {
@@ -116,6 +127,8 @@ form input {
     padding: .5rem;
     margin-top: .5rem;
     margin-bottom: 1rem;
+    margin-right: 1rem;
+    width: 20rem;
     flex-basis: 100%;
 }
 
@@ -123,7 +136,10 @@ form .buttons {
     display: flex;
     justify-content: center;
     gap: 0.1rem;
+    margin-top: 1.2rem;
 }
+
+h4 {margin-bottom: 0;}
 
 form .btn {
     width: fit-content;

@@ -1,8 +1,8 @@
 <html>
-    <header>
-        <link rel="stylesheet" href="style.css">
+    <head>
+        <?php include('link.php') ?>
         <title>Profile</title>
-    </header>
+    </head>
     <body>
         <?php
         include("connect.php");
@@ -16,36 +16,48 @@
         ?> 
         <form method='post' action='profileProcess.php'>
             <div class='main'>
-                <h2>Edit Profile</h2>
+                <fieldset>
+                    <legend>Edit Profile</legend>
 
-                <?php
-                    echo "<input type=hidden name='cid' value='{$cus['cId']}'>";
-                ?>
+                    <?php
+                        echo "<input type=hidden name='cid' value='{$cus['cId']}'>";
+                    ?>
 
-                <label>Name: </label>
-                <?php
-                echo "<input type=text name='name' value='{$cus['cName']}'>";
-                ?>
+                    <label>Name:</label>
+                    <?php
+                    echo "<input type=text name='name' value='{$cus['cName']}'>";
+                    ?>
 
-                <label>Password: </label>
-                <?php
-                echo "<input type=password name='password' value='{$cus['password']}'>";
-                ?>
+                    <label>Email:</label>
+                    <?php
+                    echo "<input type=text name='email' value='{$cus['email']}'>";
+                    ?>
 
-                <label>Email: </label>
-                <?php
-                echo "<input type=text name='email' value='{$cus['email']}'>";
-                ?>
+                    <label>Old Password:</label>
+                    <?php
+                    echo "<input type=password name='passwordOld' value=''>";
+                    ?>
 
-                <label>Address: </label>
-                <?php
-                echo "<input type=text name='address' value='{$cus['cAddress']}'>";
-                ?>
+                    <label>New Password:</label>
+                    <?php
+                    echo "<input type=password name='passwordNew' value=''>";
+                    ?>
 
-                <label>Phone Number: </label>
-                <?php
-                echo "<input type=number name='pnumber' value='{$cus['phoneNumber']}'>";
-                ?>
+                    <label>New Password (confirm):</label>
+                    <?php
+                    echo "<input type=password name='passwordConfirm' value=''>";
+                    ?>
+
+                    <label>Phone Number:</label>
+                    <?php
+                    echo "<input type=number name='pnumber' value='{$cus['phoneNumber']}'>";
+                    ?>
+
+                    <label>Address:</label>
+                    <?php
+                    echo "<input type=text name='address' value='{$cus['cAddress']}'>";
+                    ?>
+                </fieldset>
 
                 <div class="buttons">
                     <input class="btn left" type="submit" value="Save">

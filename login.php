@@ -1,8 +1,8 @@
 <html>
-    <header>
-        <link rel="stylesheet" href="style.css">
+    <head>
+        <?php include('link.php') ?>
         <title>Login</title>
-    </header>
+    </head>
     <body>
         <?php
         include('header.php'); 
@@ -10,13 +10,15 @@
         ?>
         <form action="loginProcess.php" method="post">
             <div class="main">
-                <h2>Login</h2>
+                <fieldset>
+                    <legend>Login</legend>
 
-                <label>Email: </label>
-                <input type="text" name="mail">
+                    <label>Email:</label>
+                    <input type="text" name="mail">
 
-                <label>Password: </label>
-                <input type="password" name="pass">
+                    <label>Password:</label>
+                    <input type="password" name="pass">
+                </fieldset>
 
                 <h4>Don't have an account? <a href="register.php">Register</a></h4>
 

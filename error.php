@@ -18,14 +18,8 @@ switch ($_GET['ec']) {
     first please <a href=logout.php>logout</a> or change the user.";
     break;
 
-    // bad datestamp
-    case 3:
-    $message = "You selected an invalid date range. Please
-    <a href=mnmnu.php>try again</a>";
-    break;
-
     // missing permission
-    case 4;
+    case 3;
     $message = "You dont have permission. Please
     <a href=logout.php>log in</a> using an admin account.";
     break;
@@ -39,10 +33,10 @@ switch ($_GET['ec']) {
 ?>
 
 <html>
-    <header>
-        <link rel="stylesheet" href="style.css">
+    <head>
+        <?php include('link.php') ?>
         <title>Error</title>
-    </header>
+    </head>
     <body>
         <?php
         echo "<div class='error'>";

@@ -1,5 +1,4 @@
 <nav>
-    <img src='icon.png'>
     <a class='ln' href='index.php'> Home </a>
     <?php
     session_start();

@@ -1,12 +1,13 @@
 <html>
-    <header>
-        <link rel="stylesheet" href="style.css">
+    <head>
+        <?php include('link.php') ?>
         <title>Home</title>
-    </header>
+    </head>
     <body>
         <?php include('header.php'); ?>
         
         
+
         <?php include('footer.php'); ?>
     </body>
 </html>
