@@ -23,9 +23,23 @@ switch ($_GET['ec']) {
 
     // missing permission
     case 3:
-        $title = "<legend style='color:red;'>Access Denied/legend>";
+        $title = "<legend style='color:red;'>Access Denied</legend>";
         $message = "You do not have permission. Please
         <a href=logout.php>log in</a> using an admin account.";
+        break;
+
+    // account already exist
+    case 4:
+        $title = "<legend style='color:red;'>Account Exist</legend>";
+        $message = "There is already an account registered with this email. Please
+        <a href=javascript:history.back()>register</a> using another email.";
+        break;
+
+    // old password is incorrect
+    case 5:
+        $title = "<legend style='color:red;'>Incorrect Password</legend>";
+        $message = "The old password registred does not match what you typed. Please
+        <a href=javascript:history.back()>enter</a> the correct old password.";
         break;
 
     // if it doesnt match any case

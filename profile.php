@@ -15,8 +15,8 @@
 
         $cusId = $_SESSION['CID'];
         $query = "select * from customers where cId='$cusId'";
-        $request = mysqli_query($conn, $query);
-        $cus = mysqli_fetch_assoc($request);
+        $result = mysqli_query($conn, $query);
+        $cus = mysqli_fetch_assoc($result);
 
         ?> 
         <form method='post' action='profileProcess.php'>
