@@ -14,16 +14,15 @@
     --br: 10px;
 }
 
-h1, h2, h3, h4, h5, h6 {margin: 0;}
-
-h4 {margin-bottom: 1rem;}
-
-h2 {margin-bottom: 1rem;}
+h1, h2, h3, h4, h5, h6 {margin-top: 0;}
 
 body {
     background: var(--clr-primary-light);
     font-family: sans-serif;
     margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 nav {
@@ -77,9 +76,7 @@ footer {
     font-size: var(--fs-normal);
     font-weight: var(--fw-bold);
     padding-block: .5rem;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
+    margin-top: auto;
 }
 
 .error {
@@ -94,16 +91,16 @@ footer {
 }
 
 form {
-    width: 100%;
-    height: 80%;
-    display: flex;
-    justify-content: center; /* horizontally */
-    align-items: center; /* vertically */
+    width: 35vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-block: 5rem;
 }
 
 form .main {
     background: white;
-    width: 30%;
     padding: 2rem;
     border-radius: var(--br);
     box-shadow: 0 0 1rem black;

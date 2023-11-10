@@ -9,11 +9,10 @@
         include("header.php");
         
         $cusId = $_SESSION['CID'];
-        $query = "Select * from customers where cId='$cusId'";
+        $query = "select * from customers where cId='$cusId'";
+        $request = mysqli_query($conn, $query);
+        $cus = mysqli_fetch_assoc($request);
 
-        $result = mysqli_query($conn, $query);
-        $request = mysqli_num_rows($result);
-        $cus = mysqli_fetch_assoc($result);
         ?> 
         <form method='post' action='profileProcess.php'>
             <div class='main'>
@@ -30,7 +29,6 @@
 
                 <label>Password: </label>
                 <?php
-                // password encryption
                 echo "<input type=password name='password' value='{$cus['password']}'>";
                 ?>
 
