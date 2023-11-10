@@ -7,6 +7,11 @@
         <?php
         include('header.php'); 
         include("connect.php");
+
+        if (isset($_SESSION['CID'])) {
+            header('Location: error.php?ec=2'); //user is already logged in
+            exit;
+        }
         ?>
         <form action="loginProcess.php" method="post">
             <div class="main">

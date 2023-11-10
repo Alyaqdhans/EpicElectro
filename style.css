@@ -14,6 +14,8 @@
     --br: 10px;
 }
 
+h1, h2, h3, h4, h5, h6 {margin: 0;}
+
 body {
     background: var(--clr-primary-light);
     font-family: sans-serif;
@@ -82,17 +84,25 @@ footer {
     width: fit-content;
     padding: 2rem;
     border-radius: var(--br);
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 40vh;
+    margin: auto;
     box-shadow: 0 0 1rem black;
 }
 
+fieldset {
+    border-radius: var(--br);
+    border: solid 3px black;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+legend {
+    font-size: var(--fs-large);
+    font-weight: var(--fw-bold);
+}
+
 form {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: auto;
-    margin-bottom: auto;
+    margin: auto;
     padding-block: 5rem;
 }
 
@@ -104,19 +114,6 @@ form .main {
     box-shadow: 0 0 1rem black;
     display: flex;
     flex-direction: column;
-}
-
-form fieldset {
-    border-radius: var(--br);
-    border: solid 3px black;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-}
-
-form legend {
-    font-size: var(--fs-large);
-    font-weight: var(--fw-bold);
 }
 
 form label {
@@ -136,10 +133,10 @@ form .buttons {
     display: flex;
     justify-content: center;
     gap: 0.1rem;
-    margin-top: 1.2rem;
+    margin-top: 1.5rem;
 }
 
-h4 {margin-bottom: 0;}
+form h4 {margin-top: 1.5rem;}
 
 form .btn {
     width: fit-content;

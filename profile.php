@@ -8,6 +8,11 @@
         include("connect.php");
         include("header.php");
         
+        if (!isset($_SESSION['CID'])) {
+            header('Location: error.php?ec=1'); // login required
+            exit;
+        }
+
         $cusId = $_SESSION['CID'];
         $query = "select * from customers where cId='$cusId'";
         $request = mysqli_query($conn, $query);
