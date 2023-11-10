@@ -32,7 +32,7 @@
         $query = "select * from customers where password = password('$pass0')";
         $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
 
-        if (mysqli_num_rows($result) == 1) {
+        if (mysqli_num_rows($result) == 0) {
             header('Location: error.php?ec=5'); // old password is incorrect
             exit;
         }
