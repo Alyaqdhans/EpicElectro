@@ -8,7 +8,7 @@
         include('header.php'); 
         include("connect.php");
         ?>
-        <form action="RegisterProcess.php" method="post">
+        <form class="form" action="RegisterProcess.php" method="post">
             <div class="main">
                 <fieldset>
                     <legend>Register</legend>

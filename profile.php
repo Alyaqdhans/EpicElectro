@@ -19,7 +19,7 @@
         $cus = mysqli_fetch_assoc($result);
 
         ?> 
-        <form method='post' action='profileProcess.php'>
+        <form class="form" method='post' action='profileProcess.php'>
             <div class='main'>
                 <fieldset>
                     <legend>Edit Profile</legend>

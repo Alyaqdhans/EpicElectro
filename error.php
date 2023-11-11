@@ -4,7 +4,7 @@ switch ($_GET['ec']) {
     case 0:
         $title = "<legend style='color:red;'>Could Not Login</legend>";
         $message = "Your user name or password is incorrect!
-        <a href=login.php>Please try again</a>";
+        <a href=javascript:history.back()>Please try again</a>";
         break;
 
     // session problem, for users who try to access a secured page without logging-in
@@ -32,7 +32,7 @@ switch ($_GET['ec']) {
     case 4:
         $title = "<legend style='color:red;'>Account Exist</legend>";
         $message = "There is already an account registered with this email. Please
-        <a href=javascript:history.back()>register</a> using another email.";
+        <a href=javascript:history.back()>enter</a> another email.";
         break;
 
     // old password is incorrect

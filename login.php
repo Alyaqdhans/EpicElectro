@@ -13,7 +13,7 @@
             exit;
         }
         ?>
-        <form action="loginProcess.php" method="post">
+        <form class="form" action="loginProcess.php" method="post">
             <div class="main">
                 <fieldset>
                     <legend>Login</legend>
