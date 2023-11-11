@@ -162,18 +162,65 @@ legend {
     border-radius: 0 var(--br) var(--br) 0;
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    row-gap: 5rem;
-    column-gap: 2rem;
-    padding-inline: 3rem;
-    padding-block: 5rem;
+.top {
+    margin: 3rem;
+    display: flex;
 }
 
-.top {
-    grid-column: 1 / 5;
+.search {
+    margin-right: auto;
+}
+
+.search input, .search select, .search option {
+    padding: .5rem;
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-normal);
+    border: none;
+}
+
+.search input[type="text"] {
+    width: 30vw;
+    border-radius: var(--br) 0 0 var(--br);
+}
+
+.search input[type="submit"] {
+    border-radius: 0 var(--br) var(--br) 0;
+    background: var(--clr-secondary);
+    margin-right: 1rem;
+}
+
+.search select {
+    border-radius: var(--br);
+}
+
+.cart a {
+    display: inline-block;
+    background: var(--clr-secondary);
+    padding: .5rem;
     text-align: center;
+    border-radius: var(--br) 0 0 var(--br);
+    text-decoration: none;
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-normal);
+    color: black;
+}
+
+.cart span {
+    background: white;
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-normal);
+    padding: .5rem;
+    text-align: center;
+    border-radius: 0 var(--br) var(--br) 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    row-gap: 5rem;
+    column-gap: 3rem;
+    padding-inline: 3rem;
+    padding-bottom: 5rem;
 }
 
 .card {
@@ -198,7 +245,7 @@ legend {
     color: black;
 }
 
-.card a:hover {
+.card a:hover, .cart a:hover {
     background: var(--clr-secondary-light);
 }
 
