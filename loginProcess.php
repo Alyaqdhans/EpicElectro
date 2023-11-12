@@ -15,6 +15,7 @@ if (mysqli_num_rows($result) == 1) {
     $_SESSION['NAME'] = $customer['cName'];
     $_SESSION['TYPE'] = $customer['cType'];
     $_SESSION['CID'] = $customer['cId'];
+    $_SESSION['CART'] = [];
 
     $date = date('Y-m-d');
     $query = "update customers set lastLogin = '$date' where cId = '{$customer['cId']}'";

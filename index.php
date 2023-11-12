@@ -1,6 +1,10 @@
 <html>
     <head>
-        <?php include('link.php'); ?>
+        <?php
+
+use function PHPSTORM_META\type;
+
+ include('link.php'); ?>
         <title>Home</title>
     </head>
     <body>
@@ -13,7 +17,7 @@
             <div class="search">
                 <input type=text name="search" placeholder="Search for Items">
                 <input type="submit" value="Search">
-                
+
                 <!-- Drop box (category) -->
                 <?php
                     echo "<select name=cat >";
@@ -29,7 +33,15 @@
 
             <div class="cart">
                 <a href="cart.php">Cart</a>
-                <span>0</span>
+                <span>
+                    <?php
+                    if (isset($_SESSION['CART'])) {
+                        echo count($_SESSION['CART']);
+                    } else {
+                        echo 0;
+                    }
+                    ?>
+                </span>
             </div>
         </form>
 
