@@ -253,6 +253,11 @@ legend {
     display: flex;
     flex-direction: column;
     min-height: 100%;
+    transition: .2s;
+}
+
+.card:hover {
+    padding: 1.2rem;
 }
 
 .card a {
@@ -286,3 +291,6 @@ legend {
     object-fit: cover;
     outline: solid 3px black;
 }
+
+
+/* view page style */
