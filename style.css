@@ -183,6 +183,8 @@ legend {
 
 .search {
     margin-right: auto;
+    display: flex;
+    gap: .2em;
 }
 
 .search input, .search select, .search option {
@@ -219,11 +221,17 @@ legend {
     color: black;
 }
 
+.cart {
+    display: flex;
+    gap: .2em;
+}
+
 .cart span {
     background: white;
     font-weight: var(--fw-bold);
     font-size: var(--fs-normal);
-    padding: .5rem;
+    padding-block: .5rem;
+    padding-inline: 1rem;
     text-align: center;
     border-radius: 0 var(--br) var(--br) 0;
 }
