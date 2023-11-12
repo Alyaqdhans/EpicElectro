@@ -13,6 +13,7 @@
             <div class="search">
                 <input type=text name="search" placeholder="Search for Items">
                 <input type="submit" value="Search">
+                
                 <!-- Drop box (category) -->
                 <?php
                     echo "<select name=cat >";
@@ -32,8 +33,8 @@
             </div>
         </form>
 
+        <!-- item cards -->
         <section class="grid">
-            <!-- item cards -->
             <?php 
                 $query = "select * from items";
                 $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
@@ -47,19 +48,6 @@
                     echo "</div>";
                 }
             ?>
-            
-            <!-- item brands -->
-            <!-- <div>
-            <?php
-                // $query = "select iBrand from items";
-                // $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
-                // echo "<ul>";
-                // while ($data = mysqli_fetch_assoc($result)){
-                //     echo "<li>{$data['iBrand']}</li>";
-                // }
-                // echo "</ul>";
-            ?>
-            </div> -->
         </section>
             
         <?php include('footer.php'); ?>

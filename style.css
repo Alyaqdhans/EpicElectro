@@ -1,3 +1,4 @@
+/* CSS variables for the website */
 :root {
     --clr-primary: #0C356A;
     --clr-primary-light: #0174BE;
@@ -14,6 +15,7 @@
     --br: 10px;
 }
 
+
 h1, h2, h3, h4, h5, h6 {margin: 0;}
 
 body {
@@ -25,6 +27,8 @@ body {
     flex-direction: column;
 }
 
+
+/* navigation style */
 nav {
     display: flex;
     justify-content: center;
@@ -70,6 +74,8 @@ nav .ln {
     color: var(--clr-primary-light);
 }
 
+
+/* footer style */
 footer {
     background: white;
     text-align: center;
@@ -79,6 +85,8 @@ footer {
     margin-top: auto;
 }
 
+
+/* error pages style */
 .error {
     background: white;
     width: fit-content;
@@ -88,6 +96,8 @@ footer {
     box-shadow: 0 0 1rem black;
 }
 
+
+/* forms style */
 fieldset {
     border-radius: var(--br);
     border: solid 3px black;
@@ -152,6 +162,7 @@ legend {
 
 .form .btn:hover {
     background: var(--clr-secondary-light);
+    cursor: pointer;
 }
 
 .form .left {
@@ -162,8 +173,11 @@ legend {
     border-radius: 0 var(--br) var(--br) 0;
 }
 
+
+/* index style */
 .top {
-    margin: 3rem;
+    margin-block: 3rem;
+    margin-inline: 5rem;
     display: flex;
 }
 
@@ -219,8 +233,8 @@ legend {
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
     row-gap: 5rem;
     column-gap: 3rem;
-    padding-inline: 3rem;
-    padding-bottom: 5rem;
+    padding-inline: 4rem;
+    padding-bottom: 10rem;
 }
 
 .card {
@@ -245,8 +259,9 @@ legend {
     color: black;
 }
 
-.card a:hover, .cart a:hover {
+.card a:hover, .cart a:hover, .search input[type="submit"]:hover {
     background: var(--clr-secondary-light);
+    cursor: pointer;
 }
 
 .card h3 {
