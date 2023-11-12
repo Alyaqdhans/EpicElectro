@@ -12,7 +12,13 @@
     $number = mysqli_real_escape_string($conn, $_POST['pnumber']);
     $address = mysqli_real_escape_string($conn, $_POST['address']);
 
-    if (empty($name)) {$errors[] = "Please enter a name";}
+    if (empty($name)) {
+        $errors[] = "Please enter a name";
+    } else {
+        if (!preg_match("/^[a-zA-Z\-\s]+$/", $name)) {
+            $errors[] = "Please enter a valid name";
+        }
+    }
 
     if (empty($pass) || empty($pass2) || empty($pass0)) {
         $errors[] = "Please enter the old password, new password & confirm it";
@@ -48,11 +54,16 @@
             exit;
         }
 
-        $query = "select * from customers where email = '$mail'";
+        $query = "select * from customers where cId = '{$_POST['cid']}'";
         $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
-        if (mysqli_num_rows($result) == 1) {
-            header('Location: error.php?ec=4'); // account already exists
-            exit;
+        $customer = mysqli_fetch_assoc($result);
+        if ($customer['email'] != $mail) { // check if user change email
+            $query = "select * from customers where email = '$mail'";
+            $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
+            if (mysqli_num_rows($result) == 1) {
+                header('Location: error.php?ec=4'); // account already exists
+                exit;
+            }
         }
 
         $query = "update customers set";
@@ -62,7 +73,6 @@
         $query .= " cAddress = '$address',";
         $query .= " phoneNumber = $number";
         $query .= " where cId = '{$_POST['cid']}'";
-
         mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
 
         header("location: index.php");

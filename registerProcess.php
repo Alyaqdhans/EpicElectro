@@ -11,7 +11,13 @@
     $number = mysqli_real_escape_string($conn, $_POST['pnumber']);
     $address = mysqli_real_escape_string($conn, $_POST['address']);
 
-    if (empty($name)) {$errors[] = "Please enter a name";}
+    if (empty($name)) {
+        $errors[] = "Please enter a name";
+    } else {
+        if (!preg_match("/^[a-zA-Z\-\s]+$/", $name)) {
+            $errors[] = "Please enter a valid name";
+        }
+    }
 
     if (empty($pass) || empty($pass2)) {
         $errors[] = "Please enter a password & confirm it";

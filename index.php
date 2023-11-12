@@ -1,10 +1,6 @@
 <html>
     <head>
-        <?php
-
-use function PHPSTORM_META\type;
-
- include('link.php'); ?>
+        <?php include('link.php'); ?>
         <title>Home</title>
     </head>
     <body>
