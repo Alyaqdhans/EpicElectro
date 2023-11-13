@@ -20,11 +20,11 @@
         }
     }
 
-    if (empty($pass) || empty($pass2) || empty($pass0)) {
-        $errors[] = "Please enter the old password, new password & confirm it";
+    if (empty($pass0)) {
+        $errors[] = "Please enter the old password";
     } else {
         if ($pass != $pass2) {
-            $errors[] = "Please make sure you typed the same password";
+            $errors[] = "Please make sure you typed the same new password";
         }
     }
     
@@ -47,7 +47,7 @@
     }
 
     if (count($errors) == 0) {
-        $query = "select * from customers where password = password('$pass0')";
+        $query = "select * from customers where password = password('$pass0') and cId = {$_POST['cid']}";
         $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
         if (mysqli_num_rows($result) == 0) {
             header('Location: error.php?ec=5'); // old password is incorrect
@@ -64,6 +64,10 @@
                 header('Location: error.php?ec=4'); // account already exists
                 exit;
             }
+        }
+
+        if (empty($pass) && empty($pass2)) {
+            $pass = $pass0;
         }
 
         $query = "update customers set";

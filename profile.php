@@ -45,12 +45,12 @@
 
                     <label>New Password:</label>
                     <?php
-                    echo "<input type='password' name='passwordNew' value='' required>";
+                    echo "<input type='password' name='passwordNew' value=''>";
                     ?>
 
                     <label>New Password (confirm):</label>
                     <?php
-                    echo "<input type='password' name='passwordConfirm' value='' required>";
+                    echo "<input type='password' name='passwordConfirm' value=''>";
                     ?>
 
                     <label>Phone Number:</label>

@@ -221,6 +221,11 @@ legend {
     border-radius: var(--br);
 }
 
+.cart {
+    display: flex;
+    gap: .2em;
+}
+
 .cart a {
     display: inline-block;
     background: var(--clr-secondary);
@@ -231,11 +236,6 @@ legend {
     font-weight: var(--fw-bold);
     font-size: var(--fs-normal);
     color: black;
-}
-
-.cart {
-    display: flex;
-    gap: .2em;
 }
 
 .cart span {
@@ -267,6 +267,7 @@ legend {
 }
 
 .card:hover {
+    padding: calc(1rem + .1vw);
     box-shadow: 0 0 1rem black;
 }
 
@@ -293,6 +294,8 @@ legend {
     margin-top: auto;
     margin-bottom: .5rem;
 }
+
+.card h4 {color: #414141;}
 
 .card img {
     width: 100%;
