@@ -12,38 +12,20 @@
     $number = mysqli_real_escape_string($conn, $_POST['pnumber']);
     $address = mysqli_real_escape_string($conn, $_POST['address']);
 
-    if (empty($name)) {
-        $errors[] = "Please enter a name";
-    } else {
-        if (!preg_match("/^[a-zA-Z\-\s]+$/", $name)) {
-            $errors[] = "Please enter a valid name";
-        }
+    if (!preg_match("/^[a-zA-Z\-\s]+$/", $name)) {
+        $errors[] = "Please enter a valid name";
     }
 
-    if (empty($pass0)) {
-        $errors[] = "Please enter the old password";
-    } else {
-        if ($pass != $pass2) {
-            $errors[] = "Please make sure you typed the same new password";
-        }
+    if ($pass != $pass2) {
+        $errors[] = "Please make sure you typed the same new password";
     }
     
-    if (empty($mail)) {
-        $errors[] = "Please enter an email";
-    } else {
-        if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
-            $errors[] = "Please enter a valid email";
-        }
+    if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
+        $errors[] = "Please enter a valid email";
     }
 
-    if (empty($address)) {$errors[] = "Please enter an address";}
-
-    if (empty($number)) {
-        $errors[] = "Please enter a phone number";
-    } else {
-        if ($number < 1 || !preg_match("/^[9|7][0-9]{7}$/", $number)) {
-            $errors[] = "Please enter a valid phone number";
-        }
+    if ($number < 1 || !preg_match("/^[9|7][0-9]{7}$/", $number)) {
+        $errors[] = "Please enter a valid phone number";
     }
 
     if (count($errors) == 0) {
