@@ -48,9 +48,14 @@
             while ($data = mysqli_fetch_assoc($result)){
                 echo "<div class='card'>";
                     echo "<img src='images/{$data['iCode']}.jpg' alt='Image'>";
-                    echo "<h3>{$data['iDesc']}</h3>";
-                    echo "<h4>by {$data['iBrand']}</h4>";
-                    echo "<a href='view.php?ic={$data['iCode']}'>View</a>";
+                    echo "<h3> {$data['iDesc']} </h3>";
+                    echo "<h4> by {$data['iBrand']} </h4>";
+                    if ($data['iQty'] > 0) {
+                        echo "<h5> Available: ✅ </h5>";
+                    } else {
+                        echo "<h5> Available: ❌ </h5>";
+                    }
+                    echo "<a href='view.php?ic={$data['iCode']}'> View </a>";
                 echo "</div>";
             }
             ?>
