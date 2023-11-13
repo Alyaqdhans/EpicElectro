@@ -3,5 +3,5 @@ session_start();
 session_destroy();
 session_write_close();
 session_regenerate_id(true);
-header('Location: index.php');
+header('Location: login.php');
 ?>
