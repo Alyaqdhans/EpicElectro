@@ -17,15 +17,15 @@
         $query = "select * from customers where cId='$cusId'";
         $result = mysqli_query($conn, $query);
         $cus = mysqli_fetch_assoc($result);
-
         ?> 
+        
         <form class="form" method='post' action='profileProcess.php'>
             <div class='main'>
                 <fieldset>
                     <legend>Edit Profile</legend>
 
                     <?php
-                        echo "<input type='hidden' name='cid' value='{$cus['cId']}' required>";
+                    echo "<input type='hidden' name='cid' value='{$cus['cId']}' required>";
                     ?>
 
                     <label>Name:</label>

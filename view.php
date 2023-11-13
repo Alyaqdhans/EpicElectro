@@ -9,23 +9,56 @@
         include('connect.php');
         ?>
 
-
         <?php
-            $query = "select * from items where iCode={$_GET['ic']}";
-            $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
-            $data = mysqli_fetch_assoc($result); 
+        $query = "select * from items where iCode = {$_GET['ic']}";
+        $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
+        $data = mysqli_fetch_assoc($result); 
         ?>
-            <div>
 
-                <img href="" alt="">
+        <form class="container" method="post" action="viewProcess.php">
+            <section>
                 <?php
-                    echo "<h3>Title: {$data['iDesc']}</h3>";
+                echo "<img src='images/{$_GET['ic']}.jpg' alt='Image'>";
+                echo "<h3>{$data['iDesc']}</h3>";
+                if (empty($data['iComment'])) {
+                    echo "<h4> No Description Found </h4>";
+                } else {
+                    echo "<h4> {$data['iComment']} </h4>";
+                }
+                echo "<h5>by {$data['iBrand']}</h5>";
                 ?>
+            </section>
 
-            </div>
+            <aside>
+                <div class="cart">
+                    <a href="cart.php">Cart</a>
+                    <span style="background: var(--clr-primary-light); color: white;">
+                        <?php
+                        if (isset($_SESSION['CART'])) {
+                            echo count($_SESSION['CART']);
+                        } else {
+                            echo 0;
+                        }
+                        ?>
+                    </span>
+                </div>
 
-        <?php
-            include("footer.php");
-        ?>
+                <div class="amount">
+                    <div class="control">
+                        <button id="less"> - </button>
+                        <span id='number'> 1 </span>
+                        <button id="more"> + </button>
+                    </div>
+ 
+                    <input type='hidden' name='qty' value='1'>
+
+                    <input id="submit" type="submit" value="Add">
+                </div>
+
+                <a class="back" href="index.php">Back</a>
+            </aside>
+        </form>
+
+        <?php include("footer.php"); ?>
     </body>
 </html>
