@@ -14,22 +14,22 @@
                     <legend>Register</legend>
 
                     <label>Name:</label>
-                    <input type="text" name="name">
+                    <input type="text" name="name" required>
                     
                     <label>Email:</label>
-                    <input type="text" name="email">
+                    <input type="email" name="email" required>
                     
                     <label>Password:</label>
-                    <input type="password" name="password">
+                    <input type="password" name="password" required>
 
                     <label>Password (confirm):</label>
-                    <input type="password" name="passwordConfirm">
+                    <input type="password" name="passwordConfirm" required>
                     
                     <label>Phone Number:</label>
-                    <input type="number" name="pnumber">
+                    <input type="number" name="pnumber" required>
                     
                     <label>Address:</label>
-                    <input type="text" name="address">
+                    <input type="text" name="address" required>
                 </fieldset>
                 
                 <h4>Do you have an account? <a href="login.php">Login</a></h4>

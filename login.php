@@ -19,10 +19,10 @@
                     <legend>Login</legend>
 
                     <label>Email:</label>
-                    <input type="text" name="mail">
+                    <input type="text" name="mail" required>
 
                     <label>Password:</label>
-                    <input type="password" name="pass">
+                    <input type="password" name="pass" required>
                 </fieldset>
 
                 <h4>Don't have an account? <a href="register.php">Register</a></h4>

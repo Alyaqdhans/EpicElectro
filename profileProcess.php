@@ -15,7 +15,7 @@
     if (empty($name)) {
         $errors[] = "Please enter a name";
     } else {
-        if (!preg_match("/^[a-zA-Z\-\s]{3-20}$/", $name)) {
+        if (!preg_match("/^[a-zA-Z\-\s]+$/", $name)) {
             $errors[] = "Please enter a valid name";
         }
     }

@@ -25,42 +25,42 @@
                     <legend>Edit Profile</legend>
 
                     <?php
-                        echo "<input type=hidden name='cid' value='{$cus['cId']}'>";
+                        echo "<input type='hidden' name='cid' value='{$cus['cId']}' required>";
                     ?>
 
                     <label>Name:</label>
                     <?php
-                    echo "<input type=text name='name' value='{$cus['cName']}'>";
+                    echo "<input type='text' name='name' value='{$cus['cName']}' required>";
                     ?>
 
                     <label>Email:</label>
                     <?php
-                    echo "<input type=text name='email' value='{$cus['email']}'>";
+                    echo "<input type='email' name='email' value='{$cus['email']}' required>";
                     ?>
 
                     <label>Old Password:</label>
                     <?php
-                    echo "<input type=password name='passwordOld' value=''>";
+                    echo "<input type='password' name='passwordOld' value='' required>";
                     ?>
 
                     <label>New Password:</label>
                     <?php
-                    echo "<input type=password name='passwordNew' value=''>";
+                    echo "<input type='password' name='passwordNew' value='' required>";
                     ?>
 
                     <label>New Password (confirm):</label>
                     <?php
-                    echo "<input type=password name='passwordConfirm' value=''>";
+                    echo "<input type='password' name='passwordConfirm' value='' required>";
                     ?>
 
                     <label>Phone Number:</label>
                     <?php
-                    echo "<input type=number name='pnumber' value='{$cus['phoneNumber']}'>";
+                    echo "<input type='number' name='pnumber' value='{$cus['phoneNumber']}' required>";
                     ?>
 
                     <label>Address:</label>
                     <?php
-                    echo "<input type=text name='address' value='{$cus['cAddress']}'>";
+                    echo "<input type='text' name='address' value='{$cus['cAddress']}' required>";
                     ?>
                 </fieldset>
 
@@ -68,8 +68,10 @@
                     <input class="btn left" type="submit" value="Save">
                     <input class="btn right" type="reset" value="Reset"> 
                 </div>
+
             </div>
         </form>
+        
         <?php include("footer.php"); ?>
     </body>
 </html>
