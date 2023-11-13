@@ -432,6 +432,12 @@ legend {
     font-size: var(--fs-normal);
 }
 
+.container .amount span {
+    text-align: center;
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-normal);
+}
+
 .container .amount input {
     background: var(--clr-secondary);
     padding: .5rem;
