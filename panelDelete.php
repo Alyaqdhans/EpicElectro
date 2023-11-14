@@ -1,26 +1,31 @@
 <html>
     <head>
         <?php include('link.php') ?>
-        <title>Cart</title>
+        <title>Deletion</title>
     </head>
     <body>
         <?php
         include('header.php');
 
-        if (!isset($_SESSION['CART'])) {
+        if (!isset($_SESSION['TYPE'])) {
             header('Location: error.php?ec=1'); // login required
             exit;
+        } else {
+            if ($_SESSION['TYPE'] != 'A') {
+                header('Location: error.php?ec=3'); // need admin
+                exit;
+            }
         }
         ?>
         
-        <form class="wrapper" action="cartProcess.php" method="post">
+        <div class="wrapper">
             <div class="container">
                 <fieldset>
-                    <legend>Cart</legend>
-                    <?php echo print_r($_SESSION['CART']); ?>
+                    <legend>Account Deletion</legend>
+                    
                 </fieldset>
             </div>
-        </form>
+        </div>
 
         <?php include('footer.php'); ?>
     </body>

@@ -360,16 +360,17 @@ legend {
 
 .container {
     margin: 3rem;
+    padding: 2rem;
     background: white;
     border-radius: var(--br);
     display: flex;
+    gap: 2rem;
 }
 
 .container section {
     background: lightgray;
     border-radius: var(--br);
     padding: 2rem;
-    margin: 2rem;
 }
 
 .container img {
@@ -390,7 +391,6 @@ legend {
 .container h5 {margin-top: 1rem;}
 
 .container aside {
-    margin: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;

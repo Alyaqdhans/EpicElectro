@@ -1,7 +1,7 @@
 <html>
     <head>
         <?php include('link.php') ?>
-        <title>Dashboard</title>
+        <title>Permissions</title>
     </head>
     <body>
         <?php
@@ -18,7 +18,14 @@
         }
         ?>
         
-        
+        <div class="wrapper">
+            <div class="container">
+                <fieldset>
+                    <legend>Admin Permissions</legend>
+                    
+                </fieldset>
+            </div>
+        </div>
 
         <?php include('footer.php'); ?>
     </body>

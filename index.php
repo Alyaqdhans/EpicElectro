@@ -9,7 +9,7 @@
         include('connect.php');
         ?>
         
-        <form class="top" action="search.php" method="post">
+        <form class="top" action="indexSearch.php" method="post">
             <div class="search">
                 <input type=text name="search" placeholder="Search for Items">
                 <input type="submit" value="Search">
