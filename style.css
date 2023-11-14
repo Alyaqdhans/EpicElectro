@@ -137,10 +137,10 @@ legend {
 
 .form {
     margin: auto;
-    padding-block: 5rem;
 }
 
 .form .main {
+    margin: 3rem;
     background: white;
     width: fit-content;
     padding: 2rem;
@@ -327,13 +327,15 @@ legend {
 
 
 /* view page style */
-.container {
-    background: white;
+.wrapper {
     margin: auto;
+}
+
+.container {
+    margin: 3rem;
+    background: white;
     border-radius: var(--br);
     display: flex;
-    max-width: 90%;
-    margin-block: 4rem;
 }
 
 .container section {
