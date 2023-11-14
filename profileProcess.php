@@ -3,7 +3,7 @@
     include('library.php');
 
     if (!isset($_POST['name'])) {
-        header('Location: error.php?ec=-1'); // entred page without button
+        header('Location: error.php?ec=-1'); // entered page without button
         exit;
     }
     

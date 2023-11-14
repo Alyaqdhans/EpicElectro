@@ -2,7 +2,7 @@
 include('connect.php');
 
 if (!isset($_POST['mail'])) {
-    header('Location: error.php?ec=-1'); // entred page without button
+    header('Location: error.php?ec=-1'); // entered page without button
     exit;
 }
 
