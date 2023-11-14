@@ -20,7 +20,7 @@ html {scroll-behavior: smooth; user-select: none;}
 
 img {max-width: 100%; pointer-events: none;}
 
-* {transition: 0.2s;}
+* {transition: 0.2s ease-in-out;}
 
 h1, h2, h3, h4, h5, h6 {margin: 0;}
 
@@ -71,6 +71,7 @@ nav .ln {
     color: var(--clr-primary);
     text-decoration: none;
     position: relative;
+    outline: none;
 }
 
 .ln:visited, .ln:active {
@@ -85,16 +86,17 @@ nav .ln {
     height: 5px;
     width: 100%;
     background-color: var(--clr-primary-light);
+    border-radius: var(--br);
     transform: scaleX(0);
     transform-origin: middle;
-    transition: 0.2s;
+    transition: 0.2s ease-in-out;
 }
 
-.ln:hover::after {
+.ln:hover::after, .ln:focus::after {
     transform: scaleX(100%);
 }
 
-.ln:hover {
+.ln:hover, .ln:focus {
     color: var(--clr-primary-light);
 }
 
@@ -163,11 +165,22 @@ legend {
     flex-basis: 100%;
 }
 
+.form input[type="text"],
+.form input[type="password"],
+.form input[type="number"],
+.form input[type="email"]   {
+    border-radius: var(--br);
+    border: none;
+    outline: 2px solid black;
+    transition: 0.1s ease-in-out;
+}
+
 .form input[type="text"]:focus,
 .form input[type="password"]:focus,
 .form input[type="number"]:focus,
 .form input[type="email"]:focus   {
     background: #eee;
+    outline: 5px solid var(--clr-primary-light);
 }
 
 .form .buttons {
