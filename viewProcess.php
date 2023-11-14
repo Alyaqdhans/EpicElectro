@@ -5,6 +5,6 @@ if (!isset($_SESSION['CART'])) {
     exit;
 }
 
-array_push($_SESSION['CART'], ["ic" => $_POST['ic'], "qty" => $_POST['qty']]);
+array_push($_SESSION['CART'], ["ic" => $_POST['ic'], "price" => $_POST['price'], "qty" => $_POST['qty']]);
 header('Location: index.php');
 ?>

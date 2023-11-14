@@ -385,12 +385,12 @@ legend {
     border-radius: var(--br);
     padding-inline: 1.5rem;
     padding-block: 2rem;
-    display: flex;
-    gap: 1rem;
-    flex-direction: column;
-    text-align: center;
     font-weight: var(--fw-bold);
     font-size: var(--fs-normal);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .container .amount #more {

@@ -44,6 +44,8 @@
                 </div>
 
                 <div class="amount">
+                    <?php echo "<span> Price: ". number_format($data['iPrice']) ." OMR </span>"; ?>
+
                     <div class="control">
                         <?php
                         if ($data['iQty'] > 0) {
@@ -70,6 +72,7 @@
                     echo "<input id='submit' type='submit' value='Add' $d>";
 
                     echo "<input type='hidden' name='ic' value='{$_GET['ic']}'>";
+                    echo "<input type='hidden' name='price' value='{$data['iPrice']}'>";
                     echo "<input id='qty' type='hidden' name='qty' value='{$data['iQty']}'>";
                     ?>
                 </div>
