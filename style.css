@@ -52,6 +52,7 @@ body {
 }
 
 
+
 /* navigation style */
 nav {
     display: flex;
@@ -101,6 +102,7 @@ nav .ln {
 }
 
 
+
 /* footer style */
 footer {
     background: white;
@@ -112,6 +114,7 @@ footer {
 }
 
 
+
 /* error pages style */
 .error {
     background: white;
@@ -121,6 +124,7 @@ footer {
     margin: auto;
     box-shadow: 0 0 1rem black;
 }
+
 
 
 /* forms style */
@@ -218,6 +222,7 @@ legend {
 }
 
 
+
 /* index style */
 .top {
     margin-block: 3rem;
@@ -297,6 +302,7 @@ legend {
     display: flex;
     flex-direction: column;
     min-height: 100%;
+    position: relative;
 }
 
 .card:hover {
@@ -337,6 +343,14 @@ legend {
     object-fit: cover;
     outline: solid 3px black;
 }
+
+.card .anchor {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50vh); /* scrolls user to middle of the item */
+}
+
 
 
 /* view page style */

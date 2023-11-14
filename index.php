@@ -56,6 +56,7 @@
                         echo "<h5> Available: ❌ </h5>";
                     }
                     echo "<a href='view.php?ic={$data['iCode']}'> View </a>";
+                    echo "<span class='anchor' id='{$data['iCode']}'></span>"; // scrolls user where they were
                 echo "</div>";
             }
             ?>

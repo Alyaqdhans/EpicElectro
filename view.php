@@ -60,7 +60,7 @@
                             echo "<span id='number'> $n </span>";
                             echo "<input id='more' type='button' value=' + ' onclick='controller(\"more\")' $d>";
 
-                            echo "<input id='stock' type='hidden' value='{$data['iQty']}'>";
+                            echo "<input id='stock' type='hidden' value='{$data['iQty']}'>"; // for javascript
                             ?>
                         </div>
 
@@ -80,7 +80,7 @@
                         ?>
                     </div>
 
-                    <a class="back" href="index.php">Back</a>
+                    <?php echo "<a class='back' href='index.php#{$_GET['ic']}'>Back</a>"; ?>
                 </aside>
             </div>
         </form>
