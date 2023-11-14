@@ -388,17 +388,20 @@ legend {
     display: flex;
     gap: 1rem;
     flex-direction: column;
+    text-align: center;
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-normal);
 }
 
 .container .amount #more {
-    color: white;
-    background: green;
-    padding-inline: 1rem;
+    /* color: white; */
+    background: #00a000;
+    padding-inline: .7rem;
     border-radius: 0 var(--br) var(--br) 0;
 }
 
 .container .amount #more:hover {
-    background: #00a000;
+    background: #3cb43c;
     cursor: pointer;
 }
 
@@ -409,14 +412,14 @@ legend {
 }
 
 .container .amount #less {
-    color: white;
-    background: red;
-    padding-inline: 1rem;
+    /* color: white; */
+    background: #ff3232;
+    padding-inline: .7rem;
     border-radius: var(--br) 0 0 var(--br);
 }
 
 .container .amount #less:hover {
-    background: #ff4c4c;
+    background: #ff6c6c;
     cursor: pointer;
 }
 
@@ -424,18 +427,6 @@ legend {
     font-weight: var(--fw-bold);
     font-size: var(--fs-normal);
     display: flex;
-}
-
-.container .control button {
-    border: none;
-    font-weight: var(--fw-bold);
-    font-size: var(--fs-normal);
-}
-
-.container .amount span {
-    text-align: center;
-    font-weight: var(--fw-bold);
-    font-size: var(--fs-normal);
 }
 
 .container .amount input {

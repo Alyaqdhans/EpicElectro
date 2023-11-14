@@ -12,7 +12,7 @@
         <?php
         $query = "select * from items where iCode = {$_GET['ic']}";
         $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
-        $data = mysqli_fetch_assoc($result); 
+        $data = mysqli_fetch_assoc($result);
         ?>
 
         <form class="container" method="post" action="viewProcess.php">
@@ -45,22 +45,33 @@
 
                 <div class="amount">
                     <div class="control">
-                        <button id="less"> - </button>
-                        <span id='number'> 1 </span>
-                        <button id="more"> + </button>
+                        <?php
+                        if ($data['iQty'] > 0) {
+                            $n = 1;
+                            $d = "";
+                        } else {
+                            $n = 0;
+                            $d = "disabled";
+                        }
+                        echo "<input id='less' type='button' value=' - ' onclick='decrease()' disabled>";
+                        echo "<span id='number'> $n </span>";
+                        echo "<input id='more' type='button' value=' + ' onclick='increase()' $d>";
+                        ?>
                     </div>
 
                     <?php
                     if ($data['iQty'] > 0) {
                         echo "<span> Available: {$data['iQty']} </span>";
-                        echo "<input id='submit' type='submit' value='Add'>";
+                        $d = "";
                     } else {
                         echo "<span> Not Available </span>";
-                        echo "<input id='submit' type='submit' value='Add' disabled>";
+                        $d = "disabled";
                     }
+                    echo "<input id='submit' type='submit' value='Add' $d>";
+
+                    echo "<input type='hidden' name='ic' value='{$_GET['ic']}'>";
+                    echo "<input id='qty' type='hidden' name='qty' value='{$data['iQty']}'>";
                     ?>
-                                        
-                    <input type='hidden' name='qty' value='1'>
                 </div>
 
                 <a class="back" href="index.php">Back</a>
