@@ -5,6 +5,11 @@ if (!isset($_SESSION['CART'])) {
     exit;
 }
 
+if (!isset($_POST['ic'])) {
+    header('Location: error.php?ec=-1'); // entred page without button
+    exit;
+}
+
 array_push($_SESSION['CART'], ["ic" => $_POST['ic'], "price" => $_POST['price'], "qty" => $_POST['qty']]);
 header('Location: index.php');
 ?>

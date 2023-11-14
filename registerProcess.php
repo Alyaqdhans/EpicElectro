@@ -1,6 +1,11 @@
 <?php
     include("connect.php");
     include('library.php');
+
+    if (!isset($_POST['name'])) {
+        header('Location: error.php?ec=-1'); // entred page without button
+        exit;
+    }
     
     $errors = [];
 

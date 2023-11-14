@@ -1,6 +1,11 @@
 <?php
 include('connect.php');
 
+if (!isset($_POST['mail'])) {
+    header('Location: error.php?ec=-1'); // entred page without button
+    exit;
+}
+
 $mail = mysqli_real_escape_string($conn, $_POST['mail']);
 $pass = mysqli_real_escape_string($conn, $_POST['pass']);
 

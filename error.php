@@ -42,11 +42,11 @@ switch ($_GET['ec']) {
         <a href=javascript:history.back()>enter</a> the correct old password.";
         break;
 
-    // if it doesnt match any case
+    // other errors
     default:
-    $title = "<legend style='color:red;'>Unknown Login Error</legend>";
+    $title = "<legend style='color:red;'>Unknown Error</legend>";
     $message = "There was an error performing the requested action. Please
-    <a href=login.php>log in</a> again.";
+    <a href=javascript:history.back()>try</a> again.";
     break;
 }
 ?>
