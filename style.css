@@ -225,9 +225,15 @@ legend {
 
 /* index style */
 .top {
-    margin-block: 3rem;
-    margin-inline: 5rem;
+    margin-top: 1rem;
     display: flex;
+    background: var(--clr-primary-light);
+    border-radius: var(--br);
+    padding-block: 1.5rem;
+    padding-inline: 4rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
 .search {
