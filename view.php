@@ -55,9 +55,11 @@
                             $n = 0;
                             $d = "disabled";
                         }
-                        echo "<input id='less' type='button' value=' - ' onclick='decrease()' disabled>";
+                        echo "<input id='less' type='button' value=' - ' onclick='controller(\"less\")' disabled>";
                         echo "<span id='number'> $n </span>";
-                        echo "<input id='more' type='button' value=' + ' onclick='increase()' $d>";
+                        echo "<input id='more' type='button' value=' + ' onclick='controller(\"more\")' $d>";
+
+                        echo "<input id='stock' type='hidden' value='{$data['iQty']}'>";
                         ?>
                     </div>
 
@@ -73,7 +75,7 @@
 
                     echo "<input type='hidden' name='ic' value='{$_GET['ic']}'>";
                     echo "<input type='hidden' name='price' value='{$data['iPrice']}'>";
-                    echo "<input id='qty' type='hidden' name='qty' value='{$data['iQty']}'>";
+                    echo "<input id='qty' type='hidden' name='qty' value='1'>";
                     ?>
                 </div>
 
