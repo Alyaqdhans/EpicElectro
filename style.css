@@ -357,6 +357,37 @@ legend {
     transform: translateY(-50vh); /* scrolls user to middle of the item */
 }
 
+.scroll {
+    position: fixed;
+    right: 5vw;
+    bottom: 5vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 .5rem black;
+    border-radius: var(--br);
+}
+
+.scroll .btn {
+    display: block;
+    background: var(--clr-secondary);
+    text-decoration: none;
+    color: black;
+    padding: .5rem;
+}
+
+.scroll .btn:hover {
+    background: var(--clr-secondary-light);
+}
+
+.scroll .up {
+    border-radius: var(--br) var(--br) 0 0;
+    border-bottom: 1px solid black;
+}
+
+.scroll .down {
+    border-radius: 0 0 var(--br) var(--br);
+}
+
 
 
 /* view page style */

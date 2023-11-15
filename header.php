@@ -1,4 +1,4 @@
-<nav>
+<nav id="up">
     <a class='ln' href='index.php'> Home </a>
     <?php
     session_start();

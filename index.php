@@ -9,7 +9,7 @@
         include('connect.php');
         ?>
         
-        <form class="top" action="indexSearch.php" method="post">
+        <form class="top" method="post">
             <div class="search">
                 <input type=text name="search" placeholder="Search for Items">
                 <input type="submit" value="Search">
@@ -20,7 +20,7 @@
                 $query = "select * from categories";
                 $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
                 while ($data = mysqli_fetch_assoc($result)){
-                    echo "<option vlaue='{$data['categoryCode']}'>{$data['categoryDes']}</option>";
+                    echo "<option vlaue='{$data['categoryCode']}'> {$data['categoryDes']} </option>";
                 }
                 echo "</select>";
                 ?>
@@ -56,12 +56,17 @@
                         echo "<h5> Available: ❌ </h5>";
                     }
                     echo "<a href='view.php?ic={$data['iCode']}'> View </a>";
-                    echo "<span class='anchor' id='{$data['iCode']}'></span>"; // scrolls user where they were
+                    echo "<span class='anchor' id='{$data['iCode']}'></span>"; // scrolls user back
                 echo "</div>";
             }
             ?>
         </section>
-            
+        
+        <div class="scroll">
+            <a class="btn up" href="#up">▲</a>
+            <a class="btn down" href="#down">▼</a>
+        </div>
+
         <?php include('footer.php'); ?>
     </body>
 </html>

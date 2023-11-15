@@ -1,4 +1,4 @@
-<footer>
+<footer id="down">
     &copy; Copyright of EpicElectro is Reserved to 
     <abbr title="University of Technology and Applied Sciences">UTAS</abbr>
     <?php
