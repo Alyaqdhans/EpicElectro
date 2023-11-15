@@ -16,7 +16,7 @@
 }
 
 
-html {scroll-behavior: smooth; user-select: none;}
+html {user-select: none;}
 
 img {max-width: 100%; pointer-events: none;}
 
@@ -645,20 +645,6 @@ legend {
 .checkout input[type="submit"]:hover {
     background: var(--clr-secondary-light);
     cursor: pointer;
-}
-
-.checkout .cartBack {
-    margin: auto;
-    display: block;
-    background: var(--clr-secondary);
-    padding: .5rem;
-    text-align: center;
-    border-radius: var(--br);
-    text-decoration: none;
-    font-weight: var(--fw-bold);
-    font-size: var(--fs-large);
-    color: black;
-    width: 15rem;
 }
 
 .checkout .anchor {

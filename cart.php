@@ -16,8 +16,6 @@
         
         <form class="wrapper" method="post">
             <div class="container checkout">
-                <a class="cartBack" href="javascript:history.back()"> Back </a>
-
                 <?php
                 foreach ($_SESSION['CART'] as $key => $item) { // remove the amount
                     if (isset($_POST[$item['ic']])) {
