@@ -13,6 +13,7 @@
             exit;
         }
         ?>
+
         <form class="form" action="loginProcess.php" method="post">
             <div class="main">
                 <fieldset>
@@ -33,6 +34,7 @@
                 </div>
             </div>
         </form>
+        
         <?php include('footer.php'); ?>
     </body>
 </html>

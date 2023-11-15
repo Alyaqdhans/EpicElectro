@@ -230,7 +230,7 @@ legend {
     background: var(--clr-primary-light);
     border-radius: var(--br);
     padding-block: 1.5rem;
-    padding-inline: 4rem;
+    padding-inline: 10vw;
     position: sticky;
     top: 0;
     z-index: 10;
@@ -259,6 +259,23 @@ legend {
     border-radius: 0 var(--br) var(--br) 0;
     background: var(--clr-secondary);
     margin-right: 1rem;
+    position: relative;
+}
+
+.search input[type="submit"]:hover  {
+    background: var(--clr-secondary-light);
+    cursor: pointer;
+}
+
+.search input[type="button"] {
+    font-size: 1.2rem;
+    background: red;
+    color: white;
+}
+
+.search input[type="button"]:hover {
+    cursor: pointer;
+    background: tomato;
 }
 
 .search select {
@@ -282,6 +299,11 @@ legend {
     color: black;
 }
 
+.cart a:hover {
+    background: var(--clr-secondary-light);
+    cursor: pointer;
+}
+
 .cart span {
     background: white;
     font-weight: var(--fw-bold);
@@ -294,11 +316,13 @@ legend {
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    grid-template-columns: repeat(auto-fit, 22rem);
+    /* grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); */
     row-gap: 5rem;
     column-gap: 3rem;
     padding-inline: 4rem;
     padding-bottom: 10rem;
+    justify-content: center;
 }
 
 .card {
@@ -316,6 +340,13 @@ legend {
     box-shadow: 0 0 1rem black;
 }
 
+.nothing {
+    background: white;
+    padding: 1rem;
+    border-radius: var(--br);
+    text-align: center;
+}
+
 .card a {
     display: block;
     background: var(--clr-secondary);
@@ -329,7 +360,7 @@ legend {
     color: black;
 }
 
-.card a:hover, .cart a:hover, .search input[type="submit"]:hover {
+.card a:hover {
     background: var(--clr-secondary-light);
     cursor: pointer;
 }
@@ -359,8 +390,8 @@ legend {
 
 .scroll {
     position: fixed;
-    right: 5vw;
-    bottom: 5vh;
+    right: 3vw;
+    bottom: 9vh;
     display: flex;
     flex-direction: column;
     box-shadow: 0 0 .5rem black;
@@ -390,7 +421,7 @@ legend {
 
 
 
-/* view page style */
+/* most pages main container */
 .wrapper {
     margin: auto;
 }
@@ -400,17 +431,23 @@ legend {
     padding: 2rem;
     background: white;
     border-radius: var(--br);
+}
+
+
+
+/* view page style */
+.view {
     display: flex;
     gap: 2rem;
 }
 
-.container section {
+.view section {
     background: lightgray;
     border-radius: var(--br);
     padding: 2rem;
 }
 
-.container img {
+.view img {
     width: 30rem;
     aspect-ratio: 1.25 / 1;
     object-fit: cover;
@@ -418,16 +455,16 @@ legend {
     outline: solid 3px black;
 }
 
-.container h3 {margin-block: 1rem;}
+.view h3 {margin-block: 1rem;}
 
-.container h4 {
+.view h4 {
     text-align: justify;
     max-inline-size: 70ch;
 }
 
-.container h5 {margin-top: 1rem;}
+.view h5 {margin-top: 1rem;}
 
-.container aside {
+.view aside {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -435,18 +472,18 @@ legend {
     margin-left: auto;
 }
 
-.container .cart {
+.view .cart {
     background: lightgray;
     border-radius: var(--br);
     padding-inline: .5rem;
     padding-block: 1.5rem;
 }
 
-.container .cart a {margin-left: auto;}
+.view .cart a {margin-left: auto;}
 
-.container .cart span {margin-right: auto;}
+.view .cart span {margin-right: auto;}
 
-.container .amount {
+.view .amount {
     background: lightgray;
     border-radius: var(--br);
     padding-inline: 1.5rem;
@@ -459,43 +496,43 @@ legend {
     gap: 1rem;
 }
 
-.container .amount #more {
+.view .amount #more {
     /* color: white; */
     background: #00a000;
     padding-inline: .7rem;
     border-radius: 0 var(--br) var(--br) 0;
 }
 
-.container .amount #more:hover {
+.view .amount #more:hover {
     background: #3cb43c;
     cursor: pointer;
 }
 
-.container .amount #number {
+.view .amount #number {
     background: white;
     padding-block: .5rem;
     padding-inline: 1.5rem;
 }
 
-.container .amount #less {
+.view .amount #less {
     /* color: white; */
     background: #ff3232;
     padding-inline: .7rem;
     border-radius: var(--br) 0 0 var(--br);
 }
 
-.container .amount #less:hover {
+.view .amount #less:hover {
     background: #ff6c6c;
     cursor: pointer;
 }
 
-.container .control {
+.view .control {
     font-weight: var(--fw-bold);
     font-size: var(--fs-normal);
     display: flex;
 }
 
-.container .amount input {
+.view .amount input {
     background: var(--clr-secondary);
     padding: .5rem;
     margin: 0;
@@ -506,7 +543,7 @@ legend {
     font-size: var(--fs-normal);
 }
 
-.container .back {
+.view .back {
     display: block;
     background: var(--clr-secondary);
     padding: .5rem;
@@ -518,7 +555,11 @@ legend {
     color: black;
 }
 
-.container .back:hover, .container .amount input:hover {
+.view .back:hover, .view .amount input:hover {
     background: var(--clr-secondary-light);
     cursor: pointer;
 }
+
+
+
+/* cart style */

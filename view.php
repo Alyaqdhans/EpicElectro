@@ -16,7 +16,7 @@
         ?>
 
         <form class="wrapper" method="post" action="viewProcess.php">
-            <div class="container">
+            <div class="container view">
                 <section>
                     <?php
                     echo "<img src='images/{$_GET['ic']}.jpg' alt='Image'>";
@@ -49,13 +49,9 @@
 
                         <div class="control">
                             <?php
-                            if ($data['iQty'] > 0) {
-                                $n = 1;
-                                $d = "";
-                            } else {
-                                $n = 0;
-                                $d = "disabled";
-                            }
+                            if ($data['iQty'] > 0) {$n = 1; $d = "";}
+                            else {$n = 0; $d = "disabled";}
+                            
                             echo "<input id='less' type='button' value=' - ' onclick='controller(\"less\")' disabled>";
                             echo "<span id='number'> $n </span>";
                             echo "<input id='more' type='button' value=' + ' onclick='controller(\"more\")' $d>";
