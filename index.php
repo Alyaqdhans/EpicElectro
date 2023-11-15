@@ -17,7 +17,6 @@
 
                 echo "<input id='search' type=text name='search' placeholder='Search for Items' value='$s'>";
                 ?>
-                <input type="button" value=' x ' onclick="clearSearch()">
                 <input type="submit" value="Search">
 
                 <?php

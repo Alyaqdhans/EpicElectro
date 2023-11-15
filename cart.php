@@ -15,47 +15,67 @@
         ?>
         
         <form class="wrapper" method="post">
-            <div class="container">
-                <fieldset>
-                    <legend>Cart</legend>
-                    
-                    <?php
-                    $total = [];
-                    foreach ($_SESSION['CART'] as $key => $item) {
-                        
-                        $query = "select * from items where {$item['ic']}";
-                        $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
-                        $data = mysqli_fetch_assoc($result);
+            <div class="container checkout">
+                <?php
+                foreach ($_SESSION['CART'] as $key => $item) { // remove the amount
+                    if (isset($_POST[$item['ic']])) {
+                        $remove = intval($_POST[$item['ic']]);
 
-                        echo "<div class='item'>";
-                            echo "<img src='images/{$item['ic']}.jpg' alt='Image'>";
-                            echo "<h4>Item Name: {$data['iDesc']}</h4>";
-                            $p = number_format($item['price']);
-                            echo "<h4>Item Price: $p</h4>";
-                            echo "<h4>Number of items selected: {$item['qty']}</h4>";
-                            echo "<input type='submit' value='Remove'>";
+                        if ($remove > 0) {
+                            if ($remove > $item['qty']) {
+                                $_SESSION['CART'][$key]['qty'] = 0;
+                            } else {
+                                $_SESSION['CART'][$key]['qty'] -= $remove;
+                            }
 
-                            // total price
-                            $price = intval($item['price']);
-                            $qty = intval($item['qty']);
-                            $t = $price * $qty;
-                            $total[] = $t;
-                        echo "</div>";
- 
+                            if ($_SESSION['CART'][$key]['qty'] == 0) {
+                                unset($_SESSION['CART'][$key]);
+                            }
+                        }
                     }
-                    // display total price
-                    echo "<div>";
-                        $to = number_format(array_sum($total));
-                        echo "<h4>Total price: $to OMR</h4>";
+                }
+
+                $total = [];
+                foreach ($_SESSION['CART'] as $key => $item) {
+                    $query = "select * from items where iCode = {$item['ic']}";
+                    $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
+                    $data = mysqli_fetch_assoc($result);
+
+                    echo "<div class='item'>";
+                        echo "<img src='images/{$item['ic']}.jpg' alt='Image'>";
+
+                        echo "<div class='info'>";
+                            echo "<h2> Name: </h2> <h3> {$data['iDesc']} </h3>";
+                            $p = number_format($item['price']);
+                            echo "<h2> Price: </h2> <h3> $p </h3>";
+                            echo "<h2> Amount: </h2> <h3> {$item['qty']} </h3>";
+                            $sub = number_format($item['qty'] * $item['price']);
+                            echo "<h2> Sub Total: </h2> <h3> $sub </h3>";
+                        echo "</div>";
+
+                        echo "<div class='amount'>";
+                            echo "<input type='number' name='{$item['ic']}' value='0'>";
+                            echo "<input type='submit' value='Remove'>";
+                        echo "</div>";
+
+                        // total price
+                        $price = intval($item['price']);
+                        $qty = intval($item['qty']);
+                        $total[] = ($price * $qty);
                     echo "</div>";
 
-                    // checkout
-                    if (empty($_SESSION['CART'])) {$d = 'disabled';}
-                    else {$d = '';}
+                }
+
+                echo "<div class='bottom'>";
+                    $total = number_format(array_sum($total));
+
+                    if (empty($_SESSION['CART'])) {$t="Cart Is Empty"; $d = "disabled";}
+                    else {$t="Total: $total OMR"; $d = '';}
                     
+                    echo "<h4> $t </h4>";
                     echo "<input type='submit' value='Checkout' formaction='cartProcess.php' $d>";
-                    ?>
-                </fieldset>
+                echo "</div>";
+                ?>
             </div>
         </form>
 

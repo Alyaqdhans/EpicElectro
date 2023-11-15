@@ -20,8 +20,3 @@ function controller(type) {
         }
     }
 }
-
-// search clearing
-function clearSearch() {
-    document.getElementById('search').value = "";
-}
