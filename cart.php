@@ -16,6 +16,8 @@
         
         <form class="wrapper" method="post">
             <div class="container checkout">
+                <a class="cartBack" href="javascript:history.back()"> Back </a>
+
                 <?php
                 foreach ($_SESSION['CART'] as $key => $item) { // remove the amount
                     if (isset($_POST[$item['ic']])) {
@@ -55,13 +57,15 @@
 
                         echo "<div class='amount'>";
                             echo "<input type='number' name='{$item['ic']}' value='0'>";
-                            echo "<input type='submit' value='Remove'>";
+                            echo "<input type='submit' value='Remove' formaction='cart.php#{$item['ic']}'>";
                         echo "</div>";
 
                         // total price
                         $price = intval($item['price']);
                         $qty = intval($item['qty']);
                         $total[] = ($price * $qty);
+
+                        echo "<span class='anchor' id='{$item['ic']}'></span>"; // scrolls user back
                     echo "</div>";
 
                 }
