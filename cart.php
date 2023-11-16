@@ -22,12 +22,8 @@
                         $remove = intval($_POST[$item['ic']]);
 
                         if ($remove > 0) {
-                            if ($remove > $item['qty']) {
-                                $_SESSION['CART'][$key]['qty'] = 0;
-                            } else {
-                                $_SESSION['CART'][$key]['qty'] -= $remove;
-                                header("Location: #{$item['ic']}");
-                            }
+                            $_SESSION['CART'][$key]['qty'] -= $remove;
+                            header("Location: #{$item['ic']}");
 
                             if ($_SESSION['CART'][$key]['qty'] == 0) {
                                 unset($_SESSION['CART'][$key]);
@@ -47,8 +43,6 @@
 
                         echo "<div class='info'>";
                             echo "<h2> Name: </h2> <h3> {$data['iDesc']} </h3>";
-                            $p = number_format($item['price']);
-                            echo "<h2> Price: </h2> <h3> $p </h3>";
                             echo "<h2> Amount: </h2> <h3> {$item['qty']} </h3>";
                             $sub = number_format($item['qty'] * $item['price']);
                             echo "<h2> Price: </h2> <h3> $sub OMR </h3>";
