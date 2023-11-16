@@ -18,7 +18,7 @@
             <div class="container checkout">
                 <?php
                 foreach ($_SESSION['CART'] as $key => $item) { // remove the amount
-                    if (isset($_POST[$item['ic']])) {
+                    if (isset($_POST[$item['ic']]) && $item['ic'] == $_GET['ic']) {
                         $remove = intval($_POST[$item['ic']]);
 
                         if ($remove > 0) {
@@ -54,14 +54,14 @@
                                 else {$d = "disabled";}
 
                                 echo "<input class='less' id=". 'less'.$item['ic'] ." type='button' value=' - ' onclick='controller(\"less\", {$item['ic']})' disabled>";
-                                echo "<span class='number' id=". 'number'.$item['ic'] ."> 0 </span>";
+                                echo "<span class='number' id=". 'number'.$item['ic'] ."> 1 </span>";
                                 echo "<input class='more' id=". 'more'.$item['ic'] ." type='button' value=' + ' onclick='controller(\"more\", {$item['ic']})' $d>";
                             echo "</div>";
 
                             echo "<input id=". 'stock'.$item['ic'] ." type='hidden' value='{$item['qty']}'>"; // for javascript
-                            echo "<input id=". 'qty'.$item['ic'] ." type='hidden' name='{$item['ic']}' value='0'>";
+                            echo "<input id=". 'qty'.$item['ic'] ." type='hidden' name='{$item['ic']}' value='1'>";
 
-                            echo "<input type='submit' value='Remove' formaction='cart.php#{$item['ic']}'>";
+                            echo "<input type='submit' value='Remove' formaction='cart.php?ic={$item['ic']}'#{$item['ic']}>";
                         echo "</div>";
 
                         // total price

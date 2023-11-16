@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 14, 2023 at 01:37 PM
+-- Generation Time: Nov 16, 2023 at 04:41 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -40,7 +40,9 @@ INSERT INTO `categories` (`categoryCode`, `categoryDes`) VALUES
 (1, 'Laptops'),
 (2, 'Smartphones'),
 (3, 'Headphones'),
-(4, 'Cameras');
+(4, 'Cameras'),
+(5, 'Monitor'),
+(6, 'Tablet');
 
 -- --------------------------------------------------------
 
@@ -65,11 +67,12 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`cId`, `cName`, `password`, `email`, `registerDate`, `lastLogin`, `cAddress`, `cType`, `phoneNumber`) VALUES
-(1, 'John Doe', '*FB6E1F205D675BC29B052DB14CCEFE7759C5FF7E', 'john.doe@email.com', '2020-01-01', '2023-11-14', '123 Street', 'A', 93215274),
+(1, 'John Doe', '*FB6E1F205D675BC29B052DB14CCEFE7759C5FF7E', 'john.doe@email.com', '2020-01-01', '2023-11-16', '123 Street', 'A', 93215274),
 (2, 'Jane Smith', '*FB6E1F205D675BC29B052DB14CCEFE7759C5FF7E', 'jane.smith@email.com', '2020-01-01', '2023-11-10', '456 Avenue', 'N', 48774964),
 (3, 'Alyaqdhan Zahran', '*196BDEDE2AE4F84CA44C47D54D78478C7E2BD7B7', 'alyaqdhan690s@gmail.com', '2023-11-10', '2023-11-11', 'Nizwa', 'A', 94028288),
-(8, 'Hassan Ambusaidi', '*84AAC12F54AB666ECFC2A83C676908C8BBC381B1', 'hassanjamal428@gmail.com', '2023-11-11', '2023-11-11', 'Nizwa', 'N', 95322022),
-(11, 'Mohamed Ali', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257', 'ali@gmail.com', '2023-11-12', '2023-11-12', 'firq', 'N', 98787878);
+(8, 'Hassan Ambusaidi', '*84AAC12F54AB666ECFC2A83C676908C8BBC381B1', 'hassanjamal428@gmail.com', '2023-11-11', '2023-11-16', 'Nizwa', 'A', 95322022),
+(11, 'Mohamed Ali', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257', 'ali@gmail.com', '2023-11-12', '2023-11-12', 'firq', 'N', 98787878),
+(12, 'abd', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257', 'bahagaa31@gmail.com', '2023-11-16', '2023-11-16', 'bahla', 'A', 94161247);
 
 -- --------------------------------------------------------
 
@@ -108,14 +111,37 @@ CREATE TABLE `items` (
 --
 
 INSERT INTO `items` (`iCode`, `iCategoryCode`, `iDesc`, `iComment`, `iQty`, `iCost`, `iPrice`, `iSupplierId`, `iLastPurchasedDate`, `iBrand`) VALUES
-(101, 1, 'High-Performance Laptop', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio praesentium, quas aut dolorem doloremque perspiciatis amet optio fuga eaque voluptatibus iure, eligendi omnis inventore, architecto solut', 0, 800, 1200, 1, '2023-09-15', 'Samsung'),
-(102, 2, 'Flagship Smartphone', '', 100, 600, 900, 2, '2023-09-20', 'Xaomi'),
-(103, 3, 'Noise-Canceling Headphones', '', 200, 150, 250, 1, '2023-09-18', 'Apple'),
-(104, 4, 'Digital Camera with Lens Kit', '', 30, 1200, 1800, 2, '2023-09-10', 'Sony'),
-(105, 1, 'High-Performance Laptop', '', 50, 800, 1200, 1, '2023-09-15', 'Samsung'),
-(106, 2, 'Flagship Smartphone', '', 100, 600, 900, 2, '2023-09-20', 'Xaomi'),
-(107, 3, 'Noise-Canceling Headphones', '', 200, 150, 250, 1, '2023-09-18', 'Apple'),
-(108, 4, 'Digital Camera with Lens Kit', '', 30, 1200, 1800, 2, '2023-09-10', 'Sony');
+(110, 2, 'iPhone 15 Pro Max', '', 0, 600, 618, 1, '2023-11-16', 'Apple'),
+(111, 2, 'iPhone 14 Pro Max', '', 20, 480, 496, 1, '2023-11-16', 'Apple'),
+(112, 2, 'Galaxy S22', '', 20, 195, 207, 1, '2023-11-16', 'Samsung'),
+(113, 2, 'P30', '', 20, 135, 147, 1, '2023-11-16', 'Huawei'),
+(114, 2, 'Galaxy S23', '', 20, 195, 209, 1, '2023-11-16', 'Samsung'),
+(115, 2, 'Z Fold 3', '', 20, 295, 303, 1, '2023-11-16', 'Samsung'),
+(116, 2, 'A54', '', 20, 110, 125, 1, '2023-11-16', 'Samsung'),
+(117, 2, 'Z Flip 5', '', 20, 310, 321, 1, '2023-11-16', 'Samsung'),
+(118, 2, 'Noza Y90', '', 20, 50, 66, 1, '2023-11-16', 'Huawei'),
+(120, 2, 'Galaxy A40s', '', 20, 35, 41, 1, '2023-11-16', 'Samsung'),
+(121, 2, 'OnePlus 11', '', 20, 280, 293, 1, '2023-11-16', 'OnePlus'),
+(122, 2, 'Poco X5', '', 20, 95, 107, 1, '2023-11-16', 'Xiaomi'),
+(123, 2, 'Redmi Note 11', '', 20, 55, 62, 1, '2023-11-16', 'Xiaomi'),
+(124, 2, 'Y9 Prime', '', 20, 35, 41, 1, '2023-11-16', 'Huawei'),
+(125, 2, '13T Pro', '', 20, 235, 240, 1, '2023-11-16', 'Xiaomi'),
+(126, 1, 'ROG Zephyrus M16', '', 20, 710, 727, 1, '2023-11-16', 'ASUS'),
+(127, 1, 'Legion 7', '', 20, 430, 444, 1, '2023-11-16', 'Lenovo'),
+(128, 1, 'Macbook Pro 16', '', 20, 680, 693, 1, '2023-11-16', 'Apple'),
+(129, 1, 'Victus', '', 20, 270, 293, 2, '2023-11-16', 'HP'),
+(130, 1, 'GF63 Thin', '', 20, 230, 245, 1, '2023-11-16', 'MSI'),
+(131, 1, 'Nitro 5', '', 20, 440, 462, 1, '2023-11-16', 'Acer'),
+(132, 1, 'Vivobook 14', '', 20, 200, 208, 1, '2023-11-16', 'Lenovo'),
+(133, 5, 'Odyssey GS 27', '', 20, 70, 88, 1, '2023-11-16', 'Samsung'),
+(134, 5, 'Neo G8', '', 20, 370, 382, 1, '2023-11-16', 'Samsung'),
+(135, 5, 'E2222HS', '', 20, 30, 44, 1, '2023-11-16', 'Dell'),
+(136, 5, 'V20 HD', '', 20, 40, 50, 1, '2023-11-16', 'HP'),
+(137, 5, 'G24C4 E2', '', 20, 55, 61, 1, '2023-11-16', 'MSI'),
+(138, 6, 'iPad 10th', '', 20, 240, 246, 1, '2023-11-16', 'Apple'),
+(139, 6, 'Surface Go3', '', 20, 200, 209, 1, '2023-11-16', 'Microsoft'),
+(140, 6, 'Tab A7 lite', '', 20, 35, 41, 1, '2023-11-16', 'Samsung'),
+(141, 6, 'Tab A8', '', 20, 75, 80, 1, '2023-11-16', 'Samsung');
 
 -- --------------------------------------------------------
 
@@ -149,16 +175,6 @@ CREATE TABLE `order_items` (
   `iCode` int(11) NOT NULL COMMENT 'Item Code (FK)',
   `quantity` int(11) NOT NULL COMMENT 'Quantity'
 );
-
---
--- Dumping data for table `order_items`
---
-
-INSERT INTO `order_items` (`orderID`, `iCode`, `quantity`) VALUES
-(1001, 101, 2),
-(1001, 103, 1),
-(1002, 102, 1),
-(1002, 104, 1);
 
 -- --------------------------------------------------------
 
@@ -241,13 +257,13 @@ ALTER TABLE `suppliers`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `categoryCode` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Category Code', AUTO_INCREMENT=5;
+  MODIFY `categoryCode` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Category Code', AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `cId` int(10) NOT NULL AUTO_INCREMENT COMMENT 'Customer ID', AUTO_INCREMENT=12;
+  MODIFY `cId` int(10) NOT NULL AUTO_INCREMENT COMMENT 'Customer ID', AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `delivery`
@@ -259,7 +275,7 @@ ALTER TABLE `delivery`
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `iCode` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Item Code', AUTO_INCREMENT=109;
+  MODIFY `iCode` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Item Code', AUTO_INCREMENT=142;
 
 --
 -- AUTO_INCREMENT for table `orders`

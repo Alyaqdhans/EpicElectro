@@ -27,7 +27,7 @@
                 }
 
                 echo "<select name='category'>";
-                    echo "<option value='x'> Choose Categories </option>";
+                    echo "<option value='x'> Categories </option>";
 
                     $query = "select * from categories";
                     $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
@@ -65,7 +65,7 @@
                 if (mysqli_num_rows($result) > 0) {
                     while ($data = mysqli_fetch_assoc($result)) {
                         echo "<div class='card'>";
-                            echo "<img src='images/{$data['iCode']}.jpg' alt='Image'>";
+                            echo "<img src='images/{$data['iCode']}.jpg' alt='{$data['iDesc']}'>";
                             echo "<h3> {$data['iDesc']} </h3>";
                             echo "<h4> by {$data['iBrand']} </h4>";
                             if ($data['iQty'] > 0) {

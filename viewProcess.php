@@ -22,5 +22,5 @@ if (!$in_array) {
     array_push($_SESSION['CART'], ["ic" => $_POST['ic'], "price" => $_POST['price'], "qty" => $_POST['qty']]);
 }
 
-header('Location: index.php');
+header("Location: index.php#{$_POST['ic']}");
 ?>
