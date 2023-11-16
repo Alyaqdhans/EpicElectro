@@ -11,7 +11,7 @@
             $type = "Normal";
         }
 
-        echo " | $name ($type) <a href='logout.php'> Logout </a>";
+        echo " ︱ $name ($type) <a href='logout.php'> Logout </a>";
     }
     ?>
 </footer>
