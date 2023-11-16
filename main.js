@@ -1,22 +1,22 @@
-// amount controller
-function controller(type) {
-    const stock = parseInt(document.getElementById('stock').value);
-    let n = parseInt(document.getElementById('number').innerHTML);
+// amount controller for view & cart
+function controller(type, id) {
+    const stock = parseInt(document.getElementById('stock'+id).value);
+    let n = parseInt(document.getElementById('number'+id).innerHTML);
     if (type == "more") {
         n += 1;
-        document.getElementById('number').innerHTML = n;
-        document.getElementById('qty').value = n;
-        document.getElementById('less').disabled = false;
+        document.getElementById('number'+id).innerHTML = n;
+        document.getElementById('qty'+id).value = n;
+        document.getElementById('less'+id).disabled = false;
         if (n == stock) {
-            document.getElementById('more').disabled = true;
+            document.getElementById('more'+id).disabled = true;
         }
     } else if (type == "less") {
         n -= 1;
-        document.getElementById('number').innerHTML = n;
-        document.getElementById('qty').value = n;
-        document.getElementById('more').disabled = false;
-        if (n == 1) {
-            document.getElementById('less').disabled = true;
+        document.getElementById('number'+id).innerHTML = n;
+        document.getElementById('qty'+id).value = n;
+        document.getElementById('more'+id).disabled = false;
+        if (n <= 1) {
+            document.getElementById('less'+id).disabled = true;
         }
     }
 }

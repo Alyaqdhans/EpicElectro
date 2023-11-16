@@ -52,11 +52,11 @@
                             if ($data['iQty'] > 0) {$n = 1; $d = "";}
                             else {$n = 0; $d = "disabled";}
                             
-                            echo "<input id='less' type='button' value=' - ' onclick='controller(\"less\")' disabled>";
-                            echo "<span id='number'> $n </span>";
-                            echo "<input id='more' type='button' value=' + ' onclick='controller(\"more\")' $d>";
+                            echo "<input class='less' id=". 'less'.$_GET['ic'] ." type='button' value=' - ' onclick='controller(\"less\", {$_GET['ic']})' disabled>";
+                            echo "<span class='number' id=". 'number'.$_GET['ic'] ."> $n </span>";
+                            echo "<input class='more' id=". 'more'.$_GET['ic'] ." type='button' value=' + ' onclick='controller(\"more\", {$_GET['ic']})' $d>";
 
-                            echo "<input id='stock' type='hidden' value='{$data['iQty']}'>"; // for javascript
+                            echo "<input id=". 'stock'.$_GET['ic'] ." type='hidden' value='{$data['iQty']}'>"; // for javascript
                             ?>
                         </div>
 
@@ -72,7 +72,7 @@
 
                         echo "<input type='hidden' name='ic' value='{$_GET['ic']}'>";
                         echo "<input type='hidden' name='price' value='{$data['iPrice']}'>";
-                        echo "<input id='qty' type='hidden' name='qty' value='1'>";
+                        echo "<input id=". 'qty'.$_GET['ic'] ." type='hidden' name='qty' value='1'>";
                         ?>
                     </div>
 

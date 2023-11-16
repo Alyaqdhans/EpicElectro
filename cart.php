@@ -55,8 +55,19 @@
                         echo "</div>";
 
                         echo "<div class='amount'>";
-                            echo "<input type='number' name='{$item['ic']}' value='0'>";
-                            echo "<input type='submit' value='Remove' formaction='cart.php'>";
+                            echo "<div class='control'>";
+                                if ($item['qty'] > 0) {$d = "";}
+                                else {$d = "disabled";}
+
+                                echo "<input class='less' id=". 'less'.$item['ic'] ." type='button' value=' - ' onclick='controller(\"less\", {$item['ic']})' disabled>";
+                                echo "<span class='number' id=". 'number'.$item['ic'] ."> 0 </span>";
+                                echo "<input class='more' id=". 'more'.$item['ic'] ." type='button' value=' + ' onclick='controller(\"more\", {$item['ic']})' $d>";
+                            echo "</div>";
+
+                            echo "<input id=". 'stock'.$item['ic'] ." type='hidden' value='{$item['qty']}'>"; // for javascript
+                            echo "<input id=". 'qty'.$item['ic'] ." type='hidden' name='{$item['ic']}' value='0'>";
+
+                            echo "<input type='submit' value='Remove'>";
                         echo "</div>";
 
                         // total price
