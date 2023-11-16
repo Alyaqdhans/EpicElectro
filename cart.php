@@ -26,6 +26,7 @@
                                 $_SESSION['CART'][$key]['qty'] = 0;
                             } else {
                                 $_SESSION['CART'][$key]['qty'] -= $remove;
+                                header("Location: #{$item['ic']}");
                             }
 
                             if ($_SESSION['CART'][$key]['qty'] == 0) {
@@ -50,12 +51,12 @@
                             echo "<h2> Price: </h2> <h3> $p </h3>";
                             echo "<h2> Amount: </h2> <h3> {$item['qty']} </h3>";
                             $sub = number_format($item['qty'] * $item['price']);
-                            echo "<h2> Sub Total: </h2> <h3> $sub </h3>";
+                            echo "<h2> Price: </h2> <h3> $sub OMR </h3>";
                         echo "</div>";
 
                         echo "<div class='amount'>";
                             echo "<input type='number' name='{$item['ic']}' value='0'>";
-                            echo "<input type='submit' value='Remove' formaction='cart.php#{$item['ic']}'>";
+                            echo "<input type='submit' value='Remove' formaction='cart.php'>";
                         echo "</div>";
 
                         // total price
@@ -80,6 +81,11 @@
                 ?>
             </div>
         </form>
+
+        <div class="scroll">
+            <a class="btn up" href="#up">▲</a>
+            <a class="btn down" href="#down">▼</a>
+        </div>
 
         <?php include('footer.php'); ?>
     </body>
