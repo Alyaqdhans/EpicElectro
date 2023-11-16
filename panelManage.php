@@ -37,27 +37,27 @@
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
-                    <?php
-                    $query = "select * from items";
-                    $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
-                    
-                    while ($data = mysqli_fetch_assoc($result)) {
-                        $c = mysqli_fetch_row(mysqli_query($conn, "select categoryDes from categories where categoryCode = {$data['iCategoryCode']}"));
-                        $s = mysqli_fetch_row(mysqli_query($conn, "select sName from suppliers where sId = {$data['iSupplierId']}"));
-                        echo "<tr>";
-                        echo "<td> {$data['iCode']} </td>";
-                        echo "<td> {$c[0]} </td>";
-                        echo "<td> {$data['iDesc']} </td>";
-                        echo "<td> {$data['iQty']} </td>";
-                        echo "<td> {$data['iCost']} </td>";
-                        echo "<td> {$data['iPrice']} </td>";
-                        echo "<td> {$data['iBrand']} </td>";
-                        echo "<td> {$s[0]} </td>";
-                        echo "<td> <a href=''>Edit</a> </td>";
-                        echo "<td> <input type='checkbox' name='{$data['iCode']}' value='{$data['iCode']}'> </td>";
-                        echo "</tr>";
-                    }
-                    ?>
+                        <?php
+                        $query = "select * from items";
+                        $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
+                        
+                        while ($data = mysqli_fetch_assoc($result)) {
+                            $c = mysqli_fetch_row(mysqli_query($conn, "select categoryDes from categories where categoryCode = {$data['iCategoryCode']}"));
+                            $s = mysqli_fetch_row(mysqli_query($conn, "select sName from suppliers where sId = {$data['iSupplierId']}"));
+                            echo "<tr>";
+                            echo "<td> {$data['iCode']} </td>";
+                            echo "<td> {$c[0]} </td>";
+                            echo "<td> {$data['iDesc']} </td>";
+                            echo "<td> {$data['iQty']} </td>";
+                            echo "<td> {$data['iCost']} </td>";
+                            echo "<td> {$data['iPrice']} </td>";
+                            echo "<td> {$data['iBrand']} </td>";
+                            echo "<td> {$s[0]} </td>";
+                            echo "<td> <a href=''>Edit</a> </td>";
+                            echo "<td> <input type='checkbox' name='{$data['iCode']}' value='{$data['iCode']}'> </td>";
+                            echo "</tr>";
+                        }
+                        ?>
                     </table>
                 </fieldset>
                 

@@ -488,13 +488,13 @@ legend {
 
 .amount .more {
     /* color: white; */
-    background: #00a000;
+    background: hsl(120, 100%, 35%);
     padding-inline: .7rem;
     border-radius: 0 var(--br) var(--br) 0;
 }
 
 .amount .more:hover {
-    background: #3cb43c;
+    background: hsl(120, 100%, 40%);
     cursor: pointer;
 }
 
@@ -506,13 +506,13 @@ legend {
 
 .amount .less {
     /* color: white; */
-    background: #ff3232;
+    background: hsl(0, 100%, 50%);
     padding-inline: .7rem;
     border-radius: var(--br) 0 0 var(--br);
 }
 
 .amount .less:hover {
-    background: #ff6c6c;
+    background: hsl(0, 100%, 65%);
     cursor: pointer;
 }
 

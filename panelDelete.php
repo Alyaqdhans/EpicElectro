@@ -31,21 +31,21 @@
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
-                    <?php
-                    $query = "select * from customers";
-                    $result = mysqli_query($conn,$query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
-                    
-                    while ($data = mysqli_fetch_assoc($result)) {
-                        echo "<tr> <label>";
-                        echo "<td> {$data['cId']} </td>";
-                        echo "<td> {$data['cName']} </td>";
-                        echo "<td> {$data['email']} </td>";
-                        echo "<td> {$data['cType']} </td>";
-                        echo "<td> <a href=''>Edit</a> </td>";
-                        echo "<td><input type='checkbox' name= value={$data['cId']}> </td>";
-                        echo "</label> </tr>";
-                    }
-                    ?>
+                        <?php
+                        $query = "select * from customers";
+                        $result = mysqli_query($conn,$query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
+                        
+                        while ($data = mysqli_fetch_assoc($result)) {
+                            echo "<tr> <label>";
+                            echo "<td> {$data['cId']} </td>";
+                            echo "<td> {$data['cName']} </td>";
+                            echo "<td> {$data['email']} </td>";
+                            echo "<td> {$data['cType']} </td>";
+                            echo "<td> <a href=''>Edit</a> </td>";
+                            echo "<td><input type='checkbox' name= value={$data['cId']}> </td>";
+                            echo "</label> </tr>";
+                        }
+                        ?>
                     </table>
                 </fieldset>
                 

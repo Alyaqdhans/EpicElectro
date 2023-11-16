@@ -15,7 +15,7 @@ function controller(type, id) {
         document.getElementById('number'+id).innerHTML = n;
         document.getElementById('qty'+id).value = n;
         document.getElementById('more'+id).disabled = false;
-        if (n <= 1) {
+        if (n == 1) {
             document.getElementById('less'+id).disabled = true;
         }
     }

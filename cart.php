@@ -21,13 +21,11 @@
                     if (isset($_POST[$item['ic']]) && $item['ic'] == $_GET['ic']) {
                         $remove = intval($_POST[$item['ic']]);
 
-                        if ($remove > 0) {
-                            $_SESSION['CART'][$key]['qty'] -= $remove;
-                            header("Location: #{$item['ic']}");
+                        $_SESSION['CART'][$key]['qty'] -= $remove;
+                        header("Location: #{$item['ic']}");
 
-                            if ($_SESSION['CART'][$key]['qty'] == 0) {
-                                unset($_SESSION['CART'][$key]);
-                            }
+                        if ($_SESSION['CART'][$key]['qty'] == 0) {
+                            unset($_SESSION['CART'][$key]);
                         }
                     }
                 }
@@ -50,7 +48,7 @@
 
                         echo "<div class='amount'>";
                             echo "<div class='control'>";
-                                if ($item['qty'] > 0) {$d = "";}
+                                if ($item['qty'] > 1) {$d = "";}
                                 else {$d = "disabled";}
 
                                 echo "<input class='less' id=". 'less'.$item['ic'] ." type='button' value=' - ' onclick='controller(\"less\", {$item['ic']})' disabled>";
