@@ -5,6 +5,8 @@
     if (!isset($_SESSION['TYPE'])) {
         echo "<a class='ln' href='login.php'> Login </a>";
     } else {
+        echo "<a class='ln' href='orders.php'>  Orders </a>";
+
         if ($_SESSION['TYPE'] == 'A') {
             echo "<a class='ln' href='panel.php'>  Panel </a>";
         }
