@@ -67,7 +67,7 @@
                             echo "<input id=". 'stock'.$item['ic'] ." type='hidden' value='{$item['qty']}'>"; // for javascript
                             echo "<input id=". 'qty'.$item['ic'] ." type='hidden' name='{$item['ic']}' value='0'>";
 
-                            echo "<input type='submit' value='Remove'>";
+                            echo "<input type='submit' value='Remove' formaction='cart.php#{$item['ic']}'>";
                         echo "</div>";
 
                         // total price
