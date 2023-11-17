@@ -13,13 +13,7 @@
             $name = $fullName[0];
         }
 
-        if ($_SESSION['TYPE'] == 'A') {
-            $type = "Admin";
-        } else {
-            $type = "Normal";
-        }
-
-        echo " ︱ $name ($type) <a href='logout.php'> Logout </a>";
+        echo " ︱ $name (<a href='logout.php'>Logout</a>)";
     }
     ?>
 </footer>
