@@ -30,7 +30,7 @@
                 }
 
                 $total = [];
-                foreach ($_SESSION['CART'] as $key => $item) {
+                foreach ($_SESSION['CART'] as $item) {
                     $query = "select * from items where iCode = {$item['ic']}";
                     $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
                     $data = mysqli_fetch_assoc($result);

@@ -67,7 +67,7 @@
                 <div class="buttons">
                     <div class="main">
                         <input class="left" type='submit' value='Save'>
-                        <input class="right" type='reset' value='Clear'>
+                        <input class="right" type='reset' value='Reset'>
                     </div>
                 </div>
                 
