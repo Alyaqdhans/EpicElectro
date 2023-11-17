@@ -22,13 +22,16 @@ function controller(type, id) {
 }
 
 // make entire table row activate checkbox
-document.querySelector("table").addEventListener("click", ({ target }) => {
-    if (target.nodeName === "INPUT") return;
-    const tr = target.closest("tr");
-    if (tr.id == "clickable") {
-        const checkbox = tr.querySelector("input[type='checkbox']");
-        if (!checkbox.disabled) {
-            checkbox.checked = !checkbox.checked;
+let table = document.querySelector("table");
+if (table) {
+    table.addEventListener("click", ({ target }) => {
+        if (target.nodeName === "INPUT") return;
+        const tr = target.closest("tr");
+        if (tr.id == "clickable") {
+            const checkbox = tr.querySelector("input[type='checkbox']");
+            if (!checkbox.disabled) {
+                checkbox.checked = !checkbox.checked;
+            }
         }
-    }
-});
+    });
+}

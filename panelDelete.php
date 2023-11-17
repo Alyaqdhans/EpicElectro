@@ -20,7 +20,7 @@
         ?>
         
         <div class="wrapper">
-            <form class="container manage" action="panelDeleteProcess.php" method="post">
+            <form class="container manage" action="panelDeleteProcess.php" method="post" onsubmit="return confirm('Are you sure you want to do that?');">
                 <fieldset>
                     <legend>Delete Accounts</legend>
 
