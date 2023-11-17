@@ -16,7 +16,7 @@
 }
 
 
-html {user-select: none;}
+/* html {scroll-behavior: smooth; user-select: none;} */
 
 img {max-width: 100%; pointer-events: none;}
 
@@ -638,9 +638,17 @@ legend {
 
 
 
-/* item management style */
+/* panel pages style */
+.manage {
+    text-align: center;
+}
+
+.manage * {
+    font-weight: var(--fw-bold);
+}
+
 .manage fieldset {
-    height: 24rem;
+    max-height: 24rem;
     overflow-y: scroll;
     margin-bottom: 1rem;
 }
@@ -654,34 +662,24 @@ legend {
 .manage fieldset table,
 .manage fieldset th,
 .manage fieldset td {
-    border: 2px solid black;
-    text-align: center;
+    text-align: left;
     padding: .3rem;
 }
 
-.manage fieldset td,
-.manage fieldset th {
-    border-left: none;
-    border-right: none;
-}
+.manage fieldset #center {text-align: center;}
 
-.manage {
-    text-align: center;
-}
+/* .manage fieldset tr:hover {background: #aaaaaa !important;} */
 
-.manage input {
+.manage .buttons input {
     background: var(--clr-secondary);
     padding: .5rem;
-    margin: 0;
     border: 0;
-    border-radius: var(--br);
     text-decoration: none;
     font-weight: var(--fw-bold);
     font-size: var(--fs-normal);
 }
 
-.manage > a {
-    display: inline-block;
+.manage .buttons a {
     background: var(--clr-secondary);
     padding: .5rem;
     text-align: center;
@@ -692,7 +690,28 @@ legend {
     color: black;
 }
 
-.manage input:hover, .manage > a:hover {
+.manage .buttons input:hover, .manage .buttons a:hover {
     background: var(--clr-secondary-light);
     cursor: pointer;
+}
+
+.manage .buttons {
+    margin: auto;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+}
+
+.manage .buttons .main {
+    display: flex;
+    gap: .1rem;
+}
+
+.manage .buttons .right {
+    border-radius: 0 var(--br) var(--br) 0;
+}
+
+.manage .buttons .left {
+    border-radius: var(--br) 0 0 var(--br);
 }

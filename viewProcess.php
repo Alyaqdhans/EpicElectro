@@ -10,15 +10,15 @@ if (!isset($_POST['ic'])) {
     exit;
 }
 
-$in_array = false; // check if item already exist
+$in_cart = false; // check if item already exist
 foreach ($_SESSION['CART'] as $key => $item) {
     if (in_array($_POST['ic'], $item)) {
         $_SESSION['CART'][$key]['qty'] += $_POST['qty'];
-        $in_array = true;
+        $in_cart = true;
     }
 }
 
-if (!$in_array) {
+if ($in_cart == false) {
     array_push($_SESSION['CART'], ["ic" => $_POST['ic'], "price" => $_POST['price'], "qty" => $_POST['qty']]);
 }
 

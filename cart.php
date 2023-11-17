@@ -17,14 +17,13 @@
         <form class="wrapper" method="post">
             <div class="container checkout">
                 <?php
-                foreach ($_SESSION['CART'] as $key => $item) { // remove the amount
-                    if (isset($_POST[$item['ic']]) && $item['ic'] == $_GET['ic']) {
-                        $remove = intval($_POST[$item['ic']]);
+                foreach ($_SESSION['CART'] as $key => $item) {
+                    if (isset($_POST[$item['ic']]) && $item['ic'] == $_GET['ic']) { // check which item to remove
 
-                        $_SESSION['CART'][$key]['qty'] -= $remove;
+                        $_SESSION['CART'][$key]['qty'] -= $_POST[$item['ic']]; // remove the amount
                         header("Location: #{$item['ic']}");
 
-                        if ($_SESSION['CART'][$key]['qty'] == 0) {
+                        if ($_SESSION['CART'][$key]['qty'] == 0) { // if qty is 0 remove item from cart
                             unset($_SESSION['CART'][$key]);
                         }
                     }

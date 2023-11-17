@@ -21,19 +21,20 @@
         ?>
         
         <div class="wrapper">
-            <form class="container manage" action='panelManageDelete.php' method='post'>
+            <form class="container manage" action='panelManageProcess.php' method='post'>
                 <fieldset>
                     <legend>Item Management</legend>
                     <table clsss="table item">
-                        <tr>
-                            <th>Code</th>
-                            <th>Category</th>
+                        <tr style="background: gray; color: white;">
+                            <th>ID</th>
                             <th>Title</th>
-                            <th>Quantity</th>
+                            <th>Brand</th>
+                            <th>Category</th>
                             <th>Cost</th>
                             <th>Price</th>
-                            <th>Brand</th>
                             <th>Supplier</th>
+                            <th>Quantity</th>
+                            <th>Add</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
@@ -41,29 +42,40 @@
                         $query = "select * from items";
                         $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
                         
+                        $line = 0;
                         while ($data = mysqli_fetch_assoc($result)) {
                             $c = mysqli_fetch_row(mysqli_query($conn, "select categoryDes from categories where categoryCode = {$data['iCategoryCode']}"));
                             $s = mysqli_fetch_row(mysqli_query($conn, "select sName from suppliers where sId = {$data['iSupplierId']}"));
-                            echo "<tr>";
+
+                            if ($line % 2 == 1) {$style = "style='background: lightgray;'";}
+                            else {$style = "";}
+                            $line += 1;
+                            
+                            echo "<tr $style>";
                             echo "<td> {$data['iCode']} </td>";
-                            echo "<td> {$c[0]} </td>";
                             echo "<td> {$data['iDesc']} </td>";
-                            echo "<td> {$data['iQty']} </td>";
+                            echo "<td> {$data['iBrand']} </td>";
+                            echo "<td> {$c[0]} </td>";
                             echo "<td> {$data['iCost']} </td>";
                             echo "<td> {$data['iPrice']} </td>";
-                            echo "<td> {$data['iBrand']} </td>";
                             echo "<td> {$s[0]} </td>";
-                            echo "<td> <a href=''>Edit</a> </td>";
-                            echo "<td> <input type='checkbox' name='{$data['iCode']}' value='{$data['iCode']}'> </td>";
+                            echo "<td id='center'> {$data['iQty']} </td>";
+                            echo "<td> <a href='panelManageAdd.php'> Add </a> </td>";
+                            echo "<td> <a href='panelManageEdit.php'> Edit </a> </td>";
+                            echo "<td id='center'> <input type='checkbox' name='{$data['iCode']}'> </td>";
                             echo "</tr>";
                         }
                         ?>
                     </table>
                 </fieldset>
                 
-                <a href='panelManageCreate.php'> Create </a>
-                <input type='reset' value='Clear'>
-                <input type='submit' value='Delete'>
+                <div class="buttons">
+                    <div class="main">
+                        <input class="left" type='submit' value='Delete'>
+                        <input class="right" type='reset' value='Clear'>
+                    </div>
+                    <a href='panelManageCreate.php'> Create </a>
+                </div>
                 
             </form>
         </div>
