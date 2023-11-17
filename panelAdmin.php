@@ -20,17 +20,20 @@
         ?>
         
         <div class="wrapper">
-        <form class="container manage" action="panelDeleteProcess.php" method="post">
+            <form class="container manage" action="panelAdminProcess.php" method="post">
                 <fieldset>
-                    <legend>Account Deletion</legend>
+                    <legend>Admin Accounts</legend>
+
                     <table>
                         <tr style="background: gray; color: white;">
                             <th>ID</th>
                             <th>Name</th>
                             <th>Email</th>
+                            <th>Registered</th>
                             <th>Type</th>
                             <th>Admin</th>
                         </tr>
+
                         <?php
                         $query = "select * from customers";
                         $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
@@ -48,6 +51,7 @@
                             echo "<td> {$data['cId']} </td>";
                             echo "<td> {$data['cName']} </td>";
                             echo "<td> {$data['email']} </td>";
+                            echo "<td> {$data['registerDate']} </td>";
                             echo "<td id='center'> {$data['cType']} </td>";
                             echo "<td id='center'> <input type='checkbox' name='{$data['cId']}' $d> </td>";
                             echo "</tr>";

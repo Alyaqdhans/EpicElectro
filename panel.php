@@ -22,9 +22,9 @@
             <div class="container">
                 <fieldset>
                     <legend>Panel</legend>
-                    <a href="panelAdmin.php">Admin Permissions</a>
-                    <a href="panelDelete.php">Delete Accounts</a>
-                    <a href="panelManage.php">Manage Items</a>
+                    <a href="panelAdmin.php"> Admin Accounts </a>
+                    <a href="panelDelete.php"> Delete Accounts </a>
+                    <a href="panelManage.php"> Manage Items </a>
                 </fieldset>
             </div>
         </div>

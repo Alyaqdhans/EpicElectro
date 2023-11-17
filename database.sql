@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 16, 2023 at 04:41 PM
+-- Generation Time: Nov 17, 2023 at 11:01 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -67,7 +67,7 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`cId`, `cName`, `password`, `email`, `registerDate`, `lastLogin`, `cAddress`, `cType`, `phoneNumber`) VALUES
-(1, 'John Doe', '*FB6E1F205D675BC29B052DB14CCEFE7759C5FF7E', 'john.doe@email.com', '2020-01-01', '2023-11-16', '123 Street', 'A', 93215274),
+(1, 'John Doe', '*FB6E1F205D675BC29B052DB14CCEFE7759C5FF7E', 'john.doe@email.com', '2020-01-01', '2023-11-17', '123 Street', 'A', 93215274),
 (2, 'Jane Smith', '*FB6E1F205D675BC29B052DB14CCEFE7759C5FF7E', 'jane.smith@email.com', '2020-01-01', '2023-11-10', '456 Avenue', 'N', 48774964),
 (3, 'Alyaqdhan Zahran', '*196BDEDE2AE4F84CA44C47D54D78478C7E2BD7B7', 'alyaqdhan690s@gmail.com', '2023-11-10', '2023-11-11', 'Nizwa', 'A', 94028288),
 (8, 'Hassan Ambusaidi', '*84AAC12F54AB666ECFC2A83C676908C8BBC381B1', 'hassanjamal428@gmail.com', '2023-11-11', '2023-11-16', 'Nizwa', 'A', 95322022),
@@ -99,6 +99,7 @@ CREATE TABLE `items` (
   `iDesc` text NOT NULL COMMENT 'Item Title',
   `iComment` varchar(200) NOT NULL COMMENT 'Item Description',
   `iQty` int(11) NOT NULL COMMENT 'Item Quantity',
+  `iSold` int(5) NOT NULL COMMENT 'Item Sales',
   `iCost` int(11) NOT NULL COMMENT 'Item Cost',
   `iPrice` int(11) NOT NULL COMMENT 'Item Price',
   `iSupplierId` int(11) NOT NULL COMMENT 'Item Supplier Id(FK)',
@@ -110,38 +111,38 @@ CREATE TABLE `items` (
 -- Dumping data for table `items`
 --
 
-INSERT INTO `items` (`iCode`, `iCategoryCode`, `iDesc`, `iComment`, `iQty`, `iCost`, `iPrice`, `iSupplierId`, `iLastPurchasedDate`, `iBrand`) VALUES
-(110, 2, 'iPhone 15 Pro Max', '', 0, 600, 618, 1, '2023-11-16', 'Apple'),
-(111, 2, 'iPhone 14 Pro Max', '', 20, 480, 496, 1, '2023-11-16', 'Apple'),
-(112, 2, 'Galaxy S22', '', 20, 195, 207, 1, '2023-11-16', 'Samsung'),
-(113, 2, 'P30', '', 20, 135, 147, 1, '2023-11-16', 'Huawei'),
-(114, 2, 'Galaxy S23', '', 20, 195, 209, 1, '2023-11-16', 'Samsung'),
-(115, 2, 'Z Fold 3', '', 20, 295, 303, 1, '2023-11-16', 'Samsung'),
-(116, 2, 'A54', '', 20, 110, 125, 1, '2023-11-16', 'Samsung'),
-(117, 2, 'Z Flip 5', '', 20, 310, 321, 1, '2023-11-16', 'Samsung'),
-(118, 2, 'Noza Y90', '', 20, 50, 66, 1, '2023-11-16', 'Huawei'),
-(120, 2, 'Galaxy A40s', '', 20, 35, 41, 1, '2023-11-16', 'Samsung'),
-(121, 2, 'OnePlus 11', '', 20, 280, 293, 1, '2023-11-16', 'OnePlus'),
-(122, 2, 'Poco X5', '', 20, 95, 107, 1, '2023-11-16', 'Xiaomi'),
-(123, 2, 'Redmi Note 11', '', 20, 55, 62, 1, '2023-11-16', 'Xiaomi'),
-(124, 2, 'Y9 Prime', '', 20, 35, 41, 1, '2023-11-16', 'Huawei'),
-(125, 2, '13T Pro', '', 20, 235, 240, 1, '2023-11-16', 'Xiaomi'),
-(126, 1, 'ROG Zephyrus M16', '', 20, 710, 727, 1, '2023-11-16', 'ASUS'),
-(127, 1, 'Legion 7', '', 20, 430, 444, 1, '2023-11-16', 'Lenovo'),
-(128, 1, 'Macbook Pro 16', '', 20, 680, 693, 1, '2023-11-16', 'Apple'),
-(129, 1, 'Victus', '', 20, 270, 293, 2, '2023-11-16', 'HP'),
-(130, 1, 'GF63 Thin', '', 20, 230, 245, 1, '2023-11-16', 'MSI'),
-(131, 1, 'Nitro 5', '', 20, 440, 462, 1, '2023-11-16', 'Acer'),
-(132, 1, 'Vivobook 14', '', 20, 200, 208, 1, '2023-11-16', 'Lenovo'),
-(133, 5, 'Odyssey GS 27', '', 20, 70, 88, 1, '2023-11-16', 'Samsung'),
-(134, 5, 'Neo G8', '', 20, 370, 382, 1, '2023-11-16', 'Samsung'),
-(135, 5, 'E2222HS', '', 20, 30, 44, 1, '2023-11-16', 'Dell'),
-(136, 5, 'V20 HD', '', 20, 40, 50, 1, '2023-11-16', 'HP'),
-(137, 5, 'G24C4 E2', '', 20, 55, 61, 1, '2023-11-16', 'MSI'),
-(138, 6, 'iPad 10th', '', 20, 240, 246, 1, '2023-11-16', 'Apple'),
-(139, 6, 'Surface Go3', '', 20, 200, 209, 1, '2023-11-16', 'Microsoft'),
-(140, 6, 'Tab A7 lite', '', 20, 35, 41, 1, '2023-11-16', 'Samsung'),
-(141, 6, 'Tab A8', '', 20, 75, 80, 1, '2023-11-16', 'Samsung');
+INSERT INTO `items` (`iCode`, `iCategoryCode`, `iDesc`, `iComment`, `iQty`, `iSold`, `iCost`, `iPrice`, `iSupplierId`, `iLastPurchasedDate`, `iBrand`) VALUES
+(110, 2, 'iPhone 15 Pro Max', '', 0, 0, 600, 618, 1, '2023-11-16', 'Apple'),
+(111, 2, 'iPhone 14 Pro Max', '', 20, 0, 480, 496, 1, '2023-11-16', 'Apple'),
+(112, 2, 'Galaxy S22', '', 20, 0, 195, 207, 1, '2023-11-16', 'Samsung'),
+(113, 2, 'P30', '', 20, 0, 135, 147, 1, '2023-11-16', 'Huawei'),
+(114, 2, 'Galaxy S23', '', 20, 0, 195, 209, 1, '2023-11-16', 'Samsung'),
+(115, 2, 'Z Fold 3', '', 20, 0, 295, 303, 1, '2023-11-16', 'Samsung'),
+(116, 2, 'A54', '', 20, 0, 110, 125, 1, '2023-11-16', 'Samsung'),
+(117, 2, 'Z Flip 5', '', 20, 0, 310, 321, 1, '2023-11-16', 'Samsung'),
+(118, 2, 'Noza Y90', '', 20, 0, 50, 66, 1, '2023-11-16', 'Huawei'),
+(120, 2, 'Galaxy A40s', '', 20, 0, 35, 41, 1, '2023-11-16', 'Samsung'),
+(121, 2, 'OnePlus 11', '', 20, 0, 280, 293, 1, '2023-11-16', 'OnePlus'),
+(122, 2, 'Poco X5', '', 20, 0, 95, 107, 1, '2023-11-16', 'Xiaomi'),
+(123, 2, 'Redmi Note 11', '', 20, 0, 55, 62, 1, '2023-11-16', 'Xiaomi'),
+(124, 2, 'Y9 Prime', '', 20, 0, 35, 41, 1, '2023-11-16', 'Huawei'),
+(125, 2, '13T Pro', '', 20, 0, 235, 240, 1, '2023-11-16', 'Xiaomi'),
+(126, 1, 'ROG Zephyrus M16', '', 20, 0, 710, 727, 1, '2023-11-16', 'ASUS'),
+(127, 1, 'Legion 7', '', 20, 0, 430, 444, 1, '2023-11-16', 'Lenovo'),
+(128, 1, 'Macbook Pro 16', '', 20, 0, 680, 693, 1, '2023-11-16', 'Apple'),
+(129, 1, 'Victus', '', 20, 0, 270, 293, 2, '2023-11-16', 'HP'),
+(130, 1, 'GF63 Thin', '', 20, 0, 230, 245, 1, '2023-11-16', 'MSI'),
+(131, 1, 'Nitro 5', '', 20, 0, 440, 462, 1, '2023-11-16', 'Acer'),
+(132, 1, 'Vivobook 14', '', 20, 0, 200, 208, 1, '2023-11-16', 'Lenovo'),
+(133, 5, 'Odyssey GS 27', '', 20, 0, 70, 88, 1, '2023-11-16', 'Samsung'),
+(134, 5, 'Neo G8', '', 20, 0, 370, 382, 1, '2023-11-16', 'Samsung'),
+(135, 5, 'E2222HS', '', 20, 0, 30, 44, 1, '2023-11-16', 'Dell'),
+(136, 5, 'V20 HD', '', 20, 0, 40, 50, 1, '2023-11-16', 'HP'),
+(137, 5, 'G24C4 E2', '', 20, 0, 55, 61, 1, '2023-11-16', 'MSI'),
+(138, 6, 'iPad 10th', '', 20, 0, 240, 246, 1, '2023-11-16', 'Apple'),
+(139, 6, 'Surface Go3', '', 20, 0, 200, 209, 1, '2023-11-16', 'Microsoft'),
+(140, 6, 'Tab A7 lite', '', 20, 0, 35, 41, 1, '2023-11-16', 'Samsung'),
+(141, 6, 'Tab A8', '', 20, 0, 75, 80, 1, '2023-11-16', 'Samsung');
 
 -- --------------------------------------------------------
 

@@ -24,6 +24,7 @@
             <form class="container manage" action='panelManageProcess.php' method='post'>
                 <fieldset>
                     <legend>Item Management</legend>
+
                     <table clsss="table item">
                         <tr style="background: gray; color: white;">
                             <th>ID</th>
@@ -33,11 +34,13 @@
                             <th>Cost</th>
                             <th>Price</th>
                             <th>Supplier</th>
+                            <th>Sold</th>
                             <th>Quantity</th>
                             <th>Add</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
+                        
                         <?php
                         $query = "select * from items";
                         $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
@@ -59,9 +62,10 @@
                             echo "<td> {$data['iCost']} </td>";
                             echo "<td> {$data['iPrice']} </td>";
                             echo "<td> {$s[0]} </td>";
+                            echo "<td id='center'> {$data['iSold']} </td>";
                             echo "<td id='center'> {$data['iQty']} </td>";
-                            echo "<td> <a href='panelManageAdd.php'> Add </a> </td>";
-                            echo "<td> <a href='panelManageEdit.php'> Edit </a> </td>";
+                            echo "<td> <a href='panelManageAdd.php?ic={$data['iCode']}'> Add </a> </td>";
+                            echo "<td> <a href='panelManageEdit.php?ic={$data['iCode']}'> Edit </a> </td>";
                             echo "<td id='center'> <input type='checkbox' name='{$data['iCode']}'> </td>";
                             echo "</tr>";
                         }
