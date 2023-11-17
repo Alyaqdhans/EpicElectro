@@ -19,12 +19,20 @@
         ?>
         
         <div class="wrapper">
-            <div class="container">
+            <div class="container manage">
+                <div class="links">
+                    <a href="panelAdmin.php">Admin Accounts</a>
+                    <a href="panelDelete.php">Delete Accounts</a>
+                    <a href="panelManage.php">Manage Items</a>
+                </div>
+
                 <fieldset>
-                    <legend>Panel</legend>
-                    <a href="panelAdmin.php"> Admin Accounts </a>
-                    <a href="panelDelete.php"> Delete Accounts </a>
-                    <a href="panelManage.php"> Manage Items </a>
+                    <legend>Activity</legend>
+                        <table>
+                            <tr>
+                                <th></th>
+                            </tr>
+                        </table>
                 </fieldset>
             </div>
         </div>

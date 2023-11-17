@@ -718,3 +718,26 @@ legend {
 .manage .buttons .left {
     border-radius: var(--br) 0 0 var(--br);
 }
+
+.manage .links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.manage .links a {
+    background: var(--clr-secondary);
+    padding: .5rem;
+    text-align: center;
+    border-radius: var(--br);
+    text-decoration: none;
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-large);
+    color: black;
+}
+
+.manage .links a:hover {
+    background: var(--clr-secondary-light);
+    cursor: pointer;
+}
