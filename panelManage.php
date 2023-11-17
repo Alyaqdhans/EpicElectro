@@ -66,7 +66,7 @@
                             echo "<td id='center'> {$data['iQty']} </td>";
                             echo "<td> <a href='panelManageAdd.php?ic={$data['iCode']}'> Add </a> </td>";
                             echo "<td> <a href='panelManageEdit.php?ic={$data['iCode']}'> Edit </a> </td>";
-                            echo "<td id='center'> <input type='checkbox' name='{$data['iCode']}'> </td>";
+                            echo "<td id='center'> <input type='checkbox' name='box[]' value='{$data['iCode']}'> </td>";
                             echo "</tr>";
                         }
                         ?>

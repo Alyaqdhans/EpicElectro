@@ -44,16 +44,19 @@
                             else {$style = "";}
                             $line += 1;
 
-                            if ($data['cType'] == 'A') {$d = 'disabled';}
+                            if ($data['cType'] == 'A' || $data['cId'] == $_SESSION['CID']) {$d = 'disabled';}
                             else {$d = '';}
+
+                            if ($data['cType'] == 'A') {$type = "Admin";}
+                            else {$type = "Normal";}
 
                             echo "<tr $style>";
                             echo "<td> {$data['cId']} </td>";
                             echo "<td> {$data['cName']} </td>";
                             echo "<td> {$data['email']} </td>";
                             echo "<td> {$data['registerDate']} </td>";
-                            echo "<td id='center'> {$data['cType']} </td>";
-                            echo "<td id='center'> <input type='checkbox' name='{$data['cId']}' $d> </td>";
+                            echo "<td> $type </td>";
+                            echo "<td id='center'> <input type='checkbox' name='box[]' value='{$data['cId']}' $d> </td>";
                             echo "</tr>";
                         }
                         ?>
