@@ -50,7 +50,7 @@
                             if ($data['cType'] == 'A') {$type = "Admin";}
                             else {$type = "Normal";}
 
-                            echo "<tr $style>";
+                            echo "<tr id='clickable' $style>";
                             echo "<td> {$data['cId']} </td>";
                             echo "<td> {$data['cName']} </td>";
                             echo "<td> {$data['email']} </td>";

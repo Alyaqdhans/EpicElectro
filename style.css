@@ -666,6 +666,11 @@ legend {
     padding: .3rem;
 }
 
+.manage fieldset #clickable:hover {
+    cursor: pointer;
+    background: var(--clr-secondary-light) !important;
+}
+
 .manage fieldset #center {text-align: center;}
 
 .manage .buttons input {

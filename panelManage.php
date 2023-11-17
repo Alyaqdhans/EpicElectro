@@ -54,7 +54,7 @@
                             else {$style = "";}
                             $line += 1;
                             
-                            echo "<tr $style>";
+                            echo "<tr id='clickable' $style>";
                             echo "<td> {$data['iCode']} </td>";
                             echo "<td> {$data['iDesc']} </td>";
                             echo "<td> {$data['iBrand']} </td>";
