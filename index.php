@@ -20,23 +20,51 @@
                 <input type="submit" value="Search">
 
                 <?php
-                if (isset($_POST['category']) && $_POST['category'] != 'x') {
-                    $category = $_POST['category'];
-                } else {
-                    $category = '';
-                }
-
                 echo "<select name='category'>";
                     echo "<option value='x'> Categories </option>";
 
                     $query = "select * from categories";
                     $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
+                    
+                    if (isset($_POST['category']) && $_POST['category'] != 'x') {
+                        $category = $_POST['category'];
+                    } else {
+                        $category = '';
+                    }
 
+                    $categories = [];
                     while ($data = mysqli_fetch_assoc($result)) {
+                        $categories[] = $data['categoryDes'];
+
                         if ($data['categoryCode'] == $category) {$c = 'selected';}
                         else {$c = '';}
 
                         echo "<option value='{$data['categoryCode']}' $c> {$data['categoryDes']} </option>";
+                    }
+                echo "</select>";
+
+                echo "<select name='brand'>";
+                    echo "<option value='x'> Brands </option>";
+
+                    $query = "select iBrand from items group by iBrand";
+                    $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
+
+                    if (isset($_POST['brand']) && $_POST['brand'] != 'x') {
+                        $brand = $_POST['brand'];
+                    } else {
+                        $brand = '';
+                    }
+
+                    $brands = [];
+                    $i = 0;
+                    while ($data = mysqli_fetch_assoc($result)) {
+                        $brands[] = $data['iBrand'];
+                        
+                        if ($i == $brand) {$c = 'selected';}
+                        else {$c = '';}
+
+                        echo "<option value='$i' $c> {$data['iBrand']} </option>";
+                        $i++;
                     }
                 echo "</select>";
                 ?>
@@ -58,22 +86,36 @@
 
         <section class="grid">
             <?php
-            if (empty($_POST['search']) && (!isset($_POST['category']) || $_POST['category'] == 'x')) {
-                $query = "select * from items";
-                $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
+            $query = "select * from items where iCode = iCode";
+            $msg = "Found Nothing <br>";
+
+            if (
+                empty($_POST['search']) &&
+                (!isset($_POST['category']) || $_POST['category'] == 'x') &&
+                (!isset($_POST['brand']) || $_POST['brand'] == 'x')
+            ) {
                 $is_searched = false;
 
             } else { // user searched for something
-                $query = "select * from items where iCode = iCode";
+                
                 if (!empty($_POST['search'])) {
                     $query .= " and iDesc like '%{$_POST['search']}%'";
+                    $msg .= " With `{$_POST['search']}` <br>";
                 }
+                
                 if ($_POST['category'] != 'x') {
                     $query .= " and iCategoryCode = '{$_POST['category']}'";
+                    $msg .= " In Category `{$categories[$_POST['category']-1]}` <br>";
                 }
-                $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
+
+                if ($_POST['brand'] != 'x') {
+                    $query .= " and iBrand like '%{$brands[$_POST['brand']]}%'";
+                    $msg .= " In Brand `{$brands[$_POST['brand']]}`";
+                }
                 $is_searched = true;
             }
+
+            $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
 
             if (mysqli_num_rows($result) > 0) {
                 while ($data = mysqli_fetch_assoc($result)) {
@@ -95,7 +137,7 @@
                     if ($is_searched == false) {
                         echo "<h2> Database Is Empty </h2>";
                     } else {
-                        echo "<h2> Found Nothing With `<mark>{$_POST['search']}</mark>` </h2>";
+                        echo "<h2> $msg </h2>";
                     }
                 echo "</div>";
             }

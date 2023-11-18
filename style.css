@@ -249,7 +249,7 @@ legend {
 .search {
     margin-right: auto;
     display: flex;
-    gap: .2em;
+    gap: .2rem;
     padding-right: 2rem;
 }
 
@@ -268,7 +268,6 @@ legend {
 .search input[type="submit"] {
     border-radius: 0 var(--br) var(--br) 0;
     background: var(--clr-secondary);
-    margin-right: 1rem;
     position: relative;
 }
 
@@ -277,13 +276,17 @@ legend {
     cursor: pointer;
 }
 
+.search :nth-child(3) {
+    margin-inline: 1rem;
+}
+
 .search select {
     border-radius: var(--br);
 }
 
 .cart {
     display: flex;
-    gap: .2em;
+    gap: .2rem;
 }
 
 .cart a {
