@@ -25,7 +25,7 @@
                     <legend>Admin Accounts</legend>
 
                     <table>
-                        <tr style="background: gray; color: white;">
+                        <tr>
                             <th>ID</th>
                             <th>Name</th>
                             <th>Email</th>

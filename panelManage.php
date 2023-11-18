@@ -26,7 +26,7 @@
                     <legend>Item Management</legend>
 
                     <table clsss="table item">
-                        <tr style="background: gray; color: white;">
+                        <tr>
                             <th>ID</th>
                             <th>Title</th>
                             <th>Brand</th>

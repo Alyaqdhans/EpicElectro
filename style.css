@@ -690,6 +690,11 @@ legend {
     border-collapse: collapse;
 }
 
+.manage fieldset table tr:first-child {
+    background: gray;
+    color: white;
+}
+
 .manage fieldset table,
 .manage fieldset th,
 .manage fieldset td {
