@@ -1,7 +1,7 @@
 <html>
     <head>
         <?php include('link.php') ?>
-        <title>Profile</title>
+        <title>EpicElectro | Profile</title>
     </head>
     <body>
         <?php

@@ -47,7 +47,7 @@ switch ($_GET['ec']) {
 <html>
     <head>
         <?php include('link.php') ?>
-        <title>Error</title>
+        <title>EpicElectro | Error</title>
     </head>
     <body>
         <div class='error'>

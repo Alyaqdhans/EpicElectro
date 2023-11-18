@@ -1,7 +1,7 @@
 <html>
     <head>
         <?php include('link.php') ?>
-        <title>Error</title>
+        <title>EpicElectro | Error</title>
     </head>
     <body>
         <?php
@@ -12,7 +12,7 @@
             echo "<legend style='color:red;'>Could Not Save or process data</legend>";
             echo "<b>The following errors found in data inputs";
             echo "<ul>";
-            foreach($errors as $k=>$v) {
+            foreach($errors as $v) {
                 echo "<li><mark>$v</mark></li>";
             }
             echo "</ul>";

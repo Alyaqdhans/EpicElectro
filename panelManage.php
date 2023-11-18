@@ -1,13 +1,12 @@
 <html>
     <head>
-        <?php include('link.php'); 
-              include('connect.php');
-        ?>
-        <title>Management</title>
+        <?php include('link.php'); ?>
+        <title>EpicElectro | Management</title>
     </head>
     <body>
         <?php
         include('header.php');
+        include('connect.php');
 
         if (!isset($_SESSION['TYPE'])) {
             header('Location: error.php?ec=1'); // login required
