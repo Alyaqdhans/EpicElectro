@@ -29,10 +29,16 @@
                     }
                 }
 
-                $total = [];
-                foreach ($_SESSION['CART'] as $item) {
+                $prices = [];
+                foreach ($_SESSION['CART'] as $key => $item) {
                     $query = "select * from items where iCode = {$item['ic']}";
                     $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
+
+                    if (mysqli_num_rows($result) == 0) { // check if item deleted from database
+                        unset($_SESSION['CART'][$key]);
+                        continue;
+                    }
+
                     $data = mysqli_fetch_assoc($result);
 
                     echo "<div class='item'>";
@@ -41,8 +47,8 @@
                         echo "<div class='info'>";
                             echo "<h2> Name: </h2> <h3> {$data['iDesc']} </h3>";
                             echo "<h2> Amount: </h2> <h3> {$item['qty']} </h3>";
-                            $sub = number_format($item['qty'] * $item['price']);
-                            echo "<h2> Price: </h2> <h3> $sub OMR </h3>";
+                            $price = $item['qty'] * $item['price'];
+                            echo "<h2> Price: </h2> <h3> ". number_format($price) ." OMR </h3>";
                         echo "</div>";
 
                         echo "<div class='amount'>";
@@ -61,10 +67,7 @@
                             echo "<input type='submit' value='Remove' formaction='cart.php?ic={$item['ic']}'#{$item['ic']}>";
                         echo "</div>";
 
-                        // total price
-                        $price = intval($item['price']);
-                        $qty = intval($item['qty']);
-                        $total[] = ($price * $qty);
+                        $prices[] = $price;
 
                         echo "<span class='anchor' id='{$item['ic']}'></span>"; // scrolls user back
                     echo "</div>";
@@ -72,7 +75,7 @@
                 }
 
                 echo "<div class='bottom'>";
-                    $total = number_format(array_sum($total));
+                    $total = number_format(array_sum($prices));
 
                     if (empty($_SESSION['CART'])) {$t="Cart Is Empty"; $d = "disabled";}
                     else {$t="Total: $total OMR"; $d = '';}
