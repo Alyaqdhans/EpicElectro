@@ -344,6 +344,7 @@ legend {
     padding: 1rem;
     border-radius: var(--br);
     text-align: center;
+    grid-column: 1 / -1;
 }
 
 .card a {
