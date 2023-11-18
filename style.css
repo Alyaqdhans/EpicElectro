@@ -450,12 +450,19 @@ legend {
     padding: 2rem;
 }
 
-.view img {
+.view .img {
     width: 30rem;
     aspect-ratio: 1.25 / 1;
     object-fit: cover;
     border-radius: var(--br);
     outline: solid 3px black;
+    background: white;
+}
+
+.view img {
+    aspect-ratio: 1.25 / 1;
+    object-fit: cover;
+    border-radius: var(--br);
 }
 
 .view h3 {margin-block: 1rem;}
@@ -583,8 +590,15 @@ legend {
     position: relative;
 }
 
-.checkout img {
+.checkout .img {
     width: 20rem;
+    aspect-ratio: 1.25 / 1;
+    object-fit: cover;
+    border-radius: var(--br);
+    background: white;
+}
+
+.checkout img {
     aspect-ratio: 1.25 / 1;
     object-fit: cover;
     border-radius: var(--br);
@@ -594,7 +608,7 @@ legend {
     background: white;
     padding: 1rem;
     border-radius: var(--br);
-    width: 100%;
+    flex-grow: 1;
 }
 
 .checkout .info h2 {

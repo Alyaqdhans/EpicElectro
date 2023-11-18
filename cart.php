@@ -36,7 +36,7 @@
                     $data = mysqli_fetch_assoc($result);
 
                     echo "<div class='item'>";
-                        echo "<img src='images/{$item['ic']}.jpg' alt='Image'>";
+                        echo "<div class='img'><img src='images/{$item['ic']}.jpg' alt='{$item['ic']}'></div>";
 
                         echo "<div class='info'>";
                             echo "<h2> Name: </h2> <h3> {$data['iDesc']} </h3>";

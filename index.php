@@ -65,7 +65,7 @@
                 if (mysqli_num_rows($result) > 0) {
                     while ($data = mysqli_fetch_assoc($result)) {
                         echo "<div class='card'>";
-                            echo "<img src='images/{$data['iCode']}.jpg' alt='{$data['iDesc']}'>";
+                            echo "<img src='images/{$data['iCode']}.jpg' alt='{$data['iCode']}'>";
                             echo "<h3> {$data['iDesc']} </h3>";
                             echo "<h4> by {$data['iBrand']} </h4>";
                             if ($data['iQty'] > 0) {
@@ -99,7 +99,7 @@
 
                     while ($data = mysqli_fetch_assoc($result)) {
                         echo "<div class='card'>";
-                            echo "<img src='images/{$data['iCode']}.jpg' alt='Image'>";
+                            echo "<img src='images/{$data['iCode']}.jpg' alt='{$data['iCode']}'>";
                             echo "<h3> {$data['iDesc']} </h3>";
                             echo "<h4> by {$data['iBrand']} </h4>";
                             if ($data['iQty'] > 0) {
