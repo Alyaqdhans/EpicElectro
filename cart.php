@@ -48,6 +48,7 @@
                             echo "<h2> Name: </h2> <h3> {$data['iDesc']} </h3>";
                             echo "<h2> Amount: </h2> <h3> {$item['qty']} </h3>";
                             $price = $item['qty'] * $item['price'];
+                            $prices[] = $price;
                             echo "<h2> Price: </h2> <h3> ". number_format($price) ." OMR </h3>";
                         echo "</div>";
 
@@ -66,8 +67,6 @@
 
                             echo "<input type='submit' value='Remove' formaction='cart.php?ic={$item['ic']}'#{$item['ic']}>";
                         echo "</div>";
-
-                        $prices[] = $price;
 
                         echo "<span class='anchor' id='{$item['ic']}'></span>"; // scrolls user back
                     echo "</div>";
