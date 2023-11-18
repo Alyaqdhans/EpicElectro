@@ -61,61 +61,43 @@
             if (empty($_POST['search']) && (!isset($_POST['category']) || $_POST['category'] == 'x')) {
                 $query = "select * from items";
                 $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
-                
-                if (mysqli_num_rows($result) > 0) {
-                    while ($data = mysqli_fetch_assoc($result)) {
-                        echo "<div class='card'>";
-                            echo "<img src='images/{$data['iCode']}.jpg' alt='{$data['iCode']}'>";
-                            echo "<h3> {$data['iDesc']} </h3>";
-                            echo "<h4> by {$data['iBrand']} </h4>";
-                            if ($data['iQty'] > 0) {
-                                echo "<h5> Available: ✅ </h5>";
-                            } else {
-                                echo "<h5> Available: ❌ </h5>";
-                            }
-                            echo "<a href='view.php?ic={$data['iCode']}'> View </a>";
-                            echo "<span class='anchor' id='{$data['iCode']}'></span>"; // scrolls user back
-                        echo "</div>";
-                    }
-                } else {
-                    echo "<div class='nothing'>";
-                        echo "<h2> Database Is Empty </h2>";
-                    echo "</div>";
-                }
+                $is_searched = false;
+
             } else { // user searched for something
                 $query = "select * from items where iCode = iCode";
-
                 if (!empty($_POST['search'])) {
                     $query .= " and iDesc like '%{$_POST['search']}%'";
                 }
-
                 if ($_POST['category'] != 'x') {
                     $query .= " and iCategoryCode = '{$_POST['category']}'";
                 }
-
                 $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
-                
-                if (mysqli_num_rows($result)> 0) {
+                $is_searched = true;
+            }
 
-                    while ($data = mysqli_fetch_assoc($result)) {
-                        echo "<div class='card'>";
-                            echo "<img src='images/{$data['iCode']}.jpg' alt='{$data['iCode']}'>";
-                            echo "<h3> {$data['iDesc']} </h3>";
-                            echo "<h4> by {$data['iBrand']} </h4>";
-                            if ($data['iQty'] > 0) {
-                                echo "<h5> Available: ✅ </h5>";
-                            } else {
-                                echo "<h5> Available: ❌ </h5>";
-                            }
-                            echo "<a href='view.php?ic={$data['iCode']}'> View </a>";
-                            echo "<span class='anchor' id='{$data['iCode']}'></span>"; // scrolls user back
-                        echo "</div>";
-                    }
-                } else {
-                    echo "<div class='nothing'>";
-                        echo "<h2> No Items Found </h2>";
+            if (mysqli_num_rows($result) > 0) {
+                while ($data = mysqli_fetch_assoc($result)) {
+                    echo "<div class='card'>";
+                        echo "<img src='images/{$data['iCode']}.jpg' alt='{$data['iCode']}'>";
+                        echo "<h3> {$data['iDesc']} </h3>";
+                        echo "<h4> by {$data['iBrand']} </h4>";
+                        if ($data['iQty'] > 0) {
+                            echo "<h5> Available: ✅ </h5>";
+                        } else {
+                            echo "<h5> Available: ❌ </h5>";
+                        }
+                        echo "<a href='view.php?ic={$data['iCode']}'> View </a>";
+                        echo "<span class='anchor' id='{$data['iCode']}'></span>"; // scrolls user back
                     echo "</div>";
                 }
+            } else { // nothing found
+                echo "<div class='nothing'>";
+                    if ($is_searched == false) {
+                        echo "<h2> Database Is Empty </h2>";
+                    } else {
+                        echo "<h2> Found Nothing With `<mark>{$_POST['search']}</mark>` </h2>";
+                    }
+                echo "</div>";
             }
             ?>
         </section>
