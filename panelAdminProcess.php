@@ -2,14 +2,9 @@
 include('connect.php');
 session_start();
 
-if (!isset($_SESSION['TYPE'])) {
-    header('Location: error.php?ec=1'); // login required
+if (!isset($_POST['check'])) {
+    header('Location: error.php?ec=-1'); // entered page without button
     exit;
-} else {
-    if ($_SESSION['TYPE'] != 'A') {
-        header('Location: error.php?ec=3'); // need admin
-        exit;
-    }
 }
 
 $query = "select * from customers";

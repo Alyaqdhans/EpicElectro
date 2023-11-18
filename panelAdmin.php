@@ -73,6 +73,9 @@
                     </div>
                 </div>
                 
+                <!-- make sure user came from this page -->
+                <input type="hidden" name="check">
+                
             </form>
         </div>
 
