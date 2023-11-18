@@ -240,7 +240,7 @@ legend {
     background: var(--clr-primary-light);
     border-radius: var(--br);
     padding-block: 1.5rem;
-    padding-inline: 10vw;
+    padding-inline: 7rem;
     position: sticky;
     top: 0;
     z-index: 10;
@@ -315,11 +315,11 @@ legend {
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 20rem);
-    /* grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); */
+    /* grid-template-columns: repeat(auto-fit, 20rem); */
+    grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
     row-gap: 5rem;
     column-gap: 3rem;
-    padding-inline: 4rem;
+    padding-inline: 7rem;
     padding-bottom: 10rem;
     justify-content: center;
 }
