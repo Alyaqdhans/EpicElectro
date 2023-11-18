@@ -240,7 +240,7 @@ legend {
     background: var(--clr-primary-light);
     border-radius: var(--br);
     padding-block: 1.5rem;
-    padding-inline: 7rem;
+    padding-inline: 7vw;
     position: sticky;
     top: 0;
     z-index: 10;
@@ -319,7 +319,7 @@ legend {
     grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
     row-gap: 5rem;
     column-gap: 3rem;
-    padding-inline: 7rem;
+    padding-inline: 7vw;
     padding-bottom: 10rem;
     justify-content: center;
 }
@@ -330,13 +330,12 @@ legend {
     border-radius: var(--br);
     display: flex;
     flex-direction: column;
-    min-height: 100%;
+    box-shadow: 0 0 1rem black;
     position: relative;
 }
 
 .card:hover {
-    padding: calc(1rem + .1vw);
-    box-shadow: 0 0 1rem black;
+    transform: scale(101%);
 }
 
 .nothing {
@@ -366,11 +365,15 @@ legend {
 }
 
 .card h3 {
-    margin-top: auto;
+    margin-top: 1rem;
 }
 
 .card h4 {
     margin-block: .5rem;
+}
+
+.card h5 {
+    margin-bottom: 1rem;
 }
 
 .card img {
