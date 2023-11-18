@@ -80,6 +80,9 @@
                     </div>
                     <a href='panelManageCreate.php'> Create </a>
                 </div>
+
+                <!-- make sure user came from this page -->
+                <input type="hidden" name="check">
                 
             </form>
         </div>
