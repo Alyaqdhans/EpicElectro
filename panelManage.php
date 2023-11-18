@@ -46,6 +46,8 @@
                         
                         $line = 0;
                         while ($data = mysqli_fetch_assoc($result)) {
+                            if ($data['iDesc'] == "new") {continue;}
+
                             $c = mysqli_fetch_row(mysqli_query($conn, "select categoryDes from categories where categoryCode = {$data['iCategoryCode']}"));
                             $s = mysqli_fetch_row(mysqli_query($conn, "select sName from suppliers where sId = {$data['iSupplierId']}"));
 

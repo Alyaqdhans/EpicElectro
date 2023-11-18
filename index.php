@@ -58,6 +58,8 @@
                     $brands = [];
                     $i = 0;
                     while ($data = mysqli_fetch_assoc($result)) {
+                        if ($data['iBrand'] == "") {continue;}
+
                         $brands[] = $data['iBrand'];
                         
                         if ($i == $brand) {$c = 'selected';}
@@ -119,6 +121,8 @@
 
             if (mysqli_num_rows($result) > 0) {
                 while ($data = mysqli_fetch_assoc($result)) {
+                    if ($data['iDesc'] == "new") {continue;}
+
                     echo "<div class='card'>";
                         echo "<img src='images/{$data['iCode']}.jpg' alt='{$data['iCode']}'>";
                         echo "<h3> {$data['iDesc']} </h3>";

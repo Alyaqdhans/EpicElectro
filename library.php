@@ -16,8 +16,8 @@
                 echo "<li><mark>$v</mark></li>";
             }
             echo "</ul>";
-            echo "<a href=javascript:history.back()> Click here to correct these errors </a></b> <br>";
             echo "</fieldset>";
+            echo "<a href=javascript:history.back()> Go Back </a></b> <br>";
             echo "</div>";
         }
         ?>
