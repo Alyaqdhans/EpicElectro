@@ -11,6 +11,10 @@ if (!empty($_POST['box'])) {
     foreach ($_POST['box'] as $ic) {
         $query = "delete from items where iCode = '$ic'";
         mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
+
+        if (!unlink("images/".$ic.".jpg")) { // delete image if exist
+            unlink("images/".$ic.".jpg");
+        }
     }
 }
 
