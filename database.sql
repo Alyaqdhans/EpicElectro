@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 17, 2023 at 11:01 AM
+-- Generation Time: Nov 19, 2023 at 07:21 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -30,17 +30,17 @@ SET time_zone = "+00:00";
 CREATE TABLE `categories` (
   `categoryCode` int(11) NOT NULL COMMENT 'Category Code',
   `categoryDes` varchar(100) NOT NULL COMMENT 'Category Description'
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `categories`
 --
 
 INSERT INTO `categories` (`categoryCode`, `categoryDes`) VALUES
-(1, 'Laptops'),
-(2, 'Smartphones'),
-(3, 'Headphones'),
-(4, 'Cameras'),
+(1, 'Laptop'),
+(2, 'Smartphone'),
+(3, 'Headphone'),
+(4, 'Camera'),
 (5, 'Monitor'),
 (6, 'Tablet');
 
@@ -60,7 +60,7 @@ CREATE TABLE `customers` (
   `cAddress` varchar(100) NOT NULL COMMENT 'Customer Address',
   `cType` varchar(1) NOT NULL COMMENT 'Customer Type',
   `phoneNumber` int(8) NOT NULL COMMENT 'Customer Phone Number'
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `customers`
@@ -68,11 +68,10 @@ CREATE TABLE `customers` (
 
 INSERT INTO `customers` (`cId`, `cName`, `password`, `email`, `registerDate`, `lastLogin`, `cAddress`, `cType`, `phoneNumber`) VALUES
 (1, 'John Doe', '*FB6E1F205D675BC29B052DB14CCEFE7759C5FF7E', 'john.doe@email.com', '2020-01-01', '2023-11-17', '123 Street', 'A', 93215274),
-(2, 'Jane Smith', '*FB6E1F205D675BC29B052DB14CCEFE7759C5FF7E', 'jane.smith@email.com', '2020-01-01', '2023-11-10', '456 Avenue', 'N', 48774964),
-(3, 'Alyaqdhan Zahran', '*196BDEDE2AE4F84CA44C47D54D78478C7E2BD7B7', 'alyaqdhan690s@gmail.com', '2023-11-10', '2023-11-11', 'Nizwa', 'A', 94028288),
+(2, 'Jane Smith', '*FB6E1F205D675BC29B052DB14CCEFE7759C5FF7E', 'jane.smith@email.com', '2020-01-01', '2023-11-17', '456 Avenue', 'N', 48774964),
+(3, 'Alyaqdhan Zahran Alzri', '*196BDEDE2AE4F84CA44C47D54D78478C7E2BD7B7', 'alyaqdhan690s@gmail.com', '2023-11-10', '2023-11-19', 'Nizwa', 'A', 94028288),
 (8, 'Hassan Ambusaidi', '*84AAC12F54AB666ECFC2A83C676908C8BBC381B1', 'hassanjamal428@gmail.com', '2023-11-11', '2023-11-16', 'Nizwa', 'A', 95322022),
-(11, 'Mohamed Ali', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257', 'ali@gmail.com', '2023-11-12', '2023-11-12', 'firq', 'N', 98787878),
-(12, 'abd', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257', 'bahagaa31@gmail.com', '2023-11-16', '2023-11-16', 'bahla', 'A', 94161247);
+(11, 'Mohamed Ali', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257', 'ali@gmail.com', '2023-11-12', '2023-11-12', 'firq', 'N', 98787878);
 
 -- --------------------------------------------------------
 
@@ -83,9 +82,18 @@ INSERT INTO `customers` (`cId`, `cName`, `password`, `email`, `registerDate`, `l
 CREATE TABLE `delivery` (
   `dId` int(11) NOT NULL COMMENT 'Delivery ID',
   `company_name` varchar(50) NOT NULL COMMENT 'Company Name',
-  `dPhone` int(8) NOT NULL COMMENT 'Delivery Phone Number',
-  `orderId` int(11) NOT NULL COMMENT 'Order ID (FK)'
-);
+  `dPhone` int(8) NOT NULL COMMENT 'Delivery Phone Number'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `delivery`
+--
+
+INSERT INTO `delivery` (`dId`, `company_name`, `dPhone`) VALUES
+(1, 'Aramex', 24473000),
+(2, 'DHL', 25432033),
+(3, 'FedEx', 80070112),
+(4, 'UPS', 22351800);
 
 -- --------------------------------------------------------
 
@@ -96,8 +104,8 @@ CREATE TABLE `delivery` (
 CREATE TABLE `items` (
   `iCode` int(11) NOT NULL COMMENT 'Item Code',
   `iCategoryCode` int(11) NOT NULL COMMENT 'Item Category Code(FK)',
-  `iDesc` text NOT NULL COMMENT 'Item Title',
-  `iComment` varchar(200) NOT NULL COMMENT 'Item Description',
+  `iDesc` varchar(50) NOT NULL COMMENT 'Item Title',
+  `iComment` varchar(300) NOT NULL COMMENT 'Item Description',
   `iQty` int(11) NOT NULL COMMENT 'Item Quantity',
   `iSold` int(5) NOT NULL COMMENT 'Item Sales',
   `iCost` int(11) NOT NULL COMMENT 'Item Cost',
@@ -105,18 +113,18 @@ CREATE TABLE `items` (
   `iSupplierId` int(11) NOT NULL COMMENT 'Item Supplier Id(FK)',
   `iLastPurchasedDate` date NOT NULL COMMENT 'Item Last Purchased Date',
   `iBrand` varchar(10) NOT NULL COMMENT 'Item Brand'
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `items`
 --
 
 INSERT INTO `items` (`iCode`, `iCategoryCode`, `iDesc`, `iComment`, `iQty`, `iSold`, `iCost`, `iPrice`, `iSupplierId`, `iLastPurchasedDate`, `iBrand`) VALUES
-(110, 2, 'iPhone 15 Pro Max', '', 0, 0, 600, 618, 1, '2023-11-16', 'Apple'),
-(111, 2, 'iPhone 14 Pro Max', '', 20, 0, 480, 496, 1, '2023-11-16', 'Apple'),
-(112, 2, 'Galaxy S22', '', 20, 0, 195, 207, 1, '2023-11-16', 'Samsung'),
-(113, 2, 'P30', '', 20, 0, 135, 147, 1, '2023-11-16', 'Huawei'),
-(114, 2, 'Galaxy S23', '', 20, 0, 195, 209, 1, '2023-11-16', 'Samsung'),
+(110, 2, 'iPhone 15 Pro Max', 'The Latest iPhone', 0, 0, 600, 618, 2, '2023-11-16', 'Apple'),
+(111, 2, 'iPhone 14 Pro Max', '', 24, 0, 480, 496, 1, '2023-11-19', 'Apple'),
+(112, 2, 'Galaxy S22', '', 19, 0, 195, 207, 1, '2023-11-19', 'Samsung'),
+(113, 2, 'P30', '', 18, 0, 135, 147, 1, '2023-11-19', 'Huawei'),
+(114, 2, 'Galaxy S23', '', 21, 0, 195, 209, 1, '2023-11-19', 'Samsung'),
 (115, 2, 'Z Fold 3', '', 20, 0, 295, 303, 1, '2023-11-16', 'Samsung'),
 (116, 2, 'A54', '', 20, 0, 110, 125, 1, '2023-11-16', 'Samsung'),
 (117, 2, 'Z Flip 5', '', 20, 0, 310, 321, 1, '2023-11-16', 'Samsung'),
@@ -142,7 +150,10 @@ INSERT INTO `items` (`iCode`, `iCategoryCode`, `iDesc`, `iComment`, `iQty`, `iSo
 (138, 6, 'iPad 10th', '', 20, 0, 240, 246, 1, '2023-11-16', 'Apple'),
 (139, 6, 'Surface Go3', '', 20, 0, 200, 209, 1, '2023-11-16', 'Microsoft'),
 (140, 6, 'Tab A7 lite', '', 20, 0, 35, 41, 1, '2023-11-16', 'Samsung'),
-(141, 6, 'Tab A8', '', 20, 0, 75, 80, 1, '2023-11-16', 'Samsung');
+(141, 6, 'Tab A8', '', 20, 0, 75, 80, 1, '2023-11-16', 'Samsung'),
+(153, 4, 'Sony A6000', 'Sony\'s latest 24.3-megapixel Exmor® HD APS CMOS sensor; Advanced Fast Hybrid autofocus; SVGA Tru-Finder™. 16-50mm zoom lens included.', 5, 0, 1000, 1200, 2, '2023-11-19', 'Sony'),
+(154, 4, 'Sony Alpha a7 III', '24MP Full-Frame Exmor R BSI CMOS Sensor | UHD 4K30p Video with HLG & S-Log3 Gammas | 2.36m-Dot Tru-Finder OLED EVF | 3.0\" 922k-Dot Tilting Touchscreen LCD | FE 28-70mm f/3.5-5.6 OSS Lens', 2, 0, 1300, 1500, 1, '2023-11-19', 'Sony'),
+(155, 3, 'AirPods Max Space Gray', 'Requires AirPods Max with the latest version of software, and iPhone and iPod touch models with the latest version of iOS; iPad models with the latest version of iPadOS; Apple Watch models with the latest version of watchOS; Mac models with the latest version of macOS; or Apple TV models with the la', 1, 0, 450, 500, 2, '2023-11-19', 'Apple');
 
 -- --------------------------------------------------------
 
@@ -153,17 +164,18 @@ INSERT INTO `items` (`iCode`, `iCategoryCode`, `iDesc`, `iComment`, `iQty`, `iSo
 CREATE TABLE `orders` (
   `orderId` int(11) NOT NULL COMMENT 'Order ID',
   `cId` int(10) NOT NULL COMMENT 'Customer ID (FK)',
+  `dId` int(11) NOT NULL COMMENT 'Delivery ID (FK)',
   `orderDate` date NOT NULL COMMENT 'Order Date',
-  `totalAmount` int(11) NOT NULL COMMENT 'Total Amount'
-);
+  `totalPrice` int(11) NOT NULL COMMENT 'Total Order Items Price'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`orderId`, `cId`, `orderDate`, `totalAmount`) VALUES
-(1001, 1, '2023-10-05', 2400),
-(1002, 2, '2023-10-08', 1150);
+INSERT INTO `orders` (`orderId`, `cId`, `dId`, `orderDate`, `totalPrice`) VALUES
+(1001, 1, 2, '2023-10-05', 2400),
+(1002, 2, 1, '2023-10-08', 1150);
 
 -- --------------------------------------------------------
 
@@ -175,7 +187,7 @@ CREATE TABLE `order_items` (
   `orderID` int(11) NOT NULL COMMENT 'Order ID (FK)',
   `iCode` int(11) NOT NULL COMMENT 'Item Code (FK)',
   `quantity` int(11) NOT NULL COMMENT 'Quantity'
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -189,15 +201,17 @@ CREATE TABLE `suppliers` (
   `sAddress` varchar(100) NOT NULL COMMENT 'Supplier Address',
   `sPhone` int(8) NOT NULL COMMENT 'Supplier Phone Number',
   `sEmail` varchar(100) NOT NULL COMMENT 'Supplier Email'
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `suppliers`
 --
 
 INSERT INTO `suppliers` (`sId`, `sName`, `sAddress`, `sPhone`, `sEmail`) VALUES
-(1, 'ElectroTech Suppliers', '123 Main Street', 69535679, 'info@electrotech.com'),
-(2, 'Gadget World', '456 Tech Avenue', 35855123, 'sales@gadgetworld.com');
+(1, 'ElectroTech', '123 Main Street', 69535679, 'info@electrotech.com'),
+(2, 'Gadget World', '456 Tech Avenue', 35855123, 'sales@gadgetworld.com'),
+(3, 'Bahwan', 'P.O.Box 169, Postal Code 100,\r\nMuscat. Sultanate of Oman.', 24650000, 'info@suhailbahwangroup.com'),
+(4, 'eXtra', 'Way3703 - Block 237 Near Sultan Qaboos Grand Mosque Al Gubrah Al Janubi, 1', 80077880, 'customerservice.os1@extra.com');
 
 --
 -- Indexes for dumped tables
@@ -219,8 +233,7 @@ ALTER TABLE `customers`
 -- Indexes for table `delivery`
 --
 ALTER TABLE `delivery`
-  ADD PRIMARY KEY (`dId`),
-  ADD KEY `FK_Delivery_Orders` (`orderId`);
+  ADD PRIMARY KEY (`dId`);
 
 --
 -- Indexes for table `items`
@@ -235,7 +248,8 @@ ALTER TABLE `items`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`orderId`),
-  ADD KEY `FK_Orders_Customers` (`cId`) USING BTREE;
+  ADD KEY `FK_Orders_Customers` (`cId`) USING BTREE,
+  ADD KEY `FK_Orders_Delivery` (`dId`);
 
 --
 -- Indexes for table `order_items`
@@ -264,41 +278,35 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `cId` int(10) NOT NULL AUTO_INCREMENT COMMENT 'Customer ID', AUTO_INCREMENT=13;
+  MODIFY `cId` int(10) NOT NULL AUTO_INCREMENT COMMENT 'Customer ID', AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `delivery`
 --
 ALTER TABLE `delivery`
-  MODIFY `dId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Delivery ID';
+  MODIFY `dId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Delivery ID', AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `iCode` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Item Code', AUTO_INCREMENT=142;
+  MODIFY `iCode` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Item Code', AUTO_INCREMENT=157;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `orderId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Order ID', AUTO_INCREMENT=1003;
+  MODIFY `orderId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Order ID', AUTO_INCREMENT=1005;
 
 --
 -- AUTO_INCREMENT for table `suppliers`
 --
 ALTER TABLE `suppliers`
-  MODIFY `sId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Supplier Id', AUTO_INCREMENT=3;
+  MODIFY `sId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Supplier Id', AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `delivery`
---
-ALTER TABLE `delivery`
-  ADD CONSTRAINT `FK_Delivery_Orders` FOREIGN KEY (`orderId`) REFERENCES `orders` (`orderId`);
 
 --
 -- Constraints for table `items`
@@ -311,7 +319,8 @@ ALTER TABLE `items`
 -- Constraints for table `orders`
 --
 ALTER TABLE `orders`
-  ADD CONSTRAINT `FK_Orders_Customers` FOREIGN KEY (`cId`) REFERENCES `customers` (`cId`);
+  ADD CONSTRAINT `FK_Orders_Customers` FOREIGN KEY (`cId`) REFERENCES `customers` (`cId`),
+  ADD CONSTRAINT `FK_Orders_Delivery` FOREIGN KEY (`dId`) REFERENCES `delivery` (`dId`);
 
 --
 -- Constraints for table `order_items`
