@@ -64,7 +64,9 @@
                             echo "<td> {$data['iCost']} </td>";
                             echo "<td> {$data['iPrice']} </td>";
                             echo "<td> {$s[0]} </td>";
-                            echo "<td> {$data['iLastPurchasedDate']} </td>";
+                            $date = explode("-", $data['iLastPurchasedDate']);
+                            $date = $date[2]."/".$date[1]."/".$date[0];
+                            echo "<td> $date </td>";
                             echo "<td id='center'> {$data['iSold']} </td>";
                             echo "<td id='center'> {$data['iQty']} </td>";
                             echo "<td> <a href='panelManageAdd.php?ic={$data['iCode']}'> Add </a> </td>";

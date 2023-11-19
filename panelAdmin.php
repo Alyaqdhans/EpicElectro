@@ -56,7 +56,9 @@
                             echo "<td> {$data['cId']} </td>";
                             echo "<td> {$data['cName']} </td>";
                             echo "<td> {$data['email']} </td>";
-                            echo "<td> {$data['registerDate']} </td>";
+                            $date = explode("-", $data['registerDate']);
+                            $date = $date[2]."/".$date[1]."/".$date[0];
+                            echo "<td> $date </td>";
                             echo "<td> $type </td>";
                             echo "<td id='center'> <input id='{$data['cId']}' type='checkbox' name='box[]' value='{$data['cId']}' $d> </td>";
                             echo "</label>";
