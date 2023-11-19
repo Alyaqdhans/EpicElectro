@@ -789,8 +789,9 @@ legend {
 
 .create * {font-weight: var(--fw-bold);}
 
-.create input[type="text"] {
-    padding: .5rem;
+.create input[type="text"],
+.create input[type="number"] {
+    padding: .4rem;
     width: 15rem;
 }
 
@@ -800,12 +801,12 @@ legend {
 
 .create textarea {
     resize: none;
-    padding: .5rem;
+    padding: .4rem;
 }
 
 .create select {
     width: fit-content;
-    padding: .5rem;
+    padding: .4rem;
 }
 
 .create .buttons {
