@@ -21,11 +21,6 @@ if ($_POST['category'] == "x") {
 $target_dir = "images/";
 $target_file = $target_dir . basename($_FILES["image"]["name"]);
 $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-$imageId = explode(".", $_FILES["image"]["name"])[0];
-// Check if image name is correct
-if ($imageId != $_POST['code']) {
-    $errors[] = "Please use the given id to name the image.";
-}
 // Check if image file is a actual image or fake image
 $check = getimagesize($_FILES["image"]["tmp_name"]);
 if ($check === false) {
@@ -33,7 +28,7 @@ if ($check === false) {
 }
 // Check file size
 if ($_FILES["image"]["size"] > 5000000) {
-    $errors[] = "Sorry, your file is too large.";
+    $errors[] = "Sorry, your file is too large. (Max 5MB)";
 }
 // Allow jpg file formats
 if ($imageFileType != "jpg") {
@@ -42,7 +37,7 @@ if ($imageFileType != "jpg") {
 
 
 if (count($errors) == 0) {
-    move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
+    move_uploaded_file($_FILES["image"]["tmp_name"], $target_dir.$_POST['code'].".jpg"); // save & name it to the id
 
     $query = "update items set";
     $query .= " iDesc = '$name',";
@@ -51,9 +46,9 @@ if (count($errors) == 0) {
     $query .= " iCategoryCode = '{$_POST['category']}'";
     $query .= " where iCode = {$_POST['code']}";
     mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
+
+    header("Location: panelManage.php");
 } else {
     DisplayErrors();
 }
-
-header("Location: panelManage.php");
 ?>

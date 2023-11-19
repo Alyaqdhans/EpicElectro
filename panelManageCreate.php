@@ -75,9 +75,8 @@
                     </label>
 
                     <label>
-                        Item Image: (<mark><?php echo $code; ?>.jpg</mark>)<br>
+                        Item Image: (Only ".jpg" Format Allowed)<br>
                         <input class="upload" type="file" name="image" accept=".jpg" required>
-                        <h5>*You have to name your image with the given id and make sure it is jpg format</h5>
                     </label>
 
                 </fieldset>
