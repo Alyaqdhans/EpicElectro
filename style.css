@@ -803,11 +803,16 @@ legend {
     padding: .5rem;
 }
 
+.create select {
+    width: fit-content;
+    padding: .5rem;
+}
+
 .create .buttons {
     display: flex;
     justify-content: center;
     gap: 0.1rem;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
 }
 
 .create .btn {
@@ -836,8 +841,4 @@ legend {
 
 .create .right {
     border-radius: 0 var(--br) var(--br) 0;
-}
-
-.create select {
-    width: fit-content;
 }

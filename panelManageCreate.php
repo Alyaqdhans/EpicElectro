@@ -26,7 +26,7 @@
 
                     <?php
                     // check if there is available empty item
-                    $query = "select * from items where iDesc like '%new%'";
+                    $query = "select * from items where iDesc = 'new'";
                     $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
 
                     if (mysqli_num_rows($result) == 0) {
@@ -36,7 +36,7 @@
                     }
 
                     // we get the id of the empty item
-                    $query = "select * from items where iDesc like '%new%'";
+                    $query = "select * from items where iDesc = 'new'";
                     $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
                     $code = mysqli_fetch_assoc($result)['iCode'];
                     
@@ -44,17 +44,17 @@
                     ?>
 
                     <label>
-                        Item Name:<br>
+                        Item Name: (Ex: iPhone 15+)<br>
                         <input type="text" name="title" required>
                     </label>
 
                     <label>
-                        Item Description:<br>
+                        Item Description: (Ex: model and features)<br>
                         <textarea name="desc" cols="50" rows="10" required></textarea>
                     </label>
 
                     <label>
-                        Item Brand:<br>
+                        Item Brand: (Ex: Apple)<br>
                         <input type="text" name="brand" required>
                     </label>
 
@@ -80,12 +80,12 @@
                         <h5>*You have to name your image with the given id and make sure it is jpg format</h5>
                     </label>
 
-                    <div class="buttons">
-                        <input class="btn left" type="submit" value="Create">
-                        <a class="btn right" href='panelManage.php'> Cancel </a>
-                    </div>
-
                 </fieldset>
+
+                <div class="buttons">
+                    <input class="btn left" type="submit" value="Create">
+                    <a class="btn right" href='panelManage.php'> Cancel </a>
+                </div>
             </form>
         </div>
 
