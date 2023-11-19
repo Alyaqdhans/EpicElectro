@@ -50,7 +50,7 @@
 
                     <label>
                         Item Description: (Ex: model and features)<br>
-                        <textarea name="desc" cols="50" rows="10" required></textarea>
+                        <textarea name="desc" cols="50" rows="8" required></textarea>
                     </label>
 
                     <label>
@@ -61,8 +61,8 @@
                     <label>
                         Item Category:<br>
                         <?php
-                        echo "<select name='category'>";
-                        echo "<option value='x'> Categories </option>";
+                        echo "<select name='category' required>";
+                        echo "<option value=''> Categories </option>";
 
                         $query = "select * from categories";
                         $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
@@ -75,7 +75,7 @@
                     </label>
 
                     <label>
-                        Item Image: (Only ".jpg" Format Allowed)<br>
+                        Item Image: (Must be ".jpg" Format)<br>
                         <input class="upload" type="file" name="image" accept=".jpg" required>
                     </label>
 

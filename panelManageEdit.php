@@ -6,6 +6,7 @@
     <body>
         <?php
         include('header.php');
+        include('connect.php');
 
         if (!isset($_SESSION['TYPE'])) {
             header('Location: error.php?ec=1'); // login required
@@ -19,12 +20,63 @@
         ?>
         
         <div class="wrapper">
-            <div class="container">
+            <form class="container create" action="panelManageEditProcess.php" method="post" enctype="multipart/form-data">
                 <fieldset>
                     <legend>Edit Item</legend>
-                    
+
+                    <?php
+                    $query = "select * from items where iCode = '{$_GET['ic']}'";
+                    $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
+                    $data = mysqli_fetch_assoc($result);
+
+                    echo "<input type='hidden' name='code' value='{$_GET['ic']}'>";
+                    ?>
+
+                    <label>
+                        Item Name:<br>
+                        <?php echo "<input type='text' name='title' value='{$data['iDesc']}' required>"; ?>
+                    </label>
+
+                    <label>
+                        Item Description:<br>
+                        <?php echo "<textarea name='desc' cols='50' rows='8' required>{$data['iComment']}</textarea>"; ?>
+                    </label>
+
+                    <label>
+                        Item Brand:<br>
+                        <?php echo "<input type='text' name='brand' value='{$data['iBrand']}' required>"; ?>
+                    </label>
+
+                    <label>
+                        Item Category:<br>
+                        <?php
+                        echo "<select name='category' required>";
+                        echo "<option value=''> Categories </option>";
+
+                        $query = "select * from categories";
+                        $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
+                        
+                        while ($data2 = mysqli_fetch_assoc($result)) {
+                            if ($data2['categoryCode'] == $data['iCategoryCode']) {$s = "selected";}
+                            else {$s = "";}
+                            echo "<option value='{$data2['categoryCode']}' $s> {$data2['categoryDes']} </option>";
+                        }
+                        echo "</select>";
+                        ?>
+                    </label>
+
+                    <label>
+                        Item Image: (Must be ".jpg" Format)<br>
+                        <input class="upload" type="file" name="image" accept=".jpg">
+                    </label>
+
                 </fieldset>
-            </div>
+
+                <div class="buttons">
+                    <input class="btn left" type="submit" value="Save">
+                    <a class="btn right" href='panelManage.php'> Cancel </a>
+                </div>
+            </form>
         </div>
 
         <?php include('footer.php'); ?>

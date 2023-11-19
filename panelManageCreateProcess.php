@@ -13,10 +13,6 @@ $name = mysqli_real_escape_string($conn, $_POST['title']);
 $desc = mysqli_real_escape_string($conn, $_POST['desc']);
 $brand = mysqli_real_escape_string($conn, $_POST['brand']);
 
-if ($_POST['category'] == "x") {
-    $errors[] = "Please select a category for your item.";
-}
-
 // image upload checks
 $target_dir = "images/";
 $target_file = $target_dir . basename($_FILES["image"]["name"]);

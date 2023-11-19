@@ -33,6 +33,7 @@
                             <th>Cost</th>
                             <th>Price</th>
                             <th>Supplier</th>
+                            <th>Supplied</th>
                             <th>Sold</th>
                             <th>Quantity</th>
                             <th>Add</th>
@@ -63,6 +64,7 @@
                             echo "<td> {$data['iCost']} </td>";
                             echo "<td> {$data['iPrice']} </td>";
                             echo "<td> {$s[0]} </td>";
+                            echo "<td> {$data['iLastPurchasedDate']} </td>";
                             echo "<td id='center'> {$data['iSold']} </td>";
                             echo "<td id='center'> {$data['iQty']} </td>";
                             echo "<td> <a href='panelManageAdd.php?ic={$data['iCode']}'> Add </a> </td>";
