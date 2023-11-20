@@ -22,7 +22,7 @@
         <div class="wrapper">
             <form class="container manage" action='panelSupplierProcess.php' method='post' onsubmit="return confirm('Are you sure you want to do that?');">
                 <fieldset>
-                    <legend>Suppliers Info</legend>
+                    <legend>Supplier Management</legend>
 
                     <table>
                         <tr>

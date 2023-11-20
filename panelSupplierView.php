@@ -22,7 +22,7 @@
         <div class="wrapper">
             <div class="container manage address">
                 <fieldset>
-                    <legend>Address</legend>
+                    <legend>Supplier Address</legend>
 
                     <h3>
                         <?php

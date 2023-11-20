@@ -82,7 +82,7 @@
                 </fieldset>
 
                 <div class="buttons">
-                    <input class="btn left" type="submit" value="Create">
+                    <input class="btn left" type="submit" value="Save">
                     <a class="btn right" href='panelManage.php'> Cancel </a>
                 </div>
             </form>

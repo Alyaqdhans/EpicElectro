@@ -22,7 +22,7 @@
         <div class="wrapper">
             <div class="container manage address">
                 <fieldset>
-                    <legend>Items</legend>
+                    <legend>Order Items</legend>
 
                     <table clsss="table item">
                         <tr>
@@ -56,7 +56,7 @@
                 </fieldset>
 
                 <div class="buttons">
-                    <a href='order.php'> Back </a>
+                    <a href='javascript:history.back()'> Back </a>
                 </div>
 
             </div>

@@ -21,6 +21,10 @@
         
         <div class="wrapper">
             <form class="container manage" action="panelAdminProcess.php" method="post">
+                    <div class="links">
+                        <a href="panelDelete.php">Delete Accounts</a>
+                    </div>
+
                 <fieldset>
                     <legend>Admin Accounts</legend>
 

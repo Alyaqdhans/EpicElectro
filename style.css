@@ -681,6 +681,8 @@ legend {
     max-height: 24rem;
     overflow-y: scroll;
     margin-bottom: 1rem;
+    width: fit-content;
+    margin-inline: auto;
 }
 
 .manage fieldset::-webkit-scrollbar-track {background: transparent;}
@@ -761,9 +763,6 @@ legend {
     margin-bottom: 1rem;
 }
 
-
-
-/* main panel page style */
 .manage .links a {
     background: var(--clr-secondary);
     padding: .5rem;
@@ -773,6 +772,8 @@ legend {
     font-weight: var(--fw-bold);
     font-size: var(--fs-large);
     color: black;
+    width: 20rem;
+    margin-inline: auto;
 }
 
 .manage .links a:hover {
@@ -853,6 +854,7 @@ legend {
 .address h3 {
     max-inline-size: 30ch;
     text-align: left;
+    margin: 1rem;
 }
 
 .address .buttons a {
