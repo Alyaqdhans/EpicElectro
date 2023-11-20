@@ -36,7 +36,7 @@
                             <th>Supplied</th>
                             <th>Sold</th>
                             <th>Quantity</th>
-                            <th>Add</th>
+                            <th>Supply</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
@@ -69,8 +69,8 @@
                             echo "<td> $date </td>";
                             echo "<td id='center'> {$data['iSold']} </td>";
                             echo "<td id='center'> {$data['iQty']} </td>";
-                            echo "<td> <a href='panelManageAdd.php?ic={$data['iCode']}'> Add </a> </td>";
-                            echo "<td> <a href='panelManageEdit.php?ic={$data['iCode']}'> Edit </a> </td>";
+                            echo "<td id='center'> <a href='panelManageAdd.php?ic={$data['iCode']}'> Add </a> </td>";
+                            echo "<td id='center'> <a href='panelManageEdit.php?ic={$data['iCode']}'> Edit </a> </td>";
                             echo "<td id='center'> <input type='checkbox' name='box[]' value='{$data['iCode']}'> </td>";
                             echo "</tr>";
                         }

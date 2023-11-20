@@ -761,6 +761,9 @@ legend {
     margin-bottom: 1rem;
 }
 
+
+
+/* main panel page style */
 .manage .links a {
     background: var(--clr-secondary);
     padding: .5rem;
@@ -789,7 +792,8 @@ legend {
 .create * {font-weight: var(--fw-bold);}
 
 .create input[type="text"],
-.create input[type="number"] {
+.create input[type="number"],
+.create input[type="email"] {
     padding: .4rem;
     width: 15rem;
 }
@@ -841,4 +845,16 @@ legend {
 
 .create .right {
     border-radius: 0 var(--br) var(--br) 0;
+}
+
+
+
+/* supplier page style */
+.address h3 {
+    max-inline-size: 30ch;
+    text-align: left;
+}
+
+.address .buttons a {
+    width: 5rem;
 }
