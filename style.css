@@ -320,11 +320,10 @@ legend {
     display: grid;
     /* grid-template-columns: repeat(auto-fit, 20rem); */
     grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
-    row-gap: 5rem;
-    column-gap: 3rem;
+    gap: 3rem;
     padding-inline: 7vw;
     padding-bottom: 10rem;
-    justify-content: center;
+    place-items: center;
 }
 
 .card {
