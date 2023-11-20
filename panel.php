@@ -46,6 +46,7 @@
                             <th>Order ID</th>
                             <th>Customer</th>
                             <th>Email</th>
+                            <th>Delivery</th>
                             <th>Date</th>
                             <th>Total</th>
                             <th>Items</th>
@@ -56,6 +57,7 @@
                         while ($data = mysqli_fetch_assoc($result)) {
                             $name = mysqli_fetch_row(mysqli_query($conn, "select cName from customers where cId = {$data['cId']}"));
                             $email = mysqli_fetch_row(mysqli_query($conn, "select email from customers where cId = {$data['cId']}"));
+                            $delivery = mysqli_fetch_row(mysqli_query($conn, "select company_name from delivery where dId = {$data['dId']}"));
 
                             if ($line % 2 == 1) {$style = "style='background: lightgray;'";}
                             else {$style = "";}
@@ -65,6 +67,7 @@
                             echo "<td id='center'> {$data['orderId']} </td>";
                             echo "<td id='center'> ". explode(" ", $name[0])[0] ." </td>";
                             echo "<td id='center'> {$email[0]} </td>";
+                            echo "<td id='center'> {$delivery[0]} </td>";
                             echo "<td> ". fdate($data['orderDate']) ." </td>";
                             echo "<td>". number_format($data['totalPrice']) ."</td>";
                             echo "<td id='center'> <a href='orderView.php?oid={$data['orderId']}'> View </a> </td>";

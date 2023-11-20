@@ -52,7 +52,7 @@
                             
                             echo "<tr $style>";
                             echo "<td> {$data['orderId']} </td>";
-                            echo "<td id='center'> {$name[0]} - {$phone[0]} </td>";
+                            echo "<td> {$name[0]} - {$phone[0]} </td>";
                             echo "<td> ". fdate($data['orderDate']) ." </td>";
                             echo "<td>". number_format($data['totalPrice']) ."</td>";
                             echo "<td id='center'> <a href='orderView.php?oid={$data['orderId']}'> View </a> </td>";
