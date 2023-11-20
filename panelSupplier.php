@@ -24,7 +24,7 @@
                 <fieldset>
                     <legend>Suppliers Info</legend>
 
-                    <table clsss="table item">
+                    <table>
                         <tr>
                             <th>ID</th>
                             <th>Name</th>

@@ -30,7 +30,7 @@
                 <fieldset>
                     <legend>Orders Info</legend>
 
-                    <table clsss="table item">
+                    <table>
                         <tr>
                             <th>ID</th>
                             <th>Delivery (Name & Contact)</th>

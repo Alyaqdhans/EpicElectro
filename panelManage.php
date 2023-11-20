@@ -24,7 +24,7 @@
                 <fieldset>
                     <legend>Item Management</legend>
 
-                    <table clsss="table item">
+                    <table>
                         <tr>
                             <th>ID</th>
                             <th>Title</th>
@@ -52,7 +52,9 @@
                             $category = mysqli_fetch_row(mysqli_query($conn, "select categoryDes from categories where categoryCode = {$data['iCategoryCode']}"));
                             $supplier = mysqli_fetch_row(mysqli_query($conn, "select sName from suppliers where sId = {$data['iSupplierId']}"));
 
-                            if ($line % 2 == 1) {$style = "style='background: lightgray;'";}
+                            if ($line % 2 == 1 && $data['iQty'] == 0) {$style = "style='background: lightgray; color: red;'";}
+                            else if ($line % 2 == 0 && $data['iQty'] == 0) {$style = "style='color: red;'";}
+                            else if ($line % 2 == 1) {$style = "style='background: lightgray;'";}
                             else {$style = "";}
                             $line += 1;
                             

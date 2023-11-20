@@ -668,7 +668,7 @@ legend {
 
 
 
-/* panel pages style */
+/* panel pages with table style */
 .manage {
     text-align: center;
 }
@@ -782,7 +782,7 @@ legend {
 
 
 
-/* create page style */
+/* create item, edit item, add item, new supplier pages style */
 .create fieldset {
     display: flex;
     flex-direction: column;
@@ -849,7 +849,7 @@ legend {
 
 
 
-/* supplier page style */
+/* supplier view, orders view pages style */
 .address h3 {
     max-inline-size: 30ch;
     text-align: left;
