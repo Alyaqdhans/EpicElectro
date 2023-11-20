@@ -64,7 +64,7 @@
                 </fieldset>
                 <?php
                 } else {
-                    echo "<h2> Nothing To Display </h2>";
+                    echo "<h2> You Have No Orders To Display </h2>";
                 }
                 ?>
 
