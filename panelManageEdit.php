@@ -22,7 +22,7 @@
         <div class="wrapper">
             <form class="container create" action="panelManageEditProcess.php" method="post" enctype="multipart/form-data">
                 <fieldset>
-                    <legend>Edit Item</legend>
+                    <legend>Edit Product</legend>
 
                     <?php
                     $query = "select * from items where iCode = '{$_GET['ic']}'";
@@ -33,22 +33,22 @@
                     ?>
 
                     <label>
-                        Item Name:<br>
+                        Product Name:<br>
                         <?php echo "<input type='text' name='title' value='{$data['iDesc']}' required>"; ?>
                     </label>
 
                     <label>
-                        Item Description:<br>
+                        Product Description:<br>
                         <?php echo "<textarea name='desc' cols='50' rows='8' required>{$data['iComment']}</textarea>"; ?>
                     </label>
 
                     <label>
-                        Item Brand:<br>
+                        Product Brand:<br>
                         <?php echo "<input type='text' name='brand' value='{$data['iBrand']}' required>"; ?>
                     </label>
 
                     <label>
-                        Item Category:<br>
+                        Product Category:<br>
                         <?php
                         echo "<select name='category' required>";
                         echo "<option value=''> Categories </option>";
@@ -66,7 +66,7 @@
                     </label>
 
                     <label>
-                        Item Image: (Must be ".jpg" Format)<br>
+                        Product Image: (Must be ".jpg" Format)<br>
                         <input class="upload" type="file" name="image" accept=".jpg">
                     </label>
 

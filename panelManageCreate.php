@@ -22,7 +22,7 @@
         <div class="wrapper">
             <form class="container create" action="panelManageCreateProcess.php" method="post" enctype="multipart/form-data">
                 <fieldset>
-                    <legend>New Item</legend>
+                    <legend>New Product</legend>
 
                     <?php
                     // check if there is available empty item
@@ -44,22 +44,22 @@
                     ?>
 
                     <label>
-                        Item Name: (Ex: iPhone 15+)<br>
+                        Product Name: (Ex: iPhone 15+)<br>
                         <input type="text" name="title" required>
                     </label>
 
                     <label>
-                        Item Description: (Ex: model and features)<br>
+                        Product Description: (Ex: model and features)<br>
                         <textarea name="desc" cols="50" rows="8" required></textarea>
                     </label>
 
                     <label>
-                        Item Brand: (Ex: Apple)<br>
+                        Product Brand: (Ex: Apple)<br>
                         <input type="text" name="brand" required>
                     </label>
 
                     <label>
-                        Item Category:<br>
+                        Product Category:<br>
                         <?php
                         echo "<select name='category' required>";
                         echo "<option value=''> Categories </option>";
@@ -75,7 +75,7 @@
                     </label>
 
                     <label>
-                        Item Image: (Must be ".jpg" Format)<br>
+                        Product Image: (Must be ".jpg" Format)<br>
                         <input class="upload" type="file" name="image" accept=".jpg" required>
                     </label>
 

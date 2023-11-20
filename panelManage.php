@@ -7,6 +7,7 @@
         <?php
         include('header.php');
         include('connect.php');
+        include('library.php');
 
         if (!isset($_SESSION['TYPE'])) {
             header('Location: error.php?ec=1'); // login required
@@ -22,18 +23,18 @@
         <div class="wrapper">
             <form class="container manage" action='panelManageProcess.php' method='post' onsubmit="return confirm('Are you sure you want to do that?');">
                 <fieldset>
-                    <legend>Item Management</legend>
+                    <legend>Product Management</legend>
 
                     <table>
                         <tr>
                             <th>ID</th>
-                            <th>Title</th>
+                            <th>Name</th>
                             <th>Brand</th>
                             <th>Category</th>
                             <th>Cost</th>
                             <th>Price</th>
                             <th>Supplier</th>
-                            <th>Supplied</th>
+                            <th>Last Supplied</th>
                             <th>Sold</th>
                             <th>Quantity</th>
                             <th>Stock</th>
@@ -66,9 +67,7 @@
                             echo "<td> {$data['iCost']} </td>";
                             echo "<td> {$data['iPrice']} </td>";
                             echo "<td> {$supplier[0]} </td>";
-                            $date = explode("-", $data['iLastPurchasedDate']);
-                            $date = $date[2]."/".$date[1]."/".$date[0];
-                            echo "<td> $date </td>";
+                            echo "<td> ". fdate($data['iLastPurchasedDate']) ." </td>";
                             echo "<td id='center'> {$data['iSold']} </td>";
                             echo "<td id='center'> {$data['iQty']} </td>";
                             echo "<td id='center'> <a href='panelManageAdd.php?ic={$data['iCode']}'> Add </a> </td>";

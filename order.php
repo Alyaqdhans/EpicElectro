@@ -7,6 +7,7 @@
         <?php
         include('header.php');
         include('connect.php');
+        include('library.php');
 
         if (!isset($_SESSION['TYPE'])) {
             header('Location: error.php?ec=1'); // login required
@@ -52,9 +53,7 @@
                             echo "<tr $style>";
                             echo "<td> {$data['orderId']} </td>";
                             echo "<td id='center'> {$name[0]} - {$phone[0]} </td>";
-                            $date = explode("-", $data['orderDate']);
-                            $date = $date[2]."/".$date[1]."/".$date[0];
-                            echo "<td> $date </td>";
+                            echo "<td> ". fdate($data['orderDate']) ." </td>";
                             echo "<td>". number_format($data['totalPrice']) ."</td>";
                             echo "<td id='center'> <a href='orderView.php?oid={$data['orderId']}'> View </a> </td>";
                             echo "</tr>";

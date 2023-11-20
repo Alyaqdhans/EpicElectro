@@ -20,6 +20,11 @@
             echo "<a href=javascript:history.back()> Go Back </a></b> <br>";
             echo "</div>";
         }
+
+        function fdate($d) {
+            $date = explode("-", $d);
+            return ($date[2]."/".$date[1]."/".$date[0]);
+        }
         ?>
     </body>
 </html>

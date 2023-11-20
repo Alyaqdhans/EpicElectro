@@ -7,6 +7,7 @@
         <?php
         include('header.php');
         include('connect.php');
+        include('library.php');
 
         if (!isset($_SESSION['TYPE'])) {
             header('Location: error.php?ec=1'); // login required
@@ -26,7 +27,7 @@
 
                     <div class="links">
                         <a href="panelDelete.php">Accounts</a>
-                        <a href="panelManage.php">Items</a>
+                        <a href="panelManage.php">Products</a>
                         <a href="panelSupplier.php">Suppliers</a>
                     </div>
                 </fieldset>
@@ -64,9 +65,7 @@
                             echo "<td id='center'> {$data['orderId']} </td>";
                             echo "<td id='center'> ". explode(" ", $name[0])[0] ." </td>";
                             echo "<td id='center'> {$email[0]} </td>";
-                            $date = explode("-", $data['orderDate']);
-                            $date = $date[2]."/".$date[1]."/".$date[0];
-                            echo "<td> $date </td>";
+                            echo "<td> ". fdate($data['orderDate']) ." </td>";
                             echo "<td>". number_format($data['totalPrice']) ."</td>";
                             echo "<td id='center'> <a href='orderView.php?oid={$data['orderId']}'> View </a> </td>";
                             echo "</tr>";

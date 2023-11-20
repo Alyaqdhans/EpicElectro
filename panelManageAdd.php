@@ -34,12 +34,12 @@
                     ?>
 
                     <label>
-                        Item Name:<br>
+                        Product Name:<br>
                         <?php echo "<h3>[ {$data['iDesc']} ]</h3>"; ?>
                     </label>
 
                     <label>
-                        Item Supplier:<br>
+                        Product Supplier:<br>
                         <?php
                         echo "<select name='supplier' required>";
                         echo "<option value=''> Suppliers </option>";
@@ -57,17 +57,17 @@
                     </label>
 
                     <label>
-                        Item Quantity:<br>
+                        Product Quantity:<br>
                         <?php echo "<input type='number' name='qty' value='{$data['iQty']}' required>"; ?>
                     </label>
 
                     <label>
-                        Item Cost: (Purchased for)<br>
+                        Product Cost: (Purchased for)<br>
                         <?php echo "<input type='number' name='cost' value='{$data['iCost']}' required>"; ?>
                     </label>
 
                     <label>
-                        Item Price: (Sell for)<br>
+                        Product Price: (Sell for)<br>
                         <?php echo "<input type='number' name='price' value='{$data['iPrice']}' required>"; ?>
                     </label>
                 </fieldset>

@@ -7,6 +7,7 @@
         <?php
         include('header.php');
         include('connect.php');
+        include('library.php');
 
         if (!isset($_SESSION['TYPE'])) {
             header('Location: error.php?ec=1'); // login required
@@ -34,6 +35,7 @@
                             <th>Name</th>
                             <th>Email</th>
                             <th>Registered</th>
+                            <th>Last Login</th>
                             <th>Type</th>
                             <th>Admin</th>
                         </tr>
@@ -60,9 +62,8 @@
                             echo "<td> {$data['cId']} </td>";
                             echo "<td> {$data['cName']} </td>";
                             echo "<td> {$data['email']} </td>";
-                            $date = explode("-", $data['registerDate']);
-                            $date = $date[2]."/".$date[1]."/".$date[0];
-                            echo "<td> $date </td>";
+                            echo "<td> ". fdate($data['registerDate']) ." </td>";
+                            echo "<td> ". fdate($data['lastLogin']) ." </td>";
                             echo "<td> $type </td>";
                             echo "<td id='center'> <input id='{$data['cId']}' type='checkbox' name='box[]' value='{$data['cId']}' $d> </td>";
                             echo "</label>";
