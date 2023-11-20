@@ -8,14 +8,9 @@
         include('header.php');
         include('connect.php');
 
-        if (!isset($_SESSION['TYPE'])) {
+        if (!isset($_SESSION['CID'])) {
             header('Location: error.php?ec=1'); // login required
             exit;
-        } else {
-            if ($_SESSION['TYPE'] != 'A') {
-                header('Location: error.php?ec=3'); // need admin
-                exit;
-            }
         }
         ?>
         
