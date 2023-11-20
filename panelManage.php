@@ -36,7 +36,7 @@
                             <th>Supplied</th>
                             <th>Sold</th>
                             <th>Quantity</th>
-                            <th>Supply</th>
+                            <th>Stock</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
@@ -49,8 +49,8 @@
                         while ($data = mysqli_fetch_assoc($result)) {
                             if ($data['iDesc'] == "new") {continue;}
 
-                            $c = mysqli_fetch_row(mysqli_query($conn, "select categoryDes from categories where categoryCode = {$data['iCategoryCode']}"));
-                            $s = mysqli_fetch_row(mysqli_query($conn, "select sName from suppliers where sId = {$data['iSupplierId']}"));
+                            $category = mysqli_fetch_row(mysqli_query($conn, "select categoryDes from categories where categoryCode = {$data['iCategoryCode']}"));
+                            $supplier = mysqli_fetch_row(mysqli_query($conn, "select sName from suppliers where sId = {$data['iSupplierId']}"));
 
                             if ($line % 2 == 1) {$style = "style='background: lightgray;'";}
                             else {$style = "";}
@@ -60,10 +60,10 @@
                             echo "<td> {$data['iCode']} </td>";
                             echo "<td> {$data['iDesc']} </td>";
                             echo "<td> {$data['iBrand']} </td>";
-                            echo "<td> {$c[0]} </td>";
+                            echo "<td> {$category[0]} </td>";
                             echo "<td> {$data['iCost']} </td>";
                             echo "<td> {$data['iPrice']} </td>";
-                            echo "<td> {$s[0]} </td>";
+                            echo "<td> {$supplier[0]} </td>";
                             $date = explode("-", $data['iLastPurchasedDate']);
                             $date = $date[2]."/".$date[1]."/".$date[0];
                             echo "<td> $date </td>";
