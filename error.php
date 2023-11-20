@@ -36,6 +36,12 @@ switch ($_GET['ec']) {
         $message = "The old password registred does not match what you typed, please enter the correct old password.";
         break;
 
+    // cannot delete all supplierss
+    case 6:
+        $title = "Cannot Delete All";
+        $message = "Please leave at least one supplier for the items.";
+        break;
+
     // other errors
     default:
     $title = "Unknown Error";

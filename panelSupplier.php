@@ -43,6 +43,9 @@
                             if ($line % 2 == 1) {$style = "style='background: lightgray;'";}
                             else {$style = "";}
                             $line += 1;
+
+                            if (mysqli_num_rows($result) == 1) {$d = "disabled";}
+                            else {$d = "";}
                             
                             echo "<tr id='clickable' $style>";
                             echo "<td> {$data['sId']} </td>";
@@ -50,7 +53,7 @@
                             echo "<td> {$data['sPhone']} </td>";
                             echo "<td> {$data['sEmail']} </td>";
                             echo "<td id='center'> <a href='panelSupplierView.php?sid={$data['sId']}'> View </a> </td>";
-                            echo "<td id='center'> <input type='checkbox' name='box[]' value='{$data['sId']}'> </td>";
+                            echo "<td id='center'> <input type='checkbox' name='box[]' value='{$data['sId']}' $d> </td>";
                             echo "</tr>";
                         }
                         ?>
