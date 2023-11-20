@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `categories` (
   `categoryCode` int(11) NOT NULL COMMENT 'Category Code',
   `categoryDes` varchar(100) NOT NULL COMMENT 'Category Description'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+);
 
 --
 -- Dumping data for table `categories`
@@ -60,7 +60,7 @@ CREATE TABLE `customers` (
   `cAddress` varchar(100) NOT NULL COMMENT 'Customer Address',
   `cType` varchar(1) NOT NULL COMMENT 'Customer Type',
   `phoneNumber` int(8) NOT NULL COMMENT 'Customer Phone Number'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+);
 
 --
 -- Dumping data for table `customers`
@@ -83,7 +83,7 @@ CREATE TABLE `delivery` (
   `dId` int(11) NOT NULL COMMENT 'Delivery ID',
   `company_name` varchar(50) NOT NULL COMMENT 'Company Name',
   `dPhone` int(8) NOT NULL COMMENT 'Delivery Phone Number'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+);
 
 --
 -- Dumping data for table `delivery`
@@ -113,7 +113,7 @@ CREATE TABLE `items` (
   `iSupplierId` int(11) NOT NULL COMMENT 'Item Supplier Id(FK)',
   `iLastPurchasedDate` date NOT NULL COMMENT 'Item Last Purchased Date',
   `iBrand` varchar(10) NOT NULL COMMENT 'Item Brand'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+);
 
 --
 -- Dumping data for table `items`
@@ -167,7 +167,7 @@ CREATE TABLE `orders` (
   `dId` int(11) NOT NULL COMMENT 'Delivery ID (FK)',
   `orderDate` date NOT NULL COMMENT 'Order Date',
   `totalPrice` int(11) NOT NULL COMMENT 'Total Order Items Price'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+);
 
 --
 -- Dumping data for table `orders`
@@ -187,7 +187,7 @@ CREATE TABLE `order_items` (
   `orderID` int(11) NOT NULL COMMENT 'Order ID (FK)',
   `iCode` int(11) NOT NULL COMMENT 'Item Code (FK)',
   `quantity` int(11) NOT NULL COMMENT 'Quantity'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+);
 
 -- --------------------------------------------------------
 
@@ -201,7 +201,7 @@ CREATE TABLE `suppliers` (
   `sAddress` varchar(100) NOT NULL COMMENT 'Supplier Address',
   `sPhone` int(8) NOT NULL COMMENT 'Supplier Phone Number',
   `sEmail` varchar(100) NOT NULL COMMENT 'Supplier Email'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+);
 
 --
 -- Dumping data for table `suppliers`
