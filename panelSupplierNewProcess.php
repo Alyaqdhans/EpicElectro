@@ -18,7 +18,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $errors[] = "Please enter a valid email";
 }
 
-if ($number < 1 || !preg_match("/^[0-9]{8}$/", $number)) {
+if ($phone < 1 || !preg_match("/^[0-9]{8}$/", $phone)) {
     $errors[] = "Please enter a valid phone number";
 }
 
