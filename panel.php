@@ -24,6 +24,7 @@
                     <a href="panelAdmin.php">Admin Accounts</a>
                     <a href="panelDelete.php">Delete Accounts</a>
                     <a href="panelManage.php">Manage Items</a>
+                    <a href="panelSupplier.php">Suppliers Info</a>
                 </div>
 
                 <fieldset>

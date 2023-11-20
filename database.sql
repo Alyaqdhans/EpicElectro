@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 19, 2023 at 07:21 PM
+-- Generation Time: Nov 20, 2023 at 04:02 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -37,12 +37,18 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`categoryCode`, `categoryDes`) VALUES
-(1, 'Laptop'),
+(1, 'Computer'),
 (2, 'Smartphone'),
 (3, 'Headphone'),
 (4, 'Camera'),
 (5, 'Monitor'),
-(6, 'Tablet');
+(6, 'Tablet'),
+(7, 'Accessory'),
+(8, 'Smart Device'),
+(9, 'Wearable'),
+(10, 'Network'),
+(11, 'Component'),
+(12, 'Other');
 
 -- --------------------------------------------------------
 
@@ -69,7 +75,7 @@ CREATE TABLE `customers` (
 INSERT INTO `customers` (`cId`, `cName`, `password`, `email`, `registerDate`, `lastLogin`, `cAddress`, `cType`, `phoneNumber`) VALUES
 (1, 'John Doe', '*FB6E1F205D675BC29B052DB14CCEFE7759C5FF7E', 'john.doe@email.com', '2020-01-01', '2023-11-17', '123 Street', 'A', 93215274),
 (2, 'Jane Smith', '*FB6E1F205D675BC29B052DB14CCEFE7759C5FF7E', 'jane.smith@email.com', '2020-01-01', '2023-11-17', '456 Avenue', 'N', 48774964),
-(3, 'Alyaqdhan Zahran Alzri', '*196BDEDE2AE4F84CA44C47D54D78478C7E2BD7B7', 'alyaqdhan690s@gmail.com', '2023-11-10', '2023-11-19', 'Nizwa', 'A', 94028288),
+(3, 'Alyaqdhan Zahran Alzri', '*196BDEDE2AE4F84CA44C47D54D78478C7E2BD7B7', 'alyaqdhan690s@gmail.com', '2023-11-10', '2023-11-20', 'Nizwa', 'A', 94028288),
 (8, 'Hassan Ambusaidi', '*84AAC12F54AB666ECFC2A83C676908C8BBC381B1', 'hassanjamal428@gmail.com', '2023-11-11', '2023-11-16', 'Nizwa', 'A', 95322022),
 (11, 'Mohamed Ali', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257', 'ali@gmail.com', '2023-11-12', '2023-11-12', 'firq', 'N', 98787878);
 
@@ -208,8 +214,8 @@ CREATE TABLE `suppliers` (
 --
 
 INSERT INTO `suppliers` (`sId`, `sName`, `sAddress`, `sPhone`, `sEmail`) VALUES
-(1, 'ElectroTech', '123 Main Street', 69535679, 'info@electrotech.com'),
-(2, 'Gadget World', '456 Tech Avenue', 35855123, 'sales@gadgetworld.com'),
+(1, 'SharafDG', 'Shop No-F38, Level 1 Muscat Grand mall, Al Khuwair, Muscat, Oman.', 80066753, 'Feedback@om.sharafdg.com'),
+(2, 'Gadgets', 'Mall of Oman, Mall of Muscat, Muscat Grand Mall, Avenues Mall, Al Araimi Boulevard.', 99349886, 'info@gadgetsoman.com'),
 (3, 'Bahwan', 'P.O.Box 169, Postal Code 100,\r\nMuscat. Sultanate of Oman.', 24650000, 'info@suhailbahwangroup.com'),
 (4, 'eXtra', 'Way3703 - Block 237 Near Sultan Qaboos Grand Mosque Al Gubrah Al Janubi, 1', 80077880, 'customerservice.os1@extra.com');
 
@@ -272,7 +278,7 @@ ALTER TABLE `suppliers`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `categoryCode` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Category Code', AUTO_INCREMENT=7;
+  MODIFY `categoryCode` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Category Code', AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `customers`
