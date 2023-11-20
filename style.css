@@ -149,6 +149,7 @@ fieldset {
 legend {
     font-size: var(--fs-large);
     font-weight: var(--fw-bold);
+    text-align: center;
 }
 
 .form {
@@ -582,6 +583,11 @@ legend {
     gap: 2rem;
 }
 
+.checkout fieldset {
+    padding: 1.5rem;
+    gap: 2rem;
+}
+
 .checkout .item {
     background: lightgray;
     border-radius: var(--br);
@@ -610,7 +616,7 @@ legend {
     background: white;
     padding: 1rem;
     border-radius: var(--br);
-    flex-grow: 1;
+    width: 14rem;
 }
 
 .checkout .info h2 {
@@ -669,10 +675,6 @@ legend {
 
 
 /* panel pages with table style */
-.manage {
-    text-align: center;
-}
-
 .manage * {
     font-weight: var(--fw-bold);
 }
@@ -781,6 +783,10 @@ legend {
     cursor: pointer;
 }
 
+.manage .activity {
+    max-height: 14rem;
+}
+
 
 
 /* create item, edit item, add item, new supplier pages style */
@@ -850,7 +856,7 @@ legend {
 
 
 
-/* supplier view, orders view pages style */
+/* supplier view, order view pages style */
 .address h3 {
     max-inline-size: 30ch;
     text-align: left;

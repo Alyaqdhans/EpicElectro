@@ -37,7 +37,7 @@
 
                 if (mysqli_num_rows($result) > 0) {
                 ?>
-                <fieldset>
+                <fieldset class="activity">
                     <legend>Latest Orders</legend>
 
                     <table>
