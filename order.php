@@ -24,7 +24,7 @@
                 if (mysqli_num_rows($result) > 0) {
                 ?>
                 <fieldset>
-                    <legend>Orders Info</legend>
+                    <legend>Order Details</legend>
 
                     <table>
                         <tr>

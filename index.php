@@ -124,7 +124,7 @@
                     if ($data['iDesc'] == "new") {continue;}
 
                     echo "<div class='card'>";
-                        echo "<img src='images/{$data['iCode']}.jpg' alt='{$data['iCode']}'>";
+                        echo "<div class='img'><img src='images/{$data['iCode']}.jpg' alt='{$data['iCode']}'></div>";
                         echo "<h3> {$data['iDesc']} </h3>";
                         echo "<h4> by {$data['iBrand']} </h4>";
                         if ($data['iQty'] > 0) {

@@ -321,13 +321,16 @@ legend {
     display: grid;
     /* grid-template-columns: repeat(auto-fit, 20rem); */
     grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
-    gap: 3rem;
-    padding-inline: 7vw;
+    gap: 5rem;
+    padding-inline: 6vw;
     padding-bottom: 10rem;
+    padding-top: 2rem;
     place-items: center;
 }
 
 .card {
+    height: 100%;
+    width: 100%;
     background: white;
     padding: 1rem;
     border-radius: var(--br);
@@ -368,15 +371,19 @@ legend {
 }
 
 .card h3 {
-    margin-top: 1rem;
+    margin-top: auto;
 }
 
 .card h4 {
     margin-block: .5rem;
 }
 
-.card h5 {
-    margin-bottom: 1rem;
+.card .img {
+    outline: solid 3px black;
+    border-radius: var(--br);
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    background: lightgray;
 }
 
 .card img {
@@ -384,7 +391,6 @@ legend {
     border-radius: var(--br);
     aspect-ratio: 1 / 1;
     object-fit: cover;
-    outline: solid 3px black;
 }
 
 .card .anchor {
@@ -396,8 +402,8 @@ legend {
 
 .scroll {
     position: fixed;
-    right: 3vw;
-    bottom: 9vh;
+    right: 2vw;
+    bottom: 10vh;
     display: flex;
     flex-direction: column;
     box-shadow: 0 0 .5rem black;
@@ -463,6 +469,7 @@ legend {
 }
 
 .view img {
+    width: 100%;
     aspect-ratio: 1.25 / 1;
     object-fit: cover;
     border-radius: var(--br);
@@ -607,6 +614,7 @@ legend {
 }
 
 .checkout img {
+    width: 100%;
     aspect-ratio: 1.25 / 1;
     object-fit: cover;
     border-radius: var(--br);
@@ -633,7 +641,7 @@ legend {
     margin-left: auto;
 }
 
-.checkout .amount span {
+.checkout .amount .control span {
     background: grey;
     color: white;
 }
