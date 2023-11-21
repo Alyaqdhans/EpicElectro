@@ -34,15 +34,18 @@
                         $line = 0;
                         while ($data = mysqli_fetch_assoc($result)) {
                             $item = mysqli_fetch_row(mysqli_query($conn, "select iDesc, iBrand, iPrice from items where iCode = {$data['iCode']}"));
+                            $name = $item[0];
+                            $brand = $item[1];
+                            $price = $item[2] * $data['quantity'];
 
                             if ($line % 2 == 1) {$style = "style='background: lightgray;'";}
                             else {$style = "";}
                             $line += 1;
                             
                             echo "<tr $style>";
-                            echo "<td> {$item[0]} </td>";
-                            echo "<td> {$item[1]} </td>";
-                            echo "<td> {$item[2]} </td>";
+                            echo "<td> $name </td>";
+                            echo "<td> $brand </td>";
+                            echo "<td> ". number_format($price) ." </td>";
                             echo "<td id='center'> {$data['quantity']} </td>";
                             echo "</tr>";
                         }

@@ -24,7 +24,7 @@ foreach ($_SESSION['CART'] as $key => $item) {
 $query = "select dId from delivery";
 $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
 $allDID = mysqli_fetch_all($result);
-$DID = array_rand($allDID); // get random delivery company from database
+$DID = rand(1, count($allDID)); // get random delivery company from database
 
 $date = date('Y-m-d');
 $query = "insert into orders(cId, dId, orderDate, totalPrice)"; // make new order
