@@ -49,26 +49,34 @@
 
                         <div class="control">
                             <?php
-                            if ($data['iQty'] > 0) {$n = 1; $d = "";}
-                            else {$n = 0; $d = "disabled";}
+                            $cartQty = 0;
+                            foreach ($_SESSION['CART'] as $item) {
+                                if ($item['ic'] == $_GET['ic']) {
+                                    $cartQty = $item['qty'];
+                                }
+                            }
+
+                            if ($data['iQty'] > 1 && $data['iQty'] != $cartQty) {$d = "";}
+                            else {$d = "disabled";}
                             
                             echo "<input class='less' id=". 'less'.$_GET['ic'] ." type='button' value=' - ' onclick='controller(\"less\", {$_GET['ic']})' disabled>";
-                            echo "<span class='number' id=". 'number'.$_GET['ic'] ."> $n </span>";
+                            echo "<span class='number' id=". 'number'.$_GET['ic'] ."> 1 </span>";
                             echo "<input class='more' id=". 'more'.$_GET['ic'] ." type='button' value=' + ' onclick='controller(\"more\", {$_GET['ic']})' $d>";
 
-                            echo "<input id=". 'stock'.$_GET['ic'] ." type='hidden' value='{$data['iQty']}'>"; // for javascript
+                            echo "<input id=". 'stock'.$_GET['ic'] ." type='hidden' value='". $data['iQty'] - $cartQty ."'>"; // for javascript
                             ?>
                         </div>
 
                         <?php
-                        if ($data['iQty'] > 0) {
-                            echo "<span> Available: {$data['iQty']} </span>";
-                            $d = "";
-                        } else {
-                            echo "<span> Not Available </span>";
-                            $d = "disabled";
-                        }
+                        if ($data['iQty'] > 0) {echo "<span> Available: {$data['iQty']} </span>";}
+                            else {echo "<span> Not Available </span>";}
+
+                            if ($data['iQty'] > 0 && $data['iQty'] > $cartQty) {$d = "";}
+                            else {$d = "disabled";}
+
                         echo "<input id='submit' type='submit' value='Add' $d>";
+
+                        echo "<span> In Cart: $cartQty </span>";
 
                         echo "<input type='hidden' name='ic' value='{$_GET['ic']}'>";
                         echo "<input type='hidden' name='price' value='{$data['iPrice']}'>";
