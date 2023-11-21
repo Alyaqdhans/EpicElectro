@@ -22,5 +22,5 @@ if ($in_cart == false) {
     array_push($_SESSION['CART'], ["ic" => $_POST['ic'], "price" => $_POST['price'], "qty" => $_POST['qty']]);
 }
 
-header("Location: index.php#{$_POST['ic']}");
+header("Location: view.php?ic={$_POST['ic']}");
 ?>

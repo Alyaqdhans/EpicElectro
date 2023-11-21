@@ -54,7 +54,7 @@
 
                         <div class="control">
                             <?php
-                            if ($data['iQty'] > 1 && $data['iQty'] != $cartQty) {$d = "";}
+                            if ($data['iQty'] > 1 && !($cartQty >= $data['iQty']-1)) {$d = "";}
                             else {$d = "disabled";}
                             
                             echo "<input class='less' id=". 'less'.$_GET['ic'] ." type='button' value=' - ' onclick='controller(\"less\", {$_GET['ic']})' disabled>";
