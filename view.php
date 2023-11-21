@@ -30,17 +30,22 @@
                     ?>
                 </section>
 
+                <?php
+                $cartQty = 0; // get how many of this item in cart
+                if (isset($_SESSION['CART'])) {
+                    foreach ($_SESSION['CART'] as $item) {
+                        if ($item['ic'] == $_GET['ic']) {
+                            $cartQty = $item['qty'];
+                        }
+                    }
+                }
+                ?>
+
                 <aside>
                     <div class="cart">
-                        <a href="cart.php">Cart</a>
+                        <a href="cart.php">In Cart</a>
                         <span style="background: var(--clr-primary-light); color: white;">
-                            <?php
-                            if (isset($_SESSION['CART'])) {
-                                echo count($_SESSION['CART']);
-                            } else {
-                                echo 0;
-                            }
-                            ?>
+                            <?php echo $cartQty; ?>
                         </span>
                     </div>
 
@@ -49,13 +54,6 @@
 
                         <div class="control">
                             <?php
-                            $cartQty = 0;
-                            foreach ($_SESSION['CART'] as $item) {
-                                if ($item['ic'] == $_GET['ic']) {
-                                    $cartQty = $item['qty'];
-                                }
-                            }
-
                             if ($data['iQty'] > 1 && $data['iQty'] != $cartQty) {$d = "";}
                             else {$d = "disabled";}
                             
@@ -75,8 +73,6 @@
                             else {$d = "disabled";}
 
                         echo "<input id='submit' type='submit' value='Add' $d>";
-
-                        echo "<span> In Cart: $cartQty </span>";
 
                         echo "<input type='hidden' name='ic' value='{$_GET['ic']}'>";
                         echo "<input type='hidden' name='price' value='{$data['iPrice']}'>";
