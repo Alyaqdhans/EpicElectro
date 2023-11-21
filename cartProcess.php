@@ -15,7 +15,7 @@ foreach ($_SESSION['CART'] as $key => $item) {
     $data = mysqli_fetch_assoc($result);
 
     if ($item['qty'] > $data['iQty']) {
-        header("Location: error.php?ec=7&ic={$item['ic']}"); // check if there are items more than the available
+        header("Location: error.php?ec=7&ic={$item['ic']}"); // check if there are items in cart more than the available
         exit;
     }
 }
@@ -37,7 +37,18 @@ $orderId = $conn->insert_id;
 
 
 foreach ($_SESSION['CART'] as $key => $item) {
-    
+    $qty = mysqli_fetch_row(mysqli_query($conn, "select iQty from items where iCode = {$item['ic']}"))[0];
+
+    $query = "update items set iSold = {$item['qty']},";
+    $query .= " iQty = ". $qty - $item['qty']; // update qty and sold values
+    $query .= " where iCode = {$item['ic']}";
+    mysqli_query($conn, $query);
+
+    $query = "insert into order_items(orderID, iCode, quantity)"; // add item to the order
+    $query .= " values('$orderId', '{$item['ic']}', {$item['qty']})";
+    mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
+
+    unset($_SESSION['CART'][$key]); // delete item from cart
 }
 
 

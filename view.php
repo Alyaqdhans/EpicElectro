@@ -36,6 +36,7 @@
                     foreach ($_SESSION['CART'] as $item) {
                         if ($item['ic'] == $_GET['ic']) {
                             $cartQty = $item['qty'];
+                            break;
                         }
                     }
                 }

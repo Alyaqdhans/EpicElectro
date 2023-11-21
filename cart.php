@@ -20,7 +20,7 @@
         <form class="wrapper" method="post">
             <div class="container checkout">
                 <?php echo "<fieldset style='$hide'>"; ?>
-                    <legend>Cart Items</legend>
+                    <legend>Cart Contens</legend>
 
                     <?php
                     foreach ($_SESSION['CART'] as $key => $item) {
