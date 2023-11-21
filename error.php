@@ -1,4 +1,6 @@
 <?php
+include("connect.php");
+
 switch ($_GET['ec']) {
     // login failure
     case 0:
@@ -40,6 +42,13 @@ switch ($_GET['ec']) {
     case 6:
         $title = "Cannot Delete All";
         $message = "Please leave at least one supplier for the items.";
+        break;
+
+    // more than available quantity in storage
+    case 7:
+        $item = mysqli_fetch_row(mysqli_query($conn, "select iDesc from items where iCode = {$_GET['ic']}"))[0];
+        $title = "Over Available Quantity";
+        $message = "Please decrease the amount of '$item' because it is more than the available.";
         break;
 
     // other errors
