@@ -43,7 +43,7 @@
 
                     <table>
                         <tr>
-                            <th>Order ID</th>
+                            <th>ID</th>
                             <th>Customer</th>
                             <th>Email</th>
                             <th>Delivery</th>
@@ -64,10 +64,10 @@
                             $line += 1;
                             
                             echo "<tr $style>";
-                            echo "<td id='center'> {$data['orderId']} </td>";
-                            echo "<td id='center'> ". explode(" ", $name[0])[0] ." </td>";
-                            echo "<td id='center'> {$email[0]} </td>";
-                            echo "<td id='center'> {$delivery[0]} </td>";
+                            echo "<td> {$data['orderId']} </td>";
+                            echo "<td> ". explode(" ", $name[0])[0] ." </td>";
+                            echo "<td> {$email[0]} </td>";
+                            echo "<td> {$delivery[0]} </td>";
                             echo "<td> ". fdate($data['orderDate']) ." </td>";
                             echo "<td>". number_format($data['totalPrice']) ."</td>";
                             echo "<td id='center'> <a href='orderView.php?oid={$data['orderId']}'> View </a> </td>";

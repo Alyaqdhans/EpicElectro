@@ -17,10 +17,10 @@
         else {$hide = "display: none;";}
         ?>
         
-        <form class="wrapper" method="post">
+        <form class="wrapper" method="post" onsubmit="return confirm('Are you sure you want to checkout?');">
             <div class="container checkout">
                 <?php echo "<fieldset style='$hide'>"; ?>
-                    <legend>Cart Contens</legend>
+                    <legend>Cart Contents</legend>
 
                     <?php
                     foreach ($_SESSION['CART'] as $key => $item) {

@@ -58,7 +58,6 @@
                             else {$type = "Normal";}
 
                             echo "<tr id='clickable' $style>";
-                            echo "<label for='{$data['cId']}'>";
                             echo "<td> {$data['cId']} </td>";
                             echo "<td> {$data['cName']} </td>";
                             echo "<td> {$data['email']} </td>";
@@ -66,7 +65,6 @@
                             echo "<td> ". fdate($data['lastLogin']) ." </td>";
                             echo "<td> $type </td>";
                             echo "<td id='center'> <input id='{$data['cId']}' type='checkbox' name='box[]' value='{$data['cId']}' $d> </td>";
-                            echo "</label>";
                             echo "</tr>";
                         }
                         ?>
