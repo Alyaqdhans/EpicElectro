@@ -33,7 +33,7 @@
                 </fieldset>
 
                 <?php
-                $query = "select * from orders order by orderDate desc";
+                $query = "select * from orders order by orderDate desc, orderId desc";
                 $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
 
                 if (mysqli_num_rows($result) > 0) {

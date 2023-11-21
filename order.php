@@ -18,13 +18,13 @@
         <div class="wrapper">
             <div class="container manage">
                 <?php
-                $query = "select * from orders where cId = {$_SESSION['CID']}";
+                $query = "select * from orders where cId = {$_SESSION['CID']} order by orderDate desc, orderId desc";
                 $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
 
                 if (mysqli_num_rows($result) > 0) {
                 ?>
                 <fieldset>
-                    <legend>Order Details</legend>
+                    <legend>Orders History</legend>
 
                     <table>
                         <tr>
