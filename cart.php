@@ -17,7 +17,7 @@
         else {$hide = "";}
         ?>
         
-        <form class="wrapper" method="post" onsubmit="return confirm('Are you sure you want to checkout?');">
+        <form class="wrapper" method="post" onsubmit="return confirm('Are you sure you want to do that?');">
             <div class="container checkout">
                 <?php echo "<fieldset $hide>"; ?>
                     <legend>Cart Contents</legend>
@@ -70,10 +70,10 @@
                                     echo "<input class='more' id=". 'more'.$item['ic'] ." type='button' value=' + ' onclick='controller(\"more\", {$item['ic']})' $d>";
                                 echo "</div>";
 
+                                echo "<input type='submit' value='Remove' formaction='cart.php?ic={$item['ic']}#{$item['ic']}'>";
+                                
                                 echo "<input id=". 'stock'.$item['ic'] ." type='hidden' value='{$item['qty']}'>"; // for javascript
                                 echo "<input id=". 'qty'.$item['ic'] ." type='hidden' name='{$item['ic']}' value='1'>";
-
-                                echo "<input type='submit' value='Remove' formaction='cart.php?ic={$item['ic']}'#{$item['ic']}>";
                             echo "</div>";
 
                             echo "<span class='anchor' id='{$item['ic']}'></span>"; // scrolls user back
