@@ -1,7 +1,7 @@
 <html>
     <head>
         <?php include('link.php') ?>
-        <title>EpicElectro | Permissions</title>
+        <title>EpicElectro | Accounts</title>
     </head>
     <body>
         <?php

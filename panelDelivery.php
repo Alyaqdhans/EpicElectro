@@ -1,13 +1,12 @@
 <html>
     <head>
-        <?php include('link.php') ?>
-        <title>EpicElectro | Accounts</title>
+        <?php include('link.php'); ?>
+        <title>EpicElectro | Delivers</title>
     </head>
     <body>
         <?php
         include('header.php');
         include('connect.php');
-        include('library.php');
 
         if (!isset($_SESSION['TYPE'])) {
             header('Location: error.php?ec=1'); // login required
@@ -21,27 +20,20 @@
         ?>
         
         <div class="wrapper">
-            <form class="container manage" action="panelDeleteProcess.php" method="post" onsubmit="return confirm('Are you sure you want to do that?');">
-                    <div class="links">
-                        <a href="panelAdmin.php">Admin Accounts</a>
-                    </div>
-
+            <form class="container manage" action='panelDeliveryProcess.php' method='post' onsubmit="return confirm('Are you sure you want to do that?');">
                 <fieldset>
-                    <legend>Delete Accounts</legend>
+                    <legend>Deliver Management</legend>
 
                     <table>
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
-                            <th>Email</th>
-                            <th>Registered</th>
-                            <th>Last Login</th>
-                            <th>Type</th>
+                            <th>Phone</th>
                             <th>Delete</th>
                         </tr>
-
+                        
                         <?php
-                        $query = "select * from customers";
+                        $query = "select * from delivery";
                         $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
                         
                         $line = 0;
@@ -50,20 +42,14 @@
                             else {$style = "";}
                             $line += 1;
 
-                            if ($data['cType'] == 'A' || $data['cId'] == $_SESSION['CID']) {$d = 'disabled';}
-                            else {$d = '';}
-
-                            if ($data['cType'] == 'A') {$type = "Admin";}
-                            else {$type = "Normal";}
-
+                            if (mysqli_num_rows($result) == 1) {$d = "disabled";}
+                            else {$d = "";}
+                            
                             echo "<tr id='clickable' $style>";
-                            echo "<td> {$data['cId']} </td>";
-                            echo "<td> {$data['cName']} </td>";
-                            echo "<td> {$data['email']} </td>";
-                            echo "<td> ". fdate($data['registerDate']) ." </td>";
-                            echo "<td> ". fdate($data['lastLogin']) ." </td>";
-                            echo "<td> $type </td>";
-                            echo "<td id='center'> <input type='checkbox' name='box[]' value='{$data['cId']}' $d> </td>";
+                            echo "<td> {$data['dId']} </td>";
+                            echo "<td> {$data['company_name']} </td>";
+                            echo "<td> {$data['dPhone']} </td>";
+                            echo "<td id='center'> <input type='checkbox' name='box[]' value='{$data['dId']}' $d> </td>";
                             echo "</tr>";
                         }
                         ?>
@@ -75,11 +61,15 @@
                         <input class="left" type='submit' value='Delete'>
                         <input class="right" type='reset' value='Clear'>
                     </div>
+                    <a href='panelDeliveryNew.php'> New </a>
                 </div>
+
+                <h4>*Deleting a deliver that is in an order,
+                    will change the order's deliver to another one.</h4>
 
                 <!-- make sure user came from this page -->
                 <input type="hidden" name="check">
-                
+
             </form>
         </div>
 

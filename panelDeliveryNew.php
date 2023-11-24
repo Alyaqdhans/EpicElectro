@@ -1,7 +1,7 @@
 <html>
     <head>
         <?php include('link.php') ?>
-        <title>EpicElectro | Suppliers</title>
+        <title>EpicElectro | Delivers</title>
     </head>
     <body>
         <?php
@@ -20,34 +20,24 @@
         ?>
         
         <div class="wrapper">
-            <form class="container create" action="panelSupplierNewProcess.php" method="post">
+            <form class="container create" action="panelDeliveryNewProcess.php" method="post">
                 <fieldset>
-                    <legend>New Supplier</legend>
+                    <legend>New Deliver</legend>
 
                     <label>
-                        Supplier Name:<br>
+                        Deliver Name:<br>
                         <input type="text" name="name" required>
                     </label>
 
                     <label>
-                        Supplier Phone:<br>
+                        Deliver Phone:<br>
                         <input type="number" name="phone" required>
-                    </label>
-
-                    <label>
-                        Supplier Email:<br>
-                        <input type="email" name="email" required>
-                    </label>
-
-                    <label>
-                        Supplier Address:<br>
-                        <textarea name="address" cols="50" rows="8" required></textarea>
                     </label>
                 </fieldset>
 
                 <div class="buttons">
                     <input class="btn left" type="submit" value="Save">
-                    <a class="btn right" href='panelSupplier.php'> Cancel </a>
+                    <a class="btn right" href='panelDelivery.php'> Cancel </a>
                 </div>
 
             </form>

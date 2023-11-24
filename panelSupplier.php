@@ -68,6 +68,9 @@
                     <a href='panelSupplierNew.php'> New </a>
                 </div>
 
+                <h4>*Deleting a supplier that is in an item,
+                    will change the item's supplier to another one.</h4>
+
                 <!-- make sure user came from this page -->
                 <input type="hidden" name="check">
 

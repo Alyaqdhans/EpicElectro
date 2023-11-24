@@ -92,7 +92,7 @@
                     
                     echo "<h4> $t </h4>";
                     echo "<input type='submit' value='Checkout' formaction='cartProcess.php' $d>";
-                    echo "<h6>*Note: Payment is cash on delivery, no online payment.</h6>";
+                    echo "<h6>*Payment is cash on delivery, no online payment.</h6>";
 
                     echo "<input type='hidden' name='total' value='$total'>";
                     ?>

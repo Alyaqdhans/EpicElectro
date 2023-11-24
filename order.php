@@ -29,7 +29,7 @@
                     <table>
                         <tr>
                             <th>ID</th>
-                            <th>Delivery</th>
+                            <th>Deliver</th>
                             <th>Date</th>
                             <th>Total</th>
                             <th>Items</th>

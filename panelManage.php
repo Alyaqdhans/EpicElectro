@@ -1,7 +1,7 @@
 <html>
     <head>
         <?php include('link.php'); ?>
-        <title>EpicElectro | Management</title>
+        <title>EpicElectro | Products</title>
     </head>
     <body>
         <?php
@@ -86,6 +86,9 @@
                     </div>
                     <a href='panelManageCreate.php'> Create </a>
                 </div>
+
+                <h4>*Deleting an item that is in an order,
+                    will delete the item from the order's list.</h4>
 
                 <!-- make sure user came from this page -->
                 <input type="hidden" name="check">
