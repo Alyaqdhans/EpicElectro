@@ -87,8 +87,8 @@
                     <a href='panelManageCreate.php'> Create </a>
                 </div>
 
-                <h4>*Deleting an item that is in an order,
-                    will delete the item from the order's list.</h4>
+                <h4>*Deleting a product that is in an order,
+                    will delete the product from the order's list.</h4>
 
                 <!-- make sure user came from this page -->
                 <input type="hidden" name="check">

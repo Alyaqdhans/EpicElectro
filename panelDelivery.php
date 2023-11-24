@@ -29,6 +29,7 @@
                             <th>ID</th>
                             <th>Name</th>
                             <th>Phone</th>
+                            <th>Edit</th>
                             <th>Delete</th>
                         </tr>
                         
@@ -49,6 +50,7 @@
                             echo "<td> {$data['dId']} </td>";
                             echo "<td> {$data['company_name']} </td>";
                             echo "<td> {$data['dPhone']} </td>";
+                            echo "<td id='center'> <a href='panelDeliveryEdit.php?did={$data['dId']}'> Edit </a> </td>";
                             echo "<td id='center'> <input type='checkbox' name='box[]' value='{$data['dId']}' $d> </td>";
                             echo "</tr>";
                         }

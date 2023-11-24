@@ -31,6 +31,7 @@
                             <th>Phone</th>
                             <th>Email</th>
                             <th>Address</th>
+                            <th>Edit</th>
                             <th>Delete</th>
                         </tr>
                         
@@ -53,6 +54,7 @@
                             echo "<td> {$data['sPhone']} </td>";
                             echo "<td> {$data['sEmail']} </td>";
                             echo "<td id='center'> <a href='panelSupplierView.php?sid={$data['sId']}'> View </a> </td>";
+                            echo "<td id='center'> <a href='panelSupplierEdit.php?sid={$data['sId']}'> Edit </a> </td>";
                             echo "<td id='center'> <input type='checkbox' name='box[]' value='{$data['sId']}' $d> </td>";
                             echo "</tr>";
                         }
@@ -68,8 +70,8 @@
                     <a href='panelSupplierNew.php'> New </a>
                 </div>
 
-                <h4>*Deleting a supplier that is in an item,
-                    will change the item's supplier to another one.</h4>
+                <h4>*Deleting a supplier that is in a product,
+                    will change the product's supplier to another one.</h4>
 
                 <!-- make sure user came from this page -->
                 <input type="hidden" name="check">
