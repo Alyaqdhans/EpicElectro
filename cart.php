@@ -13,13 +13,13 @@
             exit;
         }
 
-        if (count($_SESSION['CART']) > 0) {$hide = "display: flex;";}
-        else {$hide = "display: none;";}
+        if (count($_SESSION['CART']) == 0) {$hide = "style='display: none;'";}
+        else {$hide = "";}
         ?>
         
         <form class="wrapper" method="post" onsubmit="return confirm('Are you sure you want to checkout?');">
             <div class="container checkout">
-                <?php echo "<fieldset style='$hide'>"; ?>
+                <?php echo "<fieldset $hide>"; ?>
                     <legend>Cart Contents</legend>
 
                     <?php

@@ -722,6 +722,8 @@ legend {
 
 .manage fieldset #center {text-align: center;}
 
+.manage fieldset td span {border-bottom: 2px dotted black;}
+
 .manage .buttons input {
     background: var(--clr-secondary);
     padding: .5rem;

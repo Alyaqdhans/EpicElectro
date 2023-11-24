@@ -1,6 +1,8 @@
 <footer id="down">
     &copy; Copyright of EpicElectro is Reserved to 
-    <abbr title="University of Technology and Applied Sciences">UTAS</abbr>
+
+    <span title="University of Technology and Applied Sciences" style="border-bottom: 2px dotted black;">UTAS</span>
+
     <?php
     if (isset($_SESSION['NAME'])) {
 
