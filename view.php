@@ -33,11 +33,8 @@
                 <?php
                 $cartQty = 0; // get how many of this item in cart
                 if (isset($_SESSION['CART'])) {
-                    foreach ($_SESSION['CART'] as $item) {
-                        if ($item['ic'] == $_GET['ic']) {
-                            $cartQty = $item['qty'];
-                            break;
-                        }
+                    if (array_key_exists($_GET['ic'], $_SESSION['CART'])) {
+                        $cartQty = $_SESSION['CART'][$_GET['ic']]['qty'];
                     }
                 }
                 ?>
