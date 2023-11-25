@@ -910,6 +910,10 @@ legend {
     margin-bottom: .5rem;
 }
 
+.receipt #main h5 {
+    color: gray;
+}
+
 .receipt #main a {
     margin-bottom: 1rem;
     background: var(--clr-secondary);

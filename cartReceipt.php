@@ -31,7 +31,7 @@
                         <h2>Or see your orders history:</h2>
                         <a href="order.php">Orders</a>
                         
-                        <h4>( Order ID: <?php echo $_GET['oi']; ?> )</h4>
+                        <h5>Order No: <?php echo $_GET['oi']; ?></h5>
                     </div>
                 </fieldset>
             </div>

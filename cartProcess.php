@@ -37,11 +37,15 @@ mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". my
 $orderId = $conn->insert_id;
 
 
+$items = [];
 foreach ($_SESSION['CART'] as $key => $item) {
-    $qty = mysqli_fetch_row(mysqli_query($conn, "select iQty from items where iCode = {$key}"))[0];
+    $name = mysqli_fetch_row(mysqli_query($conn, "select iDesc from items where iCode = {$key}"));
+    $items[] = $name[0]; // store item names for receipt
+
+    $qty = mysqli_fetch_row(mysqli_query($conn, "select iQty from items where iCode = {$key}"));
 
     $query = "update items set iSold = {$item['qty']},";
-    $query .= " iQty = ". $qty - $item['qty']; // update qty and sold values
+    $query .= " iQty = ". $qty[0] - $item['qty']; // update qty and sold values
     $query .= " where iCode = {$key}";
     mysqli_query($conn, $query);
 
@@ -53,5 +57,61 @@ foreach ($_SESSION['CART'] as $key => $item) {
 }
 
 
-header("Location: cartReceipt.php?oi='$orderid'");
+// sending receipt email to the customer
+$items = implode(", ", $items);
+$total = number_format($_POST['total']);
+$deliver = mysqli_fetch_row(mysqli_query($conn, "select company_name from delivery where dId = {$DID}"))[0];
+
+$to = "s26s2025@nct.edu.om";
+$subject = "EpicElectro Receipt ($orderId)";
+$receipt = "
+<html>
+    <body>
+        <h1>Thank you for your recent purchase from EpicElectro</h1>
+
+        <fieldset style='border-radius: 10px; border: solid 3px black;'>
+            <legend>
+            <h1 style='margin: 0;'>
+            Order No: $orderId
+            </h1>
+            </legend>
+
+            <h2 style='margin-bottom: .5rem;'>
+            Items:
+            </h2>
+            <h3 style='margin-top: 0;'>
+            $items
+            </h3>
+
+            <h2 style='margin-bottom: .5rem;'>
+            Total Cost:
+            </h2>
+            <h3 style='margin-top: 0;'>
+            $total OMR
+            </h3>
+
+            <h2 style='margin-bottom: .5rem;'>
+            Delivered By:
+            </h2>
+            <h3 style='margin-top: 0;'>
+            $deliver
+            </h3>
+        </fieldset>
+
+        <h3>Your order will be delivered in 3 - 7 bussiness days,
+        if you want more details about the order go to `Orders` tab in the website.</h3>
+    </body>
+</html>
+";
+
+$headers = "MIME-Version: 1.0" . "\r\n";
+$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+$headers .= "From: epicelectro.store@gmail.com" . "\r\n";
+$headers .= "Cc: epicelectro.store@gmail.com" . "\r\n";
+
+mail($to, $subject, $receipt, $headers);
+
+
+
+header("Location: cartReceipt.php?oi=$orderId");
 ?>
