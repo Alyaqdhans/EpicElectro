@@ -53,5 +53,5 @@ foreach ($_SESSION['CART'] as $key => $item) {
 }
 
 
-header('Location: index.php');
+header("Location: cartReceipt.php?oi='$orderid'");
 ?>
