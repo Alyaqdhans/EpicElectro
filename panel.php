@@ -29,7 +29,7 @@
                         <a href="panelDelete.php">Accounts</a>
                         <a href="panelManage.php">Products</a>
                         <a href="panelSupplier.php">Suppliers</a>
-                        <a href="panelDelivery.php">Delivers</a>
+                        <a href="panelDelivery.php">Couriers</a>
                     </div>
                 </fieldset>
 
@@ -47,7 +47,7 @@
                             <th>ID</th>
                             <th>Customer</th>
                             <th>Email</th>
-                            <th>Deliver</th>
+                            <th>Courier</th>
                             <th>Date</th>
                             <th>Total</th>
                             <th>Items</th>

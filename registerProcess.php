@@ -22,6 +22,8 @@ if (!preg_match("/^[a-zA-Z\-\s]+$/", $name)) {
 
 if ($pass != $pass2) {
     $errors[] = "Please make sure you typed the same password";
+} else if (strlen($pass) < 8) {
+    $errors[] = "Please make sure your password contains 8 or more characters";
 }
 
 if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {

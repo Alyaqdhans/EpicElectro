@@ -1,7 +1,7 @@
 <html>
     <head>
         <?php include('link.php'); ?>
-        <title>EpicElectro | Items</title>
+        <title>EpicElectro | Orders</title>
     </head>
     <body>
         <?php
@@ -25,6 +25,7 @@
                             <th>Brand</th>
                             <th>Price</th>
                             <th>Quantity</th>
+                            <th>Total</th>
                         </tr>
                         
                         <?php
@@ -36,7 +37,8 @@
                             $item = mysqli_fetch_row(mysqli_query($conn, "select iDesc, iBrand, iPrice from items where iCode = {$data['iCode']}"));
                             $name = $item[0];
                             $brand = $item[1];
-                            $price = $item[2] * $data['quantity'];
+                            $price = $item[2];
+                            $total = $item[2] * $data['quantity'];
 
                             if ($line % 2 == 1) {$style = "style='background: lightgray;'";}
                             else {$style = "";}
@@ -47,6 +49,7 @@
                             echo "<td> $brand </td>";
                             echo "<td> ". number_format($price) ." </td>";
                             echo "<td id='center'> {$data['quantity']} </td>";
+                            echo "<td> ". number_format($total) ." </td>";
                             echo "</tr>";
                         }
                         ?>

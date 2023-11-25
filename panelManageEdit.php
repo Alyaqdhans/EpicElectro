@@ -39,7 +39,7 @@
 
                     <label>
                         Product Description:<br>
-                        <?php echo "<textarea name='desc' cols='50' rows='8' required>{$data['iComment']}</textarea>"; ?>
+                        <?php echo "<textarea name='desc' cols='50' rows='8'>{$data['iComment']}</textarea>"; ?>
                     </label>
 
                     <label>

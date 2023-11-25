@@ -50,7 +50,7 @@
 
                     <label>
                         Product Description: (Ex: model and features)<br>
-                        <textarea name="desc" cols="50" rows="8" required></textarea>
+                        <textarea name="desc" cols="50" rows="8"></textarea>
                     </label>
 
                     <label>

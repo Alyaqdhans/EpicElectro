@@ -1,7 +1,7 @@
 <html>
     <head>
         <?php include('link.php') ?>
-        <title>EpicElectro | Delivers</title>
+        <title>EpicElectro | Couriers</title>
     </head>
     <body>
         <?php
@@ -22,7 +22,7 @@
         <div class="wrapper">
             <form class="container create" action="panelDeliveryEditProcess.php" method="post">
                 <fieldset>
-                    <legend>Edit Deliver</legend>
+                    <legend>Edit Courier</legend>
 
                     <?php
                     $query = "select * from Delivery where dId = '{$_GET['did']}'";
@@ -33,12 +33,12 @@
                     ?>
 
                     <label>
-                        Dilver Name:<br>
+                        Courier Name:<br>
                         <?php echo "<input type='text' name='name' value='{$data['company_name']}' required>"; ?>
                     </label>
 
                     <label>
-                        Dilver Phone:<br>
+                        Courier Phone:<br>
                         <?php echo "<input type='number' name='phone' value='{$data['dPhone']}' required>"; ?>
                     </label>
                 </fieldset>

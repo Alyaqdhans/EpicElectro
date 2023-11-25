@@ -1,7 +1,7 @@
 <html>
     <head>
         <?php include('link.php') ?>
-        <title>EpicElectro | Delivers</title>
+        <title>EpicElectro | Couriers</title>
     </head>
     <body>
         <?php
@@ -22,15 +22,15 @@
         <div class="wrapper">
             <form class="container create" action="panelDeliveryNewProcess.php" method="post">
                 <fieldset>
-                    <legend>New Deliver</legend>
+                    <legend>New Courier</legend>
 
                     <label>
-                        Deliver Name:<br>
+                        Courier Name:<br>
                         <input type="text" name="name" required>
                     </label>
 
                     <label>
-                        Deliver Phone:<br>
+                        Courier Phone:<br>
                         <input type="number" name="phone" required>
                     </label>
                 </fieldset>

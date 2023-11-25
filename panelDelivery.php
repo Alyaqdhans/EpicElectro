@@ -1,7 +1,7 @@
 <html>
     <head>
         <?php include('link.php'); ?>
-        <title>EpicElectro | Delivers</title>
+        <title>EpicElectro | Couriers</title>
     </head>
     <body>
         <?php
@@ -22,7 +22,7 @@
         <div class="wrapper">
             <form class="container manage" action='panelDeliveryProcess.php' method='post' onsubmit="return confirm('Are you sure you want to do that?');">
                 <fieldset>
-                    <legend>Deliver Management</legend>
+                    <legend>Courier Management</legend>
 
                     <table>
                         <tr>

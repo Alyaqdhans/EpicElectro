@@ -123,7 +123,6 @@ footer {
     border-radius: var(--br);
     margin: auto;
     box-shadow: 0 0 1rem black;
-    text-align: justify;
     max-inline-size: 60ch;
 }
 

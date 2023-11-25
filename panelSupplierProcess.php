@@ -7,12 +7,12 @@ if (!isset($_POST['check'])) {
     exit;
 }
 
-if (mysqli_num_rows(mysqli_query($conn, "select * from suppliers")) == count($_POST['box'])) {
-    header('Location: error.php?ec=6'); // check if user selected all suppliers
-    exit;
-}
-
 if (!empty($_POST['box'])) {
+    if (mysqli_num_rows(mysqli_query($conn, "select * from suppliers")) == count($_POST['box'])) {
+        header('Location: error.php?ec=6'); // check if user selected all suppliers
+        exit;
+    }
+
     foreach ($_POST['box'] as $sid) {
         $query = "select * from items where iSupplierId = '$sid'";
         $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
