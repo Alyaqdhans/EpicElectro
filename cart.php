@@ -23,7 +23,7 @@
                     <legend>Cart Contents</legend>
 
                     <?php
-                    if (isset($_GET['ic']) && array_key_exists($_GET['ic'], $_SESSION['CART'])) {
+                    if (isset($_GET['ic'])) {
                         $_SESSION['CART'][$_GET['ic']]['qty'] -= $_POST[$_GET['ic']]; // remove the amount
                         header("Location: cart.php#{$_GET['ic']}"); // scroll to the removed item
 
@@ -45,7 +45,7 @@
                         $data = mysqli_fetch_assoc($result);
 
                         echo "<div class='item'>";
-                            echo "<div class='img'><img src='images/{$key}.jpg' alt='{$key}'></div>";
+                            echo "<a href='view.php?ic=$key'><div class='img'><img src='images/{$key}.jpg' alt='{$key}'></div></a>";
 
                             echo "<div class='info'>";
                                 echo "<h2> Name: </h2> <h3> {$data['iDesc']} </h3>";

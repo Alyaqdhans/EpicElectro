@@ -92,7 +92,7 @@
             $msg = "Found Nothing <br>";
 
             if (
-                empty($_POST['search']) &&
+                (!isset($_POST['search']) || $_POST['search'] == "") &&
                 (!isset($_POST['category']) || $_POST['category'] == 'x') &&
                 (!isset($_POST['brand']) || $_POST['brand'] == 'x')
             ) {
@@ -100,7 +100,7 @@
 
             } else { // user searched for something
                 
-                if (!empty($_POST['search'])) {
+                if ($_POST['search'] != "") {
                     $query .= " and iDesc like '%{$_POST['search']}%'";
                     $msg .= " With `{$_POST['search']}` <br>";
                 }

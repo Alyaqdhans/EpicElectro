@@ -41,7 +41,7 @@
 
                 <aside>
                     <div class="cart">
-                        <a href="cart.php">In Cart</a>
+                        <?php echo "<a href='cart.php#{$_GET['ic']}'>In Cart</a>"; ?>
                         <span style="background: var(--clr-primary-light); color: white;">
                             <?php echo $cartQty; ?>
                         </span>
