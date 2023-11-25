@@ -62,7 +62,7 @@ $items = implode(", ", $items);
 $total = number_format($_POST['total']);
 $deliver = mysqli_fetch_row(mysqli_query($conn, "select company_name from delivery where dId = {$DID}"))[0];
 
-$to = "s26s2025@nct.edu.om";
+$to = $_SESSION['MAIL'];
 $subject = "EpicElectro Receipt ($orderId)";
 $receipt = "
 <html>
@@ -106,8 +106,8 @@ $receipt = "
 
 $headers = "MIME-Version: 1.0" . "\r\n";
 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-$headers .= "From: epicelectro.store@gmail.com" . "\r\n";
-$headers .= "Cc: epicelectro.store@gmail.com" . "\r\n";
+$headers .= "From: s26s2025@nct.edu.om" . "\r\n";
+// $headers .= "Cc: s26s2025@nct.edu.om" . "\r\n";
 
 mail($to, $subject, $receipt, $headers);
 

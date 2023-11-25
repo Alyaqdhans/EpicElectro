@@ -20,5 +20,5 @@ if ($in_cart == false) { // if not add new item
     $_SESSION['CART'][$_POST['ic']] = ["price" => $_POST['price'], "qty" => $_POST['qty']];
 }
 
-header("Location: index.php#{$_POST['ic']}");
+header("Location: view.php?ic={$_POST['ic']}");
 ?>

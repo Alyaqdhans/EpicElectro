@@ -1,6 +1,7 @@
 <?php
     include("connect.php");
     include('library.php');
+    session_start();
 
     if (!isset($_POST['name'])) {
         header('Location: error.php?ec=-1'); // entered page without button
@@ -65,6 +66,11 @@
         $query .= " phoneNumber = $number";
         $query .= " where cId = '{$_POST['cid']}'";
         mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
+
+
+        $_SESSION['NAME'] = $name;
+        $_SESSION['MAIL'] = $mail;
+
 
         header("location: index.php");
     } else {

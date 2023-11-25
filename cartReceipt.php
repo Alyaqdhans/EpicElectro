@@ -17,13 +17,13 @@
         <div class="wrapper">
             <div class="container receipt">
                 <fieldset>
-                    <legend>Purchased Successfuly</legend>
+                    <legend>Order Placed Successfuly</legend>
 
                     <h3>Thank you for your purchase from EpicElectro, a receipt will be 
-                        sent to the email linked to this account shortly.</h3>
+                        sent to the email registred via this account shortly.</h3>
 
                     <div id="main">
-                        <h1>Meanwhile</h1>
+                        <h1>⬇ Meanwhile ⬇</h1>
 
                         <h2>Check our other products:</h2>
                         <a href="index.php">Home</a>
