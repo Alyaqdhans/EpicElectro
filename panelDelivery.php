@@ -66,8 +66,8 @@
                     <a href='panelDeliveryNew.php'> New </a>
                 </div>
 
-                <h4>*Deleting a deliver that is in an order,
-                    will change the order's deliver to another one.</h4>
+                <h4>*Deleting a courier that is in an order,
+                    will change the order's courier to another one.</h4>
 
                 <!-- make sure user came from this page -->
                 <input type="hidden" name="check">

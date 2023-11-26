@@ -51,6 +51,12 @@ switch ($_GET['ec']) {
         $message = "Please decrease the amount of '$item' because it is more than the available.";
         break;
 
+    // cannot remove all admins
+    case 8:
+        $title = "Cannot Remove Admin";
+        $message = "There must be at least one admin in the website.";
+        break;
+
     // other errors
     default:
     $title = "Unknown Error";

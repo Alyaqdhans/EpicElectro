@@ -63,7 +63,7 @@ $total = number_format($_POST['total']);
 $deliver = mysqli_fetch_row(mysqli_query($conn, "select company_name from delivery where dId = {$DID}"))[0];
 
 $to = $_SESSION['MAIL'];
-$subject = "EpicElectro Receipt ($orderId)";
+$subject = "EpicElectro Receipt $orderId";
 $receipt = "
 <html>
     <body>
@@ -71,9 +71,9 @@ $receipt = "
 
         <fieldset style='border-radius: 10px; border: solid 3px black;'>
             <legend>
-            <h1 style='margin: 0;'>
+            <h2 style='margin: 0;'>
             Order No: $orderId
-            </h1>
+            </h2>
             </legend>
 
             <h2 style='margin-bottom: .5rem;'>
@@ -91,7 +91,7 @@ $receipt = "
             </h3>
 
             <h2 style='margin-bottom: .5rem;'>
-            Delivered By:
+            Delivery By:
             </h2>
             <h3 style='margin-top: 0;'>
             $deliver
