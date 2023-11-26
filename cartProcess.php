@@ -106,8 +106,8 @@ $receipt = "
 
 $headers = "MIME-Version: 1.0" . "\r\n";
 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-$headers .= "From: s26s2025@nct.edu.om" . "\r\n";
-// $headers .= "Cc: s26s2025@nct.edu.om" . "\r\n";
+$headers .= "From: epicelectro.store@gmail.com" . "\r\n";
+$headers .= "Cc: epicelectro.store@gmail.com" . "\r\n";
 
 mail($to, $subject, $receipt, $headers);
 
