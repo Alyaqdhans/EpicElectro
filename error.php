@@ -57,6 +57,12 @@ switch ($_GET['ec']) {
         $message = "There must be at least one admin in the website.";
         break;
 
+    // account doesnt exist
+    case 9:
+        $title = "Account Doesn't Exist";
+        $message = "There is no account registred with this email, make sure you typed it correctly.";
+        break;
+
     // other errors
     default:
     $title = "Unknown Error";

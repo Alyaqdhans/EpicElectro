@@ -17,7 +17,7 @@
         else {$hide = "";}
         ?>
         
-        <form class="wrapper" method="post" onsubmit="if (confirm('Are you sure you want to do that?')) {return document.getElementById('sb').disabled = true;}">
+        <form class="wrapper" method="post" onsubmit="if (confirm('Are you sure you want to do that?')) {return document.getElementById('sb').disabled = true;} else {return false}">
             <div class="container checkout">
                 <?php echo "<fieldset $hide>"; ?>
                     <legend>Cart Contents</legend>

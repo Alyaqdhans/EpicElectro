@@ -9,6 +9,11 @@ if (!isset($_POST['mail'])) {
 $mail = mysqli_real_escape_string($conn, $_POST['mail']);
 $pass = mysqli_real_escape_string($conn, $_POST['pass']);
 
+if (mysqli_num_rows(mysqli_query($conn, "select * from customers where email = '$mail'")) == 0) {
+    header('Location: error.php?ec=9'); // account doesnt exist
+    exit;
+}
+
 $query = "select * from customers where email = '$mail' and password = password('$pass')";
 $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
 
