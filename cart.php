@@ -17,7 +17,7 @@
         else {$hide = "";}
         ?>
         
-        <form class="wrapper" method="post" onsubmit="return confirm('Are you sure you want to do that?');">
+        <form class="wrapper" method="post" onsubmit="if (confirm('Are you sure you want to do that?')) {return document.getElementById('sb').disabled = true;}">
             <div class="container checkout">
                 <?php echo "<fieldset $hide>"; ?>
                     <legend>Cart Contents</legend>
@@ -88,7 +88,7 @@
                     else {$t="Total: ". number_format($total) ." OMR"; $d = '';}
                     
                     echo "<h4> $t </h4>";
-                    echo "<input type='submit' value='Checkout' formaction='cartProcess.php' $d>";
+                    echo "<input id='sb' type='submit' value='Checkout' formaction='cartProcess.php' $d>";
                     echo "<h6>*Payment is cash on delivery, no online payment.</h6>";
 
                     echo "<input type='hidden' name='total' value='$total'>";
