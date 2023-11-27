@@ -23,8 +23,14 @@
         <div class="wrapper">
             <form class="container manage" method='post' onsubmit="return confirm('Are you sure you want to do that?');">
                 <div class="isearch">
-                    <?php echo "<input type='text' name='icode' placeholder='Product ID' value='{$_POST['icode']}'>"; ?>
-                    <?php echo "<input type='text' name='iname' placeholder='Product Name' value='{$_POST['iname']}'>"; ?>
+                    <?php
+                    if (isset($_POST['icode'])) {$cd = $_POST['icode'];}
+                    else {$cd = "";}
+                    if (isset($_POST['iname'])) {$nm = $_POST['iname'];}
+                    else {$nm = "";}
+                    echo "<input type='text' name='icode' placeholder='Product ID' value='$cd'>";
+                    echo "<input type='text' name='iname' placeholder='Product Name' value='$nm'>";
+                    ?>
                     <input type="submit" value="Search"> 
                 </div>
                 
