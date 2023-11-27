@@ -16,6 +16,8 @@
 }
 
 
+
+/* general styles */
 html {scroll-behavior: smooth;}
 
 img {max-width: 100%; pointer-events: none;}
@@ -803,6 +805,59 @@ legend {
     max-inline-size: 45ch;
     margin-top: .5rem;
     margin-inline: auto;
+}
+
+.manage .isearch {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    justify-content: center;
+}
+
+.manage .isearch * {text-align: center;}
+
+.manage .isearch ::placeholder {color: lightgray;}
+
+.manage .isearch :nth-child(1) {
+    border-radius: var(--br);
+    border: none;
+    background: var(--clr-primary-light);
+    color: white;
+    padding: .5rem;
+    width: 6rem;
+    outline: 2px solid black;
+    transition: 0.1s ease-in-out;
+}
+
+.manage .isearch :nth-child(2) {
+    border-radius: var(--br);
+    border: none;
+    background: var(--clr-primary-light);
+    color: white;
+    padding: .5rem;
+    width: 11rem;
+    outline: 2px solid black;
+    transition: 0.1s ease-in-out;
+}
+
+.manage .isearch :nth-child(1):focus,
+.manage .isearch :nth-child(2):focus {
+    outline: 5px solid var(--clr-secondary);
+}
+
+.manage .isearch :nth-child(3) {
+    border-radius: var(--br);
+    border: none;
+    background: var(--clr-secondary);
+    padding: .5rem;
+    font-size: var(--fs-normal);
+    width: 6rem;
+}
+
+.manage .isearch :nth-child(3):hover {
+    background: var(--clr-secondary-light);
+    cursor: pointer;
 }
 
 

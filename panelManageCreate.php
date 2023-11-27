@@ -22,7 +22,7 @@
         <div class="wrapper">
             <form class="container create" action="panelManageCreateProcess.php" method="post" enctype="multipart/form-data">
                 <fieldset>
-                    <legend>New Product</legend>
+                    <legend>Create Product</legend>
 
                     <?php
                     // check if there is available empty item
