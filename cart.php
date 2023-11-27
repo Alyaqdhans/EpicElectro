@@ -49,10 +49,11 @@
 
                             echo "<div class='info'>";
                                 echo "<h2> Name: </h2> <h3> {$data['iDesc']} </h3>";
-                                echo "<h2> Amount: </h2> <h3> {$item['qty']} </h3>";
+                                echo "<h2> Price: </h2> <h3> ". number_format($item['price']) ." OMR </h3>";
+                                echo "<h2 id='in'> Quantity: </h2> <h3 id='in'> {$item['qty']} </h3>";
                                 $price = $item['qty'] * $item['price'];
                                 $prices[] = $price;
-                                echo "<h2> Price: </h2> <h3> ". number_format($price) ." OMR </h3>";
+                                // echo "<h2> Sub-Total: </h2> <h3> ". number_format($price) ." OMR </h3>";
                             echo "</div>";
 
                             echo "<div class='amount'>";

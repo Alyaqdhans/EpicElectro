@@ -30,6 +30,7 @@
                         <tr>
                             <th>ID</th>
                             <th>Courier</th>
+                            <th>Contact</th>
                             <th>Date</th>
                             <th>Total</th>
                             <th>Items</th>
@@ -48,7 +49,8 @@
                                 
                                 echo "<tr $style>";
                                 echo "<td> {$data['orderId']} </td>";
-                                echo "<td> <span title='Contact {$phone[0]}'> {$name[0]} </span> </td>";
+                                echo "<td>  {$name[0]} </td>";
+                                echo "<td>  {$phone[0]} </td>";
                                 echo "<td> ". fdate($data['orderDate']) ." </td>";
                                 echo "<td>". number_format($data['totalPrice']) ."</td>";
                                 echo "<td id='center'> <a href='orderView.php?oid={$data['orderId']}'> View </a> </td>";

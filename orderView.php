@@ -25,7 +25,7 @@
                             <th>Brand</th>
                             <th>Price</th>
                             <th>Quantity</th>
-                            <th>Total</th>
+                            <!-- <th>Total</th> -->
                         </tr>
                         
                         <?php
@@ -49,7 +49,7 @@
                             echo "<td> $brand </td>";
                             echo "<td> ". number_format($price) ." </td>";
                             echo "<td id='center'> {$data['quantity']} </td>";
-                            echo "<td> ". number_format($total) ." </td>";
+                            // echo "<td> ". number_format($total) ." </td>";
                             echo "</tr>";
                         }
                         ?>
