@@ -20,7 +20,7 @@
         ?>
         
         <div class="wrapper">
-            <form class="container manage" action='panelDeliveryProcess.php' method='post' onsubmit="return confirm('Are you sure you want to do that?');">
+            <form class="container manage" action='panelDeliveryProcess.php' method='post'>
                 <fieldset>
                     <legend>Courier Management</legend>
 

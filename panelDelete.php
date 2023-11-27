@@ -21,7 +21,7 @@
         ?>
         
         <div class="wrapper">
-            <form class="container manage" action="panelDeleteProcess.php" method="post" onsubmit="return confirm('Are you sure you want to do that?');">
+            <form class="container manage" action="panelDeleteProcess.php" method="post">
                     <div class="links">
                         <a href="panelAdmin.php">Admin Accounts</a>
                     </div>

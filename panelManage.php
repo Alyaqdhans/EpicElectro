@@ -21,7 +21,7 @@
         ?>
         
         <div class="wrapper">
-            <form class="container manage" method='post' onsubmit="return confirm('Are you sure you want to do that?');">
+            <form class="container manage" method='post'>
                 <div class="isearch">
                     <?php
                     if (isset($_POST['icode'])) {$cd = $_POST['icode'];}
