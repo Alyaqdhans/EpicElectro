@@ -9,11 +9,11 @@
             global $errors;
             echo "<div class='error'>";
             echo "<fieldset>";
-            echo "<legend style='color:red;'>Could Not Save or process data</legend>";
-            echo "<b>The following errors found in data inputs";
+            echo "<legend style='color:red;'>Could Not Process Data</legend>";
+            echo "<h3>The following errors found in data inputs</h3>";
             echo "<ul>";
             foreach($errors as $v) {
-                echo "<li><mark>$v</mark></li>";
+                echo "<li> <mark>$v</mark> </li>";
             }
             echo "</ul>";
             echo "</fieldset>";

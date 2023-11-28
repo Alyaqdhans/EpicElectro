@@ -22,7 +22,7 @@ html {scroll-behavior: smooth;}
 
 img {max-width: 100%; pointer-events: none;}
 
-* {transition: 0.2s ease-in-out;}
+* {transition: 150ms ease-in-out;}
 
 h1, h2, h3, h4, h5, h6 {margin: 0;}
 
@@ -94,7 +94,7 @@ nav .ln {
     border-radius: var(--br);
     transform: scaleX(0);
     transform-origin: middle;
-    transition: 0.2s ease-in-out;
+    transition: 200ms ease-in-out;
 }
 
 .ln:hover::after, .ln:focus::after {
@@ -125,6 +125,7 @@ footer {
     width: fit-content;
     padding: 2rem;
     border-radius: var(--br);
+    font-weight: var(--fw-bold);
     margin: auto;
     box-shadow: 0 0 1rem black;
     max-inline-size: 60ch;
@@ -190,7 +191,6 @@ legend {
     border-radius: var(--br);
     border: none;
     outline: 2px solid black;
-    transition: 0.1s ease-in-out;
 }
 
 .form input[type="text"]:focus,
@@ -198,7 +198,7 @@ legend {
 .form input[type="number"]:focus,
 .form input[type="email"]:focus   {
     background: #eee;
-    outline: 5px solid var(--clr-primary-light);
+    outline: 6px solid var(--clr-primary-light);
 }
 
 .form .buttons {
@@ -243,7 +243,6 @@ legend {
     display: flex;
     gap: 2rem;
     background: var(--clr-primary-light);
-    border-radius: var(--br);
     padding-block: 1.5rem;
     padding-inline: 7vw;
     position: sticky;
@@ -252,7 +251,6 @@ legend {
 }
 
 .top input[type="text"] {
-    transition: .1 ease-in-out;
     outline: 1px solid transparent;
 }
 
@@ -342,13 +340,6 @@ legend {
     place-items: center;
 }
 
-.grid a {
-    text-decoration: none;
-    color: black;
-    border-radius: var(--br);
-    outline: none;
-}
-
 .card {
     height: 100%;
     width: 100%;
@@ -358,21 +349,19 @@ legend {
     display: flex;
     flex-direction: column;
     box-shadow: 0 0 1rem black;
-    transition: .1 ease-in-out;
     outline: 1px solid transparent;
+    text-decoration: none;
+    color: black;
+    transition: 150ms ease-in-out;
     position: relative;
 }
 
-.grid a:focus .card,
-.grid a:hover .card {
-    text-decoration: none;
-    color: black;
+.card:focus {
     border-radius: var(--br);
-    outline: 5px solid var(--clr-secondary);
+    outline: 6px solid var(--clr-secondary);
 }
 
-.card:hover,
-.grid a:focus .card{
+.card:hover {
     transform: scale(101%);
 }
 
@@ -743,6 +732,8 @@ legend {
 .manage fieldset table tr:first-child {
     background: gray;
     color: white;
+    position: sticky;
+    top: -1rem;
 }
 
 .manage fieldset table,
@@ -752,7 +743,10 @@ legend {
     padding: .3rem;
 }
 
-.manage fieldset #clickable:hover {
+.manage fieldset #clickable input {transition: none;}
+
+.manage fieldset #clickable:hover,
+.manage fieldset #clickable:focus-within {
     cursor: pointer;
     background: var(--clr-secondary-light) !important;
 }
@@ -863,7 +857,6 @@ legend {
     padding: .5rem;
     width: 6rem;
     outline: 2px solid transparent;
-    transition: 0.1s ease-in-out;
 }
 
 .manage .isearch :nth-child(2) {
@@ -874,7 +867,6 @@ legend {
     padding: .5rem;
     width: 11rem;
     outline: 2px solid transparent;
-    transition: 0.1s ease-in-out;
 }
 
 .manage .isearch :nth-child(3) {
