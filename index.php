@@ -117,18 +117,20 @@
                 while ($data = mysqli_fetch_assoc($result)) {
                     if ($data['iDesc'] == "new") {continue;} // check if its real item
 
-                    echo "<div class='card'>";
-                        echo "<div class='img'><img src='images/{$data['iCode']}.jpg' alt='{$data['iCode']}'></div>";
-                        echo "<h3> {$data['iDesc']} </h3>";
-                        echo "<h4> by {$data['iBrand']} </h4>";
-                        if ($data['iQty'] > 0) {
-                            echo "<h5> Available: ✅ </h5>";
-                        } else {
-                            echo "<h5> Available: ❌ </h5>";
-                        }
-                        echo "<a href='view.php?ic={$data['iCode']}'> View </a>";
-                        echo "<span class='anchor' id='{$data['iCode']}'></span>"; // scrolls user back
-                    echo "</div>";
+                    echo "<a href='view.php?ic={$data['iCode']}'>";
+                        echo "<div class='card'>";
+                            echo "<div class='img'><img src='images/{$data['iCode']}.jpg' alt='{$data['iCode']}'> <span> ". number_format($data['iPrice']) ." OMR</span></div>";
+                            echo "<h3> {$data['iDesc']} </h3>";
+                            echo "<h4> by {$data['iBrand']} </h4>";
+                            if ($data['iQty'] > 0) {
+                                echo "<h5> Available: ✅ </h5>";
+                            } else {
+                                echo "<h5> Available: ❌ </h5>";
+                            }
+                            
+                            echo "<span class='anchor' id='{$data['iCode']}'></span>"; // scrolls user back
+                        echo "</div>";
+                    echo "</a>";
                 }
             } else { // nothing found
                 echo "<div class='nothing'>";

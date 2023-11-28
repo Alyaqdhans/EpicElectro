@@ -53,6 +53,8 @@ body {
     flex-direction: column;
 }
 
+a {transition: none;}
+
 
 
 /* navigation style */
@@ -249,6 +251,15 @@ legend {
     z-index: 10;
 }
 
+.top input[type="text"] {
+    transition: .1 ease-in-out;
+    outline: 1px solid transparent;
+}
+
+.top input[type="text"]:focus {
+    outline: 4px solid black;
+}
+
 .search {
     margin-right: auto;
     display: flex;
@@ -284,18 +295,17 @@ legend {
 
 .search .field {
     display: flex;
-    gap: .2rem;
+    gap: .3rem;
     flex-grow: 1;
 }
 
 .cart {
     display: flex;
-    gap: .2rem;
+    gap: .3rem;
     align-self: baseline;
 }
 
 .cart a {
-    display: inline-block;
     background: var(--clr-secondary);
     padding: .5rem;
     text-align: center;
@@ -332,6 +342,13 @@ legend {
     place-items: center;
 }
 
+.grid a {
+    text-decoration: none;
+    color: black;
+    border-radius: var(--br);
+    outline: none;
+}
+
 .card {
     height: 100%;
     width: 100%;
@@ -341,10 +358,21 @@ legend {
     display: flex;
     flex-direction: column;
     box-shadow: 0 0 1rem black;
+    transition: .1 ease-in-out;
+    outline: 1px solid transparent;
     position: relative;
 }
 
-.card:hover {
+.grid a:focus .card,
+.grid a:hover .card {
+    text-decoration: none;
+    color: black;
+    border-radius: var(--br);
+    outline: 5px solid var(--clr-secondary);
+}
+
+.card:hover,
+.grid a:focus .card{
     transform: scale(101%);
 }
 
@@ -356,24 +384,6 @@ legend {
     grid-column: 1 / -1;
 }
 
-.card a {
-    display: block;
-    background: var(--clr-secondary);
-    padding: .5rem;
-    text-align: center;
-    margin-top: auto;
-    border-radius: var(--br);
-    text-decoration: none;
-    font-weight: var(--fw-bold);
-    font-size: var(--fs-normal);
-    color: black;
-}
-
-.card a:hover {
-    background: var(--clr-secondary-light);
-    cursor: pointer;
-}
-
 .card h3 {
     margin-top: auto;
 }
@@ -382,12 +392,17 @@ legend {
     margin-block: .5rem;
 }
 
+.card h5 {
+    margin-bottom: .5rem;
+}
+
 .card .img {
     outline: solid 3px black;
     border-radius: var(--br);
     aspect-ratio: 1 / 1;
     object-fit: cover;
     background: lightgray;
+    position: relative;
 }
 
 .card img {
@@ -395,6 +410,17 @@ legend {
     border-radius: var(--br);
     aspect-ratio: 1 / 1;
     object-fit: cover;
+}
+
+.card .img span {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background: var(--clr-secondary);
+    padding: .5rem;
+    border-radius: var(--br) 0;
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-normal);
 }
 
 .card .anchor {
@@ -819,7 +845,7 @@ legend {
 
 .manage .isearch {
     display: flex;
-    gap: .5rem;
+    gap: .3rem;
     margin-bottom: 1rem;
     width: 100%;
     justify-content: center;
@@ -836,7 +862,7 @@ legend {
     color: white;
     padding: .5rem;
     width: 6rem;
-    outline: 2px solid black;
+    outline: 2px solid transparent;
     transition: 0.1s ease-in-out;
 }
 
@@ -847,13 +873,8 @@ legend {
     color: white;
     padding: .5rem;
     width: 11rem;
-    outline: 2px solid black;
+    outline: 2px solid transparent;
     transition: 0.1s ease-in-out;
-}
-
-.manage .isearch :nth-child(1):focus,
-.manage .isearch :nth-child(2):focus {
-    outline: 5px solid var(--clr-secondary);
 }
 
 .manage .isearch :nth-child(3) {
@@ -863,12 +884,11 @@ legend {
     padding: .5rem;
     font-size: var(--fs-normal);
     width: 6rem;
-    outline: 2px solid black;
-    transition: 0.1s ease-in-out;
 }
 
-.manage .isearch :nth-child(3):focus {
-    outline: 5px solid var(--clr-primary-light);
+.manage .isearch :nth-child(1):focus,
+.manage .isearch :nth-child(2):focus {
+    outline: 4px solid black;
 }
 
 .manage .isearch :nth-child(3):hover {
