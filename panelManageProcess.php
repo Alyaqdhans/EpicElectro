@@ -26,5 +26,5 @@ if (!empty($_POST['box'])) {
     }
 }
 
-header("Location: panelManage.php");
+header("Location: panelManage.php?s=1");
 ?>

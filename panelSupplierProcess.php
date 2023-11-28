@@ -29,5 +29,5 @@ if (!empty($_POST['box'])) {
     }
 }
 
-header("Location: panelSupplier.php");
+header("Location: panelSupplier.php?s=1");
 ?>

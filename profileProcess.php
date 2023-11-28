@@ -72,7 +72,7 @@ if (count($errors) == 0) {
     $_SESSION['MAIL'] = $mail;
 
 
-    header("location: index.php");
+    header("location: profile.php?s=1");
 } else {
     DisplayErrors();
 }

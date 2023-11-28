@@ -15,3 +15,10 @@
     }
     ?>
 </nav>
+
+<div id="notify" class="notify-wrap unnotify">
+    <div class="notify">
+        <span id="span"></span>
+        <input type="button" value="&times;" onclick="notifyHide();">
+    </div>
+</div>

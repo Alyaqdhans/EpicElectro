@@ -7,7 +7,7 @@ if (!isset($_POST['check'])) {
     exit;
 }
 
-if (mysqli_num_rows(mysqli_query($conn, "select * from customers where cType = 'A'")) == 1) {
+if (mysqli_num_rows(mysqli_query($conn, "select * from customers where cType = 'A'")) == 1 && empty($_POST['box'])) {
     header('Location: error.php?ec=8'); // check if there is one admin left
     exit;
 }
@@ -27,5 +27,5 @@ while ($data = mysqli_fetch_assoc($result)) {
     mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
 }
 
-header("Location: panelAdmin.php");
+header("Location: panelAdmin.php?s=1");
 ?>

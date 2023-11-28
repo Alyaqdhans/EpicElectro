@@ -27,5 +27,5 @@ if (!empty($_POST['box'])) {
     }
 }
 
-header("Location: panelDelete.php");
+header("Location: panelDelete.php?s=1");
 ?>

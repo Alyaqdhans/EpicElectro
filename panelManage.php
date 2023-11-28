@@ -31,7 +31,7 @@
                     echo "<input type='text' name='icode' placeholder='Product ID' value='$cd'>";
                     echo "<input type='text' name='iname' placeholder='Product Name' value='$nm'>";
                     ?>
-                    <input type="submit" value="Search"> 
+                    <input type="submit" value="Search" formaction="panelManage.php"> 
                 </div>
                 
                 <fieldset>
@@ -127,5 +127,6 @@
         </div>
 
         <?php include('footer.php'); ?>
+        <?php if (isset($_GET["s"])) {echo "<script>notify();</script>";} ?>
     </body>
 </html>

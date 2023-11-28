@@ -21,6 +21,7 @@ function controller(type, id) {
     }
 }
 
+
 // make entire table row activate checkbox
 let table = document.querySelector("table");
 if (table) {
@@ -34,4 +35,17 @@ if (table) {
             }
         }
     });
+}
+
+
+// notification show
+function notify(text) {
+    if (!text) {text = "Changes Saved Successfully"}
+    document.getElementById("span").innerHTML = text;
+    document.getElementById("notify").classList.remove("unnotify");
+}
+
+// notification hide
+function notifyHide() {
+    document.getElementById("notify").classList.add("unnotify");
 }

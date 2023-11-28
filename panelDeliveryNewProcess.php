@@ -22,7 +22,7 @@ if (count($errors) == 0) {
     $query .= " values ('$name', '$phone')";
     mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
 
-    header("Location: panelDelivery.php");
+    header("Location: panelDelivery.php?s=1");
 } else {
     DisplayErrors();
 }

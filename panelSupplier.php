@@ -80,5 +80,6 @@
         </div>
 
         <?php include('footer.php'); ?>
+        <?php if (isset($_GET["s"])) {echo "<script>notify();</script>";} ?>
     </body>
 </html>
