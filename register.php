@@ -13,23 +13,35 @@
                 <fieldset>
                     <legend>Register</legend>
 
-                    <label>Name:</label>
-                    <input type="text" name="name" required>
+                    <label>
+                        Name:<br>
+                        <input type="text" name="name" required>
+                    </label>
                     
-                    <label>Email:</label>
-                    <input type="email" name="email" required>
+                    <label>
+                        Email:<br>
+                        <input type="email" name="email" required>
+                    </label>
                     
-                    <label>Password:</label>
-                    <input type="password" name="password" required>
+                    <label>
+                        Password:<br>
+                        <input type="password" name="password" required>
+                    </label>
 
-                    <label>Password (confirm):</label>
-                    <input type="password" name="passwordConfirm" required>
+                    <label>
+                        Password (confirm):<br>
+                        <input type="password" name="passwordConfirm" required>
+                    </label>
                     
-                    <label>Phone Number:</label>
-                    <input type="number" name="pnumber" required>
+                    <label>
+                        Phone Number:<br>
+                        <input type="number" name="pnumber" required>
+                    </label>
                     
-                    <label>Address:</label>
-                    <input type="text" name="address" required>
+                    <label>
+                        Address:<br>
+                        <input type="text" name="address" required>
+                    </label>
                 </fieldset>
                 
                 <h4>Do you have an account? <a href="login.php">Login</a></h4>

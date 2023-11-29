@@ -53,7 +53,7 @@ body {
     flex-direction: column;
 }
 
-a {transition: none;}
+a, input[type="checkbox"] {transition-property: background;}
 
 
 
@@ -206,6 +206,8 @@ legend {
     margin: auto;
 }
 
+.form * {font-weight: var(--fw-bold);}
+
 .form .main {
     margin: 3rem;
     background: white;
@@ -294,14 +296,6 @@ legend {
     position: sticky;
     top: 0;
     z-index: 10;
-}
-
-.top input[type="text"] {
-    outline: 1px solid transparent;
-}
-
-.top input[type="text"]:focus {
-    outline: 4px solid black;
 }
 
 .search {
@@ -789,9 +783,7 @@ legend {
     padding: .3rem;
 }
 
-.manage fieldset #clickable input[type="checkbox"] {transition: none;}
-
-.manage fieldset #clickable:has(input[type="checkbox"]:not(:checked)) {
+.manage fieldset #clickable:has(input[type="checkbox"]:not(:checked)) { /* see if checkbox unchecked */
     opacity: .5;
 }
 
@@ -823,7 +815,6 @@ legend {
     font-weight: var(--fw-bold);
     font-size: var(--fs-normal);
     color: black;
-    transition: 150ms ease-in-out;
 }
 
 .manage .buttons input:hover, .manage .buttons a:hover {
@@ -898,7 +889,7 @@ legend {
     justify-content: center;
 }
 
-.manage .isearch * {text-align: center;}
+.manage .isearch * {text-align: center; transition-property: background;}
 
 .manage .isearch ::placeholder {color: lightgray;}
 
@@ -909,7 +900,6 @@ legend {
     color: white;
     padding: .5rem;
     width: 6rem;
-    outline: 2px solid transparent;
 }
 
 .manage .isearch :nth-child(2) {
@@ -919,7 +909,6 @@ legend {
     color: white;
     padding: .5rem;
     width: 11rem;
-    outline: 2px solid transparent;
 }
 
 .manage .isearch :nth-child(3) {
@@ -929,11 +918,6 @@ legend {
     padding: .5rem;
     font-size: var(--fs-normal);
     width: 6rem;
-}
-
-.manage .isearch :nth-child(1):focus,
-.manage .isearch :nth-child(2):focus {
-    outline: 4px solid black;
 }
 
 .manage .isearch :nth-child(3):hover {

@@ -24,44 +24,43 @@
                 <fieldset>
                     <legend>Edit Profile</legend>
 
-                    <?php
-                    echo "<input type='hidden' name='cid' value='{$cus['cId']}' required>";
-                    ?>
+                    <!-- hidden input -->
+                    <?php echo "<input type='hidden' name='cid' value='{$cus['cId']}' required>"; ?>
 
-                    <label>Name:</label>
-                    <?php
-                    echo "<input type='text' name='name' value='{$cus['cName']}' required>";
-                    ?>
+                    <label>
+                        Name:<br>
+                        <?php echo "<input type='text' name='name' value='{$cus['cName']}' required>"; ?>
+                    </label>
 
-                    <label>Email:</label>
-                    <?php
-                    echo "<input type='email' name='email' value='{$cus['email']}' required>";
-                    ?>
+                    <label>
+                        Email:<br>
+                        <?php echo "<input type='email' name='email' value='{$cus['email']}' required>"; ?>
+                    </label>
 
-                    <label>Old Password:</label>
-                    <?php
-                    echo "<input type='password' name='passwordOld' value='' required>";
-                    ?>
+                    <label>
+                        Old Password:<br>
+                        <?php echo "<input type='password' name='passwordOld' value='' required>"; ?>
+                    </label>
 
-                    <label>New Password:</label>
-                    <?php
-                    echo "<input type='password' name='passwordNew' value=''>";
-                    ?>
+                    <label>
+                        New Password:<br>
+                        <?php echo "<input type='password' name='passwordNew' value=''>"; ?>
+                    </label>
 
-                    <label>New Password (confirm):</label>
-                    <?php
-                    echo "<input type='password' name='passwordConfirm' value=''>";
-                    ?>
+                    <label>
+                        New Password (confirm):<br>
+                        <?php echo "<input type='password' name='passwordConfirm' value=''>"; ?>
+                    </label>
 
-                    <label>Phone Number:</label>
-                    <?php
-                    echo "<input type='number' name='pnumber' value='{$cus['phoneNumber']}' required>";
-                    ?>
+                    <label>
+                        Phone Number:<br>
+                        <?php echo "<input type='number' name='pnumber' value='{$cus['phoneNumber']}' required>"; ?>
+                    </label>
 
-                    <label>Address:</label>
-                    <?php
-                    echo "<input type='text' name='address' value='{$cus['cAddress']}' required>";
-                    ?>
+                    <label>
+                        Address:<br>
+                        <?php echo "<input type='text' name='address' value='{$cus['cAddress']}' required>"; ?>
+                    </label>
                 </fieldset>
 
                 <div class="buttons">
