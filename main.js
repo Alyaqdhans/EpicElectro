@@ -22,6 +22,7 @@ function controller(type, id) {
 }
 
 
+
 // make entire table row activate checkbox
 let table = document.querySelector("table");
 if (table) {
@@ -36,6 +37,7 @@ if (table) {
         }
     });
 }
+
 
 
 // notification show
@@ -56,4 +58,14 @@ function notify(text) {
 // notification hide
 function notifyHide() {
     document.getElementById("notify").classList.add("unnotify"); // hide
+}
+
+
+
+// checkout loading window
+function checkout() {
+    document.getElementById("sb").disabled = true;
+    setTimeout(() => {
+        document.getElementById("loading").classList.remove("hide-loading");
+    }, 200);
 }

@@ -748,6 +748,51 @@ legend {
     transform: translateY(-50vh); /* scrolls user to middle of the item */
 }
 
+#loading {
+    display: flex;
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, .5);
+}
+
+#loading h1 {
+    margin: auto;
+    width: fit-content;
+    background: white;
+    padding: 8rem;
+    border-radius: var(--br);
+}
+
+#loading h1::after {
+    margin: auto;
+    margin-top: 2rem;
+    content: " ";
+    display: block;
+    border-radius: 50%;
+    width: 0;
+    height: 0;
+    box-sizing: border-box;
+    border: 2rem solid #000;
+    border-color: #000 transparent;
+    animation: hourglass 1.2s infinite;
+}
+
+@keyframes hourglass {
+    0% {
+        transform: rotate(0);
+        animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    }
+    50% {
+        transform: rotate(900deg);
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+    100% {
+        transform: rotate(1800deg);
+    }
+}
+
+.hide-loading {display: none !important;}
+
 
 
 /* panel pages with table style */

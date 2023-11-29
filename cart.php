@@ -17,7 +17,7 @@
         else {$hide = "";}
         ?>
         
-        <form class="wrapper" method="post" onsubmit="document.getElementById('sb').disabled = true;">
+        <form class="wrapper" method="post" onsubmit="if (confirm('Are you sure you want to do that?')) {return checkout();} else {return false;}">
             <div class="container checkout">
                 <?php echo "<fieldset $hide>"; ?>
                     <legend>Cart Contents</legend>
@@ -70,7 +70,7 @@
 
                                 echo "<input type='submit' value='Remove' formaction='cart.php?ic={$key}#{$key}'>";
                                 
-                                echo "<input id=". 'stock'.$key ." type='hidden' value='{$item['qty']}'>"; // for javascript
+                                echo "<input id=". 'stock'.$key ." type='hidden' value='{$item['qty']}'>"; // max value for javascript
                                 echo "<input id=". 'qty'.$key ." type='hidden' name='{$key}' value='1'>";
                             echo "</div>";
 
@@ -98,6 +98,10 @@
 
             </div>
         </form>
+
+        <div id="loading" class="hide-loading">
+            <h1>Processing</h1>
+        </div>
 
         <div class="scroll">
             <a class="btn up" href="#up">▲</a>

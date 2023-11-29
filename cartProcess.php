@@ -43,9 +43,10 @@ foreach ($_SESSION['CART'] as $key => $item) {
     $items[] = $name[0]; // store item names for receipt
 
     $qty = mysqli_fetch_row(mysqli_query($conn, "select iQty from items where iCode = {$key}"));
+    $sold = mysqli_fetch_row(mysqli_query($conn, "select iSold from items where iCode = {$key}"));
 
-    $query = "update items set iSold = {$item['qty']},";
-    $query .= " iQty = ". $qty[0] - $item['qty']; // update qty and sold values
+    $query = "update items set iSold = ". $sold[0] + $item['qty'] . ","; // update sold value
+    $query .= " iQty = ". $qty[0] - $item['qty']; // update quantity value
     $query .= " where iCode = {$key}";
     mysqli_query($conn, $query);
 
