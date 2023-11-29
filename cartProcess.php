@@ -37,10 +37,10 @@ mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". my
 $orderId = $conn->insert_id;
 
 
-$items = [];
+$itemInfo = [];
 foreach ($_SESSION['CART'] as $key => $item) {
     $name = mysqli_fetch_row(mysqli_query($conn, "select iDesc from items where iCode = {$key}"));
-    $items[] = $name[0]; // store item names for receipt
+    $itemInfo[] = [$item['qty'], $name[0]]; // store item names for receipt
 
     $qty = mysqli_fetch_row(mysqli_query($conn, "select iQty from items where iCode = {$key}"));
     $sold = mysqli_fetch_row(mysqli_query($conn, "select iSold from items where iCode = {$key}"));
@@ -59,7 +59,10 @@ foreach ($_SESSION['CART'] as $key => $item) {
 
 
 // sending receipt email to the customer
-$items = implode(", ", $items);
+$items = "";
+foreach($itemInfo as $v) {
+    $items .= "{$v[0]} &times; {$v[1]}<br>";
+}
 $total = number_format($_POST['total']);
 $deliver = mysqli_fetch_row(mysqli_query($conn, "select company_name from delivery where dId = {$DID}"))[0];
 
