@@ -51,7 +51,7 @@
                             <th>Quantity</th>
                             <th>Stock</th>
                             <th>Edit</th>
-                            <th>Delete</th>
+                            <th>Active</th>
                         </tr>
                         
                         <?php
@@ -87,6 +87,9 @@
                                 else if ($line % 2 == 1) {$style = "style='background: lightgray;'";}
                                 else {$style = "";}
                                 $line += 1;
+
+                                if ($data['Active'] == 'active') {$a = 'checked';}
+                                else {$a = '';}
                                 
                                 echo "<tr id='clickable' $style>";
                                 echo "<td> {$data['iCode']} </td>";
@@ -101,7 +104,7 @@
                                 echo "<td id='center'> {$data['iQty']} </td>";
                                 echo "<td id='center'> <a href='panelManageAdd.php?ic={$data['iCode']}'> Add </a> </td>";
                                 echo "<td id='center'> <a href='panelManageEdit.php?ic={$data['iCode']}'> Edit </a> </td>";
-                                echo "<td id='center'> <input type='checkbox' name='box[]' value='{$data['iCode']}'> </td>";
+                                echo "<td id='center'> <input type='checkbox' name='box[]' value='{$data['iCode']}' $a> </td>";
                                 echo "</tr>";
                             }
                         } else {
@@ -115,14 +118,11 @@
                 
                 <div class="buttons">
                     <div class="main">
-                        <input class="left" type='submit' value='Delete' formaction="panelManageProcess.php">
-                        <input class="right" type='reset' value='Clear'>
+                        <input class="left" type='submit' value='Save' formaction="panelManageProcess.php">
+                        <input class="right" type='reset' value='Discard'>
                     </div>
                     <a href='panelManageCreate.php'> Create </a>
                 </div>
-
-                <h4>*Deleting a product that is in an order,
-                    will delete the product from the order's list.</h4>
 
                 <!-- make sure user came from this page -->
                 <input type="hidden" name="check">

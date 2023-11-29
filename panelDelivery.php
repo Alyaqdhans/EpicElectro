@@ -30,7 +30,7 @@
                             <th>Name</th>
                             <th>Phone</th>
                             <th>Edit</th>
-                            <th>Delete</th>
+                            <th>Active</th>
                         </tr>
                         
                         <?php
@@ -45,13 +45,16 @@
 
                             if (mysqli_num_rows($result) == 1) {$d = "disabled";}
                             else {$d = "";}
+
+                            if ($data['Active'] == 'active') {$a = 'checked';}
+                            else {$a = '';}
                             
                             echo "<tr id='clickable' $style>";
                             echo "<td> {$data['dId']} </td>";
                             echo "<td> {$data['company_name']} </td>";
                             echo "<td> {$data['dPhone']} </td>";
                             echo "<td id='center'> <a href='panelDeliveryEdit.php?did={$data['dId']}'> Edit </a> </td>";
-                            echo "<td id='center'> <input type='checkbox' name='box[]' value='{$data['dId']}' $d> </td>";
+                            echo "<td id='center'> <input type='checkbox' name='box[]' value='{$data['dId']}' $d $a> </td>";
                             echo "</tr>";
                         }
                         ?>
@@ -60,14 +63,11 @@
                 
                 <div class="buttons">
                     <div class="main">
-                        <input class="left" type='submit' value='Delete'>
-                        <input class="right" type='reset' value='Clear'>
+                        <input class="left" type='submit' value='Save'>
+                        <input class="right" type='reset' value='Discard'>
                     </div>
                     <a href='panelDeliveryNew.php'> New </a>
                 </div>
-
-                <h4>*Deleting a courier that is in an order,
-                    will change the order's courier to another one.</h4>
 
                 <!-- make sure user came from this page -->
                 <input type="hidden" name="check">

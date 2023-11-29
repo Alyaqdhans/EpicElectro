@@ -8,25 +8,18 @@ if (!isset($_POST['check'])) {
 }
 
 if (!empty($_POST['box'])) {
-    if (mysqli_num_rows(mysqli_query($conn, "select * from suppliers")) == count($_POST['box'])) {
-        header('Location: error.php?ec=6'); // check if user selected all suppliers
-        exit;
-    }
+    $ids = implode(", ", $_POST['box']);
 
-    foreach ($_POST['box'] as $sid) {
-        $query = "select * from items where iSupplierId = '$sid'";
-        $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
-    
-        if (mysqli_num_rows($result) > 0) { // update supplier's item records before delete if exist
-            $supplier = mysqli_fetch_row(mysqli_query($conn, "select sId from suppliers where sId != $sid"));
+    // activate who is in array
+    $query = "update suppliers set Active = 'active' where sId in($ids)";
+    mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
 
-            $query = "update items set iSupplierId = {$supplier[0]} where iSupplierId = '$sid'";
-            mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
-        }
-
-        $query = "delete from suppliers where sId = '$sid'";
-        mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
-    }
+    // disable who isnt in array
+    $query = "update suppliers set Active = 'disabled' where sId not in($ids)";
+    mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
+} else {
+    header('Location: error.php?ec=6&type=s'); // check if user disable all suppliers
+    exit;
 }
 
 header("Location: panelSupplier.php?s=1");

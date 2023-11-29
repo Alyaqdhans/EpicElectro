@@ -26,7 +26,7 @@
                     <legend>Management</legend>
 
                     <div class="links">
-                        <a href="panelDelete.php">Accounts</a>
+                        <a href="panelActive.php">Accounts</a>
                         <a href="panelManage.php">Products</a>
                         <a href="panelSupplier.php">Suppliers</a>
                         <a href="panelDelivery.php">Couriers</a>

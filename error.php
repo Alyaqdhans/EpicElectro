@@ -1,5 +1,6 @@
 <?php
 include("connect.php");
+$page = "javascript:history.back()";
 
 switch ($_GET['ec']) {
     // login failure
@@ -38,10 +39,15 @@ switch ($_GET['ec']) {
         $message = "The old password registred does not match what you typed, please enter the correct old password.";
         break;
 
-    // cannot delete all suppliers/dilvers
+    // cannot disable all suppliers/couriers
     case 6:
-        $title = "Cannot Delete All";
+        $title = "Cannot Disable All";
         $message = "Please leave at least one for the website functionality.";
+        if ($_GET["type"] == "s") {
+            $page = "panelSupplier.php";
+        } else if ($_GET["type"] == "c") {
+            $page = "panelDelivery.php";
+        }
         break;
 
     // more than available quantity in storage
@@ -63,6 +69,12 @@ switch ($_GET['ec']) {
         $message = "There is no account registred with this email, if you do not have an account please <a href='register.php'>register</a> a new one.";
         break;
 
+    // account disabled
+    case 10:
+        $title = "Account Disabled";
+        $message = "The account you are trying to access is disabled, please <a href='mailto:epicelectro.store@gmail.com'>contact</a> the support to activate it.";
+        break;
+
     // other errors
     default:
     $title = "Unknown Error";
@@ -82,7 +94,7 @@ switch ($_GET['ec']) {
                 <legend style='color:red;'> <?php echo "$title"; ?> </legend>
                 <?php echo "<h3> $message </h3>"; ?>
             </fieldset>
-            <a id="eback" href='javascript:history.back()'> Go Back </a>
+            <?php echo "<a id='eback' href='$page'> Go Back </a>"; ?>
         </div>
     </body>
 </html>

@@ -8,22 +8,19 @@ if (!isset($_POST['check'])) {
 }
 
 if (!empty($_POST['box'])) {
-    foreach ($_POST['box'] as $ic) {
-        $query = "select * from order_items where iCode = '$ic'";
-        $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
+    $ids = implode(", ", $_POST['box']);
 
-        if (mysqli_num_rows($result) > 0) { // delete order_items records if exist
-            $query = "delete from order_items where iCode = '$ic'";
-            mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
-        }
+    // activate who is in array
+    $query = "update items set Active = 'active' where iCode in($ids)";
+    mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
 
-        $query = "delete from items where iCode = '$ic'";
-        mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
-
-        if (!unlink("images/".$ic.".jpg")) { // delete image if exist
-            unlink("images/".$ic.".jpg");
-        }
-    }
+    // disable who isnt in array
+    $query = "update items set Active = 'disabled' where iCode not in($ids)";
+    mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
+} else {
+    // when array is empty that means disable all
+    $query = "update items set Active = 'disabled'";
+    mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
 }
 
 header("Location: panelManage.php?s=1");

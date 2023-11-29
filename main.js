@@ -43,11 +43,17 @@ function notify(text) {
     if (window.performance.getEntriesByType("navigation")[0].type == 'navigate') { // check if page isnt reloaded
         if (!text) {text = "Changes Saved Successfully"}
         document.getElementById("span").innerHTML = text;
-        document.getElementById("notify").classList.remove("unnotify");
+        setTimeout(() => { // show after 200ms
+            document.getElementById("notify").classList.remove("unnotify");
+        }, 200);
+
+        setTimeout(() => { // hide after 5 sec
+            document.getElementById("notify").classList.add("unnotify");
+        }, 5000);
     }
 }
 
 // notification hide
 function notifyHide() {
-    document.getElementById("notify").classList.add("unnotify");
+    document.getElementById("notify").classList.add("unnotify"); // hide
 }

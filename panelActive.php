@@ -21,7 +21,7 @@
         ?>
         
         <div class="wrapper">
-            <form class="container manage" action="panelDeleteProcess.php" method="post">
+            <form class="container manage" action="panelActiveProcess.php" method="post">
                     <div class="links">
                         <a href="panelAdmin.php">Admin Accounts</a>
                     </div>
@@ -37,7 +37,7 @@
                             <th>Registered</th>
                             <th>Last Login</th>
                             <th>Type</th>
-                            <th>Delete</th>
+                            <th>Active</th>
                         </tr>
 
                         <?php
@@ -50,9 +50,15 @@
                             else {$style = "";}
                             $line += 1;
 
+                            // disable checkbox if user is admin
                             if ($data['cType'] == 'A' || $data['cId'] == $_SESSION['CID']) {$d = 'disabled';}
                             else {$d = '';}
 
+                            // check active accounts
+                            if ($data['Active'] == 'active') {$a = 'checked';}
+                            else {$a = '';}
+
+                            // display admin and normal accounts
                             if ($data['cType'] == 'A') {$type = "Admin";}
                             else {$type = "Normal";}
 
@@ -63,7 +69,7 @@
                             echo "<td> ". fdate($data['registerDate']) ." </td>";
                             echo "<td> ". fdate($data['lastLogin']) ." </td>";
                             echo "<td> $type </td>";
-                            echo "<td id='center'> <input type='checkbox' name='box[]' value='{$data['cId']}' $d> </td>";
+                            echo "<td id='center'> <input type='checkbox' name='box[]' value='{$data['cId']}' $d $a> </td>";
                             echo "</tr>";
                         }
                         ?>
@@ -72,8 +78,8 @@
                 
                 <div class="buttons">
                     <div class="main">
-                        <input class="left" type='submit' value='Delete'>
-                        <input class="right" type='reset' value='Clear'>
+                        <input class="left" type='submit' value='Save'>
+                        <input class="right" type='reset' value='Discard'>
                     </div>
                 </div>
 

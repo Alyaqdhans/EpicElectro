@@ -11,16 +11,17 @@ if (!empty($_POST['box'])) {
     $ids = implode(", ", $_POST['box']);
 
     // activate who is in array
-    $query = "update delivery set Active = 'active' where dId in($ids)";
+    $query = "update customers set Active = 'active' where cId in($ids) and cType != 'A'";
     mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
 
     // disable who isnt in array
-    $query = "update delivery set Active = 'disabled' where dId not in($ids)";
+    $query = "update customers set Active = 'disabled' where cId not in($ids) and cType != 'A'";
     mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
 } else {
-    header('Location: error.php?ec=6&type=c'); // check if user disable all couriers
-    exit;
+    // when array is empty that means disable all
+    $query = "update customers set Active = 'disabled' where cType != 'A'";
+    mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
 }
 
-header("Location: panelDelivery.php?s=1");
+header("Location: panelActive.php?s=1");
 ?>

@@ -21,7 +21,7 @@ foreach ($_SESSION['CART'] as $key => $item) {
 }
 
 
-$query = "select dId from delivery";
+$query = "select dId from delivery where Active = 'active'";
 $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
 $allDID = mysqli_fetch_all($result);
 $DID = rand(0, count($allDID)-1); // get random delivery index

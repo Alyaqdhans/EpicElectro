@@ -61,7 +61,7 @@
                     </table>
                 </fieldset>
 
-                <?php if (mysqli_num_rows($result) == 0) {echo "<h2> You Have No Orders To Display </h2>";} ?>
+                <?php if (mysqli_num_rows($result) == 0) {echo "<h2> Orders History Is Empty </h2>";} ?>
                 
             </div>
         </div>

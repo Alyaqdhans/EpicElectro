@@ -789,7 +789,7 @@ legend {
     padding: .3rem;
 }
 
-.manage fieldset #clickable input {transition: none;}
+.manage fieldset #clickable input[type="checkbox"] {transition: none;}
 
 .manage fieldset #clickable:hover,
 .manage fieldset #clickable:focus-within {
@@ -819,6 +819,7 @@ legend {
     font-weight: var(--fw-bold);
     font-size: var(--fs-normal);
     color: black;
+    transition: 150ms ease-in-out;
 }
 
 .manage .buttons input:hover, .manage .buttons a:hover {
@@ -841,10 +842,12 @@ legend {
 
 .manage .buttons .right {
     border-radius: 0 var(--br) var(--br) 0;
+    width: 6rem;
 }
 
 .manage .buttons .left {
     border-radius: var(--br) 0 0 var(--br);
+    width: 6rem;
 }
 
 .manage .links {
@@ -999,6 +1002,23 @@ legend {
 
 .create .right {
     border-radius: 0 var(--br) var(--br) 0;
+}
+
+.create .img {
+    margin-top: .3rem;
+    width: 25rem;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: var(--br);
+    outline: solid 3px black;
+    background: lightgrey;
+}
+
+.create img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: var(--br);
 }
 
 

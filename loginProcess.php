@@ -9,8 +9,16 @@ if (!isset($_POST['mail'])) {
 $mail = mysqli_real_escape_string($conn, $_POST['mail']);
 $pass = mysqli_real_escape_string($conn, $_POST['pass']);
 
-if (mysqli_num_rows(mysqli_query($conn, "select * from customers where email = '$mail'")) == 0) {
+$accounts = mysqli_query($conn, "select * from customers where email = '$mail'");
+$account = mysqli_fetch_assoc($accounts);
+
+if (mysqli_num_rows($accounts) == 0) {
     header('Location: error.php?ec=9'); // account doesnt exist
+    exit;
+}
+
+if ($account['Active'] != 'active') {
+    header('Location: error.php?ec=10'); // account is disabled
     exit;
 }
 

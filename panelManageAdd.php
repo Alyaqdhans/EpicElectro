@@ -44,7 +44,7 @@
                         echo "<select name='supplier' required>";
                         echo "<option value=''> Suppliers </option>";
 
-                        $query = "select * from suppliers";
+                        $query = "select * from suppliers where Active = 'active'";
                         $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
                         
                         while ($data2 = mysqli_fetch_assoc($result)) {

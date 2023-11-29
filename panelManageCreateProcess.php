@@ -39,7 +39,8 @@ if (count($errors) == 0) {
     $query .= " iDesc = '$name',";
     $query .= " iComment = '$desc',";
     $query .= " iBrand = '$brand',";
-    $query .= " iCategoryCode = '{$_POST['category']}'";
+    $query .= " iCategoryCode = '{$_POST['category']}',";
+    $query .= " Active = 'active'";
     $query .= " where iCode = {$_POST['code']}";
     mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
 

@@ -31,7 +31,7 @@
 
                     if (mysqli_num_rows($result) == 0) {
                         // if no new empty item create one
-                        $query = "insert into items (iDesc, iCategoryCode, iSupplierId) values ('new', 1, 1)";
+                        $query = "insert into items (iDesc, iCategoryCode, iSupplierId, Active) values ('new', 1, 1, 'disabled')";
                         mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
                     }
 

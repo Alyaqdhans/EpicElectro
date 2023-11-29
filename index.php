@@ -119,7 +119,7 @@
 
             if (mysqli_num_rows($result) > 0) {
                 while ($data = mysqli_fetch_assoc($result)) {
-                    if ($data['iDesc'] == "new") {continue;} // check if its real item
+                    if ($data['Active'] != 'active') {continue;} // check if item is disabled
 
                     echo "<a class='card' href='view.php?ic={$data['iCode']}'>";
                         echo "<div class='img'><img src='images/{$data['iCode']}.jpg' alt='{$data['iCode']}'> <span> ". number_format($data['iPrice']) ." OMR</span></div>";

@@ -32,7 +32,7 @@
                             <th>Email</th>
                             <th>Address</th>
                             <th>Edit</th>
-                            <th>Delete</th>
+                            <th>Active</th>
                         </tr>
                         
                         <?php
@@ -47,6 +47,9 @@
 
                             if (mysqli_num_rows($result) == 1) {$d = "disabled";}
                             else {$d = "";}
+
+                            if ($data['Active'] == 'active') {$a = 'checked';}
+                            else {$a = '';}
                             
                             echo "<tr id='clickable' $style>";
                             echo "<td> {$data['sId']} </td>";
@@ -55,7 +58,7 @@
                             echo "<td> {$data['sEmail']} </td>";
                             echo "<td id='center'> <a href='panelSupplierView.php?sid={$data['sId']}'> View </a> </td>";
                             echo "<td id='center'> <a href='panelSupplierEdit.php?sid={$data['sId']}'> Edit </a> </td>";
-                            echo "<td id='center'> <input type='checkbox' name='box[]' value='{$data['sId']}' $d> </td>";
+                            echo "<td id='center'> <input type='checkbox' name='box[]' value='{$data['sId']}' $d $a> </td>";
                             echo "</tr>";
                         }
                         ?>
@@ -64,14 +67,11 @@
                 
                 <div class="buttons">
                     <div class="main">
-                        <input class="left" type='submit' value='Delete'>
-                        <input class="right" type='reset' value='Clear'>
+                        <input class="left" type='submit' value='Save'>
+                        <input class="right" type='reset' value='Discard'>
                     </div>
                     <a href='panelSupplierNew.php'> New </a>
                 </div>
-
-                <h4>*Deleting a supplier that is in a product,
-                    will change the product's supplier to another one.</h4>
 
                 <!-- make sure user came from this page -->
                 <input type="hidden" name="check">
