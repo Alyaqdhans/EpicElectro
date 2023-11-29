@@ -16,7 +16,7 @@ $pass2 = mysqli_real_escape_string($conn, $_POST['passwordConfirm']);
 $number = mysqli_real_escape_string($conn, $_POST['pnumber']);
 $address = mysqli_real_escape_string($conn, $_POST['address']);
 
-if (!preg_match("/^[a-zA-Z\-\s]+$/", $name)) {
+if (preg_match("/^[0-9]+$/", $name)) {
     $errors[] = "Please enter a valid name";
 }
 
@@ -47,7 +47,7 @@ if (count($errors) == 0) {
     $query .= " values('$name', password('$pass'), '$mail', '$address', '$number', '$date', 'N')";
     mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
 
-    header("location: login.php");
+    header("location: login.php?s=1");
 } else {
     DisplayErrors();
 }

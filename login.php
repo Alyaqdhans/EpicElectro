@@ -36,5 +36,6 @@
         </form>
         
         <?php include('footer.php'); ?>
+        <?php if (isset($_GET["s"])) {echo "<script>notify('Account Registred Successfully');</script>";} // when creating an account ?>
     </body>
 </html>

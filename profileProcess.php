@@ -18,7 +18,7 @@ $pass2 = mysqli_real_escape_string($conn, $_POST['passwordConfirm']);
 $number = mysqli_real_escape_string($conn, $_POST['pnumber']);
 $address = mysqli_real_escape_string($conn, $_POST['address']);
 
-if (!preg_match("/^[a-zA-Z\-\s]+$/", $name)) {
+if (preg_match("/^[0-9]+$/", $name)) {
     $errors[] = "Please enter a valid name";
 }
 

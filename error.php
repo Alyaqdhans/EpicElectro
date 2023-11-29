@@ -60,7 +60,7 @@ switch ($_GET['ec']) {
     // account doesnt exist
     case 9:
         $title = "Account Doesn't Exist";
-        $message = "There is no account registred with this email, make sure you typed it correctly.";
+        $message = "There is no account registred with this email, if you do not have an account please <a href='register.php'>register</a> a new one.";
         break;
 
     // other errors
