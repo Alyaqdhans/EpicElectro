@@ -63,7 +63,7 @@ a {transition: none;}
     left: 0;
     right: 0;
     user-select: none;
-    transform: translateY(.3rem);
+    top: .3rem;
 }
 
 .notify {
@@ -177,7 +177,7 @@ footer {
     max-inline-size: 60ch;
 }
 
-.error a {
+.error #eback {
     display: block;
     text-align: center;
     margin-top: 1rem;

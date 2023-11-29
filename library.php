@@ -17,7 +17,7 @@
             }
             echo "</ul>";
             echo "</fieldset>";
-            echo "<a href=javascript:history.back()> Go Back </a></b> <br>";
+            echo "<a id='eback' href=javascript:history.back()> Go Back </a></b> <br>";
             echo "</div>";
         }
 

@@ -40,9 +40,11 @@ if (table) {
 
 // notification show
 function notify(text) {
-    if (!text) {text = "Changes Saved Successfully"}
-    document.getElementById("span").innerHTML = text;
-    document.getElementById("notify").classList.remove("unnotify");
+    if (window.performance.getEntriesByType("navigation")[0].type == 'navigate') { // check if page isnt reloaded
+        if (!text) {text = "Changes Saved Successfully"}
+        document.getElementById("span").innerHTML = text;
+        document.getElementById("notify").classList.remove("unnotify");
+    }
 }
 
 // notification hide
