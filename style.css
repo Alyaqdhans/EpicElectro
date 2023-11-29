@@ -791,6 +791,10 @@ legend {
 
 .manage fieldset #clickable input[type="checkbox"] {transition: none;}
 
+.manage fieldset #clickable:has(input[type="checkbox"]:not(:checked)) {
+    opacity: .5;
+}
+
 .manage fieldset #clickable:hover,
 .manage fieldset #clickable:focus-within {
     cursor: pointer;
