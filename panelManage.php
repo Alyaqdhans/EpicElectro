@@ -56,16 +56,20 @@
                         
                         <?php
                         $query = "select * from items where iCode = iCode";
-                        $msg = "Found Nothing <br>";
+                        $msg = "Database is empty";
+
+                        if (isset($_POST['icode']) || isset($_POST['iname'])) {
+                            $msg = "Found nothing <br>";
+                        }
                         
                         if (isset($_POST['icode']) && $_POST['icode'] != "") {
                             $query .= " and iCode = '{$_POST['icode']}'";
-                            $msg .= " With ID `{$_POST['icode']}` <br>";
+                            $msg .= " with ID `{$_POST['icode']}` <br>";
                         }
 
                         if (isset($_POST['iname']) && $_POST['iname'] != "") {
                             $query .= " and iDesc like '%{$_POST['iname']}%'";
-                            $msg .= " With Name `{$_POST['iname']}` <br>";
+                            $msg .= " with name `{$_POST['iname']}` <br>";
                         }
 
                         $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));

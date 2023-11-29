@@ -94,21 +94,25 @@
         <section class="grid">
             <?php
             $query = "select * from items where iCode = iCode";
-            $msg = "Found Nothing <br>";
+            $msg = "Database is empty";
+
+            if (isset($_POST['search']) || isset($_POST['category']) || isset($_POST['brand'])) {
+                $msg = "Found nothing <br>";
+            }
 
             if (isset($_POST['search']) && $_POST['search'] != "") {
                 $query .= " and iDesc like '%{$_POST['search']}%'";
-                $msg .= " With `{$_POST['search']}` <br>";
+                $msg .= " with `{$_POST['search']}` <br>";
             }
             
             if (isset($_POST['category']) && $_POST['category'] != 'x') {
                 $query .= " and iCategoryCode = '{$_POST['category']}'";
-                $msg .= " In Category `{$categories[$_POST['category']-1]}` <br>";
+                $msg .= " in category `{$categories[$_POST['category']-1]}` <br>";
             }
 
             if (isset($_POST['brand']) && $_POST['brand'] != 'x') {
                 $query .= " and iBrand like '%{$brands[$_POST['brand']]}%'";
-                $msg .= " In Brand `{$brands[$_POST['brand']]}`";
+                $msg .= " in brand `{$brands[$_POST['brand']]}`";
             }
 
             $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
