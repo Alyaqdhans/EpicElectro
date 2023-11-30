@@ -63,7 +63,7 @@
                     </label>
                 </fieldset>
 
-                <h4>Disable this account? <a href="profileDisable.php">click here</a></h4>
+                <h4>Disable your account? <a href="profileDisable.php">Click Here</a></h4>
 
                 <div class="buttons">
                     <input class="btn left" type="submit" value="Save">

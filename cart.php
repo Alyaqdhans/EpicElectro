@@ -99,10 +99,6 @@
             </div>
         </form>
 
-        <div id="loading" class="hide-loading">
-            <h1>Processing</h1>
-        </div>
-
         <div class="scroll">
             <a class="btn up" href="#up">▲</a>
             <a class="btn down" href="#down">▼</a>

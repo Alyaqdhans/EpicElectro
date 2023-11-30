@@ -19,7 +19,7 @@
                     </label>
 
                     <label>
-                        <input type="checkbox" onclick="openDisable()">
+                        <input type="checkbox" id="confirm" onclick="openDisable()">
                         By clicking here, I state and understand that my account will be permanently disabled.
                     </label>
                 </fieldset>
@@ -31,5 +31,6 @@
             </div>
         </form>
         <?php include('footer.php'); ?>
+        <script>openDisable();</script>
     </body>
 </html>

@@ -33,13 +33,10 @@ switch ($_GET['ec']) {
         $message = "There is already an account registered with this email, please use another email.";
         break;
 
-    // old password is incorrect
+    // current password is incorrect
     case 5:
         $title = "Incorrect Password";
         $message = "The current password registred does not match what you typed, please enter the correct password.";
-        if (isset($_GET["type"]) && $_GET["type"] == "d") {
-            $page = "profileDisable.php";
-        }
         break;
 
     // cannot disable all suppliers/couriers

@@ -74,5 +74,11 @@ function checkout() {
 
 // disable account agreement
 function openDisable() {
-    document.getElementById("disable").disabled = !document.getElementById("disable").disabled;
+    setTimeout(() => {
+        if (document.getElementById("confirm").checked) {
+            document.getElementById("disable").disabled = false;
+        } else {
+            document.getElementById("disable").disabled = true;
+        }
+    }, 200);
 }

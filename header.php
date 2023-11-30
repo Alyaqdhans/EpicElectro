@@ -22,3 +22,7 @@
         <input type="button" value="&times;" onclick="notifyHide();">
     </div>
 </div>
+
+<div id="loading" class="hide-loading">
+    <h1>Processing</h1>
+</div>

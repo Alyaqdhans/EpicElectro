@@ -103,6 +103,55 @@ a, input[type="checkbox"] {transition-property: background;}
 
 
 
+/* loading window style */
+#loading {
+    display: flex;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .5);
+    z-index: 20;
+}
+
+#loading h1 {
+    margin: auto;
+    width: fit-content;
+    background: white;
+    padding: 8rem;
+    border-radius: var(--br);
+}
+
+#loading h1::after {
+    margin: auto;
+    margin-top: 2rem;
+    content: " ";
+    display: block;
+    border-radius: 50%;
+    width: 0;
+    height: 0;
+    box-sizing: border-box;
+    border: 2rem solid #000;
+    border-color: #000 transparent;
+    animation: hourglass 1.2s infinite;
+}
+
+@keyframes hourglass {
+    0% {
+        transform: rotate(0);
+        animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    }
+    50% {
+        transform: rotate(900deg);
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+    100% {
+        transform: rotate(1800deg);
+    }
+}
+
+.hide-loading {display: none !important;}
+
+
+
 /* navigation style */
 nav {
     display: flex;
@@ -252,10 +301,15 @@ legend {
     display: flex;
     justify-content: center;
     gap: .2rem;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
 }
 
-.form h4 {margin-top: 1.5rem;}
+.form .buttons a {
+    color: black;
+    text-align: center;
+}
+
+.form h4 {margin-top: 1rem;}
 
 .form .btn {
     width: 100%;
@@ -301,8 +355,6 @@ legend {
 }
 
 .disable .right {
-    color: black;
-    text-align: center;
     width: 15rem;
 }
 
@@ -770,51 +822,6 @@ legend {
     left: 50%;
     transform: translateY(-50vh); /* scrolls user to middle of the item */
 }
-
-#loading {
-    display: flex;
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, .5);
-}
-
-#loading h1 {
-    margin: auto;
-    width: fit-content;
-    background: white;
-    padding: 8rem;
-    border-radius: var(--br);
-}
-
-#loading h1::after {
-    margin: auto;
-    margin-top: 2rem;
-    content: " ";
-    display: block;
-    border-radius: 50%;
-    width: 0;
-    height: 0;
-    box-sizing: border-box;
-    border: 2rem solid #000;
-    border-color: #000 transparent;
-    animation: hourglass 1.2s infinite;
-}
-
-@keyframes hourglass {
-    0% {
-        transform: rotate(0);
-        animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
-    }
-    50% {
-        transform: rotate(900deg);
-        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    }
-    100% {
-        transform: rotate(1800deg);
-    }
-}
-
-.hide-loading {display: none !important;}
 
 
 
