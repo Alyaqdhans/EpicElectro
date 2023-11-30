@@ -38,8 +38,8 @@
                     </label>
 
                     <label>
-                        Old Password:<br>
-                        <?php echo "<input type='password' name='passwordOld' value='' required>"; ?>
+                        Current Password:<br>
+                        <?php echo "<input type='password' name='password' value='' required>"; ?>
                     </label>
 
                     <label>
@@ -63,11 +63,13 @@
                     </label>
                 </fieldset>
 
+                <h4>Disable this account? <a href="profileDisable.php">click here</a></h4>
+
                 <div class="buttons">
                     <input class="btn left" type="submit" value="Save">
-                    <input class="btn right" type="reset" value="Reset"> 
+                    <input class="btn right" type="reset" value="Reset">
                 </div>
-
+                
             </div>
         </form>
         

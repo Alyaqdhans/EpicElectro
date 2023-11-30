@@ -7,24 +7,25 @@ if (!isset($_POST['check'])) {
     exit;
 }
 
-if (mysqli_num_rows(mysqli_query($conn, "select * from customers where cType = 'A'")) == 1 && empty($_POST['box'])) {
-    header('Location: error.php?ec=8'); // check if there is one admin left
-    exit;
-}
+if (!empty($_POST['box'])) {
+    $ids = implode(", ", $_POST['box']);
 
-$query = "select * from customers where cId != {$_SESSION['CID']}";
-$result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
-
-while ($data = mysqli_fetch_assoc($result)) {
-    if (!empty($_POST['box'])) {
-        if (in_array($data['cId'], $_POST['box'])) {$type = "A";}
-        else {$type = "N";}
-    } else {
-        $type = "N";
-    }
-
-    $query = "update customers set cType = '$type' where cId = '{$data['cId']}'";
+    // give admin who is in array
+    $query = "update customers set cType = 'A' where cId in($ids) and cId != {$_SESSION['CID']}";
     mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
+
+    // remove admin who isnt in array
+    $query = "update customers set cType = 'N' where cId not in($ids) and cId != {$_SESSION['CID']}";
+    mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
+} else {
+    if (mysqli_num_rows(mysqli_query($conn, "select * from customers where cType = 'A'")) == 1) {
+        header('Location: error.php?ec=8'); // check if there is one admin left
+        exit;
+    } else {
+        // when array is empty that means remove all admin except current
+        $query = "update customers set cType = 'N' where cId != {$_SESSION['CID']}";
+        mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
+    }
 }
 
 header("Location: panelAdmin.php?s=1");

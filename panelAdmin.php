@@ -52,6 +52,7 @@
 
                             if ($data['cType'] == 'A') {$d = 'checked';}
                             else {$d = '';}
+                            
                             if ($data['cId'] == $_SESSION['CID']) {$d .= ' disabled';}
 
                             if ($data['cType'] == 'A') {$type = "Admin";}

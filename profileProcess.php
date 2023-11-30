@@ -12,7 +12,7 @@ $errors = [];
 
 $name = mysqli_real_escape_string($conn, $_POST['name']);
 $mail = mysqli_real_escape_string($conn, $_POST['email']);
-$pass0 = mysqli_real_escape_string($conn, $_POST['passwordOld']);
+$pass0 = mysqli_real_escape_string($conn, $_POST['password']);
 $pass = mysqli_real_escape_string($conn, $_POST['passwordNew']);
 $pass2 = mysqli_real_escape_string($conn, $_POST['passwordConfirm']);
 $number = mysqli_real_escape_string($conn, $_POST['pnumber']);

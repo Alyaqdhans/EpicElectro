@@ -229,7 +229,6 @@ legend {
     margin-bottom: 1rem;
     margin-right: 1rem;
     width: 20rem;
-    flex-basis: 100%;
 }
 
 .form input[type="text"],
@@ -259,7 +258,7 @@ legend {
 .form h4 {margin-top: 1.5rem;}
 
 .form .btn {
-    width: fit-content;
+    width: 100%;
     background: var(--clr-secondary);
     padding: .5rem;
     margin: 0;
@@ -281,6 +280,30 @@ legend {
 
 .form .right {
     border-radius: 0 var(--br) var(--br) 0;
+}
+
+.disable .main input[type="checkbox"] {
+    width: auto;
+    margin: auto;
+}
+
+.disable .main :nth-child(3) {
+    text-align: justify;
+    max-inline-size: 45ch;
+}
+
+.disable .left {
+    background: red;
+}
+
+.disable .left:hover {
+    background: tomato;
+}
+
+.disable .right {
+    color: black;
+    text-align: center;
+    width: 15rem;
 }
 
 

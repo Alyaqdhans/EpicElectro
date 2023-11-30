@@ -27,7 +27,7 @@
                     </div>
 
                 <fieldset>
-                    <legend>Delete Accounts</legend>
+                    <legend>Disable Accounts</legend>
 
                     <table>
                         <tr>
@@ -51,7 +51,7 @@
                             $line += 1;
 
                             // disable checkbox if user is admin
-                            if ($data['cType'] == 'A' || $data['cId'] == $_SESSION['CID']) {$d = 'disabled';}
+                            if (($data['cType'] == 'A' && $data['Active'] == 'active') || $data['cId'] == $_SESSION['CID']) {$d = 'disabled';}
                             else {$d = '';}
 
                             // check active accounts

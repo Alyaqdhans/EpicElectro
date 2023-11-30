@@ -11,7 +11,7 @@ if (!empty($_POST['box'])) {
     $ids = implode(", ", $_POST['box']);
 
     // activate who is in array
-    $query = "update customers set Active = 'active' where cId in($ids) and cType != 'A'";
+    $query = "update customers set Active = 'active' where cId in($ids)";
     mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
 
     // disable who isnt in array

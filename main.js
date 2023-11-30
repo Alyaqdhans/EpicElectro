@@ -62,10 +62,17 @@ function notifyHide() {
 
 
 
-// checkout loading window
+// checkout loading window show
 function checkout() {
     document.getElementById("sb").disabled = true;
     setTimeout(() => {
         document.getElementById("loading").classList.remove("hide-loading");
     }, 200);
+}
+
+
+
+// disable account agreement
+function openDisable() {
+    document.getElementById("disable").disabled = !document.getElementById("disable").disabled;
 }
