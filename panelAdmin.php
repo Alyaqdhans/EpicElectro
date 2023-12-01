@@ -46,7 +46,7 @@
                         
                         $line = 0;
                         while ($data = mysqli_fetch_assoc($result)) {
-                            if ($line % 2 == 1) {$style = "style='background: lightgray;'";}
+                            if ($line % 2 == 1) {$style = "style='background: var(--gray);'";}
                             else {$style = "";}
                             $line += 1;
 

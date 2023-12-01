@@ -60,7 +60,7 @@
                             $email = mysqli_fetch_row(mysqli_query($conn, "select email from customers where cId = {$data['cId']}"));
                             $delivery = mysqli_fetch_row(mysqli_query($conn, "select company_name from delivery where dId = {$data['dId']}"));
 
-                            if ($line % 2 == 1) {$style = "style='background: lightgray;'";}
+                            if ($line % 2 == 1) {$style = "style='background: var(--gray);'";}
                             else {$style = "";}
                             $line += 1;
                             

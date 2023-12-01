@@ -1,13 +1,19 @@
-/* CSS variables for the website */
+/* default theme */
 :root {
     color-scheme: light;
 
     --primary: #0174BE;
-    --secondary: #0C356A;
+    --secondary: #0063A0;
     --accent: #FAB81E;
     --highlight: #FDDC8F;
+
     --white: white;
     --black: black;
+    --gray: lightgray;
+
+    --shadow: black;
+    --table-th: gray;
+    --table-red: red;
 
     --fw-regular: 400;
     --fw-bold: 700;
@@ -18,8 +24,44 @@
 
     --br: 10px;
 
+    --bg: var(--primary);
+    background: var(--bg);
+
     font-family: sans-serif;
-    background: var(--primary);
+}
+
+/* auto detect device dark theme */
+@media(prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;
+    
+        --primary: #25abff;
+        --secondary: #0063a0;
+        --accent: #c08600;
+        --highlight: #a07001;
+
+        --white: #333333;
+        --black: white;
+        --gray: gray;
+
+        --shadow: black;
+        --table-th: lightgray;
+        --table-red: tomato;
+    
+        --fw-regular: 400;
+        --fw-bold: 700;
+    
+        --fs-small: 0.5em;
+        --fs-normal: 1em;
+        --fs-large: 1.5em;
+    
+        --br: 10px;
+    
+        --bg: var(--secondary);
+        background: var(--bg);
+        
+        font-family: sans-serif;
+    }
 }
 
 
@@ -33,16 +75,22 @@ img {max-width: 100%; pointer-events: none;}
 
 h1, h2, h3, h4, h5, h6 {margin: 0;}
 
+::selection {
+    background: var(--primary);
+    color: var(--white);
+}
+
 ::-webkit-scrollbar {
-    width: 1rem;
+    width: 1.2rem;
 }
 
 ::-webkit-scrollbar-track {
-    background-color: #fff;
+    background-color: var(--white);
 }
 
 ::-webkit-scrollbar-thumb {
     background-color: #888;
+    border: 3px solid var(--white);
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -57,6 +105,11 @@ body {
 }
 
 a, input[type="checkbox"] {transition-property: background;}
+
+abbr {
+    text-decoration: none;
+    border-bottom: 2px dotted var(--black);
+}
 
 
 
@@ -171,7 +224,7 @@ nav .ln {
 }
 
 .ln {
-    color: var(--secondary);
+    color: var(--black);
     text-decoration: none;
     position: relative;
     outline: none;
@@ -189,6 +242,7 @@ nav .ln {
     transform: scaleX(0);
     transform-origin: middle;
     transition: 200ms ease-in-out;
+    pointer-events: none;
 }
 
 .ln:hover::after, .ln:focus::after {
@@ -221,7 +275,7 @@ footer {
     border-radius: var(--br);
     font-weight: var(--fw-bold);
     margin: auto;
-    box-shadow: 0 0 1rem var(--black);
+    box-shadow: 0 0 1rem var(--shadow);
     max-inline-size: 60ch;
 }
 
@@ -262,7 +316,7 @@ legend {
     width: fit-content;
     padding: 2rem;
     border-radius: var(--br);
-    box-shadow: 0 0 1rem var(--black);
+    box-shadow: 0 0 1rem var(--shadow);
     display: flex;
     flex-direction: column;
 }
@@ -292,7 +346,6 @@ legend {
 .form input[type="password"]:focus,
 .form input[type="number"]:focus,
 .form input[type="email"]:focus   {
-    background: #eee;
     outline: 6px solid var(--primary);
 }
 
@@ -364,7 +417,7 @@ legend {
     margin-top: 1rem;
     display: flex;
     gap: 2rem;
-    background: var(--primary);
+    background: var(--bg);
     padding-block: 1.5rem;
     padding-inline: 7vw;
     position: sticky;
@@ -471,7 +524,7 @@ legend {
 
 .card:hover {
     transform: translateY(-.3rem);
-    box-shadow: 0 0 1.5rem var(--black);
+    box-shadow: 0 0 1.5rem var(--shadow);
 }
 
 .card:focus {
@@ -504,7 +557,7 @@ legend {
     border-radius: var(--br);
     aspect-ratio: 1 / 1;
     object-fit: cover;
-    background: lightgray;
+    background: var(--gray);
     position: relative;
 }
 
@@ -539,7 +592,7 @@ legend {
     bottom: 10vh;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 0 .5rem var(--black);
+    box-shadow: 0 0 .5rem var(--shadow);
     border-radius: var(--br);
 }
 
@@ -587,7 +640,7 @@ legend {
 }
 
 .view section {
-    background: lightgray;
+    background: var(--gray);
     border-radius: var(--br);
     padding: 2rem;
 }
@@ -627,7 +680,7 @@ legend {
 
 .view .cart {
     margin-inline: auto;
-    background: lightgray;
+    background: var(--gray);
     border-radius: var(--br);
     padding-inline: 1.5rem;
     padding-block: 1.5rem;
@@ -643,7 +696,7 @@ legend {
 
 .amount {
     margin-inline: auto;
-    background: lightgray;
+    background: var(--gray);
     border-radius: var(--br);
     padding-inline: 1.5rem;
     padding-block: 2rem;
@@ -738,12 +791,12 @@ legend {
 }
 
 .checkout .item {
-    background: lightgray;
+    background: var(--gray);
     border-radius: var(--br);
     padding: 1rem;
     display: flex;
     gap: 1rem;
-    box-shadow: 0 0 .5rem var(--black);
+    box-shadow: 0 0 .5rem var(--shadow);
     position: relative;
 }
 
@@ -843,14 +896,20 @@ legend {
     margin-inline: auto;
 }
 
-.manage fieldset::-webkit-scrollbar-track {background: transparent;}
+.manage fieldset::-webkit-scrollbar-track {
+    background: transparent;
+    margin-block: .5rem;
+}
+.manage fieldset::-webkit-scrollbar-thumb {
+    border-radius: var(--br);
+}
 
 .manage fieldset table {
     border-collapse: collapse;
 }
 
 .manage fieldset table tr:first-child {
-    background: gray;
+    background: var(--table-th);
     color: var(--white);
     position: sticky;
     top: -1rem;
@@ -969,9 +1028,11 @@ legend {
     justify-content: center;
 }
 
-.manage .isearch * {text-align: center; transition-property: background;}
+.manage .isearch * {
+    text-align: center;
+    transition-property: background;}
 
-.manage .isearch ::placeholder {color: lightgray;}
+.manage .isearch ::placeholder {color: var(--white);}
 
 .manage .isearch :nth-child(1) {
     border-radius: var(--br) 0 0 var(--br);
@@ -1078,7 +1139,7 @@ legend {
     object-fit: cover;
     border-radius: var(--br);
     outline: solid 3px var(--black);
-    background: lightgrey;
+    background: var(--gray);
 }
 
 .create img {

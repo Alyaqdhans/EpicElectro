@@ -43,7 +43,7 @@
                                 $name = mysqli_fetch_row(mysqli_query($conn, "select company_name from delivery where dId = {$data['dId']}"));
                                 $phone = mysqli_fetch_row(mysqli_query($conn, "select dPhone from delivery where dId = {$data['dId']}"));
 
-                                if ($line % 2 == 1) {$style = "style='background: lightgray;'";}
+                                if ($line % 2 == 1) {$style = "style='background: var(--gray);'";}
                                 else {$style = "";}
                                 $line += 1;
                                 
