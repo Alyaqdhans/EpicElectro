@@ -46,18 +46,18 @@ function notify(text) {
         if (!text) {text = "Changes Saved Successfully"}
         document.getElementById("span").innerHTML = text;
         setTimeout(() => { // show after 200ms
-            document.getElementById("notify").classList.remove("unnotify");
+            document.getElementById("notify").classList.remove("hide-notify");
         }, 200);
 
         setTimeout(() => { // hide after 5 sec
-            document.getElementById("notify").classList.add("unnotify");
+            document.getElementById("notify").classList.add("hide-notify");
         }, 5000);
     }
 }
 
 // notification hide
 function notifyHide() {
-    document.getElementById("notify").classList.add("unnotify"); // hide
+    document.getElementById("notify").classList.add("hide-notify"); // hide
 }
 
 

@@ -1,9 +1,13 @@
 /* CSS variables for the website */
 :root {
-    --clr-primary: #0C356A;
-    --clr-primary-light: #0174BE;
-    --clr-secondary: #fab81e;
-    --clr-secondary-light: #fddc8f;
+    color-scheme: light;
+
+    --primary: #0174BE;
+    --secondary: #0C356A;
+    --accent: #FAB81E;
+    --highlight: #FDDC8F;
+    --white: white;
+    --black: black;
 
     --fw-regular: 400;
     --fw-bold: 700;
@@ -13,6 +17,9 @@
     --fs-large: 1.5em;
 
     --br: 10px;
+
+    font-family: sans-serif;
+    background: var(--primary);
 }
 
 
@@ -35,18 +42,14 @@ h1, h2, h3, h4, h5, h6 {margin: 0;}
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #666;
-    border-radius: var(--br);
-    border: .2rem solid white;
-}
-
-::-webkit-scrollbar-thumb:hover {
     background-color: #888;
 }
 
+::-webkit-scrollbar-thumb:hover {
+    background-color: #666;
+}
+
 body {
-    background: var(--clr-primary-light);
-    font-family: sans-serif;
     margin: 0;
     min-height: 100%;
     display: flex;
@@ -74,7 +77,7 @@ a, input[type="checkbox"] {transition-property: background;}
     font-weight: var(--fw-bold);
     border-radius: var(--br);
     background: green;
-    color: white;
+    color: var(--white);
     opacity: .95;
 }
 
@@ -86,7 +89,7 @@ a, input[type="checkbox"] {transition-property: background;}
     padding: 1rem;
     background: transparent;
     border: 0;
-    color: white;
+    color: var(--white);
     font-size: var(--fs-large);
     font-weight: var(--fw-bold);
     border-radius: 0 var(--br) var(--br) 0;
@@ -97,7 +100,7 @@ a, input[type="checkbox"] {transition-property: background;}
     background: darkgreen;
 }
 
-.unnotify {
+.hide-notify {
     transform: translateY(-5rem);
 }
 
@@ -115,7 +118,7 @@ a, input[type="checkbox"] {transition-property: background;}
 #loading h1 {
     margin: auto;
     width: fit-content;
-    background: white;
+    background: var(--white);
     padding: 8rem;
     border-radius: var(--br);
 }
@@ -129,8 +132,8 @@ a, input[type="checkbox"] {transition-property: background;}
     width: 0;
     height: 0;
     box-sizing: border-box;
-    border: 2rem solid #000;
-    border-color: #000 transparent;
+    border: 2rem solid var(--black);
+    border-color: var(--black) transparent;
     animation: hourglass 1.2s infinite;
 }
 
@@ -157,7 +160,7 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: white;
+    background: var(--white);
     padding-block: 1.3rem;
     gap: 2rem;
 }
@@ -168,14 +171,10 @@ nav .ln {
 }
 
 .ln {
-    color: var(--clr-primary);
+    color: var(--secondary);
     text-decoration: none;
     position: relative;
     outline: none;
-}
-
-.ln:visited, .ln:active {
-    color: var(--clr-primary);
 }
 
 .ln::after {
@@ -185,7 +184,7 @@ nav .ln {
     bottom: -8px;
     height: 5px;
     width: 100%;
-    background-color: var(--clr-primary-light);
+    background-color: var(--primary);
     border-radius: var(--br);
     transform: scaleX(0);
     transform-origin: middle;
@@ -197,14 +196,14 @@ nav .ln {
 }
 
 .ln:hover, .ln:focus {
-    color: var(--clr-primary-light);
+    color: var(--primary);
 }
 
 
 
 /* footer style */
 footer {
-    background: white;
+    background: var(--white);
     text-align: center;
     font-size: var(--fs-normal);
     font-weight: var(--fw-bold);
@@ -216,13 +215,13 @@ footer {
 
 /* error pages style */
 .error {
-    background: white;
+    background: var(--white);
     width: fit-content;
     padding: 2rem;
     border-radius: var(--br);
     font-weight: var(--fw-bold);
     margin: auto;
-    box-shadow: 0 0 1rem black;
+    box-shadow: 0 0 1rem var(--black);
     max-inline-size: 60ch;
 }
 
@@ -239,7 +238,7 @@ footer {
 /* forms style */
 fieldset {
     border-radius: var(--br);
-    border: solid 3px black;
+    border: solid 3px var(--black);
     padding: 1rem;
     display: flex;
     flex-direction: column;
@@ -259,11 +258,11 @@ legend {
 
 .form .main {
     margin: 3rem;
-    background: white;
+    background: var(--white);
     width: fit-content;
     padding: 2rem;
     border-radius: var(--br);
-    box-shadow: 0 0 1rem black;
+    box-shadow: 0 0 1rem var(--black);
     display: flex;
     flex-direction: column;
 }
@@ -286,7 +285,7 @@ legend {
 .form input[type="email"]   {
     border-radius: var(--br);
     border: none;
-    outline: 2px solid black;
+    outline: 2px solid var(--black);
 }
 
 .form input[type="text"]:focus,
@@ -294,7 +293,7 @@ legend {
 .form input[type="number"]:focus,
 .form input[type="email"]:focus   {
     background: #eee;
-    outline: 6px solid var(--clr-primary-light);
+    outline: 6px solid var(--primary);
 }
 
 .form .buttons {
@@ -305,7 +304,7 @@ legend {
 }
 
 .form .buttons a {
-    color: black;
+    color: currentColor;
     text-align: center;
 }
 
@@ -313,7 +312,7 @@ legend {
 
 .form .btn {
     width: 100%;
-    background: var(--clr-secondary);
+    background: var(--accent);
     padding: .5rem;
     margin: 0;
     border: 0;
@@ -324,7 +323,7 @@ legend {
 }
 
 .form .btn:hover {
-    background: var(--clr-secondary-light);
+    background: var(--highlight);
     cursor: pointer;
 }
 
@@ -365,7 +364,7 @@ legend {
     margin-top: 1rem;
     display: flex;
     gap: 2rem;
-    background: var(--clr-primary-light);
+    background: var(--primary);
     padding-block: 1.5rem;
     padding-inline: 7vw;
     position: sticky;
@@ -394,11 +393,11 @@ legend {
 
 .search input[type="submit"] {
     border-radius: 0 var(--br) var(--br) 0;
-    background: var(--clr-secondary);
+    background: var(--accent);
 }
 
 .search input[type="submit"]:hover  {
-    background: var(--clr-secondary-light);
+    background: var(--highlight);
     cursor: pointer;
 }
 
@@ -419,23 +418,23 @@ legend {
 }
 
 .cart a {
-    background: var(--clr-secondary);
+    background: var(--accent);
     padding: .5rem;
     text-align: center;
     border-radius: var(--br) 0 0 var(--br);
     text-decoration: none;
     font-weight: var(--fw-bold);
     font-size: var(--fs-normal);
-    color: black;
+    color: currentColor;
 }
 
 .cart a:hover {
-    background: var(--clr-secondary-light);
+    background: var(--highlight);
     cursor: pointer;
 }
 
 .cart span {
-    background: white;
+    background: var(--white);
     font-weight: var(--fw-bold);
     font-size: var(--fs-normal);
     padding-block: .5rem;
@@ -458,30 +457,30 @@ legend {
 .card {
     height: 100%;
     width: 100%;
-    background: white;
+    background: var(--white);
     padding: 1rem;
     border-radius: var(--br);
     display: flex;
     flex-direction: column;
-    box-shadow: 0 0 1rem black;
     outline: 1px solid transparent;
     text-decoration: none;
-    color: black;
+    color: var(--black);
     transition: 150ms ease-in-out;
     position: relative;
 }
 
-.card:focus {
-    border-radius: var(--br);
-    outline: 6px solid var(--clr-secondary);
+.card:hover {
+    transform: translateY(-.3rem);
+    box-shadow: 0 0 1.5rem var(--black);
 }
 
-.card:hover {
-    transform: scale(101%);
+.card:focus {
+    border-radius: var(--br);
+    outline: 6px solid var(--accent);
 }
 
 .nothing {
-    background: white;
+    background: var(--white);
     padding: 1rem;
     border-radius: var(--br);
     text-align: center;
@@ -501,7 +500,7 @@ legend {
 }
 
 .card .img {
-    outline: solid 3px black;
+    outline: solid 3px var(--black);
     border-radius: var(--br);
     aspect-ratio: 1 / 1;
     object-fit: cover;
@@ -520,7 +519,7 @@ legend {
     position: absolute;
     right: 0;
     bottom: 0;
-    background: var(--clr-secondary);
+    background: var(--accent);
     padding: .5rem;
     border-radius: var(--br) 0;
     font-weight: var(--fw-bold);
@@ -540,25 +539,25 @@ legend {
     bottom: 10vh;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 0 .5rem black;
+    box-shadow: 0 0 .5rem var(--black);
     border-radius: var(--br);
 }
 
 .scroll .btn {
     display: block;
-    background: var(--clr-secondary);
+    background: var(--accent);
     text-decoration: none;
-    color: black;
+    color: var(--black);
     padding: .5rem;
 }
 
 .scroll .btn:hover {
-    background: var(--clr-secondary-light);
+    background: var(--highlight);
 }
 
 .scroll .up {
     border-radius: var(--br) var(--br) 0 0;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid var(--black);
 }
 
 .scroll .down {
@@ -575,7 +574,7 @@ legend {
 .container {
     margin: 3rem;
     padding: 2rem;
-    background: white;
+    background: var(--white);
     border-radius: var(--br);
 }
 
@@ -598,8 +597,8 @@ legend {
     aspect-ratio: 1.25 / 1;
     object-fit: cover;
     border-radius: var(--br);
-    outline: solid 3px black;
-    background: white;
+    outline: solid 3px var(--black);
+    background: var(--white);
 }
 
 .view img {
@@ -636,7 +635,11 @@ legend {
 
 .view .cart a {margin-left: auto;}
 
-.view .cart span {margin-right: auto;}
+.view .cart span {
+    margin-right: auto;
+    background: var(--primary);
+    color: var(--white);
+}
 
 .amount {
     margin-inline: auto;
@@ -654,37 +657,39 @@ legend {
 }
 
 .amount .more {
-    /* color: white; */
-    background: hsl(120, 100%, 35%);
+    /* color: var(--white); */
+    background: rgb(30, 200, 30);
     padding-inline: .7rem;
     border-radius: 0 var(--br) var(--br) 0;
+    width: 2.5rem;
 }
 
 .amount .more:hover {
-    background: hsl(120, 100%, 40%);
+    background: rgb(20, 170, 20);
     cursor: pointer;
 }
 
 .amount .number {
-    background: white;
+    background: var(--white);
     padding-block: .5rem;
     padding-inline: 1.5rem;
 }
 
 .amount .less {
-    /* color: white; */
-    background: hsl(0, 100%, 50%);
+    /* color: var(--white); */
+    background: rgb(255, 70, 70);
     padding-inline: .7rem;
     border-radius: var(--br) 0 0 var(--br);
+    width: 2.5rem;
 }
 
 .amount .less:hover {
-    background: hsl(0, 100%, 65%);
+    background: rgb(225, 60, 60);
     cursor: pointer;
 }
 
 .amount input {
-    background: var(--clr-secondary);
+    background: var(--accent);
     padding: .5rem;
     margin: 0;
     border: 0;
@@ -703,18 +708,18 @@ legend {
 
 .view .back {
     display: block;
-    background: var(--clr-secondary);
+    background: var(--accent);
     padding: .5rem;
     text-align: center;
     border-radius: var(--br);
     text-decoration: none;
     font-weight: var(--fw-bold);
     font-size: var(--fs-normal);
-    color: black;
+    color: var(--black);
 }
 
 .view .back:hover, .view .amount input[type="submit"]:hover {
-    background: var(--clr-secondary-light);
+    background: var(--highlight);
     cursor: pointer;
 }
 
@@ -738,7 +743,7 @@ legend {
     padding: 1rem;
     display: flex;
     gap: 1rem;
-    box-shadow: 0 0 .5rem black;
+    box-shadow: 0 0 .5rem var(--black);
     position: relative;
 }
 
@@ -747,7 +752,7 @@ legend {
     aspect-ratio: 1.25 / 1;
     object-fit: cover;
     border-radius: var(--br);
-    background: white;
+    background: var(--white);
 }
 
 .checkout img {
@@ -758,7 +763,7 @@ legend {
 }
 
 .checkout .info {
-    background: white;
+    background: var(--white);
     padding: 1rem;
     border-radius: var(--br);
     width: 14rem;
@@ -779,14 +784,14 @@ legend {
 }
 
 .checkout .amount {
-    background: white;
+    background: var(--white);
     margin-left: auto;
     width: 10rem;
 }
 
 .checkout .amount .control span {
     background: grey;
-    color: white;
+    color: var(--white);
 }
 
 .checkout .bottom {
@@ -802,7 +807,7 @@ legend {
 .checkout input[type="submit"] {
     margin-inline: auto;
     width: 60%;
-    background: var(--clr-secondary);
+    background: var(--accent);
     padding: .5rem;
     border: 0;
     border-radius: var(--br);
@@ -812,7 +817,7 @@ legend {
 }
 
 .checkout input[type="submit"]:hover {
-    background: var(--clr-secondary-light);
+    background: var(--highlight);
     cursor: pointer;
 }
 
@@ -846,7 +851,7 @@ legend {
 
 .manage fieldset table tr:first-child {
     background: gray;
-    color: white;
+    color: var(--white);
     position: sticky;
     top: -1rem;
 }
@@ -865,15 +870,15 @@ legend {
 .manage fieldset #clickable:hover,
 .manage fieldset #clickable:focus-within {
     cursor: pointer;
-    background: var(--clr-secondary-light) !important;
+    background: var(--highlight) !important;
 }
 
 .manage fieldset #center {text-align: center;}
 
-.manage fieldset td span {border-bottom: 2px dotted black;}
+.manage fieldset td span {border-bottom: 2px dotted var(--black);}
 
 .manage .buttons input {
-    background: var(--clr-secondary);
+    background: var(--accent);
     padding: .5rem;
     border: 0;
     text-decoration: none;
@@ -882,18 +887,18 @@ legend {
 }
 
 .manage .buttons a {
-    background: var(--clr-secondary);
+    background: var(--accent);
     padding: .5rem;
     text-align: center;
     border-radius: var(--br);
     text-decoration: none;
     font-weight: var(--fw-bold);
     font-size: var(--fs-normal);
-    color: black;
+    color: currentColor;
 }
 
 .manage .buttons input:hover, .manage .buttons a:hover {
-    background: var(--clr-secondary-light);
+    background: var(--highlight);
     cursor: pointer;
 }
 
@@ -928,20 +933,20 @@ legend {
 }
 
 .manage .links a {
-    background: var(--clr-secondary);
+    background: var(--accent);
     padding: .5rem;
     text-align: center;
     border-radius: var(--br);
     text-decoration: none;
     font-weight: var(--fw-bold);
     font-size: var(--fs-large);
-    color: black;
+    color: currentColor;
     width: 20rem;
     margin-inline: auto;
 }
 
 .manage .links a:hover {
-    background: var(--clr-secondary-light);
+    background: var(--highlight);
     cursor: pointer;
 }
 
@@ -971,8 +976,8 @@ legend {
 .manage .isearch :nth-child(1) {
     border-radius: var(--br) 0 0 var(--br);
     border: none;
-    background: var(--clr-primary-light);
-    color: white;
+    background: var(--primary);
+    color: var(--white);
     padding: .5rem;
     width: 6rem;
 }
@@ -980,8 +985,8 @@ legend {
 .manage .isearch :nth-child(2) {
     /* border-radius: var(--br); */
     border: none;
-    background: var(--clr-primary-light);
-    color: white;
+    background: var(--primary);
+    color: var(--white);
     padding: .5rem;
     width: 11rem;
 }
@@ -989,14 +994,14 @@ legend {
 .manage .isearch :nth-child(3) {
     border-radius: 0 var(--br) var(--br) 0;
     border: none;
-    background: var(--clr-secondary);
+    background: var(--accent);
     padding: .5rem;
     font-size: var(--fs-normal);
     width: 6rem;
 }
 
 .manage .isearch :nth-child(3):hover {
-    background: var(--clr-secondary-light);
+    background: var(--highlight);
     cursor: pointer;
 }
 
@@ -1041,7 +1046,7 @@ legend {
 
 .create .btn {
     width: 100%;
-    background: var(--clr-secondary);
+    background: var(--accent);
     padding: .5rem;
     margin: 0;
     border: 0;
@@ -1050,12 +1055,11 @@ legend {
     font-size: var(--fs-normal);
     text-align: center;
     text-decoration: none;
+    color: currentColor;
 }
 
-.create .btn:visited {color: black;}
-
 .create .btn:hover {
-    background: var(--clr-secondary-light);
+    background: var(--highlight);
     cursor: pointer;
 }
 
@@ -1073,7 +1077,7 @@ legend {
     aspect-ratio: 1 / 1;
     object-fit: cover;
     border-radius: var(--br);
-    outline: solid 3px black;
+    outline: solid 3px var(--black);
     background: lightgrey;
 }
 
@@ -1127,19 +1131,19 @@ legend {
 
 .receipt #main a {
     margin-bottom: 1rem;
-    background: var(--clr-secondary);
+    background: var(--accent);
     padding: .5rem;
     text-align: center;
     border-radius: var(--br);
     text-decoration: none;
     font-weight: var(--fw-bold);
     font-size: var(--fs-large);
-    color: black;
+    color: currentColor;
     width: 20rem;
     margin-inline: auto;
 }
 
 .receipt #main a:hover {
-    background: var(--clr-secondary-light);
+    background: var(--highlight);
     cursor: pointer;
 }

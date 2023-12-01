@@ -63,9 +63,9 @@
                                     if ($item['qty'] > 1) {$d = "";}
                                     else {$d = "disabled";}
 
-                                    echo "<input class='less' id=". 'less'.$key ." type='button' value=' - ' onclick='controller(\"less\", {$key})' disabled>";
+                                    echo "<input class='less' id=". 'less'.$key ." type='button' value='&minus;' onclick='controller(\"less\", {$key})' disabled>";
                                     echo "<span class='number' id=". 'number'.$key ."> 1 </span>";
-                                    echo "<input class='more' id=". 'more'.$key ." type='button' value=' + ' onclick='controller(\"more\", {$key})' $d>";
+                                    echo "<input class='more' id=". 'more'.$key ." type='button' value='&plus;' onclick='controller(\"more\", {$key})' $d>";
                                 echo "</div>";
 
                                 echo "<input type='submit' value='Remove' formaction='cart.php?ic={$key}#{$key}'>";

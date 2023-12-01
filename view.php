@@ -42,9 +42,7 @@
                 <aside>
                     <div class="cart">
                         <?php echo "<a href='cart.php#{$_GET['ic']}'>In Cart</a>"; ?>
-                        <span style="background: var(--clr-primary-light); color: white;">
-                            <?php echo $cartQty; ?>
-                        </span>
+                        <span> <?php echo $cartQty; ?> </span>
                     </div>
 
                     <div class="amount">
@@ -55,9 +53,9 @@
                             if ($data['iQty'] > 1 && !($cartQty >= $data['iQty']-1)) {$d = "";}
                             else {$d = "disabled";}
                             
-                            echo "<input class='less' id=". 'less'.$_GET['ic'] ." type='button' value=' - ' onclick='controller(\"less\", {$_GET['ic']})' disabled>";
+                            echo "<input class='less' id=". 'less'.$_GET['ic'] ." type='button' value='&minus;' onclick='controller(\"less\", {$_GET['ic']})' disabled>";
                             echo "<span class='number' id=". 'number'.$_GET['ic'] ."> 1 </span>";
-                            echo "<input class='more' id=". 'more'.$_GET['ic'] ." type='button' value=' + ' onclick='controller(\"more\", {$_GET['ic']})' $d>";
+                            echo "<input class='more' id=". 'more'.$_GET['ic'] ." type='button' value='&plus;' onclick='controller(\"more\", {$_GET['ic']})' $d>";
 
                             echo "<input id=". 'stock'.$_GET['ic'] ." type='hidden' value='". $data['iQty'] - $cartQty ."'>"; // max value for javascript
                             ?>
