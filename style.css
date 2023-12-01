@@ -2,9 +2,9 @@
 :root {
     color-scheme: light;
 
-    --primary: #0174BE;
-    --secondary: #0063A0;
-    --accent: #ffb300;
+    --primary: #ffb300;
+    --secondary: #005081;
+    --accent: #0174Be;
 
     --white: white;
     --black: black;
@@ -22,7 +22,7 @@
 
     --br: 10px;
 
-    --bg: var(--primary);
+    --bg: var(--accent);
     background: var(--bg);
 
     font-family: sans-serif;
@@ -33,9 +33,9 @@
     :root {
         color-scheme: dark;
     
-        --primary: #25abff;
-        --secondary: #0063a0;
-        --accent: #c08600;
+        --primary: #c08600;
+        --secondary: #005081;
+        --accent: #43b6fe;
 
         --white: #333333;
         --black: white;
@@ -72,7 +72,7 @@ img {max-width: 100%; pointer-events: none;}
 h1, h2, h3, h4, h5, h6 {margin: 0;}
 
 ::selection {
-    background: var(--primary);
+    background: var(--black);
     color: var(--white);
 }
 
@@ -232,7 +232,7 @@ nav .ln {
     bottom: -8px;
     height: 5px;
     width: 100%;
-    background-color: var(--primary);
+    background-color: var(--accent);
     border-radius: var(--br);
     transform: scaleX(0);
     transform-origin: middle;
@@ -245,7 +245,7 @@ nav .ln {
 }
 
 .ln:hover, .ln:focus {
-    color: var(--primary);
+    color: var(--accent);
 }
 
 
@@ -341,7 +341,7 @@ legend {
 .form input[type="password"]:focus,
 .form input[type="number"]:focus,
 .form input[type="email"]:focus   {
-    outline: 6px solid var(--primary);
+    outline: 6px solid var(--accent);
 }
 
 .form .buttons {
@@ -360,7 +360,7 @@ legend {
 
 .form .btn {
     width: 100%;
-    background: var(--accent);
+    background: var(--primary);
     padding: .5rem;
     margin: 0;
     border: 0;
@@ -371,7 +371,7 @@ legend {
 }
 
 .form .btn:hover {
-    background: color-mix(in srgb, var(--accent) 100%, var(--white) 30%);
+    background: color-mix(in srgb, var(--primary) 100%, var(--white) 30%);
     cursor: pointer;
 }
 
@@ -441,11 +441,11 @@ legend {
 
 .search input[type="submit"] {
     border-radius: 0 var(--br) var(--br) 0;
-    background: var(--accent);
+    background: var(--primary);
 }
 
 .search input[type="submit"]:hover  {
-    background: color-mix(in srgb, var(--accent) 100%, var(--white) 30%);
+    background: color-mix(in srgb, var(--primary) 100%, var(--white) 30%);
     cursor: pointer;
 }
 
@@ -466,7 +466,7 @@ legend {
 }
 
 .cart a {
-    background: var(--accent);
+    background: var(--primary);
     padding: .5rem;
     text-align: center;
     border-radius: var(--br) 0 0 var(--br);
@@ -477,7 +477,7 @@ legend {
 }
 
 .cart a:hover {
-    background: color-mix(in srgb, var(--accent) 100%, var(--white) 30%);
+    background: color-mix(in srgb, var(--primary) 100%, var(--white) 30%);
     cursor: pointer;
 }
 
@@ -513,7 +513,7 @@ legend {
     outline: 1px solid transparent;
     text-decoration: none;
     color: var(--black);
-    transition: 150ms ease-in-out;
+    transition: 200ms ease-in-out;
     position: relative;
 }
 
@@ -524,7 +524,7 @@ legend {
 
 .card:focus {
     border-radius: var(--br);
-    outline: 6px solid var(--accent);
+    outline: 6px solid var(--primary);
 }
 
 .nothing {
@@ -567,7 +567,7 @@ legend {
     position: absolute;
     right: 0;
     bottom: 0;
-    background: var(--accent);
+    background: var(--primary);
     padding: .5rem;
     border-radius: var(--br) 0;
     font-weight: var(--fw-bold);
@@ -593,14 +593,14 @@ legend {
 
 .scroll .btn {
     display: block;
-    background: var(--accent);
+    background: var(--primary);
     text-decoration: none;
     color: var(--black);
     padding: .5rem;
 }
 
 .scroll .btn:hover {
-    background: color-mix(in srgb, var(--accent) 100%, var(--white) 30%);
+    background: color-mix(in srgb, var(--primary) 100%, var(--white) 30%);
 }
 
 .scroll .up {
@@ -685,8 +685,8 @@ legend {
 
 .view .cart span {
     margin-right: auto;
-    background: var(--primary);
-    color: var(--white);
+    background: var(--bg);
+    color: white;
 }
 
 .amount {
@@ -738,7 +738,7 @@ legend {
 }
 
 .amount input {
-    background: var(--accent);
+    background: var(--primary);
     padding: .5rem;
     margin: 0;
     border: 0;
@@ -757,7 +757,7 @@ legend {
 
 .view .back {
     display: block;
-    background: var(--accent);
+    background: var(--primary);
     padding: .5rem;
     text-align: center;
     border-radius: var(--br);
@@ -768,7 +768,7 @@ legend {
 }
 
 .view .back:hover, .view .amount input[type="submit"]:hover {
-    background: color-mix(in srgb, var(--accent) 100%, var(--white) 30%);
+    background: color-mix(in srgb, var(--primary) 100%, var(--white) 30%);
     cursor: pointer;
 }
 
@@ -839,7 +839,7 @@ legend {
 }
 
 .checkout .amount .control span {
-    background: grey;
+    background: gray;
     color: white;
 }
 
@@ -856,7 +856,7 @@ legend {
 .checkout input[type="submit"] {
     margin-inline: auto;
     width: 60%;
-    background: var(--accent);
+    background: var(--primary);
     padding: .5rem;
     border: 0;
     border-radius: var(--br);
@@ -866,7 +866,7 @@ legend {
 }
 
 .checkout input[type="submit"]:hover {
-    background: color-mix(in srgb, var(--accent) 100%, var(--white) 30%);
+    background: color-mix(in srgb, var(--primary) 100%, var(--white) 30%);
     cursor: pointer;
 }
 
@@ -925,7 +925,7 @@ legend {
 .manage fieldset #clickable:hover,
 .manage fieldset #clickable:focus-within {
     cursor: pointer;
-    background: color-mix(in srgb, var(--accent) 100%, var(--white) 60%) !important;
+    background: color-mix(in srgb, var(--primary) 100%, var(--white) 60%) !important;
 }
 
 .manage fieldset #center {text-align: center;}
@@ -933,7 +933,7 @@ legend {
 .manage fieldset td span {border-bottom: 2px dotted var(--black);}
 
 .manage .buttons input {
-    background: var(--accent);
+    background: var(--primary);
     padding: .5rem;
     border: 0;
     text-decoration: none;
@@ -942,7 +942,7 @@ legend {
 }
 
 .manage .buttons a {
-    background: var(--accent);
+    background: var(--primary);
     padding: .5rem;
     text-align: center;
     border-radius: var(--br);
@@ -953,7 +953,7 @@ legend {
 }
 
 .manage .buttons input:hover, .manage .buttons a:hover {
-    background: color-mix(in srgb, var(--accent) 100%, var(--white) 30%);
+    background: color-mix(in srgb, var(--primary) 100%, var(--white) 30%);
     cursor: pointer;
 }
 
@@ -988,7 +988,7 @@ legend {
 }
 
 .manage .links a {
-    background: var(--accent);
+    background: var(--primary);
     padding: .5rem;
     text-align: center;
     border-radius: var(--br);
@@ -1001,7 +1001,7 @@ legend {
 }
 
 .manage .links a:hover {
-    background: color-mix(in srgb, var(--accent) 100%, var(--white) 30%);
+    background: color-mix(in srgb, var(--primary) 100%, var(--white) 30%);
     cursor: pointer;
 }
 
@@ -1026,15 +1026,16 @@ legend {
 
 .manage .isearch * {
     text-align: center;
-    transition-property: background;}
+    transition-property: background;
+}
 
-.manage .isearch ::placeholder {color: var(--white);}
+.manage .isearch ::placeholder {color: var(--gray);}
 
 .manage .isearch :nth-child(1) {
     border-radius: var(--br) 0 0 var(--br);
     border: none;
-    background: var(--primary);
-    color: var(--white);
+    background: var(--bg);
+    color: white;
     padding: .5rem;
     width: 6rem;
 }
@@ -1042,8 +1043,8 @@ legend {
 .manage .isearch :nth-child(2) {
     /* border-radius: var(--br); */
     border: none;
-    background: var(--primary);
-    color: var(--white);
+    background: var(--bg);
+    color: white;
     padding: .5rem;
     width: 11rem;
 }
@@ -1051,14 +1052,14 @@ legend {
 .manage .isearch :nth-child(3) {
     border-radius: 0 var(--br) var(--br) 0;
     border: none;
-    background: var(--accent);
+    background: var(--primary);
     padding: .5rem;
     font-size: var(--fs-normal);
     width: 6rem;
 }
 
 .manage .isearch :nth-child(3):hover {
-    background: color-mix(in srgb, var(--accent) 100%, var(--white) 30%);
+    background: color-mix(in srgb, var(--primary) 100%, var(--white) 30%);
     cursor: pointer;
 }
 
@@ -1103,7 +1104,7 @@ legend {
 
 .create .btn {
     width: 100%;
-    background: var(--accent);
+    background: var(--primary);
     padding: .5rem;
     margin: 0;
     border: 0;
@@ -1116,7 +1117,7 @@ legend {
 }
 
 .create .btn:hover {
-    background: color-mix(in srgb, var(--accent) 100%, var(--white) 30%);
+    background: color-mix(in srgb, var(--primary) 100%, var(--white) 30%);
     cursor: pointer;
 }
 
@@ -1188,7 +1189,7 @@ legend {
 
 .receipt #main a {
     margin-bottom: 1rem;
-    background: var(--accent);
+    background: var(--primary);
     padding: .5rem;
     text-align: center;
     border-radius: var(--br);
@@ -1201,6 +1202,6 @@ legend {
 }
 
 .receipt #main a:hover {
-    background: color-mix(in srgb, var(--accent) 100%, var(--white) 30%);
+    background: color-mix(in srgb, var(--primary) 100%, var(--white) 30%);
     cursor: pointer;
 }

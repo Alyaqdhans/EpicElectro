@@ -40,7 +40,7 @@
                             $price = $item[2];
                             $total = $item[2] * $data['quantity'];
 
-                            if ($line % 2 == 1) {$style = "style='background: lightgray;'";}
+                            if ($line % 2 == 1) {$style = "style='background: var(--gray);'";}
                             else {$style = "";}
                             $line += 1;
                             
