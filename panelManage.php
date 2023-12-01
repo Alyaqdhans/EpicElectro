@@ -82,8 +82,8 @@
                                 $category = mysqli_fetch_row(mysqli_query($conn, "select categoryDes from categories where categoryCode = {$data['iCategoryCode']}"));
                                 $supplier = mysqli_fetch_row(mysqli_query($conn, "select sName from suppliers where sId = {$data['iSupplierId']}"));
 
-                                if ($line % 2 == 1 && $data['iQty'] == 0) {$style = "style='background: var(--gray); color: var(--table-red);'";}
-                                else if ($line % 2 == 0 && $data['iQty'] == 0) {$style = "style='color: var(--table-red);'";}
+                                if ($line % 2 == 1 && $data['iQty'] == 0) {$style = "style='background: var(--gray); color: var(--red);'";}
+                                else if ($line % 2 == 0 && $data['iQty'] == 0) {$style = "style='color: var(--red);'";}
                                 else if ($line % 2 == 1) {$style = "style='background: var(--gray);'";}
                                 else {$style = "";}
                                 $line += 1;

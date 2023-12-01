@@ -91,7 +91,7 @@ switch ($_GET['ec']) {
     <body>
         <div class='error'>
             <fieldset>
-                <legend style='color:red;'> <?php echo "$title"; ?> </legend>
+                <legend style='color: var(--red);'> <?php echo "$title"; ?> </legend>
                 <?php echo "<h3> $message </h3>"; ?>
             </fieldset>
             <?php echo "<a id='eback' href='$page'> Go Back </a>"; ?>

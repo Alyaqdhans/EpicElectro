@@ -31,7 +31,7 @@ if (count($errors) == 0) {
     $query .= " where sId = {$_POST['code']}";
     mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
 
-    header("Location: panelSupplier.php");
+    header("Location: panelSupplier.php?s=1");
 } else {
     DisplayErrors();
 }

@@ -30,7 +30,7 @@ if (count($errors) == 0) {
         mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
     }
 
-    header("Location: panelManage.php");
+    header("Location: panelManage.php?s=1");
 } else {
     DisplayErrors();
 }
