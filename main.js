@@ -82,3 +82,31 @@ function openDisable() {
         }
     }, 200);
 }
+
+
+
+// theme prefrence store
+const darkMode = document.getElementById("dark-mode");
+
+// store theme
+const storeTheme = function(state) {
+    localStorage.setItem("dark-mode", state);
+}
+
+// retrieve theme
+const retrieveTheme = function() {
+    const themeState = localStorage.getItem("dark-mode");
+    if (themeState == "true") {
+        darkMode.checked = true;
+    } else {
+        darkMode.checked = false;
+    }
+}
+
+// update theme switch state in storage
+darkMode.addEventListener("click", () => {
+    storeTheme(darkMode.checked);
+});
+
+// apply stored theme when page loads
+document.onload = retrieveTheme();

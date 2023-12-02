@@ -28,36 +28,34 @@
     font-family: sans-serif;
 }
 
-/* auto detect device dark theme */
-@media(prefers-color-scheme: dark) {
-    :root {
-        color-scheme: dark;
-    
-        --primary: #c08600;
-        --secondary: #005081;
-        --accent: #43b6fe;
+/* dark theme */
+:root:has(#dark-mode:checked) {
+    color-scheme: dark;
 
-        --white: #333333;
-        --black: white;
-        --gray: gray;
-        --red: tomato;
+    --primary: #c08600;
+    --secondary: #005081;
+    --accent: #43b6fe;
 
-        --shadow: black;
+    --white: #333333;
+    --black: white;
+    --gray: gray;
+    --red: tomato;
+
+    --shadow: black;
+
+    --fw-regular: 400;
+    --fw-bold: 700;
+
+    --fs-small: 0.5em;
+    --fs-normal: 1em;
+    --fs-large: 1.5em;
+
+    --br: 10px;
+
+    --bg: var(--secondary);
+    background: var(--bg);
     
-        --fw-regular: 400;
-        --fw-bold: 700;
-    
-        --fs-small: 0.5em;
-        --fs-normal: 1em;
-        --fs-large: 1.5em;
-    
-        --br: 10px;
-    
-        --bg: var(--secondary);
-        background: var(--bg);
-        
-        font-family: sans-serif;
-    }
+    font-family: sans-serif;
 }
 
 
@@ -236,12 +234,67 @@ nav .ln {
 
 /* footer style */
 footer {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
     background: var(--white);
     text-align: center;
     font-size: var(--fs-normal);
     font-weight: var(--fw-bold);
     padding-block: 1rem;
     margin-top: auto;
+}
+
+footer {
+    display: flex;
+    flex-shrink: 0;
+    gap: 2rem;
+}
+
+footer #dark-mode {
+    cursor: pointer;
+    appearance: none;
+    margin: 0;
+    height: 1rem;
+    width: 2.5rem;
+    outline: 3px solid var(--black);
+    outline-offset: 2px;
+    border-radius: 30px;
+    position: relative;
+}
+
+footer #dark-mode::before {
+    position: absolute;
+    content: "🌞";
+    text-align: center;
+    line-height: 1rem;
+    font-size: .7rem;
+    color: var(--white);
+    background: var(--black);
+    width: 1.2rem;
+    height: 1rem;
+    transition: all 300ms ease-in-out;
+    border-radius: 50% 0 0 50%;
+    transform: translateX(0);
+}
+
+footer #dark-mode:checked::before {
+    position: absolute;
+    content: "🌚";
+    text-align: center;
+    line-height: 1rem;
+    font-size: .7rem;
+    color: var(--white);
+    background: var(--black);
+    width: 1.2rem;
+    height: 1rem;
+    border-radius: 0 50% 50% 0;
+    transform: translateX(100%);
+}
+
+footer #dark-mode:disabled {
+    opacity: .5;
 }
 
 
