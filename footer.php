@@ -1,5 +1,11 @@
 <footer id="down">
-    <input type="checkbox" id="dark-mode">
+    <label>
+        <select id="theme">
+            <option value="system">System</option>
+            <option value="manual" selected>Manual</option>
+        </select>
+        <input type="checkbox" id="dark-mode">
+    </label>
 
     <label>
         &copy; Copyright of EpicElectro is Reserved to 

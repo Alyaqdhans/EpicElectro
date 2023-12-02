@@ -247,6 +247,16 @@ footer {
     padding-inline: 1rem;
 }
 
+footer label:first-child {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+footer label:first-child * {
+    font-weight: var(--fw-bold);
+}
+
 footer #dark-mode {
     cursor: pointer;
     appearance: none;
