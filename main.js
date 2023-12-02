@@ -72,7 +72,7 @@ function checkout() {
 
 
 
-// disable account agreement
+// disable button account agreement
 function openDisable() {
     setTimeout(() => {
         if (document.getElementById("confirm").checked) {
@@ -82,66 +82,3 @@ function openDisable() {
         }
     }, 200);
 }
-
-
-
-// theme prefrence store
-const darkMode = document.getElementById("dark-mode");
-const selectMode = document.getElementById("theme");
-const systemThemeDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-// retrieve and apply prefrence
-const retrieveSelect = function() {
-    const selectState = localStorage.getItem("system-theme");
-    if (selectState == "true") {
-        selectMode.value = "system";
-        darkMode.disabled = true;
-    } else {
-        selectMode.value = "manual";
-        darkMode.disabled = false;
-    }
-}
-
-// retrieve and apply theme
-const retrieveTheme = function() {
-    const themeState = localStorage.getItem("dark-mode");
-    if (themeState == "true") {
-        darkMode.checked = true;
-    } else {
-        darkMode.checked = false;
-    }
-}
-
-document.onload = retrieveSelect();
-
-if (selectMode.value == "manual") {
-    // apply stored theme when page loads
-    retrieveTheme();
-} else {
-    darkMode.checked = systemThemeDark;
-}
-
-// system theme changed
-window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", event => {
-    if (selectMode.value == "system") {
-        darkMode.checked = event.matches;
-    }
-});
-
-// theme select changed
-selectMode.addEventListener("change", () => {
-    if (selectMode.value == "system") {
-        darkMode.disabled = true;
-        localStorage.setItem("system-theme", true);
-        darkMode.checked = systemThemeDark;
-    } else {
-        darkMode.disabled = false;
-        localStorage.setItem("system-theme", false);
-        retrieveTheme();
-    }
-});
-
-// theme switch changed
-darkMode.addEventListener("click", () => {
-    localStorage.setItem("dark-mode", darkMode.checked);
-});

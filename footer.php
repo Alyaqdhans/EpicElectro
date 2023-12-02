@@ -1,13 +1,5 @@
 <footer id="down">
     <label>
-        <select id="theme">
-            <option value="system">System</option>
-            <option value="manual" selected>Manual</option>
-        </select>
-        <input type="checkbox" id="dark-mode">
-    </label>
-
-    <label>
         &copy; Copyright of EpicElectro is Reserved to 
         <abbr title="University of Technology and Applied Sciences">UTAS</abbr>
     </label>
