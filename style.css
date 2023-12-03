@@ -237,17 +237,22 @@ nav .ln {
 /* footer style */
 footer {
     display: flex;
-    gap: 2rem;
     justify-content: center;
     align-items: center;
     background: var(--white);
     text-align: center;
     font-size: var(--fs-normal);
     font-weight: var(--fw-bold);
-    padding-block: 1rem;
+    padding: 1rem;
     margin-top: auto;
-    padding-inline: 1rem;
 }
+
+footer :nth-child(2) {
+    padding-left: 1rem;
+    border-left: 3px solid var(--black);
+    margin-left: 1rem;
+}
+
 
 
 /* error pages style */
