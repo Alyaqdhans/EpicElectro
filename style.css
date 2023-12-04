@@ -67,7 +67,7 @@ html {scroll-behavior: smooth;}
 
 img {max-width: 100%; pointer-events: none;}
 
-* {transition: 200ms ease-in-out; transition-property: background;}
+/* * {transition: 200ms ease-in-out;} */
 
 h1, h2, h3, h4, h5, h6 {margin: 0;}
 
@@ -310,7 +310,6 @@ legend {
     width: fit-content;
     padding: 2rem;
     border-radius: var(--br);
-    box-shadow: 0 0 1rem var(--shadow);
     display: flex;
     flex-direction: column;
 }
