@@ -67,7 +67,7 @@ html {scroll-behavior: smooth;}
 
 img {max-width: 100%; pointer-events: none;}
 
-* {transition: 150ms ease-in-out;}
+* {transition: 200ms ease-in-out; transition-property: background;}
 
 h1, h2, h3, h4, h5, h6 {margin: 0;}
 
@@ -82,8 +82,6 @@ body {
     display: flex;
     flex-direction: column;
 }
-
-a, input[type="checkbox"] {transition-property: background;}
 
 abbr {
     text-decoration: none;
@@ -106,6 +104,7 @@ label:has(input[type="file"]) {
     right: 0;
     user-select: none;
     top: .3rem;
+    transition: 200ms ease-in-out;
 }
 
 .notify {
@@ -335,6 +334,7 @@ legend {
     border-radius: var(--br);
     border: none;
     outline: 2px solid var(--black);
+    transition: 140ms ease-in-out;
 }
 
 .form input[type="text"]:focus,
@@ -493,7 +493,6 @@ legend {
 
 .grid {
     display: grid;
-    /* grid-template-columns: repeat(auto-fit, 20rem); */
     grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
     gap: 5rem;
     padding-inline: 6vw;
@@ -928,6 +927,10 @@ legend {
     padding: .3rem;
 }
 
+.manage fieldset #clickable {
+    transition: 200ms ease-in-out;
+}
+
 .manage fieldset #clickable:has(input[type="checkbox"]:not(:checked)) { /* see if checkbox unchecked */
     opacity: .5;
 }
@@ -1046,7 +1049,6 @@ legend {
 
 .manage .isearch * {
     text-align: center;
-    transition-property: background;
 }
 
 .manage .isearch ::placeholder {color: var(--gray);}
