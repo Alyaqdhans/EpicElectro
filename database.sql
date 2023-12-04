@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 29, 2023 at 02:12 PM
+-- Generation Time: Dec 04, 2023 at 12:48 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -74,11 +74,11 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`cId`, `cName`, `password`, `email`, `registerDate`, `lastLogin`, `cAddress`, `cType`, `phoneNumber`, `Active`) VALUES
-(1, 'John Doe', '*FB6E1F205D675BC29B052DB14CCEFE7759C5FF7E', 'john.doe@email.com', '2020-01-01', '2023-11-20', '123 Street', 'A', 93215274, 'active'),
-(2, 'Jane Smith', '*FB6E1F205D675BC29B052DB14CCEFE7759C5FF7E', 'jane.smith@email.com', '2020-01-01', '2023-11-17', '456 Avenue', 'N', 48774964, 'active'),
-(3, 'Alyaqdhan Zahran Alazri', '*196BDEDE2AE4F84CA44C47D54D78478C7E2BD7B7', 'alyaqdhan@gmail.com', '2023-11-10', '2023-11-20', 'Nizwa', 'A', 94028288, 'active'),
-(4, 'Hassan Ambusaidi', '*84AAC12F54AB666ECFC2A83C676908C8BBC381B1', 'hassanjamal428@gmail.com', '2023-11-11', '2023-11-29', 'Nizwa', 'A', 95322022, 'active'),
-(5, 'Mohamed Ali', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257', 'ali@gmail.com', '2023-11-12', '2023-11-12', 'firq', 'N', 98787878, 'active');
+(1, 'Admin', '*196BDEDE2AE4F84CA44C47D54D78478C7E2BD7B7', 'admin@email.com', '2020-01-01', '2023-11-30', '123 Street', 'A', 93215274, 'active'),
+(2, 'Normal', '*196BDEDE2AE4F84CA44C47D54D78478C7E2BD7B7', 'normal@email.com', '2020-01-01', '2023-11-17', '456 Avenue', 'N', 48774964, 'active'),
+(3, 'Alyaqdhan Zahran Alazri', '*84AAC12F54AB666ECFC2A83C676908C8BBC381B1', 's26s2025@nct.edu.om', '2023-11-10', '2023-12-04', 'Nizwa', 'A', 94028288, 'active'),
+(4, 'Hassan Ambusaidi', '*84AAC12F54AB666ECFC2A83C676908C8BBC381B1', 's26s1969@nct.edu.om', '2023-11-11', '2023-11-29', 'Nizwa', 'A', 95322022, 'active'),
+(5, 'Abdulrahman Alriyami', '*84AAC12F54AB666ECFC2A83C676908C8BBC381B1', 's76s1937@nct.edu.om', '2023-11-12', '2023-11-12', 'firq', 'A', 98787878, 'active');
 
 -- --------------------------------------------------------
 
@@ -130,15 +130,15 @@ CREATE TABLE `items` (
 
 INSERT INTO `items` (`iCode`, `iCategoryCode`, `iDesc`, `iComment`, `iQty`, `iSold`, `iCost`, `iPrice`, `iSupplierId`, `iLastPurchasedDate`, `iBrand`, `Active`) VALUES
 (110, 2, 'iPhone 15 Pro Max', 'The Latest iPhone', 0, 0, 600, 618, 4, '2023-11-16', 'Apple', 'active'),
-(111, 2, 'iPhone 14 Pro Max', '', 24, 0, 480, 496, 4, '2023-11-19', 'Apple', 'active'),
-(112, 2, 'Galaxy S22', '', 19, 0, 195, 207, 4, '2023-11-19', 'Samsung', 'active'),
-(113, 2, 'P30', '', 18, 0, 135, 147, 4, '2023-11-19', 'Huawei', 'active'),
-(114, 2, 'Galaxy S23', '', 7, 0, 195, 209, 4, '2023-11-20', 'Samsung', 'active'),
-(115, 2, 'Z Fold 3', '', 20, 0, 295, 303, 4, '2023-11-16', 'Samsung', 'active'),
-(116, 2, 'Galaxy A54', '', 20, 0, 110, 125, 4, '2023-11-16', 'Samsung', 'active'),
-(117, 2, 'Z Flip 5', '', 11, 0, 310, 321, 4, '2023-11-20', 'Samsung', 'active'),
+(111, 2, 'iPhone 14 Pro Max', '', 133, 16, 480, 496, 4, '2023-12-01', 'Apple', 'active'),
+(112, 2, 'Galaxy S22', '', 15, 4, 195, 207, 4, '2023-11-19', 'Samsung', 'active'),
+(113, 2, 'P30', '', 14, 4, 135, 147, 4, '2023-11-19', 'Huawei', 'active'),
+(114, 2, 'Galaxy S23', '', 2, 5, 195, 209, 4, '2023-11-20', 'Samsung', 'active'),
+(115, 2, 'Z Fold 3', '', 19, 1, 295, 303, 4, '2023-11-16', 'Samsung', 'active'),
+(116, 2, 'Galaxy A54', '', 19, 1, 110, 125, 4, '2023-11-16', 'Samsung', 'active'),
+(117, 2, 'Z Flip 5', '', 4, 7, 310, 321, 4, '2023-11-20', 'Samsung', 'active'),
 (118, 2, 'Noza Y90', '', 20, 0, 50, 66, 4, '2023-11-16', 'Huawei', 'active'),
-(119, 2, 'honor x7', '', 16, 0, 65, 75, 1, '2023-11-29', 'Huawei', 'active'),
+(119, 2, 'honor x7', '', 14, 2, 65, 75, 1, '2023-11-29', 'Huawei', 'active'),
 (120, 2, 'Galaxy A40s', '', 20, 0, 35, 41, 4, '2023-11-16', 'Samsung', 'active'),
 (121, 2, 'OnePlus 11', '', 20, 0, 280, 293, 4, '2023-11-16', 'OnePlus', 'active'),
 (122, 2, 'Poco X5', '', 20, 0, 95, 107, 4, '2023-11-16', 'Xiaomi', 'active'),
@@ -163,7 +163,7 @@ INSERT INTO `items` (`iCode`, `iCategoryCode`, `iDesc`, `iComment`, `iQty`, `iSo
 (141, 6, 'Tab A8', '', 20, 0, 75, 80, 4, '2023-11-16', 'Samsung', 'active'),
 (142, 4, 'Sony A6000', 'Sony\'s latest 24.3-megapixel Exmor® HD APS CMOS sensor; Advanced Fast Hybrid autofocus; SVGA Tru-Finder™. 16-50mm zoom lens included.', 5, 0, 1000, 1200, 4, '2023-11-19', 'Sony', 'active'),
 (143, 4, 'Sony Alpha a7 III', '24MP Full-Frame Exmor R BSI CMOS Sensor | UHD 4K30p Video with HLG & S-Log3 Gammas | 2.36m-Dot Tru-Finder OLED EVF | 3.0\" 922k-Dot Tilting Touchscreen LCD | FE 28-70mm f/3.5-5.6 OSS Lens', 2, 0, 1300, 1500, 4, '2023-11-19', 'Sony', 'active'),
-(144, 3, 'AirPods Max Space Gray', 'Requires AirPods Max with the latest version of software, and iPhone and iPod touch models with the latest version of iOS; iPad models with the latest version of iPadOS; Apple Watch models with the latest version of watchOS; Mac models with the latest version of macOS; or Apple TV models with the la', 1, 0, 450, 500, 4, '2023-11-19', 'Apple', 'active'),
+(144, 3, 'AirPods Max Space Gray', 'Requires AirPods Max with the latest version of software, and iPhone and iPod touch models with the latest version of iOS; iPad models with the latest version of iPadOS; Apple Watch models with the latest version of watchOS; Mac models with the latest version of macOS; or Apple TV models with the la', 0, 1, 450, 500, 4, '2023-11-19', 'Apple', 'active'),
 (145, 1, 'new', '', 0, 0, 0, 0, 4, '0000-00-00', '', 'disabled');
 
 -- --------------------------------------------------------
@@ -189,7 +189,15 @@ INSERT INTO `orders` (`orderId`, `cId`, `dId`, `orderDate`, `totalPrice`) VALUES
 (1002, 2, 1, '2023-10-06', 1150),
 (1003, 3, 1, '2023-10-08', 1150),
 (1004, 3, 3, '2023-10-08', 21150),
-(1005, 4, 2, '2023-11-29', 1332);
+(1005, 4, 2, '2023-11-29', 1332),
+(1006, 3, 2, '2023-11-29', 1638),
+(1007, 3, 4, '2023-11-29', 2063),
+(1008, 3, 1, '2023-11-30', 992),
+(1009, 3, 4, '2023-11-30', 992),
+(1010, 3, 2, '2023-11-30', 643),
+(1011, 3, 1, '2023-12-01', 1984),
+(1012, 3, 3, '2023-12-03', 496),
+(1013, 3, 1, '2023-12-03', 4914);
 
 -- --------------------------------------------------------
 
@@ -217,7 +225,26 @@ INSERT INTO `order_items` (`orderID`, `iCode`, `quantity`) VALUES
 (1004, 112, 1),
 (1004, 115, 5),
 (1004, 123, 1),
-(1005, 127, 3);
+(1005, 127, 3),
+(1006, 111, 3),
+(1006, 119, 2),
+(1007, 111, 2),
+(1007, 112, 3),
+(1007, 113, 1),
+(1007, 115, 1),
+(1008, 111, 2),
+(1009, 111, 2),
+(1010, 111, 1),
+(1010, 113, 1),
+(1011, 111, 4),
+(1012, 111, 1),
+(1013, 111, 1),
+(1013, 112, 1),
+(1013, 113, 2),
+(1013, 114, 5),
+(1013, 116, 1),
+(1013, 117, 7),
+(1013, 144, 1);
 
 -- --------------------------------------------------------
 
@@ -327,7 +354,7 @@ ALTER TABLE `items`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `orderId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Order ID', AUTO_INCREMENT=1006;
+  MODIFY `orderId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Order ID', AUTO_INCREMENT=1014;
 
 --
 -- AUTO_INCREMENT for table `suppliers`
