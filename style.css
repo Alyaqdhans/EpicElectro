@@ -300,15 +300,18 @@ legend {
 
 .form {
     margin: auto;
+    width: 100%;
+    overflow-x: auto;
 }
 
 .form * {font-weight: var(--fw-bold);}
 
 .form .main {
-    margin: 3rem;
-    background: var(--white);
     width: fit-content;
+    margin: auto;
+    margin-block: 2rem;
     padding: 2rem;
+    background: var(--white);
     border-radius: var(--br);
     display: flex;
     flex-direction: column;
@@ -615,10 +618,14 @@ legend {
 /* most pages main container */
 .wrapper {
     margin: auto;
+    width: 100%;
+    overflow-x: auto;
 }
 
 .container {
-    margin: 3rem;
+    width: fit-content;
+    margin: auto;
+    margin-block: 2rem;
     padding: 2rem;
     background: var(--white);
     border-radius: var(--br);
