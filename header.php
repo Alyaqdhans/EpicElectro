@@ -1,7 +1,6 @@
 <nav id="up">
     <a class='ln' href='index.php'> Home </a>
     <?php
-    session_start();
     if (!isset($_SESSION['TYPE'])) {
         echo "<a class='ln' href='login.php'> Login </a>";
     } else {
