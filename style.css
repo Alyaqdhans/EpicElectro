@@ -90,6 +90,8 @@ abbr {
     border-bottom: 2px dotted var(--black);
 }
 
+select, input[type="checkbox"] {cursor: pointer;}
+
 
 
 /* notification style */
@@ -444,7 +446,6 @@ legend {
 
 .search select {
     border-radius: var(--br);
-    cursor: pointer;
 }
 
 .search .field {
@@ -891,7 +892,6 @@ legend {
 }
 
 .manage fieldset::-webkit-scrollbar-track {
-    background: transparent;
     margin-block: .5rem;
 }
 
@@ -1021,12 +1021,22 @@ legend {
     margin-inline: auto;
 }
 
+.manage section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+    gap: .6rem;
+}
+
+.manage section * {
+    font-weight: var(--fw-bold);
+}
+
 .manage .isearch {
     display: flex;
     gap: .3rem;
-    margin-bottom: 1rem;
-    width: 100%;
-    justify-content: center;
 }
 
 .manage .isearch * {
@@ -1036,36 +1046,50 @@ legend {
 
 .manage .isearch ::placeholder {color: var(--gray);}
 
-.manage .isearch :nth-child(1) {
+.manage .isearch > :nth-child(1) {
     border-radius: var(--br) 0 0 var(--br);
     border: none;
     background: var(--bg);
     color: white;
     padding: .5rem;
-    width: 6rem;
+    width: 25%;
 }
 
-.manage .isearch :nth-child(2) {
-    /* border-radius: var(--br); */
+.manage .isearch > :nth-child(2) {
     border: none;
     background: var(--bg);
     color: white;
     padding: .5rem;
-    width: 11rem;
+    width: 50%;
 }
 
-.manage .isearch :nth-child(3) {
+.manage .isearch > :nth-child(3) {
     border-radius: 0 var(--br) var(--br) 0;
     border: none;
     background: var(--primary);
     padding: .5rem;
     font-size: var(--fs-normal);
-    width: 6rem;
+    width: 25%;
 }
 
-.manage .isearch :nth-child(3):hover {
+.manage .isearch > :nth-child(3):hover {
     background: color-mix(in srgb, var(--primary) 100%, var(--white) 30%);
     cursor: pointer;
+}
+
+.manage section select {
+    border-radius: var(--br);
+    padding: .5rem;
+}
+
+.manage .ifilter {
+    display: flex;
+    gap: 1rem;
+}
+
+.manage .radio {
+    display: flex;
+    flex-direction: column;
 }
 
 
@@ -1100,7 +1124,6 @@ legend {
 .create select {
     width: fit-content;
     padding: .4rem;
-    cursor: pointer;
     margin-top: .2rem;
 }
 

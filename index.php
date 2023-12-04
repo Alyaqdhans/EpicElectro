@@ -51,7 +51,7 @@
                 echo "<select name='brand'>";
                     echo "<option value='x'> Brands </option>";
 
-                    $query = "select iBrand from items group by iBrand";
+                    $query = "select iBrand from items where iDesc != 'new' group by iBrand";
                     $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
 
                     if (isset($_POST['brand'])) {
@@ -63,8 +63,6 @@
                     $brands = [];
                     $i = 0;
                     while ($data = mysqli_fetch_assoc($result)) {
-                        if ($data['iBrand'] == "") {continue;}
-
                         $brands[] = $data['iBrand'];
                         
                         if ($i == $brand) {$c = 'selected';}
