@@ -90,7 +90,12 @@ abbr {
     border-bottom: 2px dotted var(--black);
 }
 
-select, input[type="checkbox"] {cursor: pointer;}
+select, input[type="checkbox"], input[type="radio"], input[type="file"],
+label:has(input[type="checkbox"]),
+label:has(input[type="radio"]),
+label:has(input[type="file"]) {
+    cursor: pointer;
+}
 
 
 
