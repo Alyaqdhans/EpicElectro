@@ -68,7 +68,7 @@
 
                 <div class="buttons">
                     <input class="btn left" type="submit" value="Save">
-                    <input class="btn right" type="reset" value="Reset">
+                    <input class="btn right" type="reset" value="Discard" onclick="notify('Changes Have Been Discarded', 'darkcyan');">
                 </div>
                 
             </div>

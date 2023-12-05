@@ -212,7 +212,7 @@
                 <div class="buttons">
                     <div class="main">
                         <input class="left" type='submit' value='Save' formaction="panelManageProcess.php">
-                        <input class="right" type='reset' value='Discard'>
+                        <input class="right" type='reset' value='Discard' onclick="notify('Changes Have Been Discarded', 'darkcyan');">
                     </div>
                     <a href='panelManageCreate.php'> Create </a>
                 </div>

@@ -42,6 +42,8 @@
         </form>
         
         <?php include('footer.php'); ?>
-        <?php if (isset($_GET["s"])) {echo "<script>notify('Account Registred Successfully');</script>";} // when creating an account ?>
+        <?php if (isset($_GET["s"])) {echo "<script>notify('Account Registered Successfully');</script>";} // when creating an account ?>
+        <?php if (isset($_GET["r"])) {echo "<script>notify('Password Reset Request Has Been Sent', '#b45100');</script>";} // when reseting a password ?>
+        <?php if (isset($_GET["d"])) {echo "<script>notify('Account Has Been Disabled', 'darkred');</script>";} // when disabling an account ?>
     </body>
 </html>

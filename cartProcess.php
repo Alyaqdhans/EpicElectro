@@ -62,9 +62,33 @@ foreach ($_SESSION['CART'] as $key => $item) {
 $total = number_format($_POST['total']);
 $deliver = mysqli_fetch_row(mysqli_query($conn, "select company_name from delivery where dId = {$DID}"))[0];
 
-$to = $_SESSION['MAIL'];
-$subject = "EpicElectro Receipt $orderId";
-$receipt = "
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require __DIR__ . '/PHPMailer/src/Exception.php';
+require __DIR__ . '/PHPMailer/src/PHPMailer.php';
+require __DIR__ . '/PHPMailer/src/SMTP.php';
+
+$mail = new PHPMailer;
+
+$mail->isSMTP(); 
+$mail->SMTPDebug = 0; // 0 = off (for production use) - 1 = client messages - 2 = client and server messages
+$mail->Host = "smtp.gmail.com"; // use $mail->Host = gethostbyname('smtp.gmail.com'); // if your network does not support SMTP over IPv6
+$mail->Port = 587; // TLS only
+$mail->SMTPSecure = 'tls'; // ssl is deprecated
+$mail->SMTPAuth = true;                               //Enable SMTP authentication
+$mail->Username   = 'epicelectro.store@gmail.com';                     //SMTP username
+$mail->Password   = 'xsxgnggiwwkmgmic';                               //SMTP password
+
+//Recipients
+$mail->setFrom('epicelectro.store@gmail.com');
+$mail->addAddress($_SESSION['MAIL']);     //Add a recipient
+$mail->addCC('epicelectro.store@gmail.com');
+
+//Content
+$mail->isHTML(true);                                  //Set email format to HTML
+$mail->Subject = "EpicElectro Receipt $orderId";
+$mail->Body    = "
 <html>
     <body>
         <h1>Thank you for your recent purchase from EpicElectro</h1>
@@ -104,12 +128,7 @@ $receipt = "
 </html>
 ";
 
-$headers = "MIME-Version: 1.0" . "\r\n";
-$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-$headers .= "From: epicelectro.store@gmail.com" . "\r\n";
-$headers .= "Cc: epicelectro.store@gmail.com" . "\r\n";
-
-mail($to, $subject, $receipt, $headers);
+$mail->send();
 
 
 

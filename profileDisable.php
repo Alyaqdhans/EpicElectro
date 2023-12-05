@@ -9,7 +9,7 @@
         include('header.php'); 
         include("connect.php");
         ?>
-        <form class="form disable" action="ProfileDisableProcess.php" method="post">
+        <form class="form disable" action="ProfileDisableProcess.php" method="post" onsubmit="return confirm('Are you sure you want to do that?')">
             <div class="main">
                 <fieldset>
                     <legend>Disable Account</legend>
@@ -20,13 +20,13 @@
                     </label>
 
                     <label>
-                        <input type="checkbox" id="confirm" onclick="openDisable()">
+                        <input type="checkbox" id="confirmCheck" onclick="openDisable()">
                         By clicking here, I state and understand that my account will be permanently disabled.
                     </label>
                 </fieldset>
                                 
                 <div class="buttons">
-                    <input class="btn left" type="submit" id="disable" value="Disable & Logout" disabled>
+                    <input class="btn left" type="submit" id="disableBtn" value="Disable & Logout" disabled>
                     <a class="btn right" href="profile.php">Cancel</a>
                 </div>
             </div>

@@ -25,7 +25,7 @@
                         <input type="text" name="mail" required>
                     </label>
 
-                    <label>You will receive a code in your email, use it to login.</label>
+                    <label>You will receive a temporary password<br> in your email, use it to login.</label>
                 </fieldset>
 
                 <div class="buttons">

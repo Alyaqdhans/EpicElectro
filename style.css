@@ -10,7 +10,7 @@
     --black: black;
     --gray: lightgray;
     --red: red;
-
+    
     --shadow: black;
 
     --fw-regular: 400;
@@ -67,7 +67,9 @@ html {scroll-behavior: smooth;}
 
 img {max-width: 100%; pointer-events: none;}
 
-/* * {transition: 200ms ease-in-out;} */
+* {transition: 200ms ease-in-out;}
+
+a, input[type="checkbox"] {transition-property: background;}
 
 h1, h2, h3, h4, h5, h6 {margin: 0;}
 
@@ -93,6 +95,11 @@ label:has(input[type="checkbox"]),
 label:has(input[type="radio"]),
 label:has(input[type="file"]) {
     cursor: pointer;
+}
+
+input[type="submit"]:disabled,
+input[type="button"]:disabled {
+    cursor: not-allowed !important;
 }
 
 
@@ -135,7 +142,7 @@ label:has(input[type="file"]) {
 
 .notify input:hover {
     cursor: pointer;
-    background: darkgreen;
+    background: color-mix(in srgb, currentColor 0%, var(--white) 30%);
 }
 
 .hide-notify {

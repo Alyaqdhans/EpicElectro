@@ -80,7 +80,7 @@
                 <div class="buttons">
                     <div class="main">
                         <input class="left" type='submit' value='Save'>
-                        <input class="right" type='reset' value='Discard'>
+                        <input class="right" type='reset' value='Discard' onclick="notify('Changes Have Been Discarded', 'darkcyan');">
                     </div>
                 </div>
 

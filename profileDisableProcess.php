@@ -21,6 +21,9 @@ $query .= " Active = 'disabled'";
 $query .= " where cId = '{$_SESSION['CID']}'";
 mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
 
+// logout user
+session_unset();
+session_destroy();
 
-header("location: logout.php");
+header('Location: login.php?d=1');
 ?>

@@ -41,17 +41,23 @@ if (table) {
 
 
 // notification show
-function notify(text) {
+function notify(text, color) {
     if (window.performance.getEntriesByType("navigation")[0].type == 'navigate') { // check if page isnt reloaded
-        if (!text) {text = "Changes Saved Successfully"}
+        if (!text) {text = "Changes Saved Successfully";}
+        if (color) {document.getElementById("notify").children[0].style.background = color;}
         document.getElementById("span").innerHTML = text;
+
+        if (!document.getElementById("notify").classList.contains("hide-notify")) { // check if its already shown
+            document.getElementById("notify").classList.add("hide-notify");
+        }
+
         setTimeout(() => { // show after 200ms
             document.getElementById("notify").classList.remove("hide-notify");
         }, 200);
 
         setTimeout(() => { // hide after 5 sec
             document.getElementById("notify").classList.add("hide-notify");
-        }, 5000);
+        }, 6000);
     }
 }
 
@@ -75,10 +81,10 @@ function checkout() {
 // disable button account agreement
 function openDisable() {
     setTimeout(() => {
-        if (document.getElementById("confirm").checked) {
-            document.getElementById("disable").disabled = false;
+        if (document.getElementById("confirmCheck").checked) {
+            document.getElementById("disableBtn").disabled = false;
         } else {
-            document.getElementById("disable").disabled = true;
+            document.getElementById("disableBtn").disabled = true;
         }
     }, 200);
 }
