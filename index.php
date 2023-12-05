@@ -25,53 +25,41 @@
                 
                 <?php
                 // category filter
+                $query = "select * from categories";
+                $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
+                $categories = [];
                 echo "<select name='category'>";
-                    echo "<option value='x'> Categories </option>";
-
-                    $query = "select * from categories";
-                    $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
-                    
-                    if (isset($_POST['category'])) {
-                        $category = $_POST['category'];
-                    } else {
-                        $category = '';
-                    }
-
-                    $categories = [];
-                    while ($data = mysqli_fetch_assoc($result)) {
-                        $categories[] = $data['categoryDes'];
-
-                        if ($data['categoryCode'] == $category) {$c = 'selected';}
-                        else {$c = '';}
-
-                        echo "<option value='{$data['categoryCode']}' $c> {$data['categoryDes']} </option>";
-                    }
+                echo "<option value='x'> Categories </option>";
+                while ($data = mysqli_fetch_assoc($result)) {
+                    $categories[] = $data['categoryDes'];
+                    if (isset($_POST['category']) && $_POST['category'] == $data['categoryCode']) {$select = 'selected';}
+                    else {$select = '';}
+                    echo "<option value='{$data['categoryCode']}' $select> {$data['categoryDes']} </option>";
+                }
                 echo "</select>";
 
                 // brand filter
+                $query = "select iBrand from items where iDesc != 'new' group by iBrand";
+                $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
                 echo "<select name='brand'>";
-                    echo "<option value='x'> Brands </option>";
+                echo "<option value='x'> Brands </option>";
+                while ($data = mysqli_fetch_assoc($result)) {                        
+                    if (isset($_POST['brand']) && $_POST['brand'] == $data['iBrand']) {$select = 'selected';}
+                    else {$select = '';}
+                    echo "<option value='{$data['iBrand']}' $select> {$data['iBrand']} </option>";
+                }
+                echo "</select>";
 
-                    $query = "select iBrand from items where iDesc != 'new' group by iBrand";
-                    $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
-
-                    if (isset($_POST['brand'])) {
-                        $brand = $_POST['brand'];
-                    } else {
-                        $brand = '';
-                    }
-
-                    $brands = [];
-                    $i = 0;
-                    while ($data = mysqli_fetch_assoc($result)) {
-                        $brands[] = $data['iBrand'];
-                        
-                        if ($i == $brand) {$c = 'selected';}
-                        else {$c = '';}
-
-                        echo "<option value='$i' $c> {$data['iBrand']} </option>";
-                        $i++;
-                    }
+                // price filter
+                if (isset($_POST['price'])) {
+                    if ($_POST['price'] == "desc") {$desc = "selected"; $asc = "";}
+                    if ($_POST['price'] == "asc") {$desc = ""; $asc = "selected";}
+                    if ($_POST['price'] == "x") {$desc = ""; $asc = "";}
+                }
+                echo "<select name='price'>";
+                    echo "<option value='x'> Price </option>";
+                    echo "<option value='desc' $desc> High to Low </option>";
+                    echo "<option value='asc' $asc> Low to High </option>";
                 echo "</select>";
                 ?>
             </div>
@@ -110,9 +98,15 @@
             }
 
             if (isset($_POST['brand']) && $_POST['brand'] != 'x') {
-                $query .= " and iBrand like '%{$brands[$_POST['brand']]}%'";
-                $msg .= " in brand `{$brands[$_POST['brand']]}`";
+                $query .= " and iBrand like '%{$_POST['brand']}%'";
+                $msg .= " in brand `{$_POST['brand']}`";
             }
+            
+            if (isset($_POST['price']) && $_POST['price'] != 'x') {
+                $query .= " order by iPrice {$_POST['price']}";
+            }
+
+            
 
             $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
 

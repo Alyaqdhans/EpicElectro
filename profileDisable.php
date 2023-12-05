@@ -9,7 +9,7 @@
         include('header.php'); 
         include("connect.php");
         ?>
-        <form class="form disable" action="ProfileDisableProcess.php" method="post" onsubmit="return confirm('Are you sure you want to do that?')">
+        <form class="form disable" action="profileDisableProcess.php" method="post" onsubmit="return confirm('Are you sure you want to do that?')">
             <div class="main">
                 <fieldset>
                     <legend>Disable Account</legend>
