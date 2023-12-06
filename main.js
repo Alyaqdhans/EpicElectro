@@ -27,7 +27,7 @@ function controller(type, id) {
 let table = document.querySelector("table");
 if (table) {
     table.addEventListener("click", ({ target }) => {
-        if (target.nodeName === "INPUT") return;
+        if (target.nodeName === "INPUT" || target.nodeName === "A") return;
         const tr = target.closest("tr");
         if (tr.id == "clickable") {
             const checkbox = tr.querySelector("input[type='checkbox']");

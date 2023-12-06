@@ -90,7 +90,8 @@ abbr {
     border-bottom: 2px dotted var(--black);
 }
 
-select, input[type="checkbox"], input[type="radio"], input[type="file"],
+select, input[type="checkbox"], input[type="radio"], input[type="button"],
+input[type="file"], input[type="submit"], input[type="reset"],
 label:has(input[type="checkbox"]),
 label:has(input[type="radio"]),
 label:has(input[type="file"]) {
@@ -141,8 +142,7 @@ input[type="button"]:disabled {
 }
 
 .notify input:hover {
-    cursor: pointer;
-    background: color-mix(in srgb, currentColor 0%, var(--white) 30%);
+    background: color-mix(in srgb, currentColor 0%, black 30%);
 }
 
 .hide-notify {
@@ -197,6 +197,62 @@ input[type="button"]:disabled {
 }
 
 .hide-loading {display: none !important;}
+
+
+
+/* confirmation style */
+.modal {
+    background: var(--white);
+    border-radius: var(--br);
+    box-shadow: 0 0 2rem var(--shadow);
+}
+
+.modal h1 {
+    border-bottom: 3px solid var(--black);
+}
+
+.modal h2 {
+    margin-block: 1rem;
+    text-align: left;
+}
+
+.modal .btns {
+    display: flex;
+    gap: .3rem;
+}
+
+.modal .btns input {
+    background: var(--primary);
+    padding: .5rem;
+    border: 0;
+    border-radius: var(--br);
+    text-decoration: none;
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-large);
+    margin: 0;
+}
+
+.modal .btns :first-child {
+    width: 100%;
+    border-radius: var(--br);
+}
+
+.modal .btns :first-child:hover {
+    background: color-mix(in srgb, var(--primary) 100%, var(--white) 30%);
+}
+
+.modal .btns :last-child {
+    width: 2.5rem;
+    padding: .3rem;
+    background: var(--red);
+    position: absolute;
+    top: .5rem;
+    right: .5rem;
+}
+
+.modal .btns :last-child:hover {
+    background: color-mix(in srgb, var(--red) 100%, var(--white) 30%);
+}
 
 
 
@@ -381,7 +437,6 @@ legend {
 
 .form .btn:hover {
     background: color-mix(in srgb, var(--primary) 100%, var(--white) 30%);
-    cursor: pointer;
 }
 
 .form .left {
@@ -455,7 +510,6 @@ legend {
 
 .search input[type="submit"]:hover  {
     background: color-mix(in srgb, var(--primary) 100%, var(--white) 30%);
-    cursor: pointer;
 }
 
 .search select {
@@ -487,7 +541,6 @@ legend {
 
 .cart a:hover {
     background: color-mix(in srgb, var(--primary) 100%, var(--white) 30%);
-    cursor: pointer;
 }
 
 .cart span {
@@ -726,7 +779,6 @@ legend {
 
 .amount .more:hover {
     background: color-mix(in srgb, var(--clr) 100%, var(--white) 30%);
-    cursor: pointer;
 }
 
 .amount .number {
@@ -746,7 +798,6 @@ legend {
 
 .amount .less:hover {
     background: color-mix(in srgb, var(--clr) 100%, var(--white) 30%);
-    cursor: pointer;
 }
 
 .amount input {
@@ -781,7 +832,6 @@ legend {
 
 .view .back:hover, .view .amount input[type="submit"]:hover {
     background: color-mix(in srgb, var(--primary) 100%, var(--white) 30%);
-    cursor: pointer;
 }
 
 
@@ -865,9 +915,7 @@ legend {
     font-size: var(--fs-large);
 }
 
-.checkout input[type="submit"] {
-    margin-inline: auto;
-    width: 60%;
+.checkout input {
     background: var(--primary);
     padding: .5rem;
     border: 0;
@@ -877,9 +925,13 @@ legend {
     font-size: var(--fs-normal);
 }
 
-.checkout input[type="submit"]:hover {
+.checkout input#sb {
+    margin-inline: auto;
+    width: 60%;
+}
+
+.checkout input:hover {
     background: color-mix(in srgb, var(--primary) 100%, var(--white) 30%);
-    cursor: pointer;
 }
 
 .checkout .anchor {
@@ -950,8 +1002,8 @@ legend {
 
 .manage fieldset #clickable:hover,
 .manage fieldset #clickable:focus-within {
-    cursor: pointer;
     background: color-mix(in srgb, var(--primary) 100%, var(--white) 60%) !important;
+    cursor: pointer;
 }
 
 .manage fieldset #center {text-align: center;}
@@ -980,7 +1032,6 @@ legend {
 
 .manage .buttons input:hover, .manage .buttons a:hover {
     background: color-mix(in srgb, var(--primary) 100%, var(--white) 30%);
-    cursor: pointer;
 }
 
 .manage .buttons {
@@ -1028,7 +1079,6 @@ legend {
 
 .manage .links a:hover {
     background: color-mix(in srgb, var(--primary) 100%, var(--white) 30%);
-    cursor: pointer;
 }
 
 .manage .activity {
@@ -1094,7 +1144,6 @@ legend {
 
 .manage .isearch > :nth-child(3):hover {
     background: color-mix(in srgb, var(--primary) 100%, var(--white) 30%);
-    cursor: pointer;
 }
 
 .manage section select {
@@ -1170,7 +1219,6 @@ legend {
 
 .create .btn:hover {
     background: color-mix(in srgb, var(--primary) 100%, var(--white) 30%);
-    cursor: pointer;
 }
 
 .create .left {
@@ -1255,5 +1303,4 @@ legend {
 
 .receipt #main a:hover {
     background: color-mix(in srgb, var(--primary) 100%, var(--white) 30%);
-    cursor: pointer;
 }

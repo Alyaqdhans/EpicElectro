@@ -9,7 +9,7 @@
         include('header.php'); 
         include("connect.php");
         ?>
-        <form class="form disable" action="profileDisableProcess.php" method="post" onsubmit="return confirm('Are you sure you want to do that?')">
+        <form class="form disable" action="profileDisableProcess.php" method="post">
             <div class="main">
                 <fieldset>
                     <legend>Disable Account</legend>
@@ -26,9 +26,19 @@
                 </fieldset>
                                 
                 <div class="buttons">
-                    <input class="btn left" type="submit" id="disableBtn" value="Disable & Logout" disabled>
+                    <input class="btn left" type="button" id="disableBtn" value="Disable & Logout" onclick="d.showModal();" disabled>
                     <a class="btn right" href="profile.php">Cancel</a>
                 </div>
+
+                <dialog class="modal" id="d">
+                    <h1>Confirmation</h1>
+                    <h2>Are you sure you want to disable the account?</h2>
+                    <div class="btns">
+                        <input type="submit" value="Confirm" onclick="d.close();">
+                        <input type="button" value="&times;" onclick="d.close();">
+                    </div>
+                </dialog>
+
             </div>
         </form>
         <?php include('footer.php'); ?>
