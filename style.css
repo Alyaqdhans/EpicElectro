@@ -248,6 +248,7 @@ input[type="button"]:disabled {
     position: absolute;
     top: .5rem;
     right: .5rem;
+    color: white;
 }
 
 .modal .btns :last-child:hover {
