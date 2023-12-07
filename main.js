@@ -68,12 +68,10 @@ function notifyHide() {
 
 
 
-// checkout loading window show
-function checkout() {
+// loading window show
+function loading() {
     document.getElementById("sb").disabled = true;
-    setTimeout(() => {
-        document.getElementById("loading").classList.remove("hide-loading");
-    }, 200);
+    document.getElementById("loading").classList.remove("hide-loading");
 }
 
 
@@ -86,5 +84,5 @@ function openDisable() {
         } else {
             document.getElementById("disableBtn").disabled = true;
         }
-    }, 200);
+    }, 100);
 }

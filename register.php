@@ -9,7 +9,7 @@
         include('header.php'); 
         include("connect.php");
         ?>
-        <form class="form" action="registerProcess.php" method="post">
+        <form class="form" action="registerProcess.php" method="post" onsubmit="loading();">
             <div class="main">
                 <fieldset>
                     <legend>Register</legend>
@@ -48,7 +48,7 @@
                 <h4>Do you have an account? <a href="login.php">Login</a></h4>
                 
                 <div class="buttons">
-                    <input class="btn left" type="submit" value="Register">
+                    <input id="sb" class="btn left" type="submit" value="Register">
                     <input class="btn right" type="reset" value="Clear">
                 </div>
             </div>

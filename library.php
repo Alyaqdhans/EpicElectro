@@ -1,4 +1,9 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+require __DIR__ .'/PHPMailer/src/PHPMailer.php';
+require __DIR__ .'/PHPMailer/src/Exception.php';
+require __DIR__ .'/PHPMailer/src/SMTP.php';
+
 function DisplayErrors() {
     global $errors;
     echo "<html>";
@@ -23,8 +28,35 @@ function DisplayErrors() {
     echo "</html>";
 }
 
+
 function fdate($d) {
     $date = explode("-", $d);
     return ($date[2]."/".$date[1]."/".$date[0]);
+}
+
+
+function email($mailSubject, $mailBody, $mailAddress, $mailCopy) {
+    $mail = new PHPMailer();
+
+    $mail->isSMTP(); 
+    $mail->SMTPDebug = 0; // 0 = off (for production use) - 1 = client messages - 2 = client and server messages
+    $mail->Host = "smtp.gmail.com"; // use $mail->Host = gethostbyname('smtp.gmail.com'); // if your network does not support SMTP over IPv6
+    $mail->Port = 587; // TLS only
+    $mail->SMTPSecure = 'tls'; // ssl is deprecated
+    $mail->SMTPAuth = true;                               //Enable SMTP authentication
+    $mail->Username   = 'epicelectro.store@gmail.com';    //SMTP username
+    $mail->Password   = 'xsxgnggiwwkmgmic';               //SMTP password
+
+    //Recipients
+    $mail->setFrom('epicelectro.store@gmail.com');
+    $mail->addAddress($mailAddress);     //Add a recipient
+    if ($mailCopy) {$mail->addCC('epicelectro.store@gmail.com');}
+
+    //Content
+    $mail->isHTML(true);   //Set email format to HTML
+    $mail->Subject = $mailSubject;
+    $mail->Body    = $mailBody;
+
+    $mail->send();
 }
 ?>

@@ -15,7 +15,7 @@
         }
         ?>
 
-        <form class="form" action="loginResetProcess.php" method="post" onsubmit="checkout()">
+        <form class="form" action="loginResetProcess.php" method="post" onsubmit="loading();">
             <div class="main">
                 <fieldset>
                     <legend>Reset Password</legend>

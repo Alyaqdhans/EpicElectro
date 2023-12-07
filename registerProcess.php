@@ -47,6 +47,24 @@ if (count($errors) == 0) {
     $query .= " values('$name', password('$pass'), '$mail', '$address', '$number', '$date', '0000-00-00', 'N')";
     mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
 
+    $subject = "EpicElectro";
+    $body    = "
+    <html>
+        <body>
+            <fieldset style='border-radius: 10px; border: solid 3px black;'>
+                <legend>
+                <h1 style='margin: 0;'>
+                👋 Welcome
+                </h1>
+                </legend>
+    
+                <h1>Thank you for registering on EpicElectro, we wish you happy shopping.</h1>
+            </fieldset>
+        </body>
+    </html>
+    ";
+    email($subject, $body, $_POST['email'], false);
+
     header("location: login.php?s=1");
 } else {
     DisplayErrors();

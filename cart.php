@@ -101,7 +101,7 @@
                     <h1>Confirmation</h1>
                     <h2>Are you sure you want to checkout?</h2>
                     <div class="btns">
-                        <input type="submit" value="Confirm" formaction="cartProcess.php" onclick="d.close(); checkout();">
+                        <input type="submit" value="Confirm" formaction="cartProcess.php" onclick="d.close(); loading();">
                         <input type="button" value="&times;" onclick="d.close();">
                     </div>
                 </dialog>

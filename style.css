@@ -142,7 +142,7 @@ input[type="button"]:disabled {
 }
 
 .notify input:hover {
-    background: color-mix(in srgb, currentColor 0%, black 30%);
+    background: color-mix(in srgb, transparent 100%, black 30%);
 }
 
 .hide-notify {
@@ -204,7 +204,8 @@ input[type="button"]:disabled {
 .modal {
     background: var(--white);
     border-radius: var(--br);
-    box-shadow: 0 0 2rem var(--shadow);
+    box-shadow: 0 0 3rem var(--shadow);
+    max-inline-size: 47ch;
 }
 
 .modal h1 {
@@ -453,9 +454,8 @@ legend {
     margin: auto;
 }
 
-.disable .main :nth-child(3) {
-    text-align: justify;
-    max-inline-size: 45ch;
+.disable .main fieldset :nth-child(3) {
+    max-inline-size: 40ch;
 }
 
 .disable .left {
