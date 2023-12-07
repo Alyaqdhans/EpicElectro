@@ -39,7 +39,7 @@ if (mysqli_num_rows($result) == 1) {
     $query = "update customers set lastLogin = '$date' where cId = '{$customer['cId']}'";
     mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
 
-    header('Location: index.php');
+    header('Location: index.php?s=1');
 } else {
     header('Location: error.php?ec=0'); //userid or passsword is wrong
     exit;

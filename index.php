@@ -141,5 +141,6 @@
         </div>
 
         <?php include('footer.php'); ?>
+        <?php if (isset($_GET["s"])) {echo "<script>notify('Logged In Successfully');</script>";} // login successful ?>
     </body>
 </html>

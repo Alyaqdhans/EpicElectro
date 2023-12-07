@@ -34,22 +34,24 @@ if ($_FILES["image"]["size"] > 0) { // check if image uploaded
 }
 
 
-if (count($errors) == 0) {
-    if ($_FILES["image"]["size"] > 0) { // replace image if uploaded
-        unlink("images/".$_POST['code'].".jpg"); // delete old image
-        move_uploaded_file($_FILES["image"]["tmp_name"], $target_dir.$_POST['code'].".jpg"); // save & name it to the id
-    }
-
-    $query = "update items set";
-    $query .= " iDesc = '$name',";
-    $query .= " iComment = '$desc',";
-    $query .= " iBrand = '$brand',";
-    $query .= " iCategoryCode = '{$_POST['category']}'";
-    $query .= " where iCode = {$_POST['code']}";
-    mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
-
-    header("Location: panelManage.php?s=1");
-} else {
+if (count($errors) > 0) {
     DisplayErrors();
+    exit;
 }
+
+
+if ($_FILES["image"]["size"] > 0) { // replace image if uploaded
+    unlink("images/".$_POST['code'].".jpg"); // delete old image
+    move_uploaded_file($_FILES["image"]["tmp_name"], $target_dir.$_POST['code'].".jpg"); // save & name it to the id
+}
+
+$query = "update items set";
+$query .= " iDesc = '$name',";
+$query .= " iComment = '$desc',";
+$query .= " iBrand = '$brand',";
+$query .= " iCategoryCode = '{$_POST['category']}'";
+$query .= " where iCode = {$_POST['code']}";
+mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
+
+header("Location: panelManage.php?s=1");
 ?>

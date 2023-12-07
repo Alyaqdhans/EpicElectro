@@ -22,13 +22,16 @@ if ($phone < 1 || !preg_match("/^[0-9]{8}$/", $phone)) {
     $errors[] = "Please enter a valid phone number";
 }
 
-if (count($errors) == 0) {
-    $query = "insert into suppliers (sName, sPhone, sEmail, sAddress)";
-    $query .= " values ('$name', '$phone', '$email', '$address')";
-    mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
 
-    header("Location: panelSupplier.php?s=1");
-} else {
+if (count($errors) > 0) {
     DisplayErrors();
+    exit;
 }
+
+
+$query = "insert into suppliers (sName, sPhone, sEmail, sAddress)";
+$query .= " values ('$name', '$phone', '$email', '$address')";
+mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
+
+header("Location: panelSupplier.php?s=1");
 ?>

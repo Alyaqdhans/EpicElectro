@@ -38,42 +38,45 @@ if ($number < 1 || !preg_match("/^[9|7][0-9]{7}$/", $number)) {
     $errors[] = "Please enter a valid phone number";
 }
 
-if (count($errors) == 0) {
-    $query = "select * from customers where password = password('$pass0') and cId = {$_POST['cid']}";
+
+if (count($errors) > 0) {
+    DisplayErrors();
+    exit;
+}
+
+
+$query = "select * from customers where password = password('$pass0') and cId = {$_POST['cid']}";
+$result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
+if (mysqli_num_rows($result) == 0) {
+    header('Location: error.php?ec=5'); // old password is incorrect
+    exit;
+}
+
+$query = "select * from customers where cId = '{$_POST['cid']}'";
+$result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
+$customer = mysqli_fetch_assoc($result);
+if ($customer['email'] != $mail) { // check if user change email
+    $query = "select * from customers where email = '$mail'";
     $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
-    if (mysqli_num_rows($result) == 0) {
-        header('Location: error.php?ec=5'); // old password is incorrect
+    if (mysqli_num_rows($result) == 1) {
+        header('Location: error.php?ec=4'); // account already exists
         exit;
     }
-
-    $query = "select * from customers where cId = '{$_POST['cid']}'";
-    $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
-    $customer = mysqli_fetch_assoc($result);
-    if ($customer['email'] != $mail) { // check if user change email
-        $query = "select * from customers where email = '$mail'";
-        $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
-        if (mysqli_num_rows($result) == 1) {
-            header('Location: error.php?ec=4'); // account already exists
-            exit;
-        }
-    }
-
-    $query = "update customers set";
-    $query .= " cName = '$name',";
-    $query .= " password = password('$pass'),";
-    $query .= " email = '$mail',";
-    $query .= " cAddress = '$address',";
-    $query .= " phoneNumber = $number";
-    $query .= " where cId = '{$_POST['cid']}'";
-    mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
-
-
-    $_SESSION['NAME'] = $name;
-    $_SESSION['MAIL'] = $mail;
-
-
-    header("location: profile.php?s=1");
-} else {
-    DisplayErrors();
 }
+
+$query = "update customers set";
+$query .= " cName = '$name',";
+$query .= " password = password('$pass'),";
+$query .= " email = '$mail',";
+$query .= " cAddress = '$address',";
+$query .= " phoneNumber = $number";
+$query .= " where cId = '{$_POST['cid']}'";
+mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
+
+
+$_SESSION['NAME'] = $name;
+$_SESSION['MAIL'] = $mail;
+
+
+header("location: profile.php?s=1");
 ?>

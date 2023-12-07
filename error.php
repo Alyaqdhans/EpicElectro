@@ -75,6 +75,12 @@ switch ($_GET['ec']) {
         $message = "The account you are trying to access is disabled, please <a href='mailto:epicelectro.store@gmail.com'>contact</a> the support to activate it.";
         break;
 
+    // register fail
+    case 11:
+        $title = "Registering Failed";
+        $message = "Please check that the registered email is real or/and working.";
+        break;
+
     // other errors
     default:
     $title = "Unknown Error";
