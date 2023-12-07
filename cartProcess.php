@@ -70,31 +70,17 @@ $body = "
 
         <fieldset style='border-radius: 10px; border: solid 3px black;'>
             <legend>
-            <h2 style='margin: 0;'>
-            Order No: $orderId
-            </h2>
+            <h2 style='margin: 0;'>🛒 Order No: $orderId</h2>
             </legend>
 
-            <h2 style='margin-bottom: .5rem;'>
-            Items:
-            </h2>
-            <h3 style='margin-top: 0;'>
-            $items
-            </h3>
+            <h2 style='margin-bottom: .5rem;'>Items:</h2>
+            <h3 style='margin-top: 0;'>$items</h3>
 
-            <h2 style='margin-bottom: .5rem;'>
-            Total Cost:
-            </h2>
-            <h3 style='margin-top: 0;'>
-            $total OMR
-            </h3>
+            <h2 style='margin-bottom: .5rem;'>Total Cost:</h2>
+            <h3 style='margin-top: 0;'>$total OMR</h3>
 
-            <h2 style='margin-bottom: .5rem;'>
-            Delivery By:
-            </h2>
-            <h3 style='margin-top: 0;'>
-            $deliver
-            </h3>
+            <h2 style='margin-bottom: .5rem;'>Delivery By:</h2>
+            <h3 style='margin-top: 0;'>$deliver</h3>
         </fieldset>
 
         <h3>Your order will be delivered in 3 - 7 bussiness days,

@@ -9,7 +9,7 @@
         include('header.php'); 
         include("connect.php");
         ?>
-        <form class="form disable" action="profileDisableProcess.php" method="post">
+        <form class="form disable" action="profileDisableProcess.php" method="post" onsubmit="loading();">
             <div class="main">
                 <fieldset>
                     <legend>Disable Account</legend>
@@ -34,7 +34,7 @@
                     <h1>Confirmation</h1>
                     <h2>Are you sure you want to disable the account?</h2>
                     <div class="btns">
-                        <input type="submit" value="Confirm" onclick="d.close();">
+                        <input id="sb" type="submit" value="Confirm" onclick="d.close();">
                         <input type="button" value="&times;" onclick="d.close();">
                     </div>
                 </dialog>

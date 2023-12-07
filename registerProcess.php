@@ -54,9 +54,7 @@ $body    = "
     <body>
         <fieldset style='border-radius: 10px; border: solid 3px black;'>
             <legend>
-            <h1 style='margin: 0;'>
-            👋 Welcome
-            </h1>
+            <h1 style='margin: 0;'>👋 Welcome</h1>
             </legend>
 
             <h1>Thank you for registering on EpicElectro, we wish you happy shopping.</h1>
@@ -64,10 +62,9 @@ $body    = "
     </body>
 </html>
 ";
-if (!email($subject, $body, $_POST['email'], false)) { // check if email is real and send welcome
-    header("location: error.php?ec=11");
-    exit;
-}
+email($subject, $body, $_POST['email'], false);
+// header("location: error.php?ec=11");
+
 
 $date = date('Y-m-d');
 $query = "insert into customers(cName, password, email, cAddress, phoneNumber, registerDate, lastLogin, cType)";

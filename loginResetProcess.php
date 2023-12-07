@@ -37,13 +37,11 @@ $subject = "EpicElectro Password Reset";
 $body    = "
 <html>
     <body>
-        <h1>A password reset request has been made</h1>
+        <h1>🔑 A password reset request has been made</h1>
 
         <fieldset style='border-radius: 10px; border: solid 3px black;'>
             <legend>
-            <h2 style='margin: 0;'>
-            Your Temporary Password
-            </h2>
+            <h2 style='margin: 0;'>Your Temporary Password</h2>
             </legend>
 
             <h1>$code</h1>
