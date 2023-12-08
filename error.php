@@ -1,8 +1,8 @@
 <?php
-include("connect.php");
+$code = $_GET['ec'] ?? -1;
 $page = "javascript:history.back()";
 
-switch ($_GET['ec']) {
+switch ($code) {
     // login failure
     case 0:
         $title = "Could Not Login";
@@ -52,7 +52,7 @@ switch ($_GET['ec']) {
 
     // more than available quantity in storage
     case 7:
-        $item = mysqli_fetch_row(mysqli_query($conn, "select iDesc from items where iCode = {$_GET['ic']}"))[0];
+        $item = $_GET['nm'] ?? 'item';
         $title = "Over Available Quantity";
         $message = "Please decrease the amount of '$item' because it is more than the available.";
         break;
@@ -79,6 +79,12 @@ switch ($_GET['ec']) {
     case 11:
         $title = "Registering Failed";
         $message = "Please check that the registered email is real or/and working.";
+        break;
+
+    // code doesn't exist
+    case 12:
+        $title = "Missing Record";
+        $message = "The thing you're trying to access doesn't exist.";
         break;
 
     // other errors

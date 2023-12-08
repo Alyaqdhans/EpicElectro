@@ -3,7 +3,7 @@ include('connect.php');
 session_start();
 
 if (!isset($_POST['check'])) {
-    header('Location: error.php?ec=-1'); // entered page without button
+    header('Location: error.php'); // trying to access process from address bar
     exit;
 }
 
@@ -28,5 +28,5 @@ if (!empty($_POST['box'])) {
     }
 }
 
-header("Location: panelAdmin.php?s=1");
+header("Location: panelAdmin.php?s");
 ?>

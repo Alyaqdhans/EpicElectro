@@ -6,7 +6,7 @@ if (!isset($_SESSION['CART'])) {
 }
 
 if (!isset($_POST['ic'])) {
-    header('Location: error.php?ec=-1'); // entered page without button
+    header('Location: error.php'); // trying to access process from address bar
     exit;
 }
 

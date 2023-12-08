@@ -18,7 +18,7 @@
                     if (isset($_POST['search'])) {$s = $_POST['search'];}
                     else {$s = '';}
 
-                    echo "<input id='search' type=text name='search' placeholder='Search for Something' value='$s'>";
+                    echo "<input id='search' type=text name='search' placeholder='Search for something' value='$s'>";
                     ?>
                     <input type="submit" value="Search"> 
                 </div>

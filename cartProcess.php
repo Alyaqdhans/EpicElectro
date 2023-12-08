@@ -4,7 +4,7 @@ include("library.php");
 session_start();
 
 if (!isset($_POST['total'])) {
-    header('Location: error.php?ec=-1'); // entered page without button
+    header('Location: error.php'); // trying to access process from address bar
     exit;
 }
 
@@ -15,7 +15,7 @@ foreach ($_SESSION['CART'] as $key => $item) {
     $data = mysqli_fetch_assoc($result);
 
     if ($item['qty'] > $data['iQty']) {
-        header("Location: error.php?ec=7&ic={$key}"); // check if there are items in cart more than the available
+        header("Location: error.php?ec=7&nm={$data['iDesc']}"); // check if there are items in cart more than the available
         exit;
     }
 }

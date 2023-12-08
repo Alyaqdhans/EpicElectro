@@ -1,4 +1,10 @@
-<?php session_start(); ?>
+<?php
+session_start();
+if (!isset($_SESSION['CID'])) {
+    header('Location: error.php?ec=1'); // login required
+    exit;
+}
+?>
 <html>
     <head>
         <?php include('link.php'); ?>
@@ -9,11 +15,6 @@
         include('header.php');
         include('connect.php');
         include('library.php');
-
-        if (!isset($_SESSION['CID'])) {
-            header('Location: error.php?ec=1'); // login required
-            exit;
-        }
 
         $query = "select * from orders where cId = {$_SESSION['CID']}";
         $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));

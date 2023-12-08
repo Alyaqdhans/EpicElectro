@@ -3,7 +3,7 @@ include('connect.php');
 session_start();
 
 if (!isset($_POST['check'])) {
-    header('Location: error.php?ec=-1'); // entered page without button
+    header('Location: error.php'); // trying to access process from address bar
     exit;
 }
 
@@ -23,5 +23,5 @@ if (!empty($_POST['box'])) {
     mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
 }
 
-header("Location: panelManage.php?s=1");
+header("Location: panelManage.php?s");
 ?>

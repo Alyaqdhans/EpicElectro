@@ -1,37 +1,46 @@
-<?php session_start(); ?>
+<?php
+session_start();
+include('connect.php');
+
+if (!isset($_SESSION['TYPE'])) {
+    header('Location: error.php?ec=1'); // login required
+    exit;
+} else {
+    if ($_SESSION['TYPE'] != 'A') {
+        header('Location: error.php?ec=3'); // need admin
+        exit;
+    }
+}
+
+if (empty($_GET['sid'])) {
+    header('Location: error.php'); // check if data token exist
+    exit;
+}
+
+$query = "select * from suppliers where sId = '{$_GET['sid']}'";
+$result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
+
+if (mysqli_num_rows($result) > 0) {
+    $data = mysqli_fetch_assoc($result);
+} else {
+    header('Location: error.php?ec=12'); // check if item exist
+    exit;
+}
+?>
 <html>
     <head>
         <?php include('link.php') ?>
         <title>EpicElectro | Suppliers</title>
     </head>
     <body>
-        <?php
-        include('header.php');
-        include('connect.php');
-
-        if (!isset($_SESSION['TYPE'])) {
-            header('Location: error.php?ec=1'); // login required
-            exit;
-        } else {
-            if ($_SESSION['TYPE'] != 'A') {
-                header('Location: error.php?ec=3'); // need admin
-                exit;
-            }
-        }
-        ?>
+        <?php include('header.php'); ?>
         
         <div class="wrapper">
             <form class="container create" action="panelSupplierEditProcess.php" method="post">
                 <fieldset>
                     <legend>Edit Supplier</legend>
 
-                    <?php
-                    $query = "select * from suppliers where sId = '{$_GET['sid']}'";
-                    $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
-                    $data = mysqli_fetch_assoc($result);
-
-                    echo "<input type='hidden' name='code' value='{$_GET['sid']}'>";
-                    ?>
+                    <?php echo "<input type='hidden' name='code' value='{$_GET['sid']}'>"; ?>
 
                     <label>
                         Supplier Name:<br>

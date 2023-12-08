@@ -4,7 +4,7 @@ include('library.php');
 session_start();
 
 if (!isset($_POST['name'])) {
-    header('Location: error.php?ec=-1'); // entered page without button
+    header('Location: error.php'); // trying to access process from address bar
     exit;
 }
 
@@ -78,5 +78,5 @@ $_SESSION['NAME'] = $name;
 $_SESSION['MAIL'] = $mail;
 
 
-header("location: profile.php?s=1");
+header("location: profile.php?s");
 ?>

@@ -1,19 +1,32 @@
-<?php session_start(); ?>
+<?php
+session_start();
+include('connect.php');
+
+if (!isset($_SESSION['CID'])) {
+    header('Location: error.php?ec=1'); // login required
+    exit;
+}
+
+if (empty($_GET['oid'])) {
+    header('Location: error.php'); // check if data token exist
+    exit;
+}
+
+$query = "select * from order_items where orderID = {$_GET['oid']}";
+$result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
+
+if (mysqli_num_rows($result) == 0) {
+    header('Location: error.php?ec=12'); // check if item exist
+    exit;
+}
+?>
 <html>
     <head>
         <?php include('link.php'); ?>
         <title>EpicElectro | Orders</title>
     </head>
     <body>
-        <?php
-        include('header.php');
-        include('connect.php');
-
-        if (!isset($_SESSION['CID'])) {
-            header('Location: error.php?ec=1'); // login required
-            exit;
-        }
-        ?>
+        <?php include('header.php'); ?>
         
         <div class="wrapper">
             <div class="container manage address">
@@ -30,9 +43,6 @@
                         </tr>
                         
                         <?php
-                        $query = "select * from order_items where orderID = {$_GET['oid']}";
-                        $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));                    
-                        
                         $line = 0;
                         while ($data = mysqli_fetch_assoc($result)) {
                             $item = mysqli_fetch_row(mysqli_query($conn, "select iDesc, iBrand, iPrice from items where iCode = {$data['iCode']}"));

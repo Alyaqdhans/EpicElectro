@@ -1,4 +1,10 @@
-<?php session_start(); ?>
+<?php
+session_start(); 
+if (isset($_SESSION['CID'])) {
+    header('Location: error.php?ec=2'); //user is already logged in
+    exit;
+}
+?>
 <html>
     <head>
         <?php include('link.php') ?>
@@ -8,11 +14,6 @@
         <?php
         include('header.php'); 
         include("connect.php");
-
-        if (isset($_SESSION['CID'])) {
-            header('Location: error.php?ec=2'); //user is already logged in
-            exit;
-        }
         ?>
 
         <form class="form" action="loginProcess.php" method="post">

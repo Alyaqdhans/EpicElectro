@@ -1,4 +1,15 @@
-<?php session_start(); ?>
+<?php
+session_start();
+if (!isset($_SESSION['TYPE'])) {
+    header('Location: error.php?ec=1'); // login required
+    exit;
+} else {
+    if ($_SESSION['TYPE'] != 'A') {
+        header('Location: error.php?ec=3'); // need admin
+        exit;
+    }
+}
+?>
 <html>
     <head>
         <?php include('link.php'); ?>
@@ -9,16 +20,6 @@
         include('header.php');
         include('connect.php');
         include('library.php');
-
-        if (!isset($_SESSION['TYPE'])) {
-            header('Location: error.php?ec=1'); // login required
-            exit;
-        } else {
-            if ($_SESSION['TYPE'] != 'A') {
-                header('Location: error.php?ec=3'); // need admin
-                exit;
-            }
-        }
         ?>
         
         <div class="wrapper">

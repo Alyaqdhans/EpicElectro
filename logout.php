@@ -2,5 +2,5 @@
 session_start();
 session_unset();
 session_destroy();
-header('Location: login.php?l=1');
+header('Location: login.php?l');
 ?>

@@ -1,4 +1,10 @@
-<?php session_start(); ?>
+<?php
+session_start(); 
+if (empty($_GET['oi'])) {
+    header('Location: error.php'); // trying to access process from address bar
+    exit;
+}
+?>
 <html>
     <head>
         <?php include('link.php') ?>
@@ -8,11 +14,6 @@
         <?php
         include('header.php');
         include("connect.php");
-
-        if (!isset($_GET['oi'])) {
-            header('Location: error.php?ec=-1'); // entered page without button
-            exit;
-        }
         ?>
 
         <div class="wrapper">

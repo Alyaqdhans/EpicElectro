@@ -3,7 +3,7 @@ include('library.php');
 include('connect.php');
 
 if (!isset($_POST['name'])) {
-    header('Location: error.php?ec=-1'); // entered page without button
+    header('Location: error.php'); // trying to access process from address bar
     exit;
 }
 
@@ -28,5 +28,5 @@ $query = "insert into delivery (company_name, dPhone)";
 $query .= " values ('$name', '$phone')";
 mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
 
-header("Location: panelDelivery.php?s=1");
+header("Location: panelDelivery.php?s");
 ?>

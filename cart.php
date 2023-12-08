@@ -1,4 +1,10 @@
-<?php session_start(); ?>
+<?php
+session_start(); 
+if (!isset($_SESSION['CART'])) {
+    header('Location: error.php?ec=1'); // login required
+    exit;
+}
+?>
 <html>
     <head>
         <?php include('link.php'); ?>
@@ -6,15 +12,10 @@
     </head>
     <body>
         <?php
-        include('connect.php');
         include('header.php');
+        include('connect.php');
 
-        if (!isset($_SESSION['CART'])) {
-            header('Location: error.php?ec=1'); // login required
-            exit;
-        }
-
-        if (isset($_GET['ic'])) {
+        if (!empty($_GET['ic']) && array_key_exists($_GET['ic'], $_SESSION['CART']) && isset($_POST[$_GET['ic']])) {
             $_SESSION['CART'][$_GET['ic']]['qty'] -= $_POST[$_GET['ic']]; // remove the amount
 
             if ($_SESSION['CART'][$_GET['ic']]['qty'] == 0) { // if qty is 0 remove item from cart

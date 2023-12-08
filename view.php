@@ -1,20 +1,29 @@
-<?php session_start(); ?>
+<?php
+session_start();
+include('connect.php');
+
+if (empty($_GET['ic'])) {
+    header('Location: error.php'); // check if data token exist
+    exit;
+}
+
+$query = "select * from items where iCode = {$_GET['ic']} and Active != 'disabled'";
+$result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
+
+if (mysqli_num_rows($result) > 0) {
+    $data = mysqli_fetch_assoc($result);
+} else {
+    header('Location: error.php?ec=12'); // check if item exist
+    exit;
+}
+?>
 <html>
     <head>
         <?php include('link.php'); ?>
         <title>EpicElectro | View</title>
     </head>
     <body>
-        <?php
-        include('header.php');
-        include('connect.php');
-        ?>
-
-        <?php
-        $query = "select * from items where iCode = {$_GET['ic']}";
-        $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
-        $data = mysqli_fetch_assoc($result);
-        ?>
+        <?php include('header.php'); ?>
 
         <form class="wrapper" method="post" action="viewProcess.php">
             <div class="container view">

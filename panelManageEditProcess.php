@@ -3,7 +3,7 @@ include('library.php');
 include('connect.php');
 
 if (!isset($_POST['code'])) {
-    header('Location: error.php?ec=-1'); // entered page without button
+    header('Location: error.php'); // trying to access process from address bar
     exit;
 }
 
@@ -54,5 +54,5 @@ $query .= " iCategoryCode = '{$_POST['category']}'";
 $query .= " where iCode = {$_POST['code']}";
 mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
 
-header("Location: panelManage.php?s=1");
+header("Location: panelManage.php?s");
 ?>
