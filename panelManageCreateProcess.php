@@ -20,7 +20,7 @@ $imageExtension = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 // Check if image file is a actual image or fake image
 $check = getimagesize($_FILES["image"]["tmp_name"]);
 if ($check === false) {
-    $errors[] = "File is not an image.";
+    $errors[] = "Uploaded file is not an image.";
 }
 // Check file size
 if ($_FILES["image"]["size"] > 4000000) {

@@ -36,7 +36,7 @@ switch ($code) {
     // current password is incorrect
     case 5:
         $title = "Wrong Password";
-        $message = "The current password registred does not match what you typed, please enter the correct password.";
+        $message = "The current password registered does not match what you typed, please enter the correct password.";
         break;
 
     // cannot disable all suppliers/couriers
