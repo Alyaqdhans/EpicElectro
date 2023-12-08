@@ -80,7 +80,7 @@
 
         <section class="grid">
             <?php
-            $query = "select * from items where iCode = iCode";
+            $query = "select * from items where iCode = iCode and Active != 'disabled'";
             $msg = "Database is empty";
 
             if (isset($_POST['search']) || isset($_POST['category']) || isset($_POST['brand'])) {
@@ -114,8 +114,6 @@
 
             if (mysqli_num_rows($result) > 0) {
                 while ($data = mysqli_fetch_assoc($result)) {
-                    if ($data['Active'] != 'active') {continue;} // check if item is disabled
-
                     echo "<a class='card' href='view.php?ic={$data['iCode']}'>";
                         echo "<div class='img'><img src='images/{$data['iCode']}.{$data['img_ext']}' alt='{$data['iCode']}'> <span> ". number_format($data['iPrice']) ." OMR</span></div>";
                         echo "<h3> {$data['iDesc']} </h3>";
