@@ -16,9 +16,9 @@
     --fw-regular: 400;
     --fw-bold: 700;
 
-    --fs-small: 0.5em;
-    --fs-normal: 1em;
-    --fs-large: 1.5em;
+    --fs-small: 0.5rem;
+    --fs-normal: 1rem;
+    --fs-large: 1.5rem;
 
     --br: 10px;
 
@@ -45,9 +45,9 @@
         --fw-regular: 400;
         --fw-bold: 700;
 
-        --fs-small: 0.5em;
-        --fs-normal: 1em;
-        --fs-large: 1.5em;
+        --fs-small: 0.5rem;
+        --fs-normal: 1rem;
+        --fs-large: 1.5rem;
 
         --br: 10px;
 
@@ -936,6 +936,7 @@ legend {
 .checkout input#sb {
     margin-inline: auto;
     width: 60%;
+    font-size: var(--fs-large);
 }
 
 .checkout input:hover {
