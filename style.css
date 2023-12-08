@@ -468,6 +468,12 @@ legend {
     border-radius: 0 var(--br) var(--br) 0;
 }
 
+.form .verify {
+    margin-top: 1rem;
+    border-top: 3px solid var(--black);
+    padding-top: 1rem;
+}
+
 .disable .main input[type="checkbox"] {
     width: auto;
     margin: auto;

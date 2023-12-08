@@ -15,7 +15,7 @@
                     <legend>Disable Account</legend>
                     
                     <label>
-                        Current Password:<br>
+                        Password:<br>
                         <input type="password" name="password" required>
                     </label>
 

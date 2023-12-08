@@ -37,20 +37,15 @@
                         Email:<br>
                         <?php echo "<input type='email' name='email' value='{$cus['email']}' required>"; ?>
                     </label>
-
+                    
                     <label>
-                        Current Password:<br>
-                        <?php echo "<input type='password' name='password' value='' required>"; ?>
+                        Change Password:<br>
+                        <?php echo "<input type='password' name='passwordChange'>"; ?>
                     </label>
 
                     <label>
-                        New Password:<br>
-                        <?php echo "<input type='password' name='passwordNew' value=''>"; ?>
-                    </label>
-
-                    <label>
-                        New Password (confirm):<br>
-                        <?php echo "<input type='password' name='passwordConfirm' value=''>"; ?>
+                        Change Password (confirm):<br>
+                        <?php echo "<input type='password' name='passwordConfirm'>"; ?>
                     </label>
 
                     <label>
@@ -61,6 +56,11 @@
                     <label>
                         Address:<br>
                         <?php echo "<input type='text' name='address' value='{$cus['cAddress']}' required>"; ?>
+                    </label>
+
+                    <label class="verify">
+                        Password:<br>
+                        <?php echo "<input type='password' name='password' required>"; ?>
                     </label>
                 </fieldset>
 

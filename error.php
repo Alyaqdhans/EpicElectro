@@ -35,7 +35,7 @@ switch ($_GET['ec']) {
 
     // current password is incorrect
     case 5:
-        $title = "Incorrect Password";
+        $title = "Wrong Password";
         $message = "The current password registred does not match what you typed, please enter the correct password.";
         break;
 
