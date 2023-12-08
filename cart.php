@@ -14,6 +14,14 @@
             exit;
         }
 
+        if (isset($_GET['ic'])) {
+            $_SESSION['CART'][$_GET['ic']]['qty'] -= $_POST[$_GET['ic']]; // remove the amount
+
+            if ($_SESSION['CART'][$_GET['ic']]['qty'] == 0) { // if qty is 0 remove item from cart
+                unset($_SESSION['CART'][$_GET['ic']]);
+            }
+        }
+
         if (count($_SESSION['CART']) == 0) {$hide = "style='display: none;'";}
         else {$hide = "";}
         ?>
@@ -24,15 +32,6 @@
                     <legend>Cart Contents</legend>
 
                     <?php
-                    if (isset($_GET['ic'])) {
-                        $_SESSION['CART'][$_GET['ic']]['qty'] -= $_POST[$_GET['ic']]; // remove the amount
-                        header("Location: cart.php#{$_GET['ic']}"); // scroll to the removed item
-
-                        if ($_SESSION['CART'][$_GET['ic']]['qty'] == 0) { // if qty is 0 remove item from cart
-                            unset($_SESSION['CART'][$_GET['ic']]);
-                        }
-                    }
-
                     $prices = [];
                     foreach ($_SESSION['CART'] as $key => $item) {
                         $query = "select * from items where iCode = {$key}";
