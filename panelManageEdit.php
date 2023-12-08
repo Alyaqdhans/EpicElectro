@@ -68,12 +68,12 @@
 
                     <label>
                         Product Image:<br>
-                        <?php echo "<div class='img'><img src='images/{$_GET['ic']}.jpg' alt='Not Found'></div>"; ?>
+                        <?php echo "<div class='img'><img src='images/{$_GET['ic']}.{$data['img_ext']}' alt='Not Found'></div>"; ?>
                     </label>
 
                     <label>
-                        Change Product Image: (Must be ".jpg" Format)<br>
-                        <input class="upload" type="file" name="image" accept=".jpg">
+                        Change Product Image: (Max 4MB)<br>
+                        <input class="upload" type="file" name="image">
                     </label>
 
                 </fieldset>

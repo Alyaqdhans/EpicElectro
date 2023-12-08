@@ -115,7 +115,7 @@
                     if ($data['Active'] != 'active') {continue;} // check if item is disabled
 
                     echo "<a class='card' href='view.php?ic={$data['iCode']}'>";
-                        echo "<div class='img'><img src='images/{$data['iCode']}.jpg' alt='{$data['iCode']}'> <span> ". number_format($data['iPrice']) ." OMR</span></div>";
+                        echo "<div class='img'><img src='images/{$data['iCode']}.{$data['img_ext']}' alt='{$data['iCode']}'> <span> ". number_format($data['iPrice']) ." OMR</span></div>";
                         echo "<h3> {$data['iDesc']} </h3>";
                         echo "<h4> by {$data['iBrand']} </h4>";
                         if ($data['iQty'] > 0) {

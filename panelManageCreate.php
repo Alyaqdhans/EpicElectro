@@ -32,8 +32,8 @@
 
                     if (mysqli_num_rows($result) == 0) {
                         // if no new empty item create one
-                        $query = "insert into items (iDesc, iCategoryCode, iSupplierId, iComment, iQty, iSold, iCost, iPrice, iLastPurchasedDate, iBrand, Active)
-                        values ('new', 1, 1, '', 0, 0, 0, 0, 0000-00-00, '', 'disabled')";
+                        $query = "insert into items (iDesc, iCategoryCode, iSupplierId, iComment, iQty, iSold, iCost, iPrice, iLastPurchasedDate, iBrand, img_ext, Active)
+                        values ('new', 1, 1, '', 0, 0, 0, 0, 0000-00-00, '', 'ext', 'disabled')";
                         mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
                     }
 
@@ -77,8 +77,8 @@
                     </label>
 
                     <label>
-                        Product Image: (Must be ".jpg" Format)<br>
-                        <input class="upload" type="file" name="image" accept=".jpg" required>
+                        Product Image: (Max 4MB)<br>
+                        <input class="upload" type="file" name="image" required>
                     </label>
 
                 </fieldset>

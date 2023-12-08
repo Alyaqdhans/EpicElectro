@@ -3,8 +3,8 @@
     color-scheme: light;
 
     --primary: #ffb300;
-    --secondary: #005081;
-    --accent: #0174Be;
+    --secondary: #0174Be;
+    --accent: #006caf;
 
     --white: white;
     --black: black;
@@ -22,9 +22,7 @@
 
     --br: 10px;
 
-    --bg: var(--accent);
-    background: var(--bg);
-
+    background: var(--secondary);
     font-family: sans-serif;
 }
 
@@ -53,9 +51,7 @@
 
         --br: 10px;
 
-        --bg: var(--secondary);
-        background: var(--bg);
-        
+        background: var(--secondary);
         font-family: sans-serif;
     }
 }
@@ -63,13 +59,13 @@
 
 
 /* general styles */
-html {scroll-behavior: smooth;}
-
-img {max-width: 100%; pointer-events: none;}
-
 * {transition: 200ms ease-in-out;}
 
 a, input[type="checkbox"] {transition-property: background;}
+
+html {scroll-behavior: smooth;}
+
+img {max-width: 100%; pointer-events: none;}
 
 h1, h2, h3, h4, h5, h6 {margin: 0;}
 
@@ -90,17 +86,36 @@ abbr {
     border-bottom: 2px dotted var(--black);
 }
 
-select, input[type="checkbox"], input[type="radio"], input[type="button"],
-input[type="file"], input[type="submit"], input[type="reset"],
-label:has(input[type="checkbox"]),
-label:has(input[type="radio"]),
-label:has(input[type="file"]) {
+select, input,
+label:has(input, textarea) {
     cursor: pointer;
 }
 
-input[type="submit"]:disabled,
-input[type="button"]:disabled {
+input:is([type="text"], [type="password"], [type="email"], [type="number"]) {
+    cursor: text;
+}
+
+input:disabled,
+tr:has(input:disabled) {
     cursor: not-allowed !important;
+}
+
+
+
+/* most pages style */
+.wrapper {
+    margin: auto;
+    width: 100%;
+    overflow-x: auto;
+}
+
+.container {
+    width: fit-content;
+    margin: auto;
+    margin-block: 2rem;
+    padding: 2rem;
+    background: var(--white);
+    border-radius: var(--br);
 }
 
 
@@ -146,7 +161,7 @@ input[type="button"]:disabled {
 }
 
 .hide-notify {
-    transform: translateY(-5rem);
+    transform: translateY(-10rem);
 }
 
 
@@ -158,6 +173,10 @@ input[type="button"]:disabled {
     inset: 0;
     background: rgba(0, 0, 0, .5);
     z-index: 20;
+}
+
+#loading:hover {
+    cursor: wait;
 }
 
 #loading h1 {
@@ -477,7 +496,7 @@ legend {
     margin-top: 1rem;
     display: flex;
     gap: 2rem;
-    background: var(--bg);
+    background: var(--secondary);
     padding-block: 1.5rem;
     padding-inline: 7vw;
     position: sticky;
@@ -610,7 +629,7 @@ legend {
 }
 
 .card .img {
-    outline: solid 3px var(--black);
+    outline: solid 3px color-mix(in srgb, var(--black) 50%, var(--white) 50%);
     border-radius: var(--br);
     aspect-ratio: 1 / 1;
     object-fit: cover;
@@ -676,24 +695,6 @@ legend {
 
 
 
-/* most pages main container */
-.wrapper {
-    margin: auto;
-    width: 100%;
-    overflow-x: auto;
-}
-
-.container {
-    width: fit-content;
-    margin: auto;
-    margin-block: 2rem;
-    padding: 2rem;
-    background: var(--white);
-    border-radius: var(--br);
-}
-
-
-
 /* view page style */
 .view {
     display: flex;
@@ -751,7 +752,7 @@ legend {
 
 .view .cart span {
     margin-right: auto;
-    background: var(--bg);
+    background: var(--secondary);
     color: white;
 }
 
@@ -1120,7 +1121,7 @@ legend {
 .manage .isearch > :nth-child(1) {
     border-radius: var(--br) 0 0 var(--br);
     border: none;
-    background: var(--bg);
+    background: var(--secondary);
     color: white;
     padding: .5rem;
     width: 25%;
@@ -1128,7 +1129,7 @@ legend {
 
 .manage .isearch > :nth-child(2) {
     border: none;
-    background: var(--bg);
+    background: var(--secondary);
     color: white;
     padding: .5rem;
     width: 50%;
