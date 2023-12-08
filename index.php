@@ -39,7 +39,7 @@
                 echo "</select>";
 
                 // brand filter
-                $query = "select iBrand from items where iDesc != 'new' group by iBrand";
+                $query = "select iBrand from items where iDesc != 'new' and Active != 'disabled' group by iBrand";
                 $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
                 echo "<select name='brand'>";
                 echo "<option value='x'> Brands </option>";
@@ -104,6 +104,8 @@
             
             if (isset($_POST['price']) && $_POST['price'] != 'x') {
                 $query .= " order by iPrice {$_POST['price']}";
+            } else {
+                $query .= " order by iCode desc";
             }
 
             
