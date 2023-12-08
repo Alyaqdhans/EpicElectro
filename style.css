@@ -718,7 +718,7 @@ legend {
     aspect-ratio: 1.25 / 1;
     object-fit: cover;
     border-radius: var(--br);
-    outline: solid 3px var(--black);
+    outline: solid 3px black;
     background: var(--white);
 }
 
@@ -1244,7 +1244,7 @@ legend {
     aspect-ratio: 1 / 1;
     object-fit: cover;
     border-radius: var(--br);
-    outline: solid 3px var(--black);
+    outline: solid 3px color-mix(in srgb, var(--black) 50%, var(--white) 50%);
     background: var(--gray);
 }
 
