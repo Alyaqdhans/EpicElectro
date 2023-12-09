@@ -47,7 +47,7 @@ if (mysqli_num_rows($result) > 0) {
 
                     <label>
                         Product Name:<br>
-                        <?php echo "<h3>[ {$data['iDesc']} ]</h3>"; ?>
+                        <?php echo "<input type='text' value='{$data['iDesc']}' readonly>"; ?>
                     </label>
 
                     <label>

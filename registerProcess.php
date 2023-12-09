@@ -48,6 +48,11 @@ if (mysqli_num_rows($result) == 1) {
     exit;
 }
 
+$date = date('Y-m-d');
+$query = "insert into customers(cName, password, email, cAddress, phoneNumber, registerDate, lastLogin, cType)";
+$query .= " values('$name', password('$pass'), '$mail', '$address', '$number', '$date', '0000-00-00', 'N')";
+mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
+
 $subject = "EpicElectro";
 $body    = "
 <html>
@@ -64,12 +69,6 @@ $body    = "
 ";
 email($subject, $body, $_POST['email'], false);
 // header("location: error.php?ec=11");
-
-
-$date = date('Y-m-d');
-$query = "insert into customers(cName, password, email, cAddress, phoneNumber, registerDate, lastLogin, cType)";
-$query .= " values('$name', password('$pass'), '$mail', '$address', '$number', '$date', '0000-00-00', 'N')";
-mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
 
 header("location: login.php?s");
 ?>
