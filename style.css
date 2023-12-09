@@ -987,18 +987,19 @@ legend {
     border-collapse: collapse;
 }
 
-.manage fieldset table tr:first-child {
-    background: color-mix(in srgb, var(--gray) 60%, var(--black) 100%);
-    color: var(--white);
-    position: sticky;
-    top: -1rem;
-}
-
 .manage fieldset table,
 .manage fieldset th,
 .manage fieldset td {
     text-align: left;
     padding: .3rem;
+}
+
+.manage fieldset table tr:first-child {
+    background: color-mix(in srgb, var(--gray) 60%, var(--black) 100%);
+    color: var(--white);
+    position: sticky;
+    top: -1rem;
+    z-index: 5;
 }
 
 .manage fieldset #clickable {
