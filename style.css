@@ -498,6 +498,8 @@ legend {
 
 
 /* index style */
+.index {position: relative;}
+
 .top {
     margin-top: 1rem;
     display: flex;
