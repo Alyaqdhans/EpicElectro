@@ -365,8 +365,8 @@ footer :nth-child(2) {
     border-radius: var(--br);
 }
 
-@media (max-width: 650px) {
-    .container {
+@media (max-width: 750px) {
+    .view, .checkout, .error {
         width: 80%;
     }
 }
@@ -563,13 +563,16 @@ legend {
     margin-left: auto;
 }
 
-@media (max-width: 650px) {
+@media (max-width: 750px) {
     .search .field {
+        width: 70%;
         order: -2;
     }
-    .cart {
+    .search .cart {
         order: -1;
     }
+    .search :nth-child(2) {margin-left: auto;}
+    .search :nth-child(4) {margin-right: auto;}
 }
 
 .cart a {
@@ -623,9 +626,9 @@ legend {
     position: relative;
 }
 
-@media (max-width: 650px) {
+@media (max-width: 750px) {
     .grid {
-        grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
     }
     .card {
         max-width: 15rem;
@@ -686,7 +689,7 @@ legend {
     padding: .5rem;
     border-radius: var(--br) 0;
     font-weight: var(--fw-bold);
-    font-size: 1.25rem;
+    font-size: calc(var(--fs-normal) + .25vw);
 }
 
 .card .anchor {
@@ -774,11 +777,12 @@ legend {
     margin-left: auto;
 }
 
-@media (max-width: 650px) {
+@media (max-width: 750px) {
     .view {
         flex-wrap: wrap;
     }
     .view .img {
+        margin: auto;
         width: 100%;
     }
     .view aside {
@@ -922,20 +926,6 @@ legend {
     border-radius: var(--br);
 }
 
-@media (max-width: 650px) {
-    .checkout .item {
-        flex-wrap: wrap;
-        padding-block: 2rem;
-    }
-    .checkout .item > * {
-        margin: auto;
-    }
-    .checkout .img {
-        margin: auto;
-        width: 16rem;
-    }
-}
-
 .checkout .info {
     background: var(--white);
     padding: 1rem;
@@ -961,6 +951,34 @@ legend {
     background: var(--white);
     margin-left: auto;
     width: 10rem;
+}
+
+@media (max-width: 750px) {
+    .checkout .item {
+        margin: auto;
+        width: 90%;
+        flex-wrap: wrap;
+        padding-block: 2rem;
+    }
+    .checkout .item > * {
+        margin: auto;
+    }
+    .checkout .img {
+        margin: auto;
+        width: 16rem;
+    }
+    .checkout .info {
+        margin: auto;
+        width: 14rem;
+    }
+    .checkout .amount {
+        margin: auto;
+        width: 13rem;
+    }
+    .checkout .amount input[type="submit"] {
+        margin: auto;
+        width: 9.5rem;
+    }
 }
 
 .checkout .amount .control span {
