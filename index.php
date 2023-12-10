@@ -23,7 +23,7 @@
                         ?>
                         <input type="submit" value="Search"> 
                     </div>
-                    
+
                     <?php
                     // category filter
                     $query = "select * from categories";
@@ -63,19 +63,19 @@
                         echo "<option value='asc' $asc> Low to High </option>";
                     echo "</select>";
                     ?>
-                </div>
-
-                <div class="cart">
-                    <a href="cart.php">Cart</a>
-                    <span>
-                        <?php
-                        if (isset($_SESSION['CART'])) {
-                            echo count($_SESSION['CART']);
-                        } else {
-                            echo 0;
-                        }
-                        ?>
-                    </span>
+                
+                    <div class="cart">
+                        <a href="cart.php">Cart</a>
+                        <span>
+                            <?php
+                            if (isset($_SESSION['CART'])) {
+                                echo count($_SESSION['CART']);
+                            } else {
+                                echo 0;
+                            }
+                            ?>
+                        </span>
+                    </div>
                 </div>
             </form>
 

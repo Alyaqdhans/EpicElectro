@@ -102,24 +102,6 @@ tr:has(input:disabled) {
 
 
 
-/* most pages style */
-.wrapper {
-    margin: auto;
-    width: 100%;
-    overflow-x: auto;
-}
-
-.container {
-    width: fit-content;
-    margin: auto;
-    margin-block: 2rem;
-    padding: 2rem;
-    background: var(--white);
-    border-radius: var(--br);
-}
-
-
-
 /* notification style */
 .notify-wrap {
     position: absolute;
@@ -367,6 +349,30 @@ footer :nth-child(2) {
 
 
 
+/* most pages style */
+.wrapper {
+    margin: auto;
+    width: 100%;
+    overflow-x: auto;
+}
+
+.container {
+    width: fit-content;
+    margin: auto;
+    margin-block: 2rem;
+    padding: 2rem;
+    background: var(--white);
+    border-radius: var(--br);
+}
+
+@media (max-width: 650px) {
+    .container {
+        width: 80%;
+    }
+}
+
+
+
 /* forms style */
 fieldset {
     border-radius: var(--br);
@@ -506,14 +512,14 @@ legend {
     gap: 2rem;
     background: var(--secondary);
     padding-block: 1.5rem;
-    padding-inline: 7vw;
+    padding-inline: 4vw;
     position: sticky;
     top: 0;
     z-index: 10;
 }
 
 .search {
-    margin-right: auto;
+    width: 100%;
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
@@ -527,7 +533,7 @@ legend {
 }
 
 .search input[type="text"] {
-    width: max(100%, 30vw);
+    width: 100%;
     border-radius: var(--br) 0 0 var(--br);
 }
 
@@ -547,13 +553,23 @@ legend {
 .search .field {
     display: flex;
     gap: .3rem;
+    max-width: 40rem;
     flex-grow: 1;
 }
 
 .cart {
     display: flex;
     gap: .3rem;
-    align-self: baseline;
+    margin-left: auto;
+}
+
+@media (max-width: 650px) {
+    .search .field {
+        order: -2;
+    }
+    .cart {
+        order: -1;
+    }
 }
 
 .cart a {
@@ -583,10 +599,10 @@ legend {
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
     gap: 5rem;
-    padding-inline: 6vw;
-    padding-bottom: 10rem;
+    padding-inline: calc(5vw + 2rem);
+    padding-bottom: 8rem;
     padding-top: 2rem;
     place-items: center;
 }
@@ -594,6 +610,7 @@ legend {
 .card {
     height: 100%;
     width: 100%;
+    max-width: 20rem;
     background: var(--white);
     padding: 1rem;
     border-radius: var(--br);
@@ -604,6 +621,15 @@ legend {
     color: var(--black);
     transition: 200ms ease-in-out;
     position: relative;
+}
+
+@media (max-width: 650px) {
+    .grid {
+        grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+    }
+    .card {
+        max-width: 15rem;
+    }
 }
 
 .card:hover {
@@ -660,7 +686,7 @@ legend {
     padding: .5rem;
     border-radius: var(--br) 0;
     font-weight: var(--fw-bold);
-    font-size: var(--fs-normal);
+    font-size: 1.25rem;
 }
 
 .card .anchor {
@@ -746,6 +772,19 @@ legend {
     justify-content: center;
     gap: 2rem;
     margin-left: auto;
+}
+
+@media (max-width: 650px) {
+    .view {
+        flex-wrap: wrap;
+    }
+    .view .img {
+        width: 100%;
+    }
+    .view aside {
+        margin: auto;
+        order: -1;
+    }
 }
 
 .view .cart {
@@ -881,6 +920,20 @@ legend {
     aspect-ratio: 1.25 / 1;
     object-fit: cover;
     border-radius: var(--br);
+}
+
+@media (max-width: 650px) {
+    .checkout .item {
+        flex-wrap: wrap;
+        padding-block: 2rem;
+    }
+    .checkout .item > * {
+        margin: auto;
+    }
+    .checkout .img {
+        margin: auto;
+        width: 16rem;
+    }
 }
 
 .checkout .info {
