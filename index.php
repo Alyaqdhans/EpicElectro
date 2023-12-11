@@ -11,7 +11,7 @@
         ?>
         
         <div class="index">
-            <form class="top" method="post">
+            <form class="top" method="post" action="index.php">
                 <div class="search">
                     <div class="field">
                     <?php
