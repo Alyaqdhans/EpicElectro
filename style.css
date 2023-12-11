@@ -512,7 +512,7 @@ legend {
     gap: 2rem;
     background: var(--secondary);
     padding-block: 1.5rem;
-    padding-inline: 4vw;
+    padding-inline: calc(4vw + 2rem);
     position: sticky;
     top: 0;
     z-index: 10;
@@ -564,6 +564,9 @@ legend {
 }
 
 @media (max-width: 750px) {
+    .top {
+        padding-inline: 4vw;
+    }
     .search .field {
         width: 70%;
         order: -2;
@@ -779,7 +782,7 @@ legend {
 
 @media (max-width: 750px) {
     .view {
-        flex-wrap: wrap;
+        flex-wrap: wrap-reverse;
     }
     .view .img {
         margin: auto;
@@ -787,7 +790,6 @@ legend {
     }
     .view aside {
         margin: auto;
-        order: -1;
     }
 }
 

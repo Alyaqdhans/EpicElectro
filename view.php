@@ -29,7 +29,7 @@ if (mysqli_num_rows($result) > 0) {
             <div class="container view">
                 <section>
                     <?php
-                    echo "<div class='img'><img src='images/{$_GET['ic']}.jpg' alt='{$_GET['ic']}'></div>";
+                    echo "<div class='img'><img src='images/{$_GET['ic']}.{$data['img_ext']}' alt='{$_GET['ic']}'></div>";
                     echo "<h3> {$data['iDesc']} </h3>";
                     if (empty($data['iComment'])) {
                         echo "<h4> No Description Found </h4>";

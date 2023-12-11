@@ -46,7 +46,7 @@ if (!isset($_SESSION['CART'])) {
                         $data = mysqli_fetch_assoc($result);
 
                         echo "<div class='item'>";
-                            echo "<a href='view.php?ic=$key'><div class='img'><img src='images/{$key}.jpg' alt='{$key}'></div></a>";
+                            echo "<a href='view.php?ic=$key'><div class='img'><img src='images/{$key}.{$data['img_ext']}' alt='{$key}'></div></a>";
 
                             echo "<div class='info'>";
                                 echo "<h2> Name: </h2> <h3> {$data['iDesc']} </h3>";
