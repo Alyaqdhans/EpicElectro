@@ -83,7 +83,7 @@ body {
 
 abbr {
     text-decoration: none;
-    border-bottom: 2px dotted var(--black);
+    /* border-bottom: 2px dotted var(--black); */
 }
 
 select, input,
@@ -319,10 +319,16 @@ footer {
     margin-top: auto;
 }
 
-footer :nth-child(2) {
+footer > :last-child {
     padding-left: 1rem;
     border-left: 3px solid var(--black);
     margin-left: 1rem;
+}
+
+footer :first-child a {
+    text-decoration: none;
+    border-bottom: 2px solid currentColor;
+    color: currentColor;
 }
 
 
