@@ -104,12 +104,13 @@ tr:has(input:disabled) {
 
 /* notification style */
 .notify-wrap {
-    position: absolute;
+    position: fixed;
     left: 0;
     right: 0;
     user-select: none;
     top: .3rem;
     transition: 200ms ease-in-out;
+    z-index: 20;
 }
 
 .notify {
