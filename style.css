@@ -358,10 +358,10 @@ footer :first-child a {
 /* most pages style */
 div:has(.wrapper, .form) {
     margin: auto;
+    width: 100%;
 }
 
 .wrapper {
-    width: 100%;
     overflow-x: auto;
 }
 
