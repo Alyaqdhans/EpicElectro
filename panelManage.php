@@ -22,6 +22,7 @@ if (!isset($_SESSION['TYPE'])) {
         include('library.php');
         ?>
         
+        <div>
         <div class="wrapper">
             <form class="container manage" method='post'>
                 <section>
@@ -110,7 +111,7 @@ if (!isset($_SESSION['TYPE'])) {
                         <tr>
                             <?php
                             $heads = ["iCode"=>"ID", "iDesc"=>"Name", "iBrand"=>"Brand", "iCategoryCode"=>"Category", "iCost"=>"Cost",
-                            "iPrice"=>"Price", "iSupplierId"=>"Supplier", "iLastPurchasedDate"=>"Last Supplied", "iSold"=>"Sold", "iQty"=>"Quantity"];
+                            "iPrice"=>"Price", "iSupplierId"=>"Supplier", "iLastPurchasedDate"=>"Last&nbsp;Supplied", "iSold"=>"Sold", "iQty"=>"Quantity"];
                             foreach ($heads as $key => $value) {
                                 if (isset($_POST['order']) && $_POST['order'] == "desc") {$a = "▼";}
                                 else {$a = "▲";}
@@ -222,6 +223,7 @@ if (!isset($_SESSION['TYPE'])) {
                 <input type="hidden" name="check">
                 
             </form>
+        </div>
         </div>
 
         <?php include('footer.php'); ?>

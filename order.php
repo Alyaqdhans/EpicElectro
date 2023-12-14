@@ -23,6 +23,7 @@ if (!isset($_SESSION['CID'])) {
         else {$hide = "";}
         ?>
         
+        <div>
         <div class="wrapper">
             <div class="container manage">
                 <?php echo "<fieldset $hide>"; ?>
@@ -66,6 +67,7 @@ if (!isset($_SESSION['CID'])) {
                 <?php if (mysqli_num_rows($result) == 0) {echo "<h2> Orders History Is Empty </h2>";} ?>
                 
             </div>
+        </div>
         </div>
 
         <?php include('footer.php'); ?>

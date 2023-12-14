@@ -15,6 +15,8 @@ if (!isset($_SESSION['CID'])) {
         include('header.php'); 
         include("connect.php");
         ?>
+
+        <div>
         <form class="form disable" action="profileDisableProcess.php" method="post" onsubmit="loading();">
             <div class="main">
                 <fieldset>
@@ -47,6 +49,8 @@ if (!isset($_SESSION['CID'])) {
 
             </div>
         </form>
+        </div>
+        
         <?php include('footer.php'); ?>
         <script>openDisable();</script>
     </body>

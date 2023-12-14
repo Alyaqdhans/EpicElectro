@@ -21,6 +21,7 @@ if (!isset($_SESSION['CID'])) {
         $cus = mysqli_fetch_assoc($result);
         ?> 
         
+        <div>
         <form class="form" method='post' action='profileProcess.php'>
             <div class='main'>
                 <fieldset>
@@ -74,6 +75,7 @@ if (!isset($_SESSION['CID'])) {
                 
             </div>
         </form>
+        </div>
         
         <?php include("footer.php"); ?>
         <?php if (isset($_GET["s"])) {echo "<script>notify();</script>";} ?>

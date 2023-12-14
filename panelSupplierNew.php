@@ -18,6 +18,7 @@ if (!isset($_SESSION['TYPE'])) {
     <body>
         <?php include('header.php'); ?>
         
+        <div>
         <div class="wrapper">
             <form class="container create" action="panelSupplierNewProcess.php" method="post">
                 <fieldset>
@@ -50,6 +51,7 @@ if (!isset($_SESSION['TYPE'])) {
                 </div>
 
             </form>
+        </div>
         </div>
 
         <?php include('footer.php'); ?>

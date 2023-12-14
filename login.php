@@ -16,6 +16,7 @@ if (isset($_SESSION['CID'])) {
         include("connect.php");
         ?>
 
+        <div>
         <form class="form" action="loginProcess.php" method="post">
             <div class="main">
                 <fieldset>
@@ -41,6 +42,7 @@ if (isset($_SESSION['CID'])) {
                 </div>
             </div>
         </form>
+        </div>
         
         <?php
         include('footer.php');

@@ -27,6 +27,7 @@ if (!isset($_SESSION['CART'])) {
         else {$hide = "";}
         ?>
         
+        <div>
         <form class="wrapper" method="post">
             <div class="container checkout">
                 <?php echo "<fieldset $hide>"; ?>
@@ -108,6 +109,7 @@ if (!isset($_SESSION['CART'])) {
 
             </div>
         </form>
+        </div>
 
         <div class="scroll">
             <a class="btn up" href="#up">▲</a>

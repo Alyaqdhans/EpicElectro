@@ -35,6 +35,7 @@ if (mysqli_num_rows($result) > 0) {
     <body>
         <?php include('header.php'); ?>
         
+        <div>
         <div class="wrapper">
             <form class="container create" action="panelManageAddProcess.php" method="post">
                 <fieldset>
@@ -90,6 +91,7 @@ if (mysqli_num_rows($result) > 0) {
                 </div>
 
             </form>
+        </div>
         </div>
 
         <?php include('footer.php'); ?>

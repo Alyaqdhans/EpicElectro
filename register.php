@@ -9,6 +9,8 @@
         include('header.php'); 
         include("connect.php");
         ?>
+        
+        <div>
         <form class="form" action="registerProcess.php" method="post" onsubmit="loading();">
             <div class="main">
                 <fieldset>
@@ -53,6 +55,8 @@
                 </div>
             </div>
         </form>
+        </div>
+
         <?php include('footer.php'); ?>
     </body>
 </html>

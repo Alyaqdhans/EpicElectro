@@ -16,6 +16,7 @@ if (empty($_GET['oi'])) {
         include("connect.php");
         ?>
 
+        <div>
         <div class="wrapper">
             <div class="container receipt">
                 <fieldset>
@@ -37,6 +38,7 @@ if (empty($_GET['oi'])) {
                     </div>
                 </fieldset>
             </div>
+        </div>
         </div>
         
         <?php include('footer.php'); ?>

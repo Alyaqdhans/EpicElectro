@@ -35,6 +35,7 @@ if (mysqli_num_rows($result) > 0) {
     <body>
         <?php include('header.php'); ?>
         
+        <div>
         <div class="wrapper">
             <form class="container create" action="panelManageEditProcess.php" method="post" enctype="multipart/form-data">
                 <fieldset>
@@ -92,6 +93,7 @@ if (mysqli_num_rows($result) > 0) {
                     <a class="btn right" href='panelManage.php'> Cancel </a>
                 </div>
             </form>
+        </div>
         </div>
 
         <?php include('footer.php'); ?>

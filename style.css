@@ -356,8 +356,11 @@ footer :first-child a {
 
 
 /* most pages style */
-.wrapper {
+div:has(.wrapper, .form) {
     margin: auto;
+}
+
+.wrapper {
     width: 100%;
     overflow-x: auto;
 }
@@ -518,7 +521,7 @@ legend {
     gap: 2rem;
     background: var(--secondary);
     padding-block: 1.5rem;
-    padding-inline: calc(4vw + 2rem);
+    padding-inline: calc(5vw + 2rem);
     position: sticky;
     top: 0;
     z-index: 10;
@@ -748,6 +751,7 @@ legend {
 }
 
 .view section {
+    margin: auto;
     background: var(--gray);
     border-radius: var(--br);
     padding: 2rem;
@@ -758,7 +762,7 @@ legend {
     aspect-ratio: 1.25 / 1;
     object-fit: cover;
     border-radius: var(--br);
-    outline: solid 3px black;
+    /* outline: solid 3px black; */
     background: var(--white);
 }
 
@@ -772,7 +776,7 @@ legend {
 .view h3 {margin-block: 1rem;}
 
 .view h4 {
-    text-align: justify;
+    /* text-align: justify; */
     max-inline-size: 70ch;
 }
 
@@ -783,7 +787,7 @@ legend {
     flex-direction: column;
     justify-content: center;
     gap: 2rem;
-    margin-left: auto;
+    margin: auto;
 }
 
 @media (max-width: 750px) {
@@ -791,11 +795,7 @@ legend {
         flex-wrap: wrap-reverse;
     }
     .view .img {
-        margin: auto;
-        width: 100%;
-    }
-    .view aside {
-        margin: auto;
+        width: clamp(16rem, 100%, 23rem);
     }
 }
 
@@ -805,14 +805,22 @@ legend {
     border-radius: var(--br);
     padding-inline: 1.5rem;
     padding-block: 1.5rem;
+    width: 6rem;
+    flex-wrap: wrap;
 }
 
 .view .cart a {margin-left: auto;}
 
-.view .cart span {
+.view .cart span:first-of-type {
     margin-right: auto;
     background: var(--secondary);
     color: white;
+}
+
+.view .cart span:nth-of-type(2) {
+    flex-basis: 100%;
+    border-radius: var(--br);
+    padding-inline: 0;
 }
 
 .amount {

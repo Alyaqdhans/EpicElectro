@@ -22,6 +22,7 @@ if (!isset($_SESSION['TYPE'])) {
         include('library.php');
         ?>
         
+        <div>
         <div class="wrapper">
             <form class="container manage" action="panelActiveProcess.php" method="post">
                     <div class="links">
@@ -37,7 +38,7 @@ if (!isset($_SESSION['TYPE'])) {
                             <th>Name</th>
                             <th>Email</th>
                             <th>Registered</th>
-                            <th>Last Login</th>
+                            <th>Last&nbsp;Login</th>
                             <th>Type</th>
                             <th>Active</th>
                         </tr>
@@ -89,6 +90,7 @@ if (!isset($_SESSION['TYPE'])) {
                 <input type="hidden" name="check">
                 
             </form>
+        </div>
         </div>
 
         <?php include('footer.php'); ?>

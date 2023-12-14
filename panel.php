@@ -22,6 +22,7 @@ if (!isset($_SESSION['TYPE'])) {
         include('library.php');
         ?>
         
+        <div>
         <div class="wrapper">
             <div class="container manage">
                 <fieldset>
@@ -85,6 +86,7 @@ if (!isset($_SESSION['TYPE'])) {
                 }
                 ?>
             </div>
+        </div>
         </div>
 
         <?php include('footer.php'); ?>

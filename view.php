@@ -25,6 +25,7 @@ if (mysqli_num_rows($result) > 0) {
     <body>
         <?php include('header.php'); ?>
 
+        <div>
         <form class="wrapper" method="post" action="viewProcess.php">
             <div class="container view">
                 <section>
@@ -51,8 +52,17 @@ if (mysqli_num_rows($result) > 0) {
 
                 <aside>
                     <div class="cart">
-                        <?php echo "<a href='cart.php#{$_GET['ic']}'>In Cart</a>"; ?>
-                        <span> <?php echo $cartQty; ?> </span>
+                        <?php echo "<a href='cart.php#{$_GET['ic']}'>Cart</a>"; ?>
+                        <span>
+                            <?php
+                            if (isset($_SESSION['CART'])) {
+                                echo count($_SESSION['CART']);
+                            } else {
+                                echo 0;
+                            }
+                            ?>
+                        </span>
+                        <?php echo "<span> In Cart: $cartQty </span>"; ?>
                     </div>
 
                     <div class="amount">
@@ -90,6 +100,7 @@ if (mysqli_num_rows($result) > 0) {
                 </aside>
             </div>
         </form>
+        </div>
 
         <?php include("footer.php"); ?>
     </body>

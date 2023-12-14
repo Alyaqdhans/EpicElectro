@@ -21,6 +21,7 @@ if (!isset($_SESSION['TYPE'])) {
         include('connect.php');
         ?>
         
+        <div>
         <div class="wrapper">
             <form class="container create" action="panelManageCreateProcess.php" method="post" enctype="multipart/form-data">
                 <fieldset>
@@ -89,6 +90,7 @@ if (!isset($_SESSION['TYPE'])) {
                     <a class="btn right" href='panelManage.php'> Cancel </a>
                 </div>
             </form>
+        </div>
         </div>
 
         <?php include('footer.php'); ?>

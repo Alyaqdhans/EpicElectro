@@ -21,6 +21,7 @@ if (!isset($_SESSION['TYPE'])) {
         include('connect.php');
         ?>
         
+        <div>
         <div class="wrapper">
             <form class="container manage" action='panelSupplierProcess.php' method='post'>
                 <fieldset>
@@ -79,6 +80,7 @@ if (!isset($_SESSION['TYPE'])) {
                 <input type="hidden" name="check">
 
             </form>
+        </div>
         </div>
 
         <?php include('footer.php'); ?>

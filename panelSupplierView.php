@@ -35,6 +35,7 @@ if (mysqli_num_rows($result) > 0) {
     <body>
         <?php include('header.php'); ?>
         
+        <div>
         <div class="wrapper">
             <div class="container manage address">
                 <fieldset>
@@ -48,6 +49,7 @@ if (mysqli_num_rows($result) > 0) {
                 </div>
 
             </div>
+        </div>
         </div>
 
         <?php include('footer.php'); ?>
