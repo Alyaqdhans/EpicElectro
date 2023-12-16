@@ -76,6 +76,7 @@
                             ?>
                         </span>
                     </div>
+                    
                 </div>
             </form>
 
@@ -105,10 +106,13 @@
                 
                 if (isset($_POST['price']) && $_POST['price'] != 'x') {
                     $query .= " order by iPrice {$_POST['price']}";
+                } else if (isset($_POST['search']) && $_POST['search'] != "" ||
+                           isset($_POST['category']) && $_POST['category'] != 'x' || 
+                           isset($_POST['brand']) && $_POST['brand'] != 'x') {
+                    $query .= " order by iDesc asc";
                 } else {
                     $query .= " order by iCode desc";
                 }
-
                 
 
                 $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
