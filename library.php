@@ -28,10 +28,18 @@ function DisplayErrors() {
     echo "</html>";
 }
 
-
-function fdate($d) {
-    $date = explode("-", $d);
+function fdate($txt) {
+    $date = explode("-", $txt);
     return ($date[2]."/".$date[1]."/".$date[0]);
+}
+
+function fdateTime($txt) {
+    $dateTime = explode(" ", $txt);
+    $date = $dateTime[0];
+    $time = $dateTime[1];
+
+    $date = explode("-", $date);
+    return ($date[2]."/".$date[1]."/".$date[0])."&nbsp;|&nbsp;".($time);
 }
 
 
