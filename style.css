@@ -624,8 +624,8 @@ legend {
 }
 
 .card {
-    flex: 1 1 15rem;
-    max-width: 20rem;
+    flex: 1 1 14rem;
+    max-width: 19rem;
     background: var(--white);
     border-radius: var(--br);
     padding: 1rem;
@@ -645,7 +645,7 @@ legend {
     }
     .card {
         flex: 1 1 8rem;
-        max-width: 15rem;
+        max-width: 14rem;
     }
 }
 
