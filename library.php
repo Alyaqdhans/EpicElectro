@@ -33,17 +33,28 @@ function fdate($txt) {
     return ($date[2]."/".$date[1]."/".$date[0]);
 }
 
-function fdateTime($txt) {
+function fdateTime($txt, $is24Hrs=false) {
     $dateTime = explode(" ", $txt);
     $date = $dateTime[0];
     $time = $dateTime[1];
 
     $date = explode("-", $date);
-    return ($date[2]."/".$date[1]."/".$date[0])."&nbsp;|&nbsp;".($time);
+    $date = $date[2]."/".$date[1]."/".$date[0];
+
+    if (!$is24Hrs) {
+        $time = explode(":", $time);
+        if ($time[0]-12 < 0) {
+            $time = sprintf('%02d', $time[0]).":".$time[1].":".$time[2]."&nbsp;<span>AM</span>";
+        } else {
+            $time = sprintf('%02d', ($time[0]-12)).":".$time[1].":".$time[2]."&nbsp;<span>PM</span>";
+        }
+    }
+    
+    return $date."&nbsp;|&nbsp;".$time;
 }
 
 
-function email($mailSubject, $mailBody, $mailAddress, $mailCopy) {
+function email($mailSubject, $mailBody, $mailAddress, $mailCopy=false) {
     $mail = new PHPMailer();
 
     $mail->isSMTP(); 

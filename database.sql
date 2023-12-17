@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 17, 2023 at 10:40 AM
+-- Generation Time: Dec 17, 2023 at 05:03 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -63,10 +63,9 @@ CREATE TABLE `customers` (
   `email` varchar(100) NOT NULL COMMENT 'Email',
   `registerDate` date NOT NULL COMMENT 'Register Date',
   `lastLogin` datetime NOT NULL COMMENT 'Last Login',
-  `meridiem` varchar(2) NOT NULL COMMENT 'AM / PM',
   `cAddress` varchar(100) NOT NULL COMMENT 'Customer Address',
-  `cType` varchar(1) NOT NULL COMMENT 'Customer Type',
   `phoneNumber` int(8) NOT NULL COMMENT 'Customer Phone Number',
+  `cType` varchar(1) NOT NULL DEFAULT 'N' COMMENT 'Customer Type',
   `Active` varchar(10) NOT NULL DEFAULT 'active'
 );
 
@@ -74,12 +73,12 @@ CREATE TABLE `customers` (
 -- Dumping data for table `customers`
 --
 
-INSERT INTO `customers` (`cId`, `cName`, `password`, `email`, `registerDate`, `lastLogin`, `meridiem`, `cAddress`, `cType`, `phoneNumber`, `Active`) VALUES
-(1, 'Admin', '*196BDEDE2AE4F84CA44C47D54D78478C7E2BD7B7', 'admin@email.com', '2020-01-01', '2023-11-30 00:00:00', 'AM', '123 Street', 'A', 93215274, 'active'),
-(2, 'Normal', '*196BDEDE2AE4F84CA44C47D54D78478C7E2BD7B7', 'normal@email.com', '2020-01-01', '2023-11-17 00:00:00', 'AM', '456 Avenue', 'N', 48774964, 'active'),
-(3, 'Alyaqdhan Zahran Alazri', '*84AAC12F54AB666ECFC2A83C676908C8BBC381B1', 's26s2025@nct.edu.om', '2023-11-10', '2023-12-17 00:00:00', 'AM', 'Nizwa', 'A', 94028288, 'active'),
-(4, 'Hassan Ambusaidi', '*84AAC12F54AB666ECFC2A83C676908C8BBC381B1', 's26s1969@nct.edu.om', '2023-11-11', '2023-11-29 00:00:00', 'AM', 'Nizwa', 'A', 95322022, 'active'),
-(5, 'Abdulrahman Alriyami', '*84AAC12F54AB666ECFC2A83C676908C8BBC381B1', 's76s1937@nct.edu.om', '2023-11-12', '2023-11-12 00:00:00', 'AM', 'firq', 'A', 98787878, 'active');
+INSERT INTO `customers` (`cId`, `cName`, `password`, `email`, `registerDate`, `lastLogin`, `cAddress`, `phoneNumber`, `cType`, `Active`) VALUES
+(1, 'Admin', '*196BDEDE2AE4F84CA44C47D54D78478C7E2BD7B7', 'admin@email.com', '2020-01-01', '2023-11-30 00:00:00', '123 Street', 93215274, 'A', 'active'),
+(2, 'Normal', '*196BDEDE2AE4F84CA44C47D54D78478C7E2BD7B7', 'normal@email.com', '2020-01-01', '2023-11-17 00:00:00', '456 Avenue', 48774964, 'N', 'active'),
+(3, 'Alyaqdhan Zahran Alazri', '*84AAC12F54AB666ECFC2A83C676908C8BBC381B1', 's26s2025@nct.edu.om', '2023-11-10', '2023-12-17 00:00:00', 'Nizwa', 94028288, 'A', 'active'),
+(4, 'Hassan Ambusaidi', '*84AAC12F54AB666ECFC2A83C676908C8BBC381B1', 's26s1969@nct.edu.om', '2023-11-11', '2023-11-29 00:00:00', 'Nizwa', 95322022, 'A', 'active'),
+(5, 'Abdulrahman Alriyami', '*84AAC12F54AB666ECFC2A83C676908C8BBC381B1', 's76s1937@nct.edu.om', '2023-11-12', '2023-11-12 00:00:00', 'firq', 98787878, 'A', 'active');
 
 -- --------------------------------------------------------
 

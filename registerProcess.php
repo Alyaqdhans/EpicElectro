@@ -49,8 +49,8 @@ if (mysqli_num_rows($result) == 1) {
 }
 
 $date = date('Y-m-d');
-$query = "insert into customers(cName, password, email, cAddress, phoneNumber, registerDate, lastLogin, cType)";
-$query .= " values('$name', password('$pass'), '$mail', '$address', '$number', '$date', '0000-00-00', 'N')";
+$query = "insert into customers(cName, password, email, cAddress, phoneNumber, registerDate, lastLogin)";
+$query .= " values('$name', password('$pass'), '$mail', '$address', '$number', '$date', '0000-00-00')";
 mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
 
 $subject = "EpicElectro";
@@ -67,7 +67,7 @@ $body    = "
     </body>
 </html>
 ";
-email($subject, $body, $_POST['email'], false);
+email($subject, $body, $_POST['email']);
 // header("location: error.php?ec=11");
 
 header("location: login.php?s");

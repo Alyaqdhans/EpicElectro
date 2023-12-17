@@ -37,7 +37,7 @@ $body    = "
     </body>
 </html>
 ";
-email($subject, $body, $_SESSION['MAIL'], false);
+email($subject, $body, $_SESSION['MAIL']);
 
 // logout user
 session_unset();

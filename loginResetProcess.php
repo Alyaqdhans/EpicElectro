@@ -51,7 +51,7 @@ $body    = "
     </body>
 </html>
 ";
-email($subject, $body, $_POST['mail'], false);
+email($subject, $body, $_POST['mail']);
 
 
 

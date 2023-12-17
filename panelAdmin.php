@@ -25,9 +25,9 @@ if (!isset($_SESSION['TYPE'])) {
         <div>
         <div class="wrapper">
             <form class="container manage" action="panelAdminProcess.php" method="post">
-                    <div class="links">
-                        <a href="panelActive.php">Active Accounts</a>
-                    </div>
+                <div class="links">
+                    <a href="panelActive.php">Active Accounts</a>
+                </div>
 
                 <fieldset>
                     <legend>Admin Accounts</legend>
@@ -66,7 +66,7 @@ if (!isset($_SESSION['TYPE'])) {
                             echo "<td> {$data['cName']} </td>";
                             echo "<td> {$data['email']} </td>";
                             echo "<td> ". fdate($data['registerDate']) ." </td>";
-                            echo "<td> ". fdateTime($data['lastLogin'])."&nbsp;"."<span>{$data['meridiem']}</span> </td>";
+                            echo "<td> ". fdateTime($data['lastLogin']). " </td>";
                             echo "<td> $type </td>";
                             echo "<td id='center'> <input id='{$data['cId']}' type='checkbox' name='box[]' value='{$data['cId']}' $d> </td>";
                             echo "</tr>";

@@ -35,9 +35,8 @@ if (mysqli_num_rows($result) == 1) {
     $_SESSION['CID'] = $customer['cId'];
     $_SESSION['CART'] = array();
 
-    $dateTime = date('Y-m-d g:i:s');
-    $meridiem = date('A');
-    $query = "update customers set lastLogin = '$dateTime', meridiem = '$meridiem' where cId = '{$customer['cId']}'";
+    $dateTime = date('Y-m-d H:i:s');
+    $query = "update customers set lastLogin = '$dateTime' where cId = '{$customer['cId']}'";
     mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
 
     header('Location: index.php?s');
