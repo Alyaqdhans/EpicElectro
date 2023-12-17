@@ -373,6 +373,7 @@ div:has(.wrapper, .form) {
     padding: 2rem;
     background: var(--white);
     border-radius: var(--br);
+    box-shadow: 0 0 1rem var(--shadow);
 }
 
 @media (max-width: 750px) {
@@ -415,6 +416,7 @@ legend {
     border-radius: var(--br);
     display: flex;
     flex-direction: column;
+    box-shadow: 0 0 1rem var(--shadow);
 }
 
 .form label {

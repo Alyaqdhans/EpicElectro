@@ -18,7 +18,7 @@ function DisplayErrors() {
             echo "<h3>The following errors found in data inputs</h3>";
             echo "<ul>";
             foreach($errors as $v) {
-                echo "<li> <mark>$v</mark> </li>";
+                echo "<li> <mark>&nbsp;$v&nbsp;</mark> </li>";
             }
             echo "</ul>";
             echo "</fieldset>";
