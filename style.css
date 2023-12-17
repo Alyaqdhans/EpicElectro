@@ -1100,7 +1100,7 @@ legend {
 
 .manage fieldset #center {text-align: center;}
 
-.manage fieldset td span {border-bottom: 2px dotted var(--black);}
+.manage fieldset td span {font-size: 0.75rem;}
 
 .manage .buttons input {
     background: var(--primary);
