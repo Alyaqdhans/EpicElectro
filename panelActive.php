@@ -70,7 +70,7 @@ if (!isset($_SESSION['TYPE'])) {
                             echo "<td> {$data['cName']} </td>";
                             echo "<td> {$data['email']} </td>";
                             echo "<td> ". fdate($data['registerDate']) ." </td>";
-                            echo "<td> ". fdateTime($data['lastLogin']). " </td>";
+                            echo "<td> ". fdateTime($data['lastLogin']) ." </td>";
                             echo "<td> $type </td>";
                             echo "<td id='center'> <input type='checkbox' name='box[]' value='{$data['cId']}' $d $a> </td>";
                             echo "</tr>";

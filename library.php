@@ -28,10 +28,12 @@ function DisplayErrors() {
     echo "</html>";
 }
 
+
 function fdate($txt) {
     $date = explode("-", $txt);
     return ($date[2]."/".$date[1]."/".$date[0]);
 }
+
 
 function fdateTime($txt, $is24Hrs=false) {
     $dateTime = explode(" ", $txt);
@@ -42,12 +44,9 @@ function fdateTime($txt, $is24Hrs=false) {
     $date = $date[2]."/".$date[1]."/".$date[0];
 
     if (!$is24Hrs) {
-        $time = explode(":", $time);
-        if ($time[0]-12 < 0) {
-            $time = sprintf('%02d', $time[0]).":".$time[1].":".$time[2]."&nbsp;<span>AM</span>";
-        } else {
-            $time = sprintf('%02d', ($time[0]-12)).":".$time[1].":".$time[2]."&nbsp;<span>PM</span>";
-        }
+        $time = date('h:i:s A', strtotime($time));
+        $time = explode(" ", $time); // exploded to use span on AM/PM and make it small
+        $time = $time[0]."&nbsp;"."<span>{$time[1]}</span>";
     }
     
     return $date."&nbsp;|&nbsp;".$time;
