@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 08, 2023 at 05:01 AM
+-- Generation Time: Dec 17, 2023 at 10:06 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -62,7 +62,7 @@ CREATE TABLE `customers` (
   `password` varchar(50) NOT NULL COMMENT 'Password',
   `email` varchar(100) NOT NULL COMMENT 'Email',
   `registerDate` date NOT NULL COMMENT 'Register Date',
-  `lastLogin` date NOT NULL COMMENT 'Last Login',
+  `lastLogin` datetime NOT NULL COMMENT 'Last Login',
   `cAddress` varchar(100) NOT NULL COMMENT 'Customer Address',
   `cType` varchar(1) NOT NULL COMMENT 'Customer Type',
   `phoneNumber` int(8) NOT NULL COMMENT 'Customer Phone Number',
@@ -74,11 +74,11 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`cId`, `cName`, `password`, `email`, `registerDate`, `lastLogin`, `cAddress`, `cType`, `phoneNumber`, `Active`) VALUES
-(1, 'Admin', '*196BDEDE2AE4F84CA44C47D54D78478C7E2BD7B7', 'admin@email.com', '2020-01-01', '2023-11-30', '123 Street', 'A', 93215274, 'active'),
-(2, 'Normal', '*196BDEDE2AE4F84CA44C47D54D78478C7E2BD7B7', 'normal@email.com', '2020-01-01', '2023-11-17', '456 Avenue', 'N', 48774964, 'active'),
-(3, 'Alyaqdhan Zahran Alazri', '*84AAC12F54AB666ECFC2A83C676908C8BBC381B1', 's26s2025@nct.edu.om', '2023-11-10', '2023-12-04', 'Nizwa', 'A', 94028288, 'active'),
-(4, 'Hassan Ambusaidi', '*84AAC12F54AB666ECFC2A83C676908C8BBC381B1', 's26s1969@nct.edu.om', '2023-11-11', '2023-11-29', 'Nizwa', 'A', 95322022, 'active'),
-(5, 'Abdulrahman Alriyami', '*84AAC12F54AB666ECFC2A83C676908C8BBC381B1', 's76s1937@nct.edu.om', '2023-11-12', '2023-11-12', 'firq', 'A', 98787878, 'active');
+(1, 'Admin', '*196BDEDE2AE4F84CA44C47D54D78478C7E2BD7B7', 'admin@email.com', '2020-01-01', '2023-11-30 00:00:00', '123 Street', 'A', 93215274, 'active'),
+(2, 'Normal', '*196BDEDE2AE4F84CA44C47D54D78478C7E2BD7B7', 'normal@email.com', '2020-01-01', '2023-11-17 00:00:00', '456 Avenue', 'N', 48774964, 'active'),
+(3, 'Alyaqdhan Zahran Alazri', '*84AAC12F54AB666ECFC2A83C676908C8BBC381B1', 's26s2025@nct.edu.om', '2023-11-10', '2023-12-04 00:00:00', 'Nizwa', 'A', 94028288, 'active'),
+(4, 'Hassan Ambusaidi', '*84AAC12F54AB666ECFC2A83C676908C8BBC381B1', 's26s1969@nct.edu.om', '2023-11-11', '2023-11-29 00:00:00', 'Nizwa', 'A', 95322022, 'active'),
+(5, 'Abdulrahman Alriyami', '*84AAC12F54AB666ECFC2A83C676908C8BBC381B1', 's76s1937@nct.edu.om', '2023-11-12', '2023-11-12 00:00:00', 'firq', 'A', 98787878, 'active');
 
 -- --------------------------------------------------------
 
@@ -162,7 +162,7 @@ INSERT INTO `items` (`iCode`, `iCategoryCode`, `iDesc`, `iComment`, `iQty`, `iSo
 (139, 6, 'Surface Go3', '', 20, 0, 200, 209, 4, '2023-11-16', 'Microsoft', 'jpg', 'active'),
 (140, 6, 'Tab A7 lite', '', 20, 0, 35, 41, 4, '2023-11-16', 'Samsung', 'jpg', 'active'),
 (141, 6, 'Tab A8', '', 20, 0, 75, 80, 4, '2023-11-16', 'Samsung', 'jpg', 'active'),
-(142, 4, 'Sony A6000', 'Sony\'s latest 24.3-megapixel Exmor® HD APS CMOS sensor; Advanced Fast Hybrid autofocus; SVGA Tru-Finder™. 16-50mm zoom lens included.', 5, 0, 1000, 1200, 4, '2023-11-19', 'Sony', 'jpg', 'active'),
+(142, 4, 'Sony A6000', 'Sonys latest 24.3-megapixel Exmor® HD APS CMOS sensor; Advanced Fast Hybrid autofocus; SVGA Tru-Finder™. 16-50mm zoom lens included.', 5, 0, 1000, 1200, 4, '2023-11-19', 'Sony', 'jpg', 'active'),
 (143, 4, 'Sony Alpha a7 III', '24MP Full-Frame Exmor R BSI CMOS Sensor | UHD 4K30p Video with HLG & S-Log3 Gammas | 2.36m-Dot Tru-Finder OLED EVF | 3.0\" 922k-Dot Tilting Touchscreen LCD | FE 28-70mm f/3.5-5.6 OSS Lens', 2, 0, 1300, 1500, 4, '2023-11-19', 'Sony', 'jpg', 'active'),
 (144, 3, 'AirPods Max Space Gray', 'Requires AirPods Max with the latest version of software, and iPhone and iPod touch models with the latest version of iOS; iPad models with the latest version of iPadOS; Apple Watch models with the latest version of watchOS; Mac models with the latest version of macOS; or Apple TV models with the la', 0, 1, 450, 500, 4, '2023-11-19', 'Apple', 'jpg', 'active'),
 (145, 1, 'new', '', 0, 0, 0, 0, 4, '0000-00-00', '', 'jpg', 'disabled');
