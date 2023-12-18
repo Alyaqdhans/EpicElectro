@@ -126,7 +126,7 @@ if (!isset($_SESSION['TYPE'])) {
                         </tr>
                         
                         <?php
-                        $query = "select * from items where iCode = iCode";
+                        $query = "select * from items where iCode = iCode and iDesc != 'new'";
                         $msg = "Database is empty";
 
                         if (isset($_POST['icode']) || isset($_POST['iname']) || isset($_POST['brand']) || isset($_POST['category']) || isset($_POST['supplier'])) {
@@ -172,24 +172,24 @@ if (!isset($_SESSION['TYPE'])) {
                         if (mysqli_num_rows($result) > 0) {
                             $line = 0;
                             while ($data = mysqli_fetch_assoc($result)) {
-                                if ($data['iDesc'] == "new") {continue;}
+                                // check active accounts
+                                if ($data['Active'] == 'active') {$a = 'checked';}
+                                else {$a = '';}
+                                
+                                // alternate table rows color
+                                if ($line % 2 == 1) {$styles = "background: var(--gray);";}
+                                else {$styles = "";}
+                                $line += 1;
+
+                                // color out of stock red
+                                if ($data['iQty'] == 0) {
+                                    $styles .= "color: var(--red);";
+                                }
 
                                 $category = mysqli_fetch_row(mysqli_query($conn, "select categoryDes from categories where categoryCode = {$data['iCategoryCode']}"));
                                 $supplier = mysqli_fetch_row(mysqli_query($conn, "select sName from suppliers where sId = {$data['iSupplierId']}"));
 
-                                if ($line % 2 == 1) {$style = "style='background: var(--gray);'";}
-                                else {$style = "";}
-                                $line += 1;
-
-                                if ($data['iQty'] == 0) {
-                                    if ($style == "") {$style = "style='color: var(--red);'";}
-                                    else {$style .= ' color: var(--red);';}
-                                }
-
-                                if ($data['Active'] == 'active') {$a = 'checked';}
-                                else {$a = '';}
-                                
-                                echo "<tr id='clickable' $style>";
+                                echo "<tr id='clickable' style='$styles'>";
                                 echo "<td> {$data['iCode']} </td>";
                                 echo "<td> {$data['iDesc']} </td>";
                                 echo "<td> {$data['iBrand']} </td>";

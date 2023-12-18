@@ -45,28 +45,28 @@ if (!isset($_SESSION['TYPE'])) {
                         
                         $line = 0;
                         while ($data = mysqli_fetch_assoc($result)) {
-                            if ($line % 2 == 1) {$style = "style='background: var(--gray);'";}
-                            else {$style = "";}
-                            $line += 1;
-
-                            // disable checkbox if user is admin
-                            if (($data['cType'] == 'A' && $data['Active'] == 'active') || $data['cId'] == $_SESSION['CID']) {$d = 'disabled';}
-                            else {$d = '';}
-
                             // check active accounts
                             if ($data['Active'] == 'active') {$a = 'checked';}
                             else {$a = '';}
 
-                            // dont allow current user to remove their admin
+                            // disable checkbox if user is admin
+                            if (($data['cType'] == 'A' && $data['Active'] == 'active') || $data['cId'] == $_SESSION['CID']) {$d = 'disabled';}
+                            else {$d = '';}
+                            
+                            // alternate table rows color
+                            if ($line % 2 == 1) {$styles = "background: var(--gray);";}
+                            else {$styles = "";}
+                            $line += 1;
+
+                            // dont allow current user to remove their admin and color them
                             if ($data['cId'] == $_SESSION['CID']) {
                                 $s = 'disabled';
-                                if ($style == "") {$style = "style='color: var(--accent);'";}
-                                else {$style .= ' color: var(--accent);';}
+                                $styles .= "color: var(--accent);";
                             } else {
                                 $s = '';
                             }
 
-                            echo "<tr id='clickable' $style>";
+                            echo "<tr id='clickable' style='$styles'>";
                             echo "<td> {$data['cId']} </td>";
                             echo "<td> {$data['cName']} </td>";
                             echo "<td> {$data['email']} </td>";
