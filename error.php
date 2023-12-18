@@ -92,6 +92,7 @@ switch ($code) {
     case 13:
         $title = "Empty Cart";
         $message = "You are trying to checkout with empty cart?";
+        $page = "cart.php";
         break;
 
     // other errors
