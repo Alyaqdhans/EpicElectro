@@ -41,7 +41,7 @@ switch ($code) {
 
     // cannot disable all suppliers/couriers
     case 6:
-        $title = "Cannot Disable All";
+        $title = "Cannot Disable";
         $message = "Please leave at least one for the website functionality.";
         if (isset($_GET["type"]) && $_GET["type"] == "s") {
             $page = "panelSupplier.php";
@@ -57,10 +57,11 @@ switch ($code) {
         $message = "Please decrease the amount of '$item' because it is more than the available.";
         break;
 
-    // cannot remove all admins
+    // lost rights
     case 8:
-        $title = "Cannot Remove Admin";
-        $message = "There must be at least one admin in the website.";
+        $title = "Lost Rights";
+        $message = "You don't have admin anymore and/or your account got disabled, logging you out.";
+        $page = "login.php";
         break;
 
     // account doesnt exist
@@ -81,10 +82,16 @@ switch ($code) {
         $message = "Please check that the registered email is real or/and working.";
         break;
 
-    // code doesn't exist
+    // record doesn't exist
     case 12:
         $title = "Missing Record";
         $message = "The thing you're trying to access doesn't exist.";
+        break;
+
+    // cart is empty
+    case 13:
+        $title = "Empty Cart";
+        $message = "You are trying to checkout with empty cart?";
         break;
 
     // other errors

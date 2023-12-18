@@ -29,7 +29,7 @@ if (!isset($_SESSION['TYPE'])) {
                     <legend>Management</legend>
 
                     <div class="links">
-                        <a href="panelActive.php">Accounts</a>
+                        <a href="panelAccount.php">Accounts</a>
                         <a href="panelManage.php">Products</a>
                         <a href="panelSupplier.php">Suppliers</a>
                         <a href="panelDelivery.php">Couriers</a>

@@ -96,6 +96,7 @@ input:is([type="text"], [type="password"], [type="email"], [type="number"]) {
 }
 
 input:disabled,
+select:disabled,
 tr:has(input:disabled) {
     cursor: not-allowed !important;
 }

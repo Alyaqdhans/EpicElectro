@@ -177,11 +177,14 @@ if (!isset($_SESSION['TYPE'])) {
                                 $category = mysqli_fetch_row(mysqli_query($conn, "select categoryDes from categories where categoryCode = {$data['iCategoryCode']}"));
                                 $supplier = mysqli_fetch_row(mysqli_query($conn, "select sName from suppliers where sId = {$data['iSupplierId']}"));
 
-                                if ($line % 2 == 1 && $data['iQty'] == 0) {$style = "style='background: var(--gray); color: var(--red);'";}
-                                else if ($line % 2 == 0 && $data['iQty'] == 0) {$style = "style='color: var(--red);'";}
-                                else if ($line % 2 == 1) {$style = "style='background: var(--gray);'";}
+                                if ($line % 2 == 1) {$style = "style='background: var(--gray);'";}
                                 else {$style = "";}
                                 $line += 1;
+
+                                if ($data['iQty'] == 0) {
+                                    if ($style == "") {$style = "style='color: var(--red);'";}
+                                    else {$style .= ' color: var(--red);';}
+                                }
 
                                 if ($data['Active'] == 'active') {$a = 'checked';}
                                 else {$a = '';}

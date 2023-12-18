@@ -8,6 +8,11 @@ if (!isset($_POST['total'])) {
     exit;
 }
 
+if (count($_SESSION['CART']) == 0) {
+    header('Location: error.php?ec=13'); // cart is empty
+    exit;
+}
+
 
 foreach ($_SESSION['CART'] as $key => $item) {
     $query = "select * from items where iCode = {$key}";

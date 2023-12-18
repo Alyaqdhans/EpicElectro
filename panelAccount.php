@@ -24,13 +24,9 @@ if (!isset($_SESSION['TYPE'])) {
         
         <div>
         <div class="wrapper">
-            <form class="container manage" action="panelAdminProcess.php" method="post">
-                <div class="links">
-                    <a href="panelActive.php">Active Accounts</a>
-                </div>
-
+            <form class="container manage" action="panelAccountProcess.php" method="post">
                 <fieldset>
-                    <legend>Admin Accounts</legend>
+                    <legend>Account Management</legend>
 
                     <table>
                         <tr>
@@ -40,7 +36,7 @@ if (!isset($_SESSION['TYPE'])) {
                             <th>Registered</th>
                             <th>Last&nbsp;Login</th>
                             <th>Type</th>
-                            <th>Admin</th>
+                            <th>Active</th>
                         </tr>
 
                         <?php
@@ -53,13 +49,22 @@ if (!isset($_SESSION['TYPE'])) {
                             else {$style = "";}
                             $line += 1;
 
-                            if ($data['cType'] == 'A') {$d = 'checked';}
+                            // disable checkbox if user is admin
+                            if (($data['cType'] == 'A' && $data['Active'] == 'active') || $data['cId'] == $_SESSION['CID']) {$d = 'disabled';}
                             else {$d = '';}
-                            
-                            if ($data['cId'] == $_SESSION['CID']) {$d .= ' disabled';}
 
-                            if ($data['cType'] == 'A') {$type = "Admin";}
-                            else {$type = "Normal";}
+                            // check active accounts
+                            if ($data['Active'] == 'active') {$a = 'checked';}
+                            else {$a = '';}
+
+                            // dont allow current user to remove their admin
+                            if ($data['cId'] == $_SESSION['CID']) {
+                                $s = 'disabled';
+                                if ($style == "") {$style = "style='color: var(--accent);'";}
+                                else {$style .= ' color: var(--accent);';}
+                            } else {
+                                $s = '';
+                            }
 
                             echo "<tr id='clickable' $style>";
                             echo "<td> {$data['cId']} </td>";
@@ -67,8 +72,15 @@ if (!isset($_SESSION['TYPE'])) {
                             echo "<td> {$data['email']} </td>";
                             echo "<td> ". fdate($data['registerDate']) ." </td>";
                             echo "<td> ". fdateTime($data['lastLogin']) ." </td>";
-                            echo "<td> $type </td>";
-                            echo "<td id='center'> <input id='{$data['cId']}' type='checkbox' name='box[]' value='{$data['cId']}' $d> </td>";
+                            echo "<td>";
+                                echo "<select name='type[]' $s>";
+                                    if ($data['cType'] == 'A') {$admin = "selected"; $normal = "";}
+                                    else {$admin = ""; $normal = "selected";}
+                                    echo "<option value='{$data['cId']} A' $admin> Admin </option>";
+                                    echo "<option value='{$data['cId']} N' $normal> Normal </option>";
+                                echo "</select>";
+                            echo "</td>";
+                            echo "<td id='center'> <input type='checkbox' name='box[]' value='{$data['cId']}' $d $a> </td>";
                             echo "</tr>";
                         }
                         ?>
@@ -81,7 +93,7 @@ if (!isset($_SESSION['TYPE'])) {
                         <input class="right" type='reset' value='Discard' onclick="notify('Changes Have Been Discarded', 'darkcyan');">
                     </div>
                 </div>
-                
+
                 <!-- make sure user came from this page -->
                 <input type="hidden" name="check">
                 

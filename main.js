@@ -2,7 +2,7 @@
 function controller(type, id) {
     const stock = parseInt(document.getElementById('stock'+id).value);
     let n = parseInt(document.getElementById('number'+id).innerHTML);
-    if (type == "more") {
+    if (type == "more" && n < stock) {
         n += 1;
         document.getElementById('number'+id).innerHTML = n;
         document.getElementById('qty'+id).value = n;
@@ -10,7 +10,7 @@ function controller(type, id) {
         if (n == stock) {
             document.getElementById('more'+id).disabled = true;
         }
-    } else if (type == "less") {
+    } else if (type == "less" && n > 1) {
         n -= 1;
         document.getElementById('number'+id).innerHTML = n;
         document.getElementById('qty'+id).value = n;
@@ -27,7 +27,7 @@ function controller(type, id) {
 let table = document.querySelector("table");
 if (table) {
     table.addEventListener("click", ({ target }) => {
-        if (target.nodeName === "INPUT" || target.nodeName === "A") return;
+        if (target.nodeName === "INPUT" || target.nodeName === "A" || target.nodeName === "SELECT") return;
         const tr = target.closest("tr");
         if (tr.id == "clickable") {
             const checkbox = tr.querySelector("input[type='checkbox']");
