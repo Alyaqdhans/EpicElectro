@@ -14,6 +14,10 @@ $phone = mysqli_real_escape_string($conn, $_POST['phone']);
 $email = mysqli_real_escape_string($conn, $_POST['email']);
 $address = mysqli_real_escape_string($conn, $_POST['address']);
 
+if (preg_match("/^[0-9]+$/", $name)) {
+    $errors[] = "Please enter a valid name";
+}
+
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $errors[] = "Please enter a valid email";
 }

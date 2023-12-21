@@ -17,7 +17,7 @@ if (empty($_GET['did'])) {
     exit;
 }
 
-$query = "select * from Delivery where dId = '{$_GET['did']}'";
+$query = "select * from delivery where dId = '{$_GET['did']}'";
 $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
 
 if (mysqli_num_rows($result) > 0) {

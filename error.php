@@ -55,6 +55,7 @@ switch ($code) {
         $item = $_GET['nm'] ?? 'item';
         $title = "Over Available Quantity";
         $message = "Please decrease the amount of '$item' because it is more than the available.";
+        $page = "cart.php";
         break;
 
     // lost rights

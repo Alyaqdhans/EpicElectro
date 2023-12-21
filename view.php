@@ -77,7 +77,7 @@ if (mysqli_num_rows($result) > 0) {
                             echo "<span class='number' id=". 'number'.$_GET['ic'] ."> 1 </span>";
                             echo "<input class='more' id=". 'more'.$_GET['ic'] ." type='button' value='&plus;' onclick='controller(\"more\", {$_GET['ic']})' $d>";
 
-                            echo "<input id=". 'stock'.$_GET['ic'] ." type='hidden' value='". $data['iQty'] - $cartQty ."'>"; // max value for javascript
+                            echo "<input id=". 'stock'.$_GET['ic'] ." type='hidden' value='". ($data['iQty'] - $cartQty) ."'>"; // max value for javascript
                             ?>
                         </div>
 
