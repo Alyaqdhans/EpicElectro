@@ -35,9 +35,7 @@ if (!empty($_POST['box'])) {
 
 // handling user type changes except current user
 foreach($_POST['type'] as $value) {
-    $userID = explode(' ', $value)[0];
-    $userType = explode(' ', $value)[1];
-
+    [$userID, $userType] = explode(' ', $value);
     $query = "update customers set cType = '$userType' where cId = '$userID' and cId != {$_SESSION['CID']}";
     mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
 }

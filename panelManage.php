@@ -194,12 +194,12 @@ if (!isset($_SESSION['TYPE'])) {
                                 echo "<td> {$data['iDesc']} </td>";
                                 echo "<td> {$data['iBrand']} </td>";
                                 echo "<td> {$category[0]} </td>";
-                                echo "<td> {$data['iCost']} </td>";
-                                echo "<td> {$data['iPrice']} </td>";
+                                echo "<td>". number_format($data['iCost']) ."</td>";
+                                echo "<td>". number_format($data['iPrice']) ."</td>";
                                 echo "<td> {$supplier[0]} </td>";
                                 echo "<td> ". fdate($data['iLastPurchasedDate']) ." </td>";
-                                echo "<td id='center'> {$data['iSold']} </td>";
-                                echo "<td id='center'> {$data['iQty']} </td>";
+                                echo "<td id='center'>". number_format($data['iSold']) ."</td>";
+                                echo "<td id='center'>". number_format($data['iQty']) ."</td>";
                                 echo "<td id='center'> <a href='panelManageAdd.php?ic={$data['iCode']}'> Add </a> </td>";
                                 echo "<td id='center'> <a href='panelManageEdit.php?ic={$data['iCode']}'> Edit </a> </td>";
                                 echo "<td id='center'> <input type='checkbox' name='box[]' value='{$data['iCode']}' $a> </td>";

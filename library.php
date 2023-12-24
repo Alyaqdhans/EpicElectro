@@ -30,23 +30,21 @@ function DisplayErrors() {
 
 
 function fdate($txt) {
-    $date = explode("-", $txt);
-    return ($date[2]."/".$date[1]."/".$date[0]);
+    [$year, $month, $day] = explode("-", $txt);
+    return ($day."/".$month."/".$year);
 }
 
 
 function fdateTime($txt, $is24Hrs=false) {
-    $dateTime = explode(" ", $txt);
-    $date = $dateTime[0];
-    $time = $dateTime[1];
+    [$date, $time] = explode(" ", $txt);
 
-    $date = explode("-", $date);
-    $date = $date[2]."/".$date[1]."/".$date[0];
+    [$year, $month, $day] = explode("-", $date);
+    $date = ($day."/".$month."/".$year);
 
     if (!$is24Hrs) {
         $time = date('h:i:s A', strtotime($time));
-        $time = explode(" ", $time); // exploded to use span on AM/PM and make it small
-        $time = $time[0]."&nbsp;"."<span>{$time[1]}</span>";
+        [$time, $meridiem] = explode(" ", $time); // exploded to use span on AM/PM and make it small
+        $time = $time."&nbsp;"."<span>$meridiem</span>";
     }
     
     return $date."&nbsp;|&nbsp;".$time;
