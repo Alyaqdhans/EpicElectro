@@ -106,6 +106,25 @@ tr:nth-of-type(2n + 1) {
     background: var(--gray);
 }
 
+@media (max-width: 750px) {
+    tr:has(th) {display: none;}
+    td {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    td::before {
+        content: attr(data-before);
+        color: var(--white);
+        background: color-mix(in srgb, var(--gray) 60%, var(--black) 100%);
+        margin-right: .5rem;
+        padding: .1rem;
+    }
+    td:first-child {padding-top: 1rem !important;}
+    td:last-child {padding-bottom: 1rem !important;}
+    .manage fieldset #center {text-align: left !important;}
+    .manage fieldset {max-height: 30rem !important;}
+}
+
 
 
 /* notification style */

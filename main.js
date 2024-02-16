@@ -86,3 +86,20 @@ function openDisable() {
         }
     }, 100);
 }
+
+
+
+// responsive table head
+const rows = document.querySelector("tbody").querySelectorAll("tr");
+const head = document.querySelector("tbody").querySelector("tr").children;
+
+if (rows) {
+    for (i = 0; i < rows.length; i++) {
+        if (i == 0) continue; // skip the table head
+
+        data = rows[i].children;
+        for (j = 0; j < data.length; j++) {
+            data[j].setAttribute('data-before', head[j].innerHTML);
+        }
+    }
+}
