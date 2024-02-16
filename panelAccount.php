@@ -43,7 +43,6 @@ if (!isset($_SESSION['TYPE'])) {
                         $query = "select * from customers";
                         $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
                         
-                        $line = 0;
                         while ($data = mysqli_fetch_assoc($result)) {
                             // check active accounts
                             if ($data['Active'] == 'active') {$a = 'checked';}
@@ -52,21 +51,17 @@ if (!isset($_SESSION['TYPE'])) {
                             // disable checkbox if user is admin
                             if (($data['cType'] == 'A' && $data['Active'] == 'active') || $data['cId'] == $_SESSION['CID']) {$d = 'disabled';}
                             else {$d = '';}
-                            
-                            // alternate table rows color
-                            if ($line % 2 == 1) {$styles = "background: var(--gray);";}
-                            else {$styles = "";}
-                            $line += 1;
 
                             // dont allow current user to remove their admin and color them
                             if ($data['cId'] == $_SESSION['CID']) {
                                 $s = 'disabled';
-                                $styles .= "color: var(--accent);";
+                                $style = "color: var(--accent);";
                             } else {
                                 $s = '';
+                                $style = "";
                             }
 
-                            echo "<tr id='clickable' style='$styles'>";
+                            echo "<tr id='clickable' style='$style'>";
                             echo "<td> {$data['cId']} </td>";
                             echo "<td> {$data['cName']} </td>";
                             echo "<td> {$data['email']} </td>";

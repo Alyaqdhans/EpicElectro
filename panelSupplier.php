@@ -42,19 +42,14 @@ if (!isset($_SESSION['TYPE'])) {
                         $query = "select * from suppliers";
                         $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
                         
-                        $line = 0;
                         while ($data = mysqli_fetch_assoc($result)) {
-                            if ($line % 2 == 1) {$style = "style='background: var(--gray);'";}
-                            else {$style = "";}
-                            $line += 1;
-
                             if (mysqli_num_rows($result) == 1) {$d = "disabled";}
                             else {$d = "";}
 
                             if ($data['Active'] == 'active') {$a = 'checked';}
                             else {$a = '';}
                             
-                            echo "<tr id='clickable' $style>";
+                            echo "<tr id='clickable'>";
                             echo "<td> {$data['sId']} </td>";
                             echo "<td> {$data['sName']} </td>";
                             echo "<td> {$data['sPhone']} </td>";

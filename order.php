@@ -41,16 +41,11 @@ if (!isset($_SESSION['CID'])) {
                         
                         <?php
                         if (mysqli_num_rows($result) > 0) {
-                            $line = 0;
                             while ($data = mysqli_fetch_assoc($result)) {
                                 $name = mysqli_fetch_row(mysqli_query($conn, "select company_name from delivery where dId = {$data['dId']}"));
                                 $phone = mysqli_fetch_row(mysqli_query($conn, "select dPhone from delivery where dId = {$data['dId']}"));
-
-                                if ($line % 2 == 1) {$style = "style='background: var(--gray);'";}
-                                else {$style = "";}
-                                $line += 1;
                                 
-                                echo "<tr $style>";
+                                echo "<tr>";
                                 echo "<td> {$data['orderId']} </td>";
                                 echo "<td>  {$name[0]} </td>";
                                 echo "<td>  {$phone[0]} </td>";

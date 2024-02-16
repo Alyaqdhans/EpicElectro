@@ -170,26 +170,22 @@ if (!isset($_SESSION['TYPE'])) {
                         $result = mysqli_query($conn, $query) or die("Error in query: <mark>$query</mark> <p>". mysqli_error($conn));
 
                         if (mysqli_num_rows($result) > 0) {
-                            $line = 0;
                             while ($data = mysqli_fetch_assoc($result)) {
                                 // check active accounts
                                 if ($data['Active'] == 'active') {$a = 'checked';}
                                 else {$a = '';}
                                 
-                                // alternate table rows color
-                                if ($line % 2 == 1) {$styles = "background: var(--gray);";}
-                                else {$styles = "";}
-                                $line += 1;
-
                                 // color out of stock red
                                 if ($data['iQty'] == 0) {
-                                    $styles .= "color: var(--red);";
+                                    $style = "color: var(--red);";
+                                } else {
+                                    $style = "";
                                 }
 
                                 $category = mysqli_fetch_row(mysqli_query($conn, "select categoryDes from categories where categoryCode = {$data['iCategoryCode']}"));
                                 $supplier = mysqli_fetch_row(mysqli_query($conn, "select sName from suppliers where sId = {$data['iSupplierId']}"));
 
-                                echo "<tr id='clickable' style='$styles'>";
+                                echo "<tr id='clickable' style='$style'>";
                                 echo "<td> {$data['iCode']} </td>";
                                 echo "<td> {$data['iDesc']} </td>";
                                 echo "<td> {$data['iBrand']} </td>";

@@ -57,19 +57,14 @@ if (!isset($_SESSION['TYPE'])) {
                         </tr>
                         
                         <?php
-                        $line = 0;
                         while ($data = mysqli_fetch_assoc($result)) {
                             $user = mysqli_fetch_assoc(mysqli_query($conn, "select * from customers where cId = {$data['cId']}"));
                             $delivery = mysqli_fetch_row(mysqli_query($conn, "select company_name from delivery where dId = {$data['dId']}"));
 
-                            if ($line % 2 == 1) {$style = "style='background: var(--gray);'";}
-                            else {$style = "";}
-                            $line += 1;
-
                             if ($user['Active'] == 'active') {$a = 'checked';}
                             else {$a = '';}
                             
-                            echo "<tr $style>";
+                            echo "<tr>";
                             echo "<td> {$data['orderId']} </td>";
                             echo "<td> ". explode(" ", $user['cName'])[0] ." </td>"; // get only the first name
                             echo "<td> <div><input style='pointer-events: none;' type='checkbox' $a> {$user['email']}</div> </td>";
