@@ -14,12 +14,12 @@
             <form class="top" method="post" action="index.php">
                 <div class="search">
                     <div class="field">
-                    <?php
+                        <?php
                         // search field
                         if (isset($_POST['search'])) {$s = $_POST['search'];}
                         else {$s = '';}
 
-                        echo "<input id='search' type=text name='search' placeholder='Search for something' value='$s'>";
+                        echo "<input id='search' type='search' name='search' placeholder='Search for something' value='$s'>";
                         ?>
                         <input type="submit" value="Search"> 
                     </div>

@@ -91,7 +91,7 @@ label:has(input, textarea) {
     cursor: pointer;
 }
 
-input:is([type="text"], [type="password"], [type="email"], [type="number"]) {
+input:is([type="text"], [type="password"], [type="email"], [type="number"], [type="search"]) {
     cursor: text;
 }
 
@@ -569,7 +569,7 @@ legend {
     border: none;
 }
 
-.search input[type="text"] {
+.search input[type="search"] {
     width: 100%;
     border-radius: var(--br) 0 0 var(--br);
 }
